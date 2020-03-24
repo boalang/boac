@@ -98,10 +98,8 @@ public class SeqRepoImporter {
 						System.err.println("Error proccessing " + jsonCounter + "th json file");
 						e.printStackTrace();
 					}
-//					break;
 				}
 			}
-//			break;
 		}
 
 		for (int j = 0; j < poolSize; j++)
