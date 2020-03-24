@@ -30,9 +30,15 @@ import boa.functions.FunctionSpec;
 import boa.types.*;
 import boa.types.proto.*;
 import boa.types.proto.enums.*;
-import boa.types.proto.refactoring.ChangeProtoTuple;
-import boa.types.proto.refactoring.CodeRefactoringProtoTuple;
-import boa.types.proto.refactoring.LocationProtoTuple;
+import boa.types.proto.paper.AffiliationProtoTuple;
+import boa.types.proto.paper.AuthorProtoTuple;
+import boa.types.proto.paper.CitationProtoTuple;
+import boa.types.proto.paper.LocationProtoTuple;
+import boa.types.proto.paper.MetadataProtoTuple;
+import boa.types.proto.paper.PaperProtoTuple;
+import boa.types.proto.paper.ParagraphProtoTuple;
+import boa.types.proto.paper.ReferenceProtoTuple;
+import boa.types.proto.paper.SectionProtoTuple;
 import boa.compiler.ast.Operand;
 
 /**
@@ -97,12 +103,19 @@ public class SymbolTable {
 		new PersonProtoTuple(),
 		new ProjectProtoTuple(),
 		new RevisionProtoTuple(),
-		new ChangeProtoTuple(),
-		new CodeRefactoringProtoTuple(),
-		new LocationProtoTuple(),
 		new StatementProtoTuple(),
 		new TypeProtoTuple(),
 		new VariableProtoTuple(),
+		// paper
+		new AffiliationProtoTuple(),
+		new AuthorProtoTuple(),
+		new CitationProtoTuple(),
+		new LocationProtoTuple(),
+		new MetadataProtoTuple(),
+		new PaperProtoTuple(),
+		new ParagraphProtoTuple(),
+		new ReferenceProtoTuple(),
+		new SectionProtoTuple(),
 	};
 	private final static BoaProtoMap[] dslMapTypes = {
 		new NodeTypeProtoMap(),
@@ -554,10 +567,7 @@ public class SymbolTable {
 			boa.functions.BoaSortIntrinsics.class,
 			boa.functions.BoaSpecialIntrinsics.class,
 			boa.functions.BoaStringIntrinsics.class,
-			boa.functions.BoaTimeIntrinsics.class,
-			boa.functions.code.change.refactoring.BoaRefactoringIntrinsics.class,
-			boa.functions.code.change.refactoring.BoaRefactoringPredictionIntrinsics.class,
-			boa.functions.code.change.BoaCodeChangeIntrinsics.class
+			boa.functions.BoaTimeIntrinsics.class
 		};
 		for (final Class<?> c : builtinFuncs)
 			importFunctions(c);

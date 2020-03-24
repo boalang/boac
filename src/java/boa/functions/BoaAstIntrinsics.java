@@ -438,52 +438,57 @@ public class BoaAstIntrinsics {
 		BoaAstIntrinsics.context = context;
 	}
 	
-	@FunctionSpec(name = "get_code_change", returnType = "Change", formalParameters = { "Project",
-			"Revision" })
-	public static boa.types.Code.Change getCodeChange(Project p, Revision r) {
-
-		if (refactoringsMap == null)
-			openRefactoringMap();
-
-		try {
-			final BytesWritable value = new BytesWritable();
-			if (refactoringsMap.get(new Text(p.getName() + " " + r.getId()), value) != null) {
-				// use array copy to avoid extra bytes
-				byte[] data = Arrays.copyOf(value.getBytes(), value.getLength());
-				String[] temp = new String(data, StandardCharsets.UTF_8).split("\\r?\\n");			
-				HashSet<String> set = new HashSet<String>(Arrays.asList(temp));
-				
-				final CodedInputStream _stream = CodedInputStream.newInstance(value.getBytes(), 0, value.getLength());
-				// defaults to 64, really big ASTs require more
-				_stream.setRecursionLimit(Integer.MAX_VALUE);
-				final boa.types.Code.Change change = boa.types.Code.Change.parseFrom(_stream);
-				
-				return change;
-			}
-		} catch (final Throwable e) {
-			e.printStackTrace();
-		}
-		return boa.types.Code.Change.newBuilder().build();
+	@FunctionSpec(name = "test3", formalParameters = { "Project" })
+	public static void test2(Project p) throws Exception {
+		System.out.println(p.getName());
 	}
+	
+//	@FunctionSpec(name = "get_code_change", returnType = "Change", formalParameters = { "Project",
+//			"Revision" })
+//	public static boa.types.Code.Change getCodeChange(Project p, Revision r) {
+//
+//		if (refactoringsMap == null)
+//			openRefactoringMap();
+//
+//		try {
+//			final BytesWritable value = new BytesWritable();
+//			if (refactoringsMap.get(new Text(p.getName() + " " + r.getId()), value) != null) {
+//				// use array copy to avoid extra bytes
+//				byte[] data = Arrays.copyOf(value.getBytes(), value.getLength());
+//				String[] temp = new String(data, StandardCharsets.UTF_8).split("\\r?\\n");			
+//				HashSet<String> set = new HashSet<String>(Arrays.asList(temp));
+//				
+//				final CodedInputStream _stream = CodedInputStream.newInstance(value.getBytes(), 0, value.getLength());
+//				// defaults to 64, really big ASTs require more
+//				_stream.setRecursionLimit(Integer.MAX_VALUE);
+//				final boa.types.Code.Change change = boa.types.Code.Change.parseFrom(_stream);
+//				
+//				return change;
+//			}
+//		} catch (final Throwable e) {
+//			e.printStackTrace();
+//		}
+//		return boa.types.Code.Change.newBuilder().build();
+//	}
 
-	private static void openRefactoringMap() {
-		try {
-			final Configuration conf = context.getConfiguration();
-			final FileSystem fs;
-			final Path p;
-			if (DefaultProperties.localDataPath != null) {
-				p = new Path(DefaultProperties.localDataPath, "refactoring");
-				fs = FileSystem.getLocal(conf);
-			} else {
-				p = new Path(context.getConfiguration().get("fs.default.name", "hdfs://boa-njt/"), new Path(
-						conf.get("boa.ast.dir", conf.get("boa.input.dir", "repcache/live")), new Path("refactoring")));
-				fs = FileSystem.get(conf);
-			}
-			refactoringsMap = new MapFile.Reader(fs, p.toString(), conf);
-		} catch (final Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	private static void openRefactoringMap() {
+//		try {
+//			final Configuration conf = context.getConfiguration();
+//			final FileSystem fs;
+//			final Path p;
+//			if (DefaultProperties.localDataPath != null) {
+//				p = new Path(DefaultProperties.localDataPath, "refactoring");
+//				fs = FileSystem.getLocal(conf);
+//			} else {
+//				p = new Path(context.getConfiguration().get("fs.default.name", "hdfs://boa-njt/"), new Path(
+//						conf.get("boa.ast.dir", conf.get("boa.input.dir", "repcache/live")), new Path("refactoring")));
+//				fs = FileSystem.get(conf);
+//			}
+//			refactoringsMap = new MapFile.Reader(fs, p.toString(), conf);
+//		} catch (final Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
 	@FunctionSpec(name = "getrefactoringidsinset", returnType = "set of string", formalParameters = { "Project" })
 	public static HashSet<String> getRefactoringIdsInSet(Project p) {

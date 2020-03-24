@@ -10,11 +10,11 @@ option optimize_for = SPEED;
 /** Top-level type, represents a single project on the forge */
 message Project {
 	/** Unique identifier for the project */
-	required string id = 1;
+	optional string id = 1;
 	/** The name of the project */
-	required string name = 2;
+	optional string name = 2;
 	/** A URL to the project's page on the forge */
-	required string project_url = 3;
+	optional string project_url = 3;
 	/** A URL to the project's homepage */
 	optional string homepage_url = 4;
 	/** The time the project was created */
@@ -84,4 +84,109 @@ message Project {
 	optional bool noast = 28;
 	optional string owner_type = 29;
 	optional string default_branch = 30;
+	
+	optional Paper paper = 31;
+	
+}
+
+message Paper {
+
+	required string id = 1;
+	optional Metadata metadata = 2;
+	repeated Paragraph abstract = 3;
+	repeated Section body_text = 4;
+	repeated Reference bib_entries = 5;
+	repeated Reference ref_entries = 6;
+
+}
+
+
+message Metadata {
+
+	optional string title = 1;
+	repeated Author authors = 2;
+
+}
+
+message Author {
+
+	optional string first = 1;
+	optional string middle = 2;
+	optional string last = 3;
+	optional string suffix = 4;
+	repeated Affiliation affiliation = 5;
+	optional string email = 6;
+
+}
+
+message Affiliation {
+
+	optional string laboratory = 1;
+	optional string institution = 2;
+	optional Location location = 3;
+
+}
+
+message Section {
+
+	optional string title = 1;
+	repeated Section subsections = 2;
+	repeated Paragraph body = 3;
+
+}
+
+message Paragraph {
+
+	enum ParagraphKind {
+		option allow_alias = true;
+		BACKGROUND = 0;
+		METHODS = 1;
+		RESULTS = 2;
+		CONCLUSIONS = 3;
+		OTHER = 4;
+	}
+
+	required string text = 1;
+	repeated Citation cite_spans = 2;
+	repeated Citation ref_spans = 3;
+	optional ParagraphKind kind = 4;
+
+}
+
+message Citation {
+
+	optional string text = 1;
+	optional string ref_id = 2;
+
+}
+
+message Location {
+
+	optional string addrLine = 1;
+	optional string postCode = 2;
+	optional string settlement = 3;
+	optional string country = 4;
+
+}
+
+message Reference {
+
+	enum ReferenceType {
+		option allow_alias = true;
+		FIGURE = 0;
+		TABLE = 1;
+		BIB = 2;
+	}
+
+	required string ref_id = 1;
+	optional string title = 2;
+	optional string text = 3;
+	repeated Author authors = 4;
+	optional int32 year = 5;
+	optional string venue = 6;
+	optional string volume = 7;
+	optional string issn = 8;
+	optional string pages = 9;
+	optional ReferenceType type = 10;
+
 }

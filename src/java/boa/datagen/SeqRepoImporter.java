@@ -21,7 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import org.apache.commons.lang.SerializationUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -56,108 +58,123 @@ public class SeqRepoImporter {
 	private final static boolean debug = Properties.getBoolean("debug", DefaultProperties.DEBUG);
 	private final static boolean cache = Properties.getBoolean("cache", DefaultProperties.CACHE);
 
-	private final static File gitRootPath = new File(Properties.getProperty("gh.svn.path", DefaultProperties.GH_GIT_PATH));
+	private final static String base = Properties.getProperty("output.path", DefaultProperties.OUTPUT);
 	private final static String jsonPath = Properties.getProperty("gh.json.path", DefaultProperties.GH_JSON_PATH);
-//	private final static String jsonCachePath = Properties.getProperty("output.path", DefaultProperties.OUTPUT);
-
-	private final static HashSet<String> processedProjectIds = new HashSet<String>();
+	private final static int poolSize = Integer.parseInt(Properties.getProperty("num.threads", DefaultProperties.NUM_THREADS));
 
 	private static Configuration conf = null;
 	private static FileSystem fileSystem = null;
-	private static String base = null;
 	private static boolean done = false;
-
-	private final static int poolSize = Integer.parseInt(Properties.getProperty("num.threads", DefaultProperties.NUM_THREADS));
-	private static final int MAX_SIZE_FOR_PROJECT_WITH_COMMITS = Integer.valueOf(DefaultProperties.MAX_SIZE_FOR_PROJECT_WITH_COMMITS);
-	private final static double MAX_REPO_SIZE = MAX_SIZE_FOR_PROJECT_WITH_COMMITS * DefaultProperties.MAX_SIZE_FACTOR;
-	private final static boolean STORE_COMMITS = DefaultProperties.STORE_COMMITS;
-	private final static boolean STORE_ASTS = DefaultProperties.STORE_ASTS;
+	
+	
+//	private static final int MAX_SIZE_FOR_PROJECT_WITH_COMMITS = Integer.valueOf(DefaultProperties.MAX_SIZE_FOR_PROJECT_WITH_COMMITS);
+//	private final static double MAX_REPO_SIZE = MAX_SIZE_FOR_PROJECT_WITH_COMMITS * DefaultProperties.MAX_SIZE_FACTOR;
+//	private final static boolean STORE_COMMITS = DefaultProperties.STORE_COMMITS;
+//	private final static boolean STORE_ASTS = DefaultProperties.STORE_ASTS;
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
 		conf = new Configuration();
 		fileSystem = FileSystem.get(conf);
-		base = Properties.getProperty("output.path", DefaultProperties.OUTPUT);
+//		base = Properties.getProperty("output.path", DefaultProperties.OUTPUT);
+		
+		System.out.println(jsonPath);
+		System.out.println(base);
+		System.out.println(poolSize);
+		System.out.println(debug);
+		
 
-		getProcessedProjects();
+//		getProcessedProjects();
 
 		// assign each thread with a worker
-		ImportTask[] workers = new ImportTask[poolSize];
-		Thread[] threads = new Thread[poolSize];
-		for (int i = 0; i < poolSize; i++) {
-			workers[i] = new ImportTask(i);
-			threads[i] = new Thread(workers[i]);
-			threads[i].start();
-			Thread.sleep(10);
-		}
-		
-		// exceptions
-		if (DefaultProperties.exceptions == null)
-			DefaultProperties.exceptions = new HashMap<String, String>();
-		if (DefaultProperties.processedProjects == null)
-			DefaultProperties.processedProjects = new HashSet<String>();
+//		ImportTask[] workers = new ImportTask[poolSize];
+//		Thread[] threads = new Thread[poolSize];
+//		for (int i = 0; i < poolSize; i++) {
+//			workers[i] = new ImportTask(i);
+//			threads[i] = new Thread(workers[i]);
+//			threads[i].start();
+//			Thread.sleep(10);
+//		}
+
 
 		int counter = 0;
 		long repoKey = 1;
 		File dir = new File(jsonPath);
-		for (File file : dir.listFiles()) {
-			if (file.getName().endsWith(".json")) {
-				String content = FileIO.readFileContents(file);
-				Gson parser = new Gson();
-
-				JsonArray repoArray = null;
-				try {
-					repoArray = parser.fromJson(content, JsonElement.class).getAsJsonArray();
-				} catch (Exception e) {
-					System.err.println("Error proccessing page: " + file.getPath());
-					e.printStackTrace();
-					continue;
-				}
-				for (int i = 0; i < repoArray.size(); i++) {
-					try {
-						JsonObject rp = repoArray.get(i).getAsJsonObject();
-						RepoMetadata repo = new RepoMetadata(rp);
-
-						if (!DefaultProperties.projects.contains(repo.name))
-							continue;
-
-						if (repo.id != null && repo.name != null && !processedProjectIds.contains(repo.id)) {
-							Project protobufRepo = repo.toBoaMetaDataProtobuf();
-
-							boolean assigned = false;
-							while (!assigned) {
-								for (int j = 0; j < poolSize; j++) {
-									if (workers[j].isReady()) {
-										workers[j].assignTask(protobufRepo, repoKey++);
-										workers[j].setReady(false);
-										assigned = true;
-										break;
-									}
-								}
-//								Thread.sleep(100);
-							}
-							
-							System.err.println("Assigned the " + (++counter) + "th project: " + repo.name 
-									+ " with id: " + repo.id  
-									+ " from the " + i + "th object of the json file: " + file.getPath());
-						}
-					} catch (Exception e) {
-						System.err.println("Error proccessing item " + i + " of page " + file.getPath());
-						e.printStackTrace();
-					}
+		Queue<File> queue = new LinkedList<File>();
+		queue.offer(dir);
+		while (!queue.isEmpty()) {
+			File cur = queue.poll();
+			for (File file : cur.listFiles()) {
+				if (file.isDirectory())
+					queue.offer(file);
+				if (file.isFile() && file.getName().endsWith(".json")) {
+					System.out.println(file.getName());
+					Gson parser = new Gson();
+					String content = FileIO.readFileContents(file);
+					break;
 				}
 			}
+			break;
 		}
-		for (int j = 0; j < poolSize; j++) {
-			while (!workers[j].isReady())
-				Thread.sleep(100);
-		}
-		setDone(true);
-
-		// wait for workers to close writers and finish
-		for (Thread thread : threads)
-			while (thread.isAlive())
-				Thread.sleep(1000);
+		
+	
+		
+//				String content = FileIO.readFileContents(file);
+//				Gson parser = new Gson();
+//
+//				JsonArray repoArray = null;
+//				try {
+//					repoArray = parser.fromJson(content, JsonElement.class).getAsJsonArray();
+//				} catch (Exception e) {
+//					System.err.println("Error proccessing page: " + file.getPath());
+//					e.printStackTrace();
+//					continue;
+//				}
+//				for (int i = 0; i < repoArray.size(); i++) {
+//					try {
+//						JsonObject rp = repoArray.get(i).getAsJsonObject();
+//						RepoMetadata repo = new RepoMetadata(rp);
+//
+//						if (!DefaultProperties.projects.contains(repo.name))
+//							continue;
+//
+//						if (repo.id != null && repo.name != null && !processedProjectIds.contains(repo.id)) {
+//							Project protobufRepo = repo.toBoaMetaDataProtobuf();
+//
+//							boolean assigned = false;
+//							while (!assigned) {
+//								for (int j = 0; j < poolSize; j++) {
+//									if (workers[j].isReady()) {
+//										workers[j].assignTask(protobufRepo, repoKey++);
+//										workers[j].setReady(false);
+//										assigned = true;
+//										break;
+//									}
+//								}
+////								Thread.sleep(100);
+//							}
+//							
+//							System.err.println("Assigned the " + (++counter) + "th project: " + repo.name 
+//									+ " with id: " + repo.id  
+//									+ " from the " + i + "th object of the json file: " + file.getPath());
+//						}
+//					} catch (Exception e) {
+//						System.err.println("Error proccessing item " + i + " of page " + file.getPath());
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//		}
+//		for (int j = 0; j < poolSize; j++) {
+//			while (!workers[j].isReady())
+//				Thread.sleep(100);
+//		}
+//		setDone(true);
+//
+//		// wait for workers to close writers and finish
+//		for (Thread thread : threads)
+//			while (thread.isAlive())
+//				Thread.sleep(1000);
 	}
 	
 	synchronized static boolean getDone() {
@@ -176,33 +193,33 @@ public class SeqRepoImporter {
 //		DefaultProperties.processedProjects.add(projectName);
 //	}
 
-	private static void getProcessedProjects() throws IOException {
-		FileStatus[] files = fileSystem.listStatus(new Path(base + "/project"));
-		for (int i = 0; i < files.length; i++) {
-			FileStatus file = files[i];
-			String name = file.getPath().getName();
-			if (name.endsWith(".seq")) {
-				SequenceFile.Reader r = null;
-				try {
-					r = new SequenceFile.Reader(fileSystem, file.getPath(), conf);
-					final Text key = new Text();
-					while (r.next(key)) {
-						processedProjectIds.add(key.toString());
-					}
-					r.close();
-				} catch (Exception e) {
-					if (r != null)
-						r.close();
-					for (String dir : new String[] { "project", "ast", "commit", "source", "repo" }) {
-						fileSystem.delete(new Path(base + "/" + dir + "/" + name), false);
-						System.out.println("remove " + base + "/" + dir + "/" + name);
-					}
-				}
-			}
-		}
-		// processedProjects = processedProjectIds.size();
-		System.err.println("Got processed projects: " + processedProjectIds.size());
-	}
+//	private static void getProcessedProjects() throws IOException {
+//		FileStatus[] files = fileSystem.listStatus(new Path(base + "/project"));
+//		for (int i = 0; i < files.length; i++) {
+//			FileStatus file = files[i];
+//			String name = file.getPath().getName();
+//			if (name.endsWith(".seq")) {
+//				SequenceFile.Reader r = null;
+//				try {
+//					r = new SequenceFile.Reader(fileSystem, file.getPath(), conf);
+//					final Text key = new Text();
+//					while (r.next(key)) {
+//						processedProjectIds.add(key.toString());
+//					}
+//					r.close();
+//				} catch (Exception e) {
+//					if (r != null)
+//						r.close();
+//					for (String dir : new String[] { "project", "ast", "commit", "source", "repo" }) {
+//						fileSystem.delete(new Path(base + "/" + dir + "/" + name), false);
+//						System.out.println("remove " + base + "/" + dir + "/" + name);
+//					}
+//				}
+//			}
+//		}
+//		// processedProjects = processedProjectIds.size();
+//		System.err.println("Got processed projects: " + processedProjectIds.size());
+//	}
 
 	public static class ImportTask implements Runnable {
 		private int id;
@@ -310,30 +327,30 @@ public class SeqRepoImporter {
 									+ " in sequence file");
 	
 						BytesWritable bw = new BytesWritable(project.toByteArray());
-						if (bw.getLength() <= MAX_SIZE_FOR_PROJECT_WITH_COMMITS || (project.getCodeRepositoriesCount() > 0
-								&& project.getCodeRepositories(0).getRevisionKeysCount() > 0)) {
-							try {
-								projectWriter.append(new Text(project.getId()), bw);
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						} else {
-							Project.Builder pb = Project.newBuilder(project);
-							for (CodeRepository.Builder cb : pb.getCodeRepositoriesBuilderList()) {
-								for (Revision.Builder rb : cb.getRevisionsBuilderList()) {
-									cb.addRevisionKeys(commitWriterLen);
-									bw = new BytesWritable(rb.build().toByteArray());
-									commitWriter.append(new LongWritable(commitWriterLen), bw);
-									commitWriterLen += bw.getLength();
-								}
-								cb.clearRevisions();
-							}
-							try {
-								projectWriter.append(new Text(pb.getId()), new BytesWritable(pb.build().toByteArray()));
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						}
+//						if (bw.getLength() <= MAX_SIZE_FOR_PROJECT_WITH_COMMITS || (project.getCodeRepositoriesCount() > 0
+//								&& project.getCodeRepositories(0).getRevisionKeysCount() > 0)) {
+//							try {
+//								projectWriter.append(new Text(project.getId()), bw);
+//							} catch (IOException e) {
+//								e.printStackTrace();
+//							}
+//						} else {
+//							Project.Builder pb = Project.newBuilder(project);
+//							for (CodeRepository.Builder cb : pb.getCodeRepositoriesBuilderList()) {
+//								for (Revision.Builder rb : cb.getRevisionsBuilderList()) {
+//									cb.addRevisionKeys(commitWriterLen);
+//									bw = new BytesWritable(rb.build().toByteArray());
+//									commitWriter.append(new LongWritable(commitWriterLen), bw);
+//									commitWriterLen += bw.getLength();
+//								}
+//								cb.clearRevisions();
+//							}
+//							try {
+//								projectWriter.append(new Text(pb.getId()), new BytesWritable(pb.build().toByteArray()));
+//							} catch (IOException e) {
+//								e.printStackTrace();
+//							}
+//						}
 						counter++;
 						allCounter++;
 						if (counter >= Integer.parseInt(DefaultProperties.MAX_PROJECTS)) {
@@ -358,7 +375,7 @@ public class SeqRepoImporter {
 			final Project.Builder projBuilder = Project.newBuilder(project);
 
 			final String name = project.getName();
-			File gitDir = new File(gitRootPath + "/" + name + "/.git");
+			File gitDir = new File("/" + name + "/.git");
 
 			if (isFiltered(project))
 				return null;
@@ -396,60 +413,60 @@ public class SeqRepoImporter {
 			AbstractConnector conn = null;
 			int packSize = 0;
 			
-			if (!STORE_ASTS) {
-				ByteArrayFile f = new ByteArrayFile(gitDir.getAbsolutePath());
-				BytesWritable bw = new BytesWritable(SerializationUtils.serialize(f));
-				if (!f.isBuilt() || bw.getLength() > MAX_REPO_SIZE) {
-					updateExceptions(name, "pack file size: " + bw.getLength() + " exceeding the max size: " + MAX_REPO_SIZE);
-					if (debug)
-						System.err.println(Thread.currentThread().getName() + " id: " + Thread.currentThread().getId() + " the pack file size of project: " + name + " exceeds the " + MAX_REPO_SIZE + " byte");
-					return null;
-				} else {
-					try {
-						repoWriter.append(new LongWritable(getRepoKey()), bw);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					if (debug)
-						System.err.println(Thread.currentThread().getName() + " id: " + Thread.currentThread().getId() + " the pack file size of project " + name + " is " + bw.getLength() + " byte");
-				}
-				packSize = bw.getLength();
-			}
+//			if (!STORE_ASTS) {
+//				ByteArrayFile f = new ByteArrayFile(gitDir.getAbsolutePath());
+//				BytesWritable bw = new BytesWritable(SerializationUtils.serialize(f));
+//				if (!f.isBuilt() || bw.getLength() > MAX_REPO_SIZE) {
+//					updateExceptions(name, "pack file size: " + bw.getLength() + " exceeding the max size: " + MAX_REPO_SIZE);
+//					if (debug)
+//						System.err.println(Thread.currentThread().getName() + " id: " + Thread.currentThread().getId() + " the pack file size of project: " + name + " exceeds the " + MAX_REPO_SIZE + " byte");
+//					return null;
+//				} else {
+//					try {
+//						repoWriter.append(new LongWritable(getRepoKey()), bw);
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
+//					if (debug)
+//						System.err.println(Thread.currentThread().getName() + " id: " + Thread.currentThread().getId() + " the pack file size of project " + name + " is " + bw.getLength() + " byte");
+//				}
+//				packSize = bw.getLength();
+//			}
 
 			try {
 				conn = new GitConnector(gitDir.getAbsolutePath(), project.getName(), astWriter, astWriterLen,
 						commitWriter, commitWriterLen, contentWriter, contentWriterLen, getRepoKey());
 				final CodeRepository.Builder repoBuilder = CodeRepository.newBuilder(repo);
-				if (STORE_COMMITS) {
-					List<Object> revisions = conn.getRevisions(project.getName());
-					if (!revisions.isEmpty()) {
-						if (revisions.get(0) instanceof Revision) {
-							for (final Object rev : revisions) {
-								final Revision.Builder revBuilder = Revision.newBuilder((Revision) rev);
-								repoBuilder.addRevisions(revBuilder);
-							}
-						} else {
-							for (final Object rev : revisions)
-								repoBuilder.addRevisionKeys((Long) rev);
-						}
-					}
-				}
-
-				if (debug)
-					System.err.println(Thread.currentThread().getName() + " id: " + Thread.currentThread().getId() + " is building head snapshot for " + name);
-
-				repoBuilder.setHead(conn.getHeadCommitOffset());
-				repoBuilder.addAllHeadSnapshot(conn.buildHeadSnapshot());
-
-				repoBuilder.addAllBranches(conn.getBranchIndices());
-				repoBuilder.addAllBranchNames(conn.getBranchNames());
-				repoBuilder.addAllTags(conn.getTagIndices());
-				repoBuilder.addAllTagNames(conn.getTagNames());
-
-				projBuilder.setCodeRepositories(i, repoBuilder);
-
-				if (!STORE_ASTS)
-					projBuilder.setSize(packSize);
+//				if (STORE_COMMITS) {
+//					List<Object> revisions = conn.getRevisions(project.getName());
+//					if (!revisions.isEmpty()) {
+//						if (revisions.get(0) instanceof Revision) {
+//							for (final Object rev : revisions) {
+//								final Revision.Builder revBuilder = Revision.newBuilder((Revision) rev);
+//								repoBuilder.addRevisions(revBuilder);
+//							}
+//						} else {
+//							for (final Object rev : revisions)
+//								repoBuilder.addRevisionKeys((Long) rev);
+//						}
+//					}
+//				}
+//
+//				if (debug)
+//					System.err.println(Thread.currentThread().getName() + " id: " + Thread.currentThread().getId() + " is building head snapshot for " + name);
+//
+//				repoBuilder.setHead(conn.getHeadCommitOffset());
+//				repoBuilder.addAllHeadSnapshot(conn.buildHeadSnapshot());
+//
+//				repoBuilder.addAllBranches(conn.getBranchIndices());
+//				repoBuilder.addAllBranchNames(conn.getBranchNames());
+//				repoBuilder.addAllTags(conn.getTagIndices());
+//				repoBuilder.addAllTagNames(conn.getTagNames());
+//
+//				projBuilder.setCodeRepositories(i, repoBuilder);
+//
+//				if (!STORE_ASTS)
+//					projBuilder.setSize(packSize);
 
 				return projBuilder.build();
 			} catch (final Throwable e) {
@@ -484,13 +501,13 @@ public class SeqRepoImporter {
 			if (DefaultProperties.exceptions.containsKey(project.getName()))
 				return true;
 			// new model
-			if (!STORE_ASTS) {
-				long curSize = project.getSize() * 1000L;
-				if (curSize > MAX_REPO_SIZE) {
-					updateExceptions(project.getName(), "repo size: " + curSize + " exceeding the max size: " + MAX_REPO_SIZE);
-					return true;
-				}
-			}
+//			if (!STORE_ASTS) {
+//				long curSize = project.getSize() * 1000L;
+//				if (curSize > MAX_REPO_SIZE) {
+//					updateExceptions(project.getName(), "repo size: " + curSize + " exceeding the max size: " + MAX_REPO_SIZE);
+//					return true;
+//				}
+//			}
 			if (project.getProgrammingLanguagesList().contains("Java")
 					|| project.getProgrammingLanguagesList().contains("JavaScript")
 					|| project.getProgrammingLanguagesList().contains("PHP"))
