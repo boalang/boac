@@ -68,7 +68,7 @@ message Project {
 		QUALITAS = 4;
 	}
 	/** @exclude The kind of forge this project resides in */
-	required ForgeKind kind = 21;
+	optional ForgeKind kind = 21;
 	/** Specify if this repository is forked from some other repo */
 	optional bool forked = 22;
 	/** The number of times this repository has been forked */

@@ -686,9 +686,9 @@ public final class Toplevel {
     boa.types.Issues.IssueRepositoryOrBuilder getIssueRepositoriesOrBuilder(
         int index);
 
-    // required .boa.types.Project.ForgeKind kind = 21;
+    // optional .boa.types.Project.ForgeKind kind = 21;
     /**
-     * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+     * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
      *
      * <pre>
      ** @exclude The kind of forge this project resides in 
@@ -696,7 +696,7 @@ public final class Toplevel {
      */
     boolean hasKind();
     /**
-     * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+     * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
      *
      * <pre>
      ** @exclude The kind of forge this project resides in 
@@ -2380,11 +2380,11 @@ public final class Toplevel {
       return issueRepositories_.get(index);
     }
 
-    // required .boa.types.Project.ForgeKind kind = 21;
+    // optional .boa.types.Project.ForgeKind kind = 21;
     public static final int KIND_FIELD_NUMBER = 21;
     private boa.types.Toplevel.Project.ForgeKind kind_;
     /**
-     * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+     * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
      *
      * <pre>
      ** @exclude The kind of forge this project resides in 
@@ -2394,7 +2394,7 @@ public final class Toplevel {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+     * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
      *
      * <pre>
      ** @exclude The kind of forge this project resides in 
@@ -2740,10 +2740,6 @@ public final class Toplevel {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasKind()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       for (int i = 0; i < getMaintainersCount(); i++) {
         if (!getMaintainers(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -3751,10 +3747,6 @@ public final class Toplevel {
       }
 
       public final boolean isInitialized() {
-        if (!hasKind()) {
-          
-          return false;
-        }
         for (int i = 0; i < getMaintainersCount(); i++) {
           if (!getMaintainers(i).isInitialized()) {
             
@@ -6804,10 +6796,10 @@ public final class Toplevel {
         return issueRepositoriesBuilder_;
       }
 
-      // required .boa.types.Project.ForgeKind kind = 21;
+      // optional .boa.types.Project.ForgeKind kind = 21;
       private boa.types.Toplevel.Project.ForgeKind kind_ = boa.types.Toplevel.Project.ForgeKind.OTHER;
       /**
-       * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+       * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
        *
        * <pre>
        ** @exclude The kind of forge this project resides in 
@@ -6817,7 +6809,7 @@ public final class Toplevel {
         return ((bitField0_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+       * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
        *
        * <pre>
        ** @exclude The kind of forge this project resides in 
@@ -6827,7 +6819,7 @@ public final class Toplevel {
         return kind_;
       }
       /**
-       * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+       * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
        *
        * <pre>
        ** @exclude The kind of forge this project resides in 
@@ -6843,7 +6835,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>required .boa.types.Project.ForgeKind kind = 21;</code>
+       * <code>optional .boa.types.Project.ForgeKind kind = 21;</code>
        *
        * <pre>
        ** @exclude The kind of forge this project resides in 
@@ -19104,7 +19096,7 @@ public final class Toplevel {
       "\n\ndevelopers\030\022 \003(\0132\021.boa.types.Person\0224\n" +
       "\021code_repositories\030\023 \003(\0132\031.boa.types.Cod" +
       "eRepository\0226\n\022issue_repositories\030\024 \003(\0132" +
-      "\032.boa.types.IssueRepository\022*\n\004kind\030\025 \002(" +
+      "\032.boa.types.IssueRepository\022*\n\004kind\030\025 \001(" +
       "\0162\034.boa.types.Project.ForgeKind\022\016\n\006forke" +
       "d\030\026 \001(\010\022\r\n\005forks\030\027 \001(\005\022\r\n\005stars\030\030 \001(\005\022\"\n" +
       "\032programming_languages_locs\030\031 \003(\005\022\014\n\004siz" +

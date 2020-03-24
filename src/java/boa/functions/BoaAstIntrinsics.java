@@ -441,6 +441,7 @@ public class BoaAstIntrinsics {
 	@FunctionSpec(name = "test3", formalParameters = { "Project" })
 	public static void test2(Project p) throws Exception {
 		System.out.println(p.getName());
+		System.out.println(p.getPaper());
 	}
 	
 //	@FunctionSpec(name = "get_code_change", returnType = "Change", formalParameters = { "Project",

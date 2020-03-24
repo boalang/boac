@@ -17,19 +17,10 @@
 package boa.datagen;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
@@ -38,8 +29,6 @@ import org.apache.commons.cli.PosixParser;
 import boa.datagen.forges.github.GetGithubRepoByUser;
 import boa.datagen.forges.github.LocalGitSequenceGenerator;
 import boa.datagen.forges.github.MetaDataMaster;
-import boa.datagen.util.FileIO;
-import boa.datagen.util.Properties;
 
 /**
  * The main entry point for Boa tools for generating datasets.
@@ -64,9 +53,6 @@ public class BoaGenerator {
 			return;
 		}
 		BoaGenerator.handleCmdOptions(cl, options, args);
-		
-		String projectsPath = "/work/LAS/hridesh-lab/yijia/sutton_dataset/projects.txt";
-		DefaultProperties.projects = getProjects(new File(projectsPath));
 
 		/*
 		 * 1. if user provides local json files 
@@ -80,7 +66,7 @@ public class BoaGenerator {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			SeqCombiner.main(new String[0]);
+//			SeqCombiner.main(new String[0]);
 		} else if (tokenAvailable) { // when user provides local repo and does
 										// not have json files
 			MetaDataMaster mdm = new MetaDataMaster();
@@ -100,53 +86,6 @@ public class BoaGenerator {
 		}
 
 		clear();
-		
-		String base = Properties.getProperty("output.path", DefaultProperties.OUTPUT);
-		if (DefaultProperties.exceptions.size() != 0) {
-			writeTo(base + "/exceptions_"+System.currentTimeMillis()+".txt");
-		}
-		if (DefaultProperties.processedProjects.size() != 0) {
-			writeProcessedProjects(base + "/processed_"+System.currentTimeMillis()+".txt");
-		}
-	}
-	
-	public static HashSet<String> getProjects(File file) {
-		if (!file.exists())
-			return new HashSet<String>();
-		HashSet<String> set = new HashSet<String>();
-		BufferedReader reader;
-		try {
-			reader = new BufferedReader(new FileReader(file));
-			String line = reader.readLine();
-			while (line != null) {
-				set.add(line);
-				line = reader.readLine();
-			}
-			reader.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return set;
-	}
-	
-	public static void writeTo(String path) throws IOException {
-		FileWriter fw = new FileWriter(path);
-		BufferedWriter bw = new BufferedWriter(fw);
-		for (Entry<String, String> entry : DefaultProperties.exceptions.entrySet()) {
-			bw.write(entry.getKey() + " " + entry.getValue());
-			bw.newLine();
-		}
-		bw.close();
-	}
-	
-	public static void writeProcessedProjects(String path) throws IOException {
-		FileWriter fw = new FileWriter(path);
-		BufferedWriter bw = new BufferedWriter(fw);
-		for (String s : DefaultProperties.processedProjects) {
-			bw.write(s);
-			bw.newLine();
-		}
-		bw.close();
 	}
 
 	private static final void printHelp(Options options, String message) {
