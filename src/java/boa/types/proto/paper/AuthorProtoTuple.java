@@ -21,7 +21,7 @@ public class AuthorProtoTuple extends BoaProtoTuple {
 		members.add(new BoaString());
 
 		names.put("middle", counter++);
-		members.add(new BoaString());
+		members.add(new BoaProtoList(new BoaString()));
 
 		names.put("last", counter++);
 		members.add(new BoaString());

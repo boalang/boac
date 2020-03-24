@@ -111,7 +111,7 @@ message Metadata {
 message Author {
 
 	optional string first = 1;
-	optional string middle = 2;
+	repeated string middle = 2;
 	optional string last = 3;
 	optional string suffix = 4;
 	repeated Affiliation affiliation = 5;
