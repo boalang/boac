@@ -35,6 +35,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import boa.datagen.util.FileIO;
 import boa.datagen.util.Properties;
+import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Project;
 
 public class SeqRepoImporter {
@@ -79,11 +80,9 @@ public class SeqRepoImporter {
 					queue.offer(file);
 				if (file.isFile() && file.getName().endsWith(".json")) {
 					jsonCounter++;
-//					System.out.println(jsonCounter);
 					String content = FileIO.readFileContents(file);
 					// assign each file content to each worker
 					try {
-
 						boolean assigned = false;
 						while (!assigned) {
 							for (int j = 0; j < poolSize; j++) {
@@ -106,10 +105,9 @@ public class SeqRepoImporter {
 //			break;
 		}
 
-		for (int j = 0; j < poolSize; j++) {
+		for (int j = 0; j < poolSize; j++)
 			while (!workers[j].isReady())
 				Thread.sleep(100);
-		}
 		setDone(true);
 		// wait for workers to close writers and finish
 		for (Thread thread : threads)
@@ -210,8 +208,11 @@ public class SeqRepoImporter {
 						String id = jo.get("paper_id").getAsString();
 						System.out.println(id);
 						Project.Builder pb = Project.newBuilder();
+						Paper.Builder paperBuilder = Paper.newBuilder();
+						paperBuilder.setId(id);
 						pb.setId(id);
-						
+						pb.setPaper(paperBuilder.build());
+
 						if (debug)
 							System.err.println(Thread.currentThread().getName() + " id: "
 									+ Thread.currentThread().getId() + " is putting paper " + id + " in sequence file");
@@ -223,7 +224,7 @@ public class SeqRepoImporter {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-						
+
 						// write to a new sequence file if the previous one has written 1000 items
 						if (counter >= Integer.parseInt(DefaultProperties.MAX_PROJECTS)) {
 							closeWriters();

@@ -24,8 +24,6 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.fs.PathFilter;
 import org.apache.hadoop.io.BytesWritable;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.SequenceFile.CompressionType;
 import org.apache.hadoop.io.Text;
@@ -38,9 +36,6 @@ import org.apache.hadoop.io.compress.SnappyCodec;
 import com.google.protobuf.CodedInputStream;
 
 import boa.datagen.util.Properties;
-import boa.types.Code.CodeRepository;
-import boa.types.Code.Revision;
-import boa.types.Diff.ChangedFile;
 import boa.types.Toplevel.Project;
 
 /**
@@ -73,15 +68,8 @@ public class SeqCombiner {
 
 		SequenceFile.Writer projectWriter = SequenceFile.createWriter(fileSystem, conf,
 				new Path(base + "/projects.seq"), Text.class, BytesWritable.class, compressionType, compressionCode);
-		MapFile.Writer astWriter = new MapFile.Writer(conf, fileSystem, base + "/ast", LongWritable.class,
-				BytesWritable.class, compressionType, compressionCode, null);
-		MapFile.Writer commitWriter = new MapFile.Writer(conf, fileSystem, base + "/commit", LongWritable.class,
-				BytesWritable.class, compressionType, compressionCode, null);
-		MapFile.Writer repoWriter = new MapFile.Writer(conf, fileSystem, base + "/repo", LongWritable.class,
-				BytesWritable.class, compressionType, compressionCode, null);
 
 		FileStatus[] files = fileSystem.listStatus(new Path(base + "/project"), new PathFilter() {
-
 			@Override
 			public boolean accept(Path path) {
 				String name = path.getName();
@@ -90,7 +78,6 @@ public class SeqCombiner {
 
 		});
 
-		long lastAstWriterKey = 0, lastCommitWriterKey = 0,lastRepoKey = 0;
 		for (int i = 0; i < files.length; i++) {
 			
 			FileStatus file = files[i];
@@ -102,35 +89,7 @@ public class SeqCombiner {
 			try {
 				while (r.next(textKey, value)) {
 					Project p = Project.parseFrom(CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
-					int revisionCount = 0;
 					Project.Builder pb = Project.newBuilder(p);
-					for (CodeRepository.Builder crb : pb.getCodeRepositoriesBuilderList()) {
-						if (crb.getRevisionsCount() > 0) {
-							revisionCount = crb.getRevisionsCount();
-							for (Revision.Builder rb : crb.getRevisionsBuilderList()) {
-								for (ChangedFile.Builder cfb : rb.getFilesBuilderList()) {
-									long key = cfb.getKey();
-									if (key > 0)
-										cfb.setKey(lastAstWriterKey + key);
-									if (cfb.hasRepoKey() && cfb.getRepoKey() > 0)
-										cfb.setRepoKey(lastRepoKey + cfb.getRepoKey()); 
-								}
-							}
-						} else {
-							revisionCount = crb.getRevisionKeysCount();
-							for (int j = 0; j < crb.getRevisionKeysCount(); j++) {
-								crb.setRevisionKeys(j, lastCommitWriterKey + crb.getRevisionKeys(j));
-							}
-						}
-						for (ChangedFile.Builder cfb : crb.getHeadSnapshotBuilderList()) {
-							long key = cfb.getKey();
-							if (key > 0)
-								cfb.setKey(lastAstWriterKey + key);
-							if (cfb.hasRepoKey() && cfb.getRepoKey() > 0)
-								cfb.setRepoKey(lastRepoKey + cfb.getRepoKey()); 
-						}
-					}
-					DefaultProperties.processedProjects.add(p.getName() + " " + revisionCount);
 					projectWriter.append(textKey, new BytesWritable(pb.build().toByteArray()));
 				}
 			} catch (Exception e) {
@@ -139,86 +98,9 @@ public class SeqCombiner {
 			} finally {
 				r.close();
 			}
-			
-			lastCommitWriterKey = readAndAppendCommit(conf, fileSystem, commitWriter, base + "/commit/" + name,
-					lastAstWriterKey, lastCommitWriterKey, lastRepoKey);
-			lastAstWriterKey = readAndAppendAst(conf, fileSystem, astWriter, base + "/ast/" + name, lastAstWriterKey);
-			lastRepoKey = readAndAppendRepo(conf, fileSystem, repoWriter, base + "/repo/" + name, lastRepoKey);
 		}
 		projectWriter.close();
-		astWriter.close();
-		commitWriter.close();
-		repoWriter.close();
 		fileSystem.close();
-	}
-
-	public static long readAndAppendRepo(Configuration conf, FileSystem fileSystem, MapFile.Writer writer,
-			String fileName, long lastRepoKey) throws IOException {
-		long newLastKey = lastRepoKey;
-		SequenceFile.Reader r = new SequenceFile.Reader(fileSystem, new Path(fileName), conf);
-		LongWritable longKey = new LongWritable();
-		BytesWritable value = new BytesWritable();
-		try {
-			while (r.next(longKey, value)) {
-				newLastKey = longKey.get() + lastRepoKey;
-				writer.append(new LongWritable(newLastKey), value);
-			}
-		} catch (Exception e) {
-			System.err.println(fileName);
-			e.printStackTrace();
-		} finally {
-			r.close();
-		}
-		return newLastKey;
-	}
-
-	public static long readAndAppendCommit(Configuration conf, FileSystem fileSystem, MapFile.Writer writer,
-			String fileName, long lastAstKey, long lastCommitKey, long lastRepoKey) throws IOException {
-		long newLastKey = lastCommitKey;
-		SequenceFile.Reader r = new SequenceFile.Reader(fileSystem, new Path(fileName), conf);
-		LongWritable longKey = new LongWritable();
-		BytesWritable value = new BytesWritable();
-		try {
-			while (r.next(longKey, value)) {
-				newLastKey = longKey.get() + lastCommitKey;
-				Revision rev = Revision.parseFrom(CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
-				Revision.Builder rb = Revision.newBuilder(rev);
-				for (ChangedFile.Builder cfb : rb.getFilesBuilderList()) {
-					long key = cfb.getKey();
-					if (key > 0)
-						cfb.setKey(lastAstKey + key);
-					if (cfb.hasRepoKey() && cfb.getRepoKey() > 0)
-						cfb.setRepoKey(lastRepoKey + cfb.getRepoKey()); 
-				}
-				writer.append(new LongWritable(newLastKey), new BytesWritable(rb.build().toByteArray()));
-			}
-		} catch (Exception e) {
-			System.err.println(fileName);
-			e.printStackTrace();
-		} finally {
-			r.close();
-		}
-		return newLastKey;
-	}
-
-	public static long readAndAppendAst(Configuration conf, FileSystem fileSystem, MapFile.Writer writer,
-			String fileName, long lastKey) throws IOException {
-		long newLastKey = lastKey;
-		SequenceFile.Reader r = new SequenceFile.Reader(fileSystem, new Path(fileName), conf);
-		LongWritable longKey = new LongWritable();
-		BytesWritable value = new BytesWritable();
-		try {
-			while (r.next(longKey, value)) {
-				newLastKey = longKey.get() + lastKey;
-				writer.append(new LongWritable(newLastKey), value);
-			}
-		} catch (Exception e) {
-			System.err.println(fileName);
-			e.printStackTrace();
-		} finally {
-			r.close();
-		}
-		return newLastKey;
 	}
 
 }

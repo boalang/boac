@@ -29,6 +29,7 @@ import boa.types.BoaString;
 import boa.types.BoaTime;
 import boa.types.BoaType;
 import boa.types.proto.enums.ForgeKindProtoMap;
+import boa.types.proto.paper.PaperProtoTuple;
 
 /**
  * A {@link BoaProtoTuple}.
@@ -131,6 +132,9 @@ public class ProjectProtoTuple extends BoaProtoTuple {
 		
 		names.put("default_branch", counter++);
 		members.add(new BoaString());
+		
+		names.put("paper", counter++);
+		members.add(new PaperProtoTuple());
 	}
 
 	/**

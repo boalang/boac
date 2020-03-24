@@ -66,7 +66,7 @@ public class BoaGenerator {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-//			SeqCombiner.main(new String[0]);
+			SeqCombiner.main(new String[0]);
 		} else if (tokenAvailable) { // when user provides local repo and does
 										// not have json files
 			MetaDataMaster mdm = new MetaDataMaster();
