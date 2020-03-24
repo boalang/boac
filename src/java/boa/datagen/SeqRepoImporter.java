@@ -36,7 +36,6 @@ import com.google.gson.JsonObject;
 import boa.datagen.util.FileIO;
 import boa.datagen.util.Properties;
 import boa.types.Toplevel.Paper;
-import boa.types.Toplevel.Project;
 
 public class SeqRepoImporter {
 	private final static boolean debug = Properties.getBoolean("debug", DefaultProperties.DEBUG);
@@ -127,7 +126,7 @@ public class SeqRepoImporter {
 		private int id;
 		private int counter = 0;
 		private String suffix;
-		private SequenceFile.Writer projectWriter;
+		private SequenceFile.Writer paperWriter;
 		private volatile boolean ready = true;
 		volatile String content;
 
@@ -145,7 +144,7 @@ public class SeqRepoImporter {
 			while (true) {
 				try {
 					System.out.println(Thread.currentThread().getName() + " " + getId() + " " + suffix + " starts!");
-					projectWriter = SequenceFile.createWriter(fileSystem, conf, new Path(base + "/project/" + suffix),
+					paperWriter = SequenceFile.createWriter(fileSystem, conf, new Path(base + "/paper/" + suffix),
 							Text.class, BytesWritable.class, CompressionType.BLOCK);
 					break;
 				} catch (Throwable t) {
@@ -161,7 +160,7 @@ public class SeqRepoImporter {
 		synchronized void closeWriters() {
 			while (true) {
 				try {
-					projectWriter.close();
+					paperWriter.close();
 					System.out.println(Thread.currentThread().getName() + " " + getId() + " " + suffix + " done!!!");
 					try {
 						Thread.sleep(1000);
@@ -207,11 +206,8 @@ public class SeqRepoImporter {
 						// update protocbuf
 						String id = jo.get("paper_id").getAsString();
 						System.out.println(id);
-						Project.Builder pb = Project.newBuilder();
 						Paper.Builder paperBuilder = Paper.newBuilder();
 						paperBuilder.setId(id);
-						pb.setId(id);
-						pb.setPaper(paperBuilder.build());
 
 						if (debug)
 							System.err.println(Thread.currentThread().getName() + " id: "
@@ -219,7 +215,7 @@ public class SeqRepoImporter {
 
 						// write to a sequence file
 						try {
-							projectWriter.append(new Text(pb.getId()), new BytesWritable(pb.build().toByteArray()));
+							paperWriter.append(new Text(paperBuilder.getId()), new BytesWritable(paperBuilder.build().toByteArray()));
 							counter++;
 						} catch (IOException e) {
 							e.printStackTrace();

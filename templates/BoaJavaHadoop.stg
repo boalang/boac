@@ -53,7 +53,7 @@ public class <name> extends boa.runtime.BoaRunner {
 			id = 0;
 		
 		final org.apache.hadoop.fs.Path[] ins = new org.apache.hadoop.fs.Path[1];
-		ins[0] = new org.apache.hadoop.fs.Path(args[0] + "/projects.seq");
+		ins[0] = new org.apache.hadoop.fs.Path(args[0] + "/papers.seq");
 		
 		final org.apache.hadoop.mapreduce.Job jb = job(ins, new org.apache.hadoop.fs.Path(args[1]));
 
@@ -137,7 +137,7 @@ public class <name> extends boa.runtime.BoaRunner {
 		protected void map(final org.apache.hadoop.io.Text key, final org.apache.hadoop.io.BytesWritable value, final org.apache.hadoop.mapreduce.Mapper\<org.apache.hadoop.io.Text, org.apache.hadoop.io.BytesWritable, boa.io.EmitKey, boa.io.EmitValue>.Context context) throws java.io.IOException {
 			try {
 				boa.functions.BoaMathIntrinsics.random = new java.util.Random(<seed> + key.hashCode());
-				boa.types.Toplevel.Project _input = boa.types.Toplevel.Project.parseFrom(com.google.protobuf.CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
+				boa.types.Toplevel.Paper _input = boa.types.Toplevel.Paper.parseFrom(com.google.protobuf.CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
 				<statements:{s | <s><\n>}>
 			} catch (final Throwable e) {
 				LOG.error(e.getClass().getName() + " caught", e);

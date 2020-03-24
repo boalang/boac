@@ -66,10 +66,10 @@ public class SeqCombiner {
 				compressionCode = new SnappyCodec();
 		}
 
-		SequenceFile.Writer projectWriter = SequenceFile.createWriter(fileSystem, conf,
-				new Path(base + "/projects.seq"), Text.class, BytesWritable.class, compressionType, compressionCode);
+		SequenceFile.Writer paperWriter = SequenceFile.createWriter(fileSystem, conf,
+				new Path(base + "/papers.seq"), Text.class, BytesWritable.class, compressionType, compressionCode);
 
-		FileStatus[] files = fileSystem.listStatus(new Path(base + "/project"), new PathFilter() {
+		FileStatus[] files = fileSystem.listStatus(new Path(base + "/paper"), new PathFilter() {
 			@Override
 			public boolean accept(Path path) {
 				String name = path.getName();
@@ -90,7 +90,7 @@ public class SeqCombiner {
 				while (r.next(textKey, value)) {
 					Project p = Project.parseFrom(CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
 					Project.Builder pb = Project.newBuilder(p);
-					projectWriter.append(textKey, new BytesWritable(pb.build().toByteArray()));
+					paperWriter.append(textKey, new BytesWritable(pb.build().toByteArray()));
 				}
 			} catch (Exception e) {
 				System.err.println(name);
@@ -99,7 +99,7 @@ public class SeqCombiner {
 				r.close();
 			}
 		}
-		projectWriter.close();
+		paperWriter.close();
 		fileSystem.close();
 	}
 
