@@ -146,7 +146,7 @@ public class BoaStringIntrinsics {
 	 */
 	@FunctionSpec(name = "split", returnType = "array of string", formalParameters = { "string", "string"})
 	public static String[] split(final String str, final String regex) {
-		return str.split(regex, 1);
+		return str.split(regex, 2);
 	}
 
 	/**
