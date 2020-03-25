@@ -33,6 +33,8 @@ import org.apache.hadoop.io.SequenceFile.CompressionType;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import boa.datagen.paper.PaperParser;
 import boa.datagen.util.FileIO;
 import boa.datagen.util.Properties;
 import boa.types.Toplevel.Paper;
@@ -202,10 +204,7 @@ public class SeqRepoImporter {
 							e.printStackTrace();
 						}
 						// update protocbuf
-						String id = jo.get("paper_id").getAsString();
-						System.out.println(id);
-						Paper.Builder paperBuilder = Paper.newBuilder();
-						paperBuilder.setId(id);
+						Paper paper = PaperParser.getPaper(jo);
 
 						if (debug)
 							System.err.println(Thread.currentThread().getName() + " id: "
@@ -213,7 +212,7 @@ public class SeqRepoImporter {
 
 						// write to a sequence file
 						try {
-							paperWriter.append(new Text(paperBuilder.getId()), new BytesWritable(paperBuilder.build().toByteArray()));
+							paperWriter.append(new Text(paper.getId()), new BytesWritable(paper.toByteArray()));
 							counter++;
 						} catch (IOException e) {
 							e.printStackTrace();

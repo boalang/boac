@@ -30,7 +30,7 @@ public class AuthorProtoTuple extends BoaProtoTuple {
 		members.add(new BoaString());
 
 		names.put("affiliation", counter++);
-		members.add(new BoaProtoList(new AffiliationProtoTuple()));
+		members.add(new AffiliationProtoTuple());
 
 		names.put("email", counter++);
 		members.add(new BoaString());

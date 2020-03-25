@@ -114,7 +114,7 @@ message Author {
 	repeated string middle = 2;
 	optional string last = 3;
 	optional string suffix = 4;
-	repeated Affiliation affiliation = 5;
+	optional Affiliation affiliation = 5;
 	optional string email = 6;
 
 }
@@ -130,8 +130,7 @@ message Affiliation {
 message Section {
 
 	optional string title = 1;
-	repeated Section subsections = 2;
-	repeated Paragraph body = 3;
+	repeated Paragraph body = 2;
 
 }
 
@@ -146,7 +145,7 @@ message Paragraph {
 		OTHER = 4;
 	}
 
-	required string text = 1;
+	optional string text = 1;
 	repeated Citation cite_spans = 2;
 	repeated Citation ref_spans = 3;
 	optional ParagraphKind kind = 4;
@@ -166,6 +165,7 @@ message Location {
 	optional string postCode = 2;
 	optional string settlement = 3;
 	optional string country = 4;
+	optional string region = 5;
 
 }
 
@@ -180,13 +180,13 @@ message Reference {
 
 	required string ref_id = 1;
 	optional string title = 2;
-	optional string text = 3;
-	repeated Author authors = 4;
-	optional int32 year = 5;
-	optional string venue = 6;
-	optional string volume = 7;
-	optional string issn = 8;
-	optional string pages = 9;
+	repeated Author authors = 3;
+	optional string year = 4;
+	optional string venue = 5;
+	optional string volume = 6;
+	optional string issn = 7;
+	optional string pages = 8;
+	optional string text = 9;
 	optional ReferenceType type = 10;
 
 }

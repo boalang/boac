@@ -20,9 +20,6 @@ public class SectionProtoTuple extends BoaProtoTuple {
 		names.put("title", counter++);
 		members.add(new BoaString());
 
-		names.put("subsections", counter++);
-		members.add(new BoaProtoList(new SectionProtoTuple()));
-
 		names.put("body", counter++);
 		members.add(new BoaProtoList(new ParagraphProtoTuple()));
 	}

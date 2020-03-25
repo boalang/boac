@@ -25,14 +25,11 @@ public class ReferenceProtoTuple extends BoaProtoTuple {
 		names.put("title", counter++);
 		members.add(new BoaString());
 
-		names.put("text", counter++);
-		members.add(new BoaString());
-
 		names.put("authors", counter++);
 		members.add(new BoaProtoList(new AuthorProtoTuple()));
 
 		names.put("year", counter++);
-		members.add(new BoaInt());
+		members.add(new BoaString());
 
 		names.put("venue", counter++);
 		members.add(new BoaString());
@@ -44,6 +41,9 @@ public class ReferenceProtoTuple extends BoaProtoTuple {
 		members.add(new BoaString());
 
 		names.put("pages", counter++);
+		members.add(new BoaString());
+
+		names.put("text", counter++);
 		members.add(new BoaString());
 
 		names.put("type", counter++);

@@ -27,6 +27,9 @@ public class LocationProtoTuple extends BoaProtoTuple {
 
 		names.put("country", counter++);
 		members.add(new BoaString());
+		
+		names.put("region", counter++);
+		members.add(new BoaString());
 	}
 
 	public LocationProtoTuple() {

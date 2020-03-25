@@ -8032,18 +8032,6 @@ public final class Toplevel {
         memoizedIsInitialized = 0;
         return false;
       }
-      for (int i = 0; i < getAbstractCount(); i++) {
-        if (!getAbstract(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      for (int i = 0; i < getBodyTextCount(); i++) {
-        if (!getBodyText(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
       for (int i = 0; i < getBibEntriesCount(); i++) {
         if (!getBibEntries(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -8479,18 +8467,6 @@ public final class Toplevel {
         if (!hasId()) {
           
           return false;
-        }
-        for (int i = 0; i < getAbstractCount(); i++) {
-          if (!getAbstract(i).isInitialized()) {
-            
-            return false;
-          }
-        }
-        for (int i = 0; i < getBodyTextCount(); i++) {
-          if (!getBodyText(i).isInitialized()) {
-            
-            return false;
-          }
         }
         for (int i = 0; i < getBibEntriesCount(); i++) {
           if (!getBibEntries(i).isInitialized()) {
@@ -10539,20 +10515,25 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getFirstBytes();
 
-    // optional string middle = 2;
+    // repeated string middle = 2;
     /**
-     * <code>optional string middle = 2;</code>
+     * <code>repeated string middle = 2;</code>
      */
-    boolean hasMiddle();
+    java.util.List<java.lang.String>
+    getMiddleList();
     /**
-     * <code>optional string middle = 2;</code>
+     * <code>repeated string middle = 2;</code>
      */
-    java.lang.String getMiddle();
+    int getMiddleCount();
     /**
-     * <code>optional string middle = 2;</code>
+     * <code>repeated string middle = 2;</code>
+     */
+    java.lang.String getMiddle(int index);
+    /**
+     * <code>repeated string middle = 2;</code>
      */
     com.google.protobuf.ByteString
-        getMiddleBytes();
+        getMiddleBytes(int index);
 
     // optional string last = 3;
     /**
@@ -10584,30 +10565,19 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getSuffixBytes();
 
-    // repeated .boa.types.Affiliation affiliation = 5;
+    // optional .boa.types.Affiliation affiliation = 5;
     /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+     * <code>optional .boa.types.Affiliation affiliation = 5;</code>
      */
-    java.util.List<boa.types.Toplevel.Affiliation> 
-        getAffiliationList();
+    boolean hasAffiliation();
     /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+     * <code>optional .boa.types.Affiliation affiliation = 5;</code>
      */
-    boa.types.Toplevel.Affiliation getAffiliation(int index);
+    boa.types.Toplevel.Affiliation getAffiliation();
     /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+     * <code>optional .boa.types.Affiliation affiliation = 5;</code>
      */
-    int getAffiliationCount();
-    /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-     */
-    java.util.List<? extends boa.types.Toplevel.AffiliationOrBuilder> 
-        getAffiliationOrBuilderList();
-    /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-     */
-    boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder(
-        int index);
+    boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder();
 
     // optional string email = 6;
     /**
@@ -10681,26 +10651,34 @@ public final class Toplevel {
               break;
             }
             case 18: {
-              bitField0_ |= 0x00000002;
-              middle_ = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                middle_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              middle_.add(input.readBytes());
               break;
             }
             case 26: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               last_ = input.readBytes();
               break;
             }
             case 34: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               suffix_ = input.readBytes();
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                affiliation_ = new java.util.ArrayList<boa.types.Toplevel.Affiliation>();
-                mutable_bitField0_ |= 0x00000010;
+              boa.types.Toplevel.Affiliation.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = affiliation_.toBuilder();
               }
-              affiliation_.add(input.readMessage(boa.types.Toplevel.Affiliation.PARSER, extensionRegistry));
+              affiliation_ = input.readMessage(boa.types.Toplevel.Affiliation.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(affiliation_);
+                affiliation_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
               break;
             }
             case 50: {
@@ -10716,8 +10694,8 @@ public final class Toplevel {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          affiliation_ = java.util.Collections.unmodifiableList(affiliation_);
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          middle_ = new com.google.protobuf.UnmodifiableLazyStringList(middle_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -10794,47 +10772,34 @@ public final class Toplevel {
       }
     }
 
-    // optional string middle = 2;
+    // repeated string middle = 2;
     public static final int MIDDLE_FIELD_NUMBER = 2;
-    private java.lang.Object middle_;
+    private com.google.protobuf.LazyStringList middle_;
     /**
-     * <code>optional string middle = 2;</code>
+     * <code>repeated string middle = 2;</code>
      */
-    public boolean hasMiddle() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    public java.util.List<java.lang.String>
+        getMiddleList() {
+      return middle_;
     }
     /**
-     * <code>optional string middle = 2;</code>
+     * <code>repeated string middle = 2;</code>
      */
-    public java.lang.String getMiddle() {
-      java.lang.Object ref = middle_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          middle_ = s;
-        }
-        return s;
-      }
+    public int getMiddleCount() {
+      return middle_.size();
     }
     /**
-     * <code>optional string middle = 2;</code>
+     * <code>repeated string middle = 2;</code>
+     */
+    public java.lang.String getMiddle(int index) {
+      return middle_.get(index);
+    }
+    /**
+     * <code>repeated string middle = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getMiddleBytes() {
-      java.lang.Object ref = middle_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        middle_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getMiddleBytes(int index) {
+      return middle_.getByteString(index);
     }
 
     // optional string last = 3;
@@ -10844,7 +10809,7 @@ public final class Toplevel {
      * <code>optional string last = 3;</code>
      */
     public boolean hasLast() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string last = 3;</code>
@@ -10887,7 +10852,7 @@ public final class Toplevel {
      * <code>optional string suffix = 4;</code>
      */
     public boolean hasSuffix() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional string suffix = 4;</code>
@@ -10923,40 +10888,26 @@ public final class Toplevel {
       }
     }
 
-    // repeated .boa.types.Affiliation affiliation = 5;
+    // optional .boa.types.Affiliation affiliation = 5;
     public static final int AFFILIATION_FIELD_NUMBER = 5;
-    private java.util.List<boa.types.Toplevel.Affiliation> affiliation_;
+    private boa.types.Toplevel.Affiliation affiliation_;
     /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+     * <code>optional .boa.types.Affiliation affiliation = 5;</code>
      */
-    public java.util.List<boa.types.Toplevel.Affiliation> getAffiliationList() {
+    public boolean hasAffiliation() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     */
+    public boa.types.Toplevel.Affiliation getAffiliation() {
       return affiliation_;
     }
     /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+     * <code>optional .boa.types.Affiliation affiliation = 5;</code>
      */
-    public java.util.List<? extends boa.types.Toplevel.AffiliationOrBuilder> 
-        getAffiliationOrBuilderList() {
+    public boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder() {
       return affiliation_;
-    }
-    /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-     */
-    public int getAffiliationCount() {
-      return affiliation_.size();
-    }
-    /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-     */
-    public boa.types.Toplevel.Affiliation getAffiliation(int index) {
-      return affiliation_.get(index);
-    }
-    /**
-     * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-     */
-    public boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder(
-        int index) {
-      return affiliation_.get(index);
     }
 
     // optional string email = 6;
@@ -11004,10 +10955,10 @@ public final class Toplevel {
 
     private void initFields() {
       first_ = "";
-      middle_ = "";
+      middle_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       last_ = "";
       suffix_ = "";
-      affiliation_ = java.util.Collections.emptyList();
+      affiliation_ = boa.types.Toplevel.Affiliation.getDefaultInstance();
       email_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -11025,17 +10976,17 @@ public final class Toplevel {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getFirstBytes());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getMiddleBytes());
+      for (int i = 0; i < middle_.size(); i++) {
+        output.writeBytes(2, middle_.getByteString(i));
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(3, getLastBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(4, getSuffixBytes());
       }
-      for (int i = 0; i < affiliation_.size(); i++) {
-        output.writeMessage(5, affiliation_.get(i));
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(5, affiliation_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(6, getEmailBytes());
@@ -11053,21 +11004,26 @@ public final class Toplevel {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getFirstBytes());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getMiddleBytes());
+      {
+        int dataSize = 0;
+        for (int i = 0; i < middle_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(middle_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getMiddleList().size();
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getLastBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, getSuffixBytes());
       }
-      for (int i = 0; i < affiliation_.size(); i++) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, affiliation_.get(i));
+          .computeMessageSize(5, affiliation_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -11192,18 +11148,18 @@ public final class Toplevel {
         super.clear();
         first_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        middle_ = "";
+        middle_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         last_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         suffix_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
         if (affiliationBuilder_ == null) {
-          affiliation_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          affiliation_ = boa.types.Toplevel.Affiliation.getDefaultInstance();
         } else {
           affiliationBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         email_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
@@ -11238,23 +11194,24 @@ public final class Toplevel {
           to_bitField0_ |= 0x00000001;
         }
         result.first_ = first_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          middle_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              middle_);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.middle_ = middle_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
+          to_bitField0_ |= 0x00000002;
         }
         result.last_ = last_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
+          to_bitField0_ |= 0x00000004;
         }
         result.suffix_ = suffix_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
         if (affiliationBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
-            affiliation_ = java.util.Collections.unmodifiableList(affiliation_);
-            bitField0_ = (bitField0_ & ~0x00000010);
-          }
           result.affiliation_ = affiliation_;
         } else {
           result.affiliation_ = affiliationBuilder_.build();
@@ -11284,9 +11241,14 @@ public final class Toplevel {
           first_ = other.first_;
           onChanged();
         }
-        if (other.hasMiddle()) {
-          bitField0_ |= 0x00000002;
-          middle_ = other.middle_;
+        if (!other.middle_.isEmpty()) {
+          if (middle_.isEmpty()) {
+            middle_ = other.middle_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureMiddleIsMutable();
+            middle_.addAll(other.middle_);
+          }
           onChanged();
         }
         if (other.hasLast()) {
@@ -11299,31 +11261,8 @@ public final class Toplevel {
           suffix_ = other.suffix_;
           onChanged();
         }
-        if (affiliationBuilder_ == null) {
-          if (!other.affiliation_.isEmpty()) {
-            if (affiliation_.isEmpty()) {
-              affiliation_ = other.affiliation_;
-              bitField0_ = (bitField0_ & ~0x00000010);
-            } else {
-              ensureAffiliationIsMutable();
-              affiliation_.addAll(other.affiliation_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.affiliation_.isEmpty()) {
-            if (affiliationBuilder_.isEmpty()) {
-              affiliationBuilder_.dispose();
-              affiliationBuilder_ = null;
-              affiliation_ = other.affiliation_;
-              bitField0_ = (bitField0_ & ~0x00000010);
-              affiliationBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getAffiliationFieldBuilder() : null;
-            } else {
-              affiliationBuilder_.addAllMessages(other.affiliation_);
-            }
-          }
+        if (other.hasAffiliation()) {
+          mergeAffiliation(other.getAffiliation());
         }
         if (other.hasEmail()) {
           bitField0_ |= 0x00000020;
@@ -11431,76 +11370,95 @@ public final class Toplevel {
         return this;
       }
 
-      // optional string middle = 2;
-      private java.lang.Object middle_ = "";
-      /**
-       * <code>optional string middle = 2;</code>
-       */
-      public boolean hasMiddle() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+      // repeated string middle = 2;
+      private com.google.protobuf.LazyStringList middle_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMiddleIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          middle_ = new com.google.protobuf.LazyStringArrayList(middle_);
+          bitField0_ |= 0x00000002;
+         }
       }
       /**
-       * <code>optional string middle = 2;</code>
+       * <code>repeated string middle = 2;</code>
        */
-      public java.lang.String getMiddle() {
-        java.lang.Object ref = middle_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          middle_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public java.util.List<java.lang.String>
+          getMiddleList() {
+        return java.util.Collections.unmodifiableList(middle_);
       }
       /**
-       * <code>optional string middle = 2;</code>
+       * <code>repeated string middle = 2;</code>
+       */
+      public int getMiddleCount() {
+        return middle_.size();
+      }
+      /**
+       * <code>repeated string middle = 2;</code>
+       */
+      public java.lang.String getMiddle(int index) {
+        return middle_.get(index);
+      }
+      /**
+       * <code>repeated string middle = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getMiddleBytes() {
-        java.lang.Object ref = middle_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          middle_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getMiddleBytes(int index) {
+        return middle_.getByteString(index);
       }
       /**
-       * <code>optional string middle = 2;</code>
+       * <code>repeated string middle = 2;</code>
        */
       public Builder setMiddle(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMiddleIsMutable();
+        middle_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string middle = 2;</code>
+       */
+      public Builder addMiddle(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
-        middle_ = value;
+  ensureMiddleIsMutable();
+        middle_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string middle = 2;</code>
+       * <code>repeated string middle = 2;</code>
+       */
+      public Builder addAllMiddle(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMiddleIsMutable();
+        super.addAll(values, middle_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string middle = 2;</code>
        */
       public Builder clearMiddle() {
+        middle_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        middle_ = getDefaultInstance().getMiddle();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string middle = 2;</code>
+       * <code>repeated string middle = 2;</code>
        */
-      public Builder setMiddleBytes(
+      public Builder addMiddleBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
-        middle_ = value;
+  ensureMiddleIsMutable();
+        middle_.add(value);
         onChanged();
         return this;
       }
@@ -11653,239 +11611,116 @@ public final class Toplevel {
         return this;
       }
 
-      // repeated .boa.types.Affiliation affiliation = 5;
-      private java.util.List<boa.types.Toplevel.Affiliation> affiliation_ =
-        java.util.Collections.emptyList();
-      private void ensureAffiliationIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          affiliation_ = new java.util.ArrayList<boa.types.Toplevel.Affiliation>(affiliation_);
-          bitField0_ |= 0x00000010;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
+      // optional .boa.types.Affiliation affiliation = 5;
+      private boa.types.Toplevel.Affiliation affiliation_ = boa.types.Toplevel.Affiliation.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
           boa.types.Toplevel.Affiliation, boa.types.Toplevel.Affiliation.Builder, boa.types.Toplevel.AffiliationOrBuilder> affiliationBuilder_;
-
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
-      public java.util.List<boa.types.Toplevel.Affiliation> getAffiliationList() {
+      public boolean hasAffiliation() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       */
+      public boa.types.Toplevel.Affiliation getAffiliation() {
         if (affiliationBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(affiliation_);
+          return affiliation_;
         } else {
-          return affiliationBuilder_.getMessageList();
+          return affiliationBuilder_.getMessage();
         }
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
-      public int getAffiliationCount() {
+      public Builder setAffiliation(boa.types.Toplevel.Affiliation value) {
         if (affiliationBuilder_ == null) {
-          return affiliation_.size();
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          affiliation_ = value;
+          onChanged();
         } else {
-          return affiliationBuilder_.getCount();
+          affiliationBuilder_.setMessage(value);
         }
+        bitField0_ |= 0x00000010;
+        return this;
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public boa.types.Toplevel.Affiliation getAffiliation(int index) {
-        if (affiliationBuilder_ == null) {
-          return affiliation_.get(index);
-        } else {
-          return affiliationBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
       public Builder setAffiliation(
-          int index, boa.types.Toplevel.Affiliation value) {
-        if (affiliationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAffiliationIsMutable();
-          affiliation_.set(index, value);
-          onChanged();
-        } else {
-          affiliationBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public Builder setAffiliation(
-          int index, boa.types.Toplevel.Affiliation.Builder builderForValue) {
-        if (affiliationBuilder_ == null) {
-          ensureAffiliationIsMutable();
-          affiliation_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          affiliationBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public Builder addAffiliation(boa.types.Toplevel.Affiliation value) {
-        if (affiliationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAffiliationIsMutable();
-          affiliation_.add(value);
-          onChanged();
-        } else {
-          affiliationBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public Builder addAffiliation(
-          int index, boa.types.Toplevel.Affiliation value) {
-        if (affiliationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAffiliationIsMutable();
-          affiliation_.add(index, value);
-          onChanged();
-        } else {
-          affiliationBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public Builder addAffiliation(
           boa.types.Toplevel.Affiliation.Builder builderForValue) {
         if (affiliationBuilder_ == null) {
-          ensureAffiliationIsMutable();
-          affiliation_.add(builderForValue.build());
+          affiliation_ = builderForValue.build();
           onChanged();
         } else {
-          affiliationBuilder_.addMessage(builderForValue.build());
+          affiliationBuilder_.setMessage(builderForValue.build());
         }
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
-      public Builder addAffiliation(
-          int index, boa.types.Toplevel.Affiliation.Builder builderForValue) {
+      public Builder mergeAffiliation(boa.types.Toplevel.Affiliation value) {
         if (affiliationBuilder_ == null) {
-          ensureAffiliationIsMutable();
-          affiliation_.add(index, builderForValue.build());
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              affiliation_ != boa.types.Toplevel.Affiliation.getDefaultInstance()) {
+            affiliation_ =
+              boa.types.Toplevel.Affiliation.newBuilder(affiliation_).mergeFrom(value).buildPartial();
+          } else {
+            affiliation_ = value;
+          }
           onChanged();
         } else {
-          affiliationBuilder_.addMessage(index, builderForValue.build());
+          affiliationBuilder_.mergeFrom(value);
         }
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public Builder addAllAffiliation(
-          java.lang.Iterable<? extends boa.types.Toplevel.Affiliation> values) {
-        if (affiliationBuilder_ == null) {
-          ensureAffiliationIsMutable();
-          super.addAll(values, affiliation_);
-          onChanged();
-        } else {
-          affiliationBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
       public Builder clearAffiliation() {
         if (affiliationBuilder_ == null) {
-          affiliation_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          affiliation_ = boa.types.Toplevel.Affiliation.getDefaultInstance();
           onChanged();
         } else {
           affiliationBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
-      public Builder removeAffiliation(int index) {
-        if (affiliationBuilder_ == null) {
-          ensureAffiliationIsMutable();
-          affiliation_.remove(index);
-          onChanged();
-        } else {
-          affiliationBuilder_.remove(index);
-        }
-        return this;
+      public boa.types.Toplevel.Affiliation.Builder getAffiliationBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getAffiliationFieldBuilder().getBuilder();
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
-      public boa.types.Toplevel.Affiliation.Builder getAffiliationBuilder(
-          int index) {
-        return getAffiliationFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder(
-          int index) {
-        if (affiliationBuilder_ == null) {
-          return affiliation_.get(index);  } else {
-          return affiliationBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public java.util.List<? extends boa.types.Toplevel.AffiliationOrBuilder> 
-           getAffiliationOrBuilderList() {
+      public boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder() {
         if (affiliationBuilder_ != null) {
-          return affiliationBuilder_.getMessageOrBuilderList();
+          return affiliationBuilder_.getMessageOrBuilder();
         } else {
-          return java.util.Collections.unmodifiableList(affiliation_);
+          return affiliation_;
         }
       }
       /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
+       * <code>optional .boa.types.Affiliation affiliation = 5;</code>
        */
-      public boa.types.Toplevel.Affiliation.Builder addAffiliationBuilder() {
-        return getAffiliationFieldBuilder().addBuilder(
-            boa.types.Toplevel.Affiliation.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public boa.types.Toplevel.Affiliation.Builder addAffiliationBuilder(
-          int index) {
-        return getAffiliationFieldBuilder().addBuilder(
-            index, boa.types.Toplevel.Affiliation.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .boa.types.Affiliation affiliation = 5;</code>
-       */
-      public java.util.List<boa.types.Toplevel.Affiliation.Builder> 
-           getAffiliationBuilderList() {
-        return getAffiliationFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilder<
           boa.types.Toplevel.Affiliation, boa.types.Toplevel.Affiliation.Builder, boa.types.Toplevel.AffiliationOrBuilder> 
           getAffiliationFieldBuilder() {
         if (affiliationBuilder_ == null) {
-          affiliationBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          affiliationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Toplevel.Affiliation, boa.types.Toplevel.Affiliation.Builder, boa.types.Toplevel.AffiliationOrBuilder>(
                   affiliation_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
                   isClean());
           affiliation_ = null;
@@ -12815,52 +12650,27 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getTitleBytes();
 
-    // repeated .boa.types.Section subsections = 2;
+    // repeated .boa.types.Paragraph body = 2;
     /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    java.util.List<boa.types.Toplevel.Section> 
-        getSubsectionsList();
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    boa.types.Toplevel.Section getSubsections(int index);
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    int getSubsectionsCount();
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    java.util.List<? extends boa.types.Toplevel.SectionOrBuilder> 
-        getSubsectionsOrBuilderList();
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    boa.types.Toplevel.SectionOrBuilder getSubsectionsOrBuilder(
-        int index);
-
-    // repeated .boa.types.Paragraph body = 3;
-    /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     java.util.List<boa.types.Toplevel.Paragraph> 
         getBodyList();
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     boa.types.Toplevel.Paragraph getBody(int index);
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     int getBodyCount();
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
         getBodyOrBuilderList();
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     boa.types.Toplevel.ParagraphOrBuilder getBodyOrBuilder(
         int index);
@@ -12923,16 +12733,8 @@ public final class Toplevel {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                subsections_ = new java.util.ArrayList<boa.types.Toplevel.Section>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              subsections_.add(input.readMessage(boa.types.Toplevel.Section.PARSER, extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 body_ = new java.util.ArrayList<boa.types.Toplevel.Paragraph>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000002;
               }
               body_.add(input.readMessage(boa.types.Toplevel.Paragraph.PARSER, extensionRegistry));
               break;
@@ -12946,9 +12748,6 @@ public final class Toplevel {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          subsections_ = java.util.Collections.unmodifiableList(subsections_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           body_ = java.util.Collections.unmodifiableList(body_);
         }
         this.unknownFields = unknownFields.build();
@@ -13026,72 +12825,36 @@ public final class Toplevel {
       }
     }
 
-    // repeated .boa.types.Section subsections = 2;
-    public static final int SUBSECTIONS_FIELD_NUMBER = 2;
-    private java.util.List<boa.types.Toplevel.Section> subsections_;
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    public java.util.List<boa.types.Toplevel.Section> getSubsectionsList() {
-      return subsections_;
-    }
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    public java.util.List<? extends boa.types.Toplevel.SectionOrBuilder> 
-        getSubsectionsOrBuilderList() {
-      return subsections_;
-    }
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    public int getSubsectionsCount() {
-      return subsections_.size();
-    }
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    public boa.types.Toplevel.Section getSubsections(int index) {
-      return subsections_.get(index);
-    }
-    /**
-     * <code>repeated .boa.types.Section subsections = 2;</code>
-     */
-    public boa.types.Toplevel.SectionOrBuilder getSubsectionsOrBuilder(
-        int index) {
-      return subsections_.get(index);
-    }
-
-    // repeated .boa.types.Paragraph body = 3;
-    public static final int BODY_FIELD_NUMBER = 3;
+    // repeated .boa.types.Paragraph body = 2;
+    public static final int BODY_FIELD_NUMBER = 2;
     private java.util.List<boa.types.Toplevel.Paragraph> body_;
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     public java.util.List<boa.types.Toplevel.Paragraph> getBodyList() {
       return body_;
     }
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     public java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
         getBodyOrBuilderList() {
       return body_;
     }
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     public int getBodyCount() {
       return body_.size();
     }
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     public boa.types.Toplevel.Paragraph getBody(int index) {
       return body_.get(index);
     }
     /**
-     * <code>repeated .boa.types.Paragraph body = 3;</code>
+     * <code>repeated .boa.types.Paragraph body = 2;</code>
      */
     public boa.types.Toplevel.ParagraphOrBuilder getBodyOrBuilder(
         int index) {
@@ -13100,7 +12863,6 @@ public final class Toplevel {
 
     private void initFields() {
       title_ = "";
-      subsections_ = java.util.Collections.emptyList();
       body_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
@@ -13108,18 +12870,6 @@ public final class Toplevel {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      for (int i = 0; i < getSubsectionsCount(); i++) {
-        if (!getSubsections(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      for (int i = 0; i < getBodyCount(); i++) {
-        if (!getBody(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -13130,11 +12880,8 @@ public final class Toplevel {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getTitleBytes());
       }
-      for (int i = 0; i < subsections_.size(); i++) {
-        output.writeMessage(2, subsections_.get(i));
-      }
       for (int i = 0; i < body_.size(); i++) {
-        output.writeMessage(3, body_.get(i));
+        output.writeMessage(2, body_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -13149,13 +12896,9 @@ public final class Toplevel {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getTitleBytes());
       }
-      for (int i = 0; i < subsections_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, subsections_.get(i));
-      }
       for (int i = 0; i < body_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, body_.get(i));
+          .computeMessageSize(2, body_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13265,7 +13008,6 @@ public final class Toplevel {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getSubsectionsFieldBuilder();
           getBodyFieldBuilder();
         }
       }
@@ -13277,15 +13019,9 @@ public final class Toplevel {
         super.clear();
         title_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (subsectionsBuilder_ == null) {
-          subsections_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          subsectionsBuilder_.clear();
-        }
         if (bodyBuilder_ == null) {
           body_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           bodyBuilder_.clear();
         }
@@ -13321,19 +13057,10 @@ public final class Toplevel {
           to_bitField0_ |= 0x00000001;
         }
         result.title_ = title_;
-        if (subsectionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            subsections_ = java.util.Collections.unmodifiableList(subsections_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.subsections_ = subsections_;
-        } else {
-          result.subsections_ = subsectionsBuilder_.build();
-        }
         if (bodyBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             body_ = java.util.Collections.unmodifiableList(body_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.body_ = body_;
         } else {
@@ -13360,37 +13087,11 @@ public final class Toplevel {
           title_ = other.title_;
           onChanged();
         }
-        if (subsectionsBuilder_ == null) {
-          if (!other.subsections_.isEmpty()) {
-            if (subsections_.isEmpty()) {
-              subsections_ = other.subsections_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureSubsectionsIsMutable();
-              subsections_.addAll(other.subsections_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.subsections_.isEmpty()) {
-            if (subsectionsBuilder_.isEmpty()) {
-              subsectionsBuilder_.dispose();
-              subsectionsBuilder_ = null;
-              subsections_ = other.subsections_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              subsectionsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getSubsectionsFieldBuilder() : null;
-            } else {
-              subsectionsBuilder_.addAllMessages(other.subsections_);
-            }
-          }
-        }
         if (bodyBuilder_ == null) {
           if (!other.body_.isEmpty()) {
             if (body_.isEmpty()) {
               body_ = other.body_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureBodyIsMutable();
               body_.addAll(other.body_);
@@ -13403,7 +13104,7 @@ public final class Toplevel {
               bodyBuilder_.dispose();
               bodyBuilder_ = null;
               body_ = other.body_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               bodyBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getBodyFieldBuilder() : null;
@@ -13417,18 +13118,6 @@ public final class Toplevel {
       }
 
       public final boolean isInitialized() {
-        for (int i = 0; i < getSubsectionsCount(); i++) {
-          if (!getSubsections(i).isInitialized()) {
-            
-            return false;
-          }
-        }
-        for (int i = 0; i < getBodyCount(); i++) {
-          if (!getBody(i).isInitialized()) {
-            
-            return false;
-          }
-        }
         return true;
       }
 
@@ -13525,253 +13214,13 @@ public final class Toplevel {
         return this;
       }
 
-      // repeated .boa.types.Section subsections = 2;
-      private java.util.List<boa.types.Toplevel.Section> subsections_ =
-        java.util.Collections.emptyList();
-      private void ensureSubsectionsIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          subsections_ = new java.util.ArrayList<boa.types.Toplevel.Section>(subsections_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Toplevel.Section, boa.types.Toplevel.Section.Builder, boa.types.Toplevel.SectionOrBuilder> subsectionsBuilder_;
-
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public java.util.List<boa.types.Toplevel.Section> getSubsectionsList() {
-        if (subsectionsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(subsections_);
-        } else {
-          return subsectionsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public int getSubsectionsCount() {
-        if (subsectionsBuilder_ == null) {
-          return subsections_.size();
-        } else {
-          return subsectionsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public boa.types.Toplevel.Section getSubsections(int index) {
-        if (subsectionsBuilder_ == null) {
-          return subsections_.get(index);
-        } else {
-          return subsectionsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder setSubsections(
-          int index, boa.types.Toplevel.Section value) {
-        if (subsectionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSubsectionsIsMutable();
-          subsections_.set(index, value);
-          onChanged();
-        } else {
-          subsectionsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder setSubsections(
-          int index, boa.types.Toplevel.Section.Builder builderForValue) {
-        if (subsectionsBuilder_ == null) {
-          ensureSubsectionsIsMutable();
-          subsections_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          subsectionsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder addSubsections(boa.types.Toplevel.Section value) {
-        if (subsectionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSubsectionsIsMutable();
-          subsections_.add(value);
-          onChanged();
-        } else {
-          subsectionsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder addSubsections(
-          int index, boa.types.Toplevel.Section value) {
-        if (subsectionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSubsectionsIsMutable();
-          subsections_.add(index, value);
-          onChanged();
-        } else {
-          subsectionsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder addSubsections(
-          boa.types.Toplevel.Section.Builder builderForValue) {
-        if (subsectionsBuilder_ == null) {
-          ensureSubsectionsIsMutable();
-          subsections_.add(builderForValue.build());
-          onChanged();
-        } else {
-          subsectionsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder addSubsections(
-          int index, boa.types.Toplevel.Section.Builder builderForValue) {
-        if (subsectionsBuilder_ == null) {
-          ensureSubsectionsIsMutable();
-          subsections_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          subsectionsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder addAllSubsections(
-          java.lang.Iterable<? extends boa.types.Toplevel.Section> values) {
-        if (subsectionsBuilder_ == null) {
-          ensureSubsectionsIsMutable();
-          super.addAll(values, subsections_);
-          onChanged();
-        } else {
-          subsectionsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder clearSubsections() {
-        if (subsectionsBuilder_ == null) {
-          subsections_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          subsectionsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public Builder removeSubsections(int index) {
-        if (subsectionsBuilder_ == null) {
-          ensureSubsectionsIsMutable();
-          subsections_.remove(index);
-          onChanged();
-        } else {
-          subsectionsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public boa.types.Toplevel.Section.Builder getSubsectionsBuilder(
-          int index) {
-        return getSubsectionsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public boa.types.Toplevel.SectionOrBuilder getSubsectionsOrBuilder(
-          int index) {
-        if (subsectionsBuilder_ == null) {
-          return subsections_.get(index);  } else {
-          return subsectionsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public java.util.List<? extends boa.types.Toplevel.SectionOrBuilder> 
-           getSubsectionsOrBuilderList() {
-        if (subsectionsBuilder_ != null) {
-          return subsectionsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(subsections_);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public boa.types.Toplevel.Section.Builder addSubsectionsBuilder() {
-        return getSubsectionsFieldBuilder().addBuilder(
-            boa.types.Toplevel.Section.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public boa.types.Toplevel.Section.Builder addSubsectionsBuilder(
-          int index) {
-        return getSubsectionsFieldBuilder().addBuilder(
-            index, boa.types.Toplevel.Section.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .boa.types.Section subsections = 2;</code>
-       */
-      public java.util.List<boa.types.Toplevel.Section.Builder> 
-           getSubsectionsBuilderList() {
-        return getSubsectionsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Toplevel.Section, boa.types.Toplevel.Section.Builder, boa.types.Toplevel.SectionOrBuilder> 
-          getSubsectionsFieldBuilder() {
-        if (subsectionsBuilder_ == null) {
-          subsectionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              boa.types.Toplevel.Section, boa.types.Toplevel.Section.Builder, boa.types.Toplevel.SectionOrBuilder>(
-                  subsections_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
-                  getParentForChildren(),
-                  isClean());
-          subsections_ = null;
-        }
-        return subsectionsBuilder_;
-      }
-
-      // repeated .boa.types.Paragraph body = 3;
+      // repeated .boa.types.Paragraph body = 2;
       private java.util.List<boa.types.Toplevel.Paragraph> body_ =
         java.util.Collections.emptyList();
       private void ensureBodyIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           body_ = new java.util.ArrayList<boa.types.Toplevel.Paragraph>(body_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -13779,7 +13228,7 @@ public final class Toplevel {
           boa.types.Toplevel.Paragraph, boa.types.Toplevel.Paragraph.Builder, boa.types.Toplevel.ParagraphOrBuilder> bodyBuilder_;
 
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public java.util.List<boa.types.Toplevel.Paragraph> getBodyList() {
         if (bodyBuilder_ == null) {
@@ -13789,7 +13238,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public int getBodyCount() {
         if (bodyBuilder_ == null) {
@@ -13799,7 +13248,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public boa.types.Toplevel.Paragraph getBody(int index) {
         if (bodyBuilder_ == null) {
@@ -13809,7 +13258,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder setBody(
           int index, boa.types.Toplevel.Paragraph value) {
@@ -13826,7 +13275,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder setBody(
           int index, boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -13840,7 +13289,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder addBody(boa.types.Toplevel.Paragraph value) {
         if (bodyBuilder_ == null) {
@@ -13856,7 +13305,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder addBody(
           int index, boa.types.Toplevel.Paragraph value) {
@@ -13873,7 +13322,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder addBody(
           boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -13887,7 +13336,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder addBody(
           int index, boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -13901,7 +13350,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder addAllBody(
           java.lang.Iterable<? extends boa.types.Toplevel.Paragraph> values) {
@@ -13915,12 +13364,12 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder clearBody() {
         if (bodyBuilder_ == null) {
           body_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           bodyBuilder_.clear();
@@ -13928,7 +13377,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public Builder removeBody(int index) {
         if (bodyBuilder_ == null) {
@@ -13941,14 +13390,14 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public boa.types.Toplevel.Paragraph.Builder getBodyBuilder(
           int index) {
         return getBodyFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public boa.types.Toplevel.ParagraphOrBuilder getBodyOrBuilder(
           int index) {
@@ -13958,7 +13407,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
            getBodyOrBuilderList() {
@@ -13969,14 +13418,14 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public boa.types.Toplevel.Paragraph.Builder addBodyBuilder() {
         return getBodyFieldBuilder().addBuilder(
             boa.types.Toplevel.Paragraph.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public boa.types.Toplevel.Paragraph.Builder addBodyBuilder(
           int index) {
@@ -13984,7 +13433,7 @@ public final class Toplevel {
             index, boa.types.Toplevel.Paragraph.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Paragraph body = 3;</code>
+       * <code>repeated .boa.types.Paragraph body = 2;</code>
        */
       public java.util.List<boa.types.Toplevel.Paragraph.Builder> 
            getBodyBuilderList() {
@@ -13997,7 +13446,7 @@ public final class Toplevel {
           bodyBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               boa.types.Toplevel.Paragraph, boa.types.Toplevel.Paragraph.Builder, boa.types.Toplevel.ParagraphOrBuilder>(
                   body_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           body_ = null;
@@ -14019,17 +13468,17 @@ public final class Toplevel {
   public interface ParagraphOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string text = 1;
+    // optional string text = 1;
     /**
-     * <code>required string text = 1;</code>
+     * <code>optional string text = 1;</code>
      */
     boolean hasText();
     /**
-     * <code>required string text = 1;</code>
+     * <code>optional string text = 1;</code>
      */
     java.lang.String getText();
     /**
-     * <code>required string text = 1;</code>
+     * <code>optional string text = 1;</code>
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -14332,17 +13781,17 @@ public final class Toplevel {
     }
 
     private int bitField0_;
-    // required string text = 1;
+    // optional string text = 1;
     public static final int TEXT_FIELD_NUMBER = 1;
     private java.lang.Object text_;
     /**
-     * <code>required string text = 1;</code>
+     * <code>optional string text = 1;</code>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string text = 1;</code>
+     * <code>optional string text = 1;</code>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -14359,7 +13808,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>required string text = 1;</code>
+     * <code>optional string text = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -14474,10 +13923,6 @@ public final class Toplevel {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasText()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -14791,10 +14236,6 @@ public final class Toplevel {
       }
 
       public final boolean isInitialized() {
-        if (!hasText()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -14817,16 +14258,16 @@ public final class Toplevel {
       }
       private int bitField0_;
 
-      // required string text = 1;
+      // optional string text = 1;
       private java.lang.Object text_ = "";
       /**
-       * <code>required string text = 1;</code>
+       * <code>optional string text = 1;</code>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string text = 1;</code>
+       * <code>optional string text = 1;</code>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -14840,7 +14281,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>required string text = 1;</code>
+       * <code>optional string text = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -14856,7 +14297,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>required string text = 1;</code>
+       * <code>optional string text = 1;</code>
        */
       public Builder setText(
           java.lang.String value) {
@@ -14869,7 +14310,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>required string text = 1;</code>
+       * <code>optional string text = 1;</code>
        */
       public Builder clearText() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -14878,7 +14319,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>required string text = 1;</code>
+       * <code>optional string text = 1;</code>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -16107,6 +15548,21 @@ public final class Toplevel {
      */
     com.google.protobuf.ByteString
         getCountryBytes();
+
+    // optional string region = 5;
+    /**
+     * <code>optional string region = 5;</code>
+     */
+    boolean hasRegion();
+    /**
+     * <code>optional string region = 5;</code>
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>optional string region = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
   }
   /**
    * Protobuf type {@code boa.types.Location}
@@ -16177,6 +15633,11 @@ public final class Toplevel {
             case 34: {
               bitField0_ |= 0x00000008;
               country_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              region_ = input.readBytes();
               break;
             }
           }
@@ -16391,11 +15852,55 @@ public final class Toplevel {
       }
     }
 
+    // optional string region = 5;
+    public static final int REGION_FIELD_NUMBER = 5;
+    private java.lang.Object region_;
+    /**
+     * <code>optional string region = 5;</code>
+     */
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional string region = 5;</code>
+     */
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string region = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       addrLine_ = "";
       postCode_ = "";
       settlement_ = "";
       country_ = "";
+      region_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16421,6 +15926,9 @@ public final class Toplevel {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(4, getCountryBytes());
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getRegionBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -16445,6 +15953,10 @@ public final class Toplevel {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, getCountryBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getRegionBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -16570,6 +16082,8 @@ public final class Toplevel {
         bitField0_ = (bitField0_ & ~0x00000004);
         country_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -16614,6 +16128,10 @@ public final class Toplevel {
           to_bitField0_ |= 0x00000008;
         }
         result.country_ = country_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.region_ = region_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -16648,6 +16166,11 @@ public final class Toplevel {
         if (other.hasCountry()) {
           bitField0_ |= 0x00000008;
           country_ = other.country_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000010;
+          region_ = other.region_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -16973,6 +16496,80 @@ public final class Toplevel {
         return this;
       }
 
+      // optional string region = 5;
+      private java.lang.Object region_ = "";
+      /**
+       * <code>optional string region = 5;</code>
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional string region = 5;</code>
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          region_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string region = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string region = 5;</code>
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string region = 5;</code>
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string region = 5;</code>
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:boa.types.Location)
     }
 
@@ -17017,115 +16614,120 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getTitleBytes();
 
-    // optional string text = 3;
+    // repeated .boa.types.Author authors = 3;
     /**
-     * <code>optional string text = 3;</code>
-     */
-    boolean hasText();
-    /**
-     * <code>optional string text = 3;</code>
-     */
-    java.lang.String getText();
-    /**
-     * <code>optional string text = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getTextBytes();
-
-    // repeated .boa.types.Author authors = 4;
-    /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
+     * <code>repeated .boa.types.Author authors = 3;</code>
      */
     java.util.List<boa.types.Toplevel.Author> 
         getAuthorsList();
     /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
+     * <code>repeated .boa.types.Author authors = 3;</code>
      */
     boa.types.Toplevel.Author getAuthors(int index);
     /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
+     * <code>repeated .boa.types.Author authors = 3;</code>
      */
     int getAuthorsCount();
     /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
+     * <code>repeated .boa.types.Author authors = 3;</code>
      */
     java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList();
     /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
+     * <code>repeated .boa.types.Author authors = 3;</code>
      */
     boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index);
 
-    // optional int32 year = 5;
+    // optional string year = 4;
     /**
-     * <code>optional int32 year = 5;</code>
+     * <code>optional string year = 4;</code>
      */
     boolean hasYear();
     /**
-     * <code>optional int32 year = 5;</code>
+     * <code>optional string year = 4;</code>
      */
-    int getYear();
-
-    // optional string venue = 6;
+    java.lang.String getYear();
     /**
-     * <code>optional string venue = 6;</code>
+     * <code>optional string year = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getYearBytes();
+
+    // optional string venue = 5;
+    /**
+     * <code>optional string venue = 5;</code>
      */
     boolean hasVenue();
     /**
-     * <code>optional string venue = 6;</code>
+     * <code>optional string venue = 5;</code>
      */
     java.lang.String getVenue();
     /**
-     * <code>optional string venue = 6;</code>
+     * <code>optional string venue = 5;</code>
      */
     com.google.protobuf.ByteString
         getVenueBytes();
 
-    // optional string volume = 7;
+    // optional string volume = 6;
     /**
-     * <code>optional string volume = 7;</code>
+     * <code>optional string volume = 6;</code>
      */
     boolean hasVolume();
     /**
-     * <code>optional string volume = 7;</code>
+     * <code>optional string volume = 6;</code>
      */
     java.lang.String getVolume();
     /**
-     * <code>optional string volume = 7;</code>
+     * <code>optional string volume = 6;</code>
      */
     com.google.protobuf.ByteString
         getVolumeBytes();
 
-    // optional string issn = 8;
+    // optional string issn = 7;
     /**
-     * <code>optional string issn = 8;</code>
+     * <code>optional string issn = 7;</code>
      */
     boolean hasIssn();
     /**
-     * <code>optional string issn = 8;</code>
+     * <code>optional string issn = 7;</code>
      */
     java.lang.String getIssn();
     /**
-     * <code>optional string issn = 8;</code>
+     * <code>optional string issn = 7;</code>
      */
     com.google.protobuf.ByteString
         getIssnBytes();
 
-    // optional string pages = 9;
+    // optional string pages = 8;
     /**
-     * <code>optional string pages = 9;</code>
+     * <code>optional string pages = 8;</code>
      */
     boolean hasPages();
     /**
-     * <code>optional string pages = 9;</code>
+     * <code>optional string pages = 8;</code>
      */
     java.lang.String getPages();
     /**
-     * <code>optional string pages = 9;</code>
+     * <code>optional string pages = 8;</code>
      */
     com.google.protobuf.ByteString
         getPagesBytes();
+
+    // optional string text = 9;
+    /**
+     * <code>optional string text = 9;</code>
+     */
+    boolean hasText();
+    /**
+     * <code>optional string text = 9;</code>
+     */
+    java.lang.String getText();
+    /**
+     * <code>optional string text = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getTextBytes();
 
     // optional .boa.types.Reference.ReferenceType type = 10;
     /**
@@ -17199,41 +16801,41 @@ public final class Toplevel {
               break;
             }
             case 26: {
-              bitField0_ |= 0x00000004;
-              text_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 authors_ = new java.util.ArrayList<boa.types.Toplevel.Author>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000004;
               }
               authors_.add(input.readMessage(boa.types.Toplevel.Author.PARSER, extensionRegistry));
               break;
             }
-            case 40: {
+            case 34: {
+              bitField0_ |= 0x00000004;
+              year_ = input.readBytes();
+              break;
+            }
+            case 42: {
               bitField0_ |= 0x00000008;
-              year_ = input.readInt32();
+              venue_ = input.readBytes();
               break;
             }
             case 50: {
               bitField0_ |= 0x00000010;
-              venue_ = input.readBytes();
+              volume_ = input.readBytes();
               break;
             }
             case 58: {
               bitField0_ |= 0x00000020;
-              volume_ = input.readBytes();
+              issn_ = input.readBytes();
               break;
             }
             case 66: {
               bitField0_ |= 0x00000040;
-              issn_ = input.readBytes();
+              pages_ = input.readBytes();
               break;
             }
             case 74: {
               bitField0_ |= 0x00000080;
-              pages_ = input.readBytes();
+              text_ = input.readBytes();
               break;
             }
             case 80: {
@@ -17255,7 +16857,7 @@ public final class Toplevel {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           authors_ = java.util.Collections.unmodifiableList(authors_);
         }
         this.unknownFields = unknownFields.build();
@@ -17467,20 +17069,56 @@ public final class Toplevel {
       }
     }
 
-    // optional string text = 3;
-    public static final int TEXT_FIELD_NUMBER = 3;
-    private java.lang.Object text_;
+    // repeated .boa.types.Author authors = 3;
+    public static final int AUTHORS_FIELD_NUMBER = 3;
+    private java.util.List<boa.types.Toplevel.Author> authors_;
     /**
-     * <code>optional string text = 3;</code>
+     * <code>repeated .boa.types.Author authors = 3;</code>
      */
-    public boolean hasText() {
+    public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
+      return authors_;
+    }
+    /**
+     * <code>repeated .boa.types.Author authors = 3;</code>
+     */
+    public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
+        getAuthorsOrBuilderList() {
+      return authors_;
+    }
+    /**
+     * <code>repeated .boa.types.Author authors = 3;</code>
+     */
+    public int getAuthorsCount() {
+      return authors_.size();
+    }
+    /**
+     * <code>repeated .boa.types.Author authors = 3;</code>
+     */
+    public boa.types.Toplevel.Author getAuthors(int index) {
+      return authors_.get(index);
+    }
+    /**
+     * <code>repeated .boa.types.Author authors = 3;</code>
+     */
+    public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
+        int index) {
+      return authors_.get(index);
+    }
+
+    // optional string year = 4;
+    public static final int YEAR_FIELD_NUMBER = 4;
+    private java.lang.Object year_;
+    /**
+     * <code>optional string year = 4;</code>
+     */
+    public boolean hasYear() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional string text = 3;</code>
+     * <code>optional string year = 4;</code>
      */
-    public java.lang.String getText() {
-      java.lang.Object ref = text_;
+    public java.lang.String getYear() {
+      java.lang.Object ref = year_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -17488,91 +17126,39 @@ public final class Toplevel {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          text_ = s;
+          year_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string text = 3;</code>
+     * <code>optional string year = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getTextBytes() {
-      java.lang.Object ref = text_;
+        getYearBytes() {
+      java.lang.Object ref = year_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        text_ = b;
+        year_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    // repeated .boa.types.Author authors = 4;
-    public static final int AUTHORS_FIELD_NUMBER = 4;
-    private java.util.List<boa.types.Toplevel.Author> authors_;
+    // optional string venue = 5;
+    public static final int VENUE_FIELD_NUMBER = 5;
+    private java.lang.Object venue_;
     /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
+     * <code>optional string venue = 5;</code>
      */
-    public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
-      return authors_;
-    }
-    /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
-     */
-    public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
-        getAuthorsOrBuilderList() {
-      return authors_;
-    }
-    /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
-     */
-    public int getAuthorsCount() {
-      return authors_.size();
-    }
-    /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
-     */
-    public boa.types.Toplevel.Author getAuthors(int index) {
-      return authors_.get(index);
-    }
-    /**
-     * <code>repeated .boa.types.Author authors = 4;</code>
-     */
-    public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
-        int index) {
-      return authors_.get(index);
-    }
-
-    // optional int32 year = 5;
-    public static final int YEAR_FIELD_NUMBER = 5;
-    private int year_;
-    /**
-     * <code>optional int32 year = 5;</code>
-     */
-    public boolean hasYear() {
+    public boolean hasVenue() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int32 year = 5;</code>
-     */
-    public int getYear() {
-      return year_;
-    }
-
-    // optional string venue = 6;
-    public static final int VENUE_FIELD_NUMBER = 6;
-    private java.lang.Object venue_;
-    /**
-     * <code>optional string venue = 6;</code>
-     */
-    public boolean hasVenue() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional string venue = 6;</code>
+     * <code>optional string venue = 5;</code>
      */
     public java.lang.String getVenue() {
       java.lang.Object ref = venue_;
@@ -17589,7 +17175,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>optional string venue = 6;</code>
+     * <code>optional string venue = 5;</code>
      */
     public com.google.protobuf.ByteString
         getVenueBytes() {
@@ -17605,17 +17191,17 @@ public final class Toplevel {
       }
     }
 
-    // optional string volume = 7;
-    public static final int VOLUME_FIELD_NUMBER = 7;
+    // optional string volume = 6;
+    public static final int VOLUME_FIELD_NUMBER = 6;
     private java.lang.Object volume_;
     /**
-     * <code>optional string volume = 7;</code>
+     * <code>optional string volume = 6;</code>
      */
     public boolean hasVolume() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional string volume = 7;</code>
+     * <code>optional string volume = 6;</code>
      */
     public java.lang.String getVolume() {
       java.lang.Object ref = volume_;
@@ -17632,7 +17218,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>optional string volume = 7;</code>
+     * <code>optional string volume = 6;</code>
      */
     public com.google.protobuf.ByteString
         getVolumeBytes() {
@@ -17648,17 +17234,17 @@ public final class Toplevel {
       }
     }
 
-    // optional string issn = 8;
-    public static final int ISSN_FIELD_NUMBER = 8;
+    // optional string issn = 7;
+    public static final int ISSN_FIELD_NUMBER = 7;
     private java.lang.Object issn_;
     /**
-     * <code>optional string issn = 8;</code>
+     * <code>optional string issn = 7;</code>
      */
     public boolean hasIssn() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional string issn = 8;</code>
+     * <code>optional string issn = 7;</code>
      */
     public java.lang.String getIssn() {
       java.lang.Object ref = issn_;
@@ -17675,7 +17261,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>optional string issn = 8;</code>
+     * <code>optional string issn = 7;</code>
      */
     public com.google.protobuf.ByteString
         getIssnBytes() {
@@ -17691,17 +17277,17 @@ public final class Toplevel {
       }
     }
 
-    // optional string pages = 9;
-    public static final int PAGES_FIELD_NUMBER = 9;
+    // optional string pages = 8;
+    public static final int PAGES_FIELD_NUMBER = 8;
     private java.lang.Object pages_;
     /**
-     * <code>optional string pages = 9;</code>
+     * <code>optional string pages = 8;</code>
      */
     public boolean hasPages() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional string pages = 9;</code>
+     * <code>optional string pages = 8;</code>
      */
     public java.lang.String getPages() {
       java.lang.Object ref = pages_;
@@ -17718,7 +17304,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>optional string pages = 9;</code>
+     * <code>optional string pages = 8;</code>
      */
     public com.google.protobuf.ByteString
         getPagesBytes() {
@@ -17728,6 +17314,49 @@ public final class Toplevel {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         pages_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string text = 9;
+    public static final int TEXT_FIELD_NUMBER = 9;
+    private java.lang.Object text_;
+    /**
+     * <code>optional string text = 9;</code>
+     */
+    public boolean hasText() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional string text = 9;</code>
+     */
+    public java.lang.String getText() {
+      java.lang.Object ref = text_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          text_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string text = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTextBytes() {
+      java.lang.Object ref = text_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        text_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -17753,13 +17382,13 @@ public final class Toplevel {
     private void initFields() {
       refId_ = "";
       title_ = "";
-      text_ = "";
       authors_ = java.util.Collections.emptyList();
-      year_ = 0;
+      year_ = "";
       venue_ = "";
       volume_ = "";
       issn_ = "";
       pages_ = "";
+      text_ = "";
       type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
     }
     private byte memoizedIsInitialized = -1;
@@ -17784,26 +17413,26 @@ public final class Toplevel {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getTitleBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getTextBytes());
-      }
       for (int i = 0; i < authors_.size(); i++) {
-        output.writeMessage(4, authors_.get(i));
+        output.writeMessage(3, authors_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(4, getYearBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(5, year_);
+        output.writeBytes(5, getVenueBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(6, getVenueBytes());
+        output.writeBytes(6, getVolumeBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(7, getVolumeBytes());
+        output.writeBytes(7, getIssnBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(8, getIssnBytes());
+        output.writeBytes(8, getPagesBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(9, getPagesBytes());
+        output.writeBytes(9, getTextBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeEnum(10, type_.getNumber());
@@ -17825,33 +17454,33 @@ public final class Toplevel {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getTitleBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getTextBytes());
-      }
       for (int i = 0; i < authors_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, authors_.get(i));
+          .computeMessageSize(3, authors_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getYearBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, year_);
+          .computeBytesSize(5, getVenueBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getVenueBytes());
+          .computeBytesSize(6, getVolumeBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getVolumeBytes());
+          .computeBytesSize(7, getIssnBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getIssnBytes());
+          .computeBytesSize(8, getPagesBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getPagesBytes());
+          .computeBytesSize(9, getTextBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
@@ -17978,23 +17607,23 @@ public final class Toplevel {
         bitField0_ = (bitField0_ & ~0x00000001);
         title_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        text_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
         if (authorsBuilder_ == null) {
           authors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           authorsBuilder_.clear();
         }
-        year_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        year_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         venue_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         volume_ = "";
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         issn_ = "";
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         pages_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        text_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
         type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
         bitField0_ = (bitField0_ & ~0x00000200);
@@ -18034,39 +17663,39 @@ public final class Toplevel {
           to_bitField0_ |= 0x00000002;
         }
         result.title_ = title_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.text_ = text_;
         if (authorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             authors_ = java.util.Collections.unmodifiableList(authors_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.authors_ = authors_;
         } else {
           result.authors_ = authorsBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.year_ = year_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.year_ = year_;
+        result.venue_ = venue_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.venue_ = venue_;
+        result.volume_ = volume_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.volume_ = volume_;
+        result.issn_ = issn_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.issn_ = issn_;
+        result.pages_ = pages_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.pages_ = pages_;
+        result.text_ = text_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000100;
         }
@@ -18097,16 +17726,11 @@ public final class Toplevel {
           title_ = other.title_;
           onChanged();
         }
-        if (other.hasText()) {
-          bitField0_ |= 0x00000004;
-          text_ = other.text_;
-          onChanged();
-        }
         if (authorsBuilder_ == null) {
           if (!other.authors_.isEmpty()) {
             if (authors_.isEmpty()) {
               authors_ = other.authors_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureAuthorsIsMutable();
               authors_.addAll(other.authors_);
@@ -18119,7 +17743,7 @@ public final class Toplevel {
               authorsBuilder_.dispose();
               authorsBuilder_ = null;
               authors_ = other.authors_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               authorsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getAuthorsFieldBuilder() : null;
@@ -18129,26 +17753,33 @@ public final class Toplevel {
           }
         }
         if (other.hasYear()) {
-          setYear(other.getYear());
+          bitField0_ |= 0x00000008;
+          year_ = other.year_;
+          onChanged();
         }
         if (other.hasVenue()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
           venue_ = other.venue_;
           onChanged();
         }
         if (other.hasVolume()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000020;
           volume_ = other.volume_;
           onChanged();
         }
         if (other.hasIssn()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000040;
           issn_ = other.issn_;
           onChanged();
         }
         if (other.hasPages()) {
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000080;
           pages_ = other.pages_;
+          onChanged();
+        }
+        if (other.hasText()) {
+          bitField0_ |= 0x00000100;
+          text_ = other.text_;
           onChanged();
         }
         if (other.hasType()) {
@@ -18333,87 +17964,13 @@ public final class Toplevel {
         return this;
       }
 
-      // optional string text = 3;
-      private java.lang.Object text_ = "";
-      /**
-       * <code>optional string text = 3;</code>
-       */
-      public boolean hasText() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional string text = 3;</code>
-       */
-      public java.lang.String getText() {
-        java.lang.Object ref = text_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          text_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string text = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTextBytes() {
-        java.lang.Object ref = text_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          text_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string text = 3;</code>
-       */
-      public Builder setText(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        text_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string text = 3;</code>
-       */
-      public Builder clearText() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        text_ = getDefaultInstance().getText();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string text = 3;</code>
-       */
-      public Builder setTextBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        text_ = value;
-        onChanged();
-        return this;
-      }
-
-      // repeated .boa.types.Author authors = 4;
+      // repeated .boa.types.Author authors = 3;
       private java.util.List<boa.types.Toplevel.Author> authors_ =
         java.util.Collections.emptyList();
       private void ensureAuthorsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           authors_ = new java.util.ArrayList<boa.types.Toplevel.Author>(authors_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -18421,7 +17978,7 @@ public final class Toplevel {
           boa.types.Toplevel.Author, boa.types.Toplevel.Author.Builder, boa.types.Toplevel.AuthorOrBuilder> authorsBuilder_;
 
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
         if (authorsBuilder_ == null) {
@@ -18431,7 +17988,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public int getAuthorsCount() {
         if (authorsBuilder_ == null) {
@@ -18441,7 +17998,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public boa.types.Toplevel.Author getAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -18451,7 +18008,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -18468,7 +18025,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -18482,7 +18039,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder addAuthors(boa.types.Toplevel.Author value) {
         if (authorsBuilder_ == null) {
@@ -18498,7 +18055,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -18515,7 +18072,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder addAuthors(
           boa.types.Toplevel.Author.Builder builderForValue) {
@@ -18529,7 +18086,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -18543,7 +18100,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder addAllAuthors(
           java.lang.Iterable<? extends boa.types.Toplevel.Author> values) {
@@ -18557,12 +18114,12 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder clearAuthors() {
         if (authorsBuilder_ == null) {
           authors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           authorsBuilder_.clear();
@@ -18570,7 +18127,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public Builder removeAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -18583,14 +18140,14 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public boa.types.Toplevel.Author.Builder getAuthorsBuilder(
           int index) {
         return getAuthorsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
           int index) {
@@ -18600,7 +18157,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
            getAuthorsOrBuilderList() {
@@ -18611,14 +18168,14 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder() {
         return getAuthorsFieldBuilder().addBuilder(
             boa.types.Toplevel.Author.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder(
           int index) {
@@ -18626,7 +18183,7 @@ public final class Toplevel {
             index, boa.types.Toplevel.Author.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Author authors = 4;</code>
+       * <code>repeated .boa.types.Author authors = 3;</code>
        */
       public java.util.List<boa.types.Toplevel.Author.Builder> 
            getAuthorsBuilderList() {
@@ -18639,7 +18196,7 @@ public final class Toplevel {
           authorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               boa.types.Toplevel.Author, boa.types.Toplevel.Author.Builder, boa.types.Toplevel.AuthorOrBuilder>(
                   authors_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           authors_ = null;
@@ -18647,49 +18204,90 @@ public final class Toplevel {
         return authorsBuilder_;
       }
 
-      // optional int32 year = 5;
-      private int year_ ;
+      // optional string year = 4;
+      private java.lang.Object year_ = "";
       /**
-       * <code>optional int32 year = 5;</code>
+       * <code>optional string year = 4;</code>
        */
       public boolean hasYear() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int32 year = 5;</code>
+       * <code>optional string year = 4;</code>
        */
-      public int getYear() {
-        return year_;
+      public java.lang.String getYear() {
+        java.lang.Object ref = year_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          year_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional int32 year = 5;</code>
+       * <code>optional string year = 4;</code>
        */
-      public Builder setYear(int value) {
-        bitField0_ |= 0x00000010;
+      public com.google.protobuf.ByteString
+          getYearBytes() {
+        java.lang.Object ref = year_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          year_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string year = 4;</code>
+       */
+      public Builder setYear(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         year_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 year = 5;</code>
+       * <code>optional string year = 4;</code>
        */
       public Builder clearYear() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        year_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        year_ = getDefaultInstance().getYear();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string year = 4;</code>
+       */
+      public Builder setYearBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        year_ = value;
         onChanged();
         return this;
       }
 
-      // optional string venue = 6;
+      // optional string venue = 5;
       private java.lang.Object venue_ = "";
       /**
-       * <code>optional string venue = 6;</code>
+       * <code>optional string venue = 5;</code>
        */
       public boolean hasVenue() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional string venue = 6;</code>
+       * <code>optional string venue = 5;</code>
        */
       public java.lang.String getVenue() {
         java.lang.Object ref = venue_;
@@ -18703,7 +18301,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string venue = 6;</code>
+       * <code>optional string venue = 5;</code>
        */
       public com.google.protobuf.ByteString
           getVenueBytes() {
@@ -18719,51 +18317,51 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string venue = 6;</code>
+       * <code>optional string venue = 5;</code>
        */
       public Builder setVenue(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000010;
         venue_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string venue = 6;</code>
+       * <code>optional string venue = 5;</code>
        */
       public Builder clearVenue() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         venue_ = getDefaultInstance().getVenue();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string venue = 6;</code>
+       * <code>optional string venue = 5;</code>
        */
       public Builder setVenueBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000010;
         venue_ = value;
         onChanged();
         return this;
       }
 
-      // optional string volume = 7;
+      // optional string volume = 6;
       private java.lang.Object volume_ = "";
       /**
-       * <code>optional string volume = 7;</code>
+       * <code>optional string volume = 6;</code>
        */
       public boolean hasVolume() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional string volume = 7;</code>
+       * <code>optional string volume = 6;</code>
        */
       public java.lang.String getVolume() {
         java.lang.Object ref = volume_;
@@ -18777,7 +18375,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string volume = 7;</code>
+       * <code>optional string volume = 6;</code>
        */
       public com.google.protobuf.ByteString
           getVolumeBytes() {
@@ -18793,51 +18391,51 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string volume = 7;</code>
+       * <code>optional string volume = 6;</code>
        */
       public Builder setVolume(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         volume_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string volume = 7;</code>
+       * <code>optional string volume = 6;</code>
        */
       public Builder clearVolume() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         volume_ = getDefaultInstance().getVolume();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string volume = 7;</code>
+       * <code>optional string volume = 6;</code>
        */
       public Builder setVolumeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         volume_ = value;
         onChanged();
         return this;
       }
 
-      // optional string issn = 8;
+      // optional string issn = 7;
       private java.lang.Object issn_ = "";
       /**
-       * <code>optional string issn = 8;</code>
+       * <code>optional string issn = 7;</code>
        */
       public boolean hasIssn() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional string issn = 8;</code>
+       * <code>optional string issn = 7;</code>
        */
       public java.lang.String getIssn() {
         java.lang.Object ref = issn_;
@@ -18851,7 +18449,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string issn = 8;</code>
+       * <code>optional string issn = 7;</code>
        */
       public com.google.protobuf.ByteString
           getIssnBytes() {
@@ -18867,51 +18465,51 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string issn = 8;</code>
+       * <code>optional string issn = 7;</code>
        */
       public Builder setIssn(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000040;
         issn_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string issn = 8;</code>
+       * <code>optional string issn = 7;</code>
        */
       public Builder clearIssn() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         issn_ = getDefaultInstance().getIssn();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string issn = 8;</code>
+       * <code>optional string issn = 7;</code>
        */
       public Builder setIssnBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000040;
         issn_ = value;
         onChanged();
         return this;
       }
 
-      // optional string pages = 9;
+      // optional string pages = 8;
       private java.lang.Object pages_ = "";
       /**
-       * <code>optional string pages = 9;</code>
+       * <code>optional string pages = 8;</code>
        */
       public boolean hasPages() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional string pages = 9;</code>
+       * <code>optional string pages = 8;</code>
        */
       public java.lang.String getPages() {
         java.lang.Object ref = pages_;
@@ -18925,7 +18523,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string pages = 9;</code>
+       * <code>optional string pages = 8;</code>
        */
       public com.google.protobuf.ByteString
           getPagesBytes() {
@@ -18941,37 +18539,111 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string pages = 9;</code>
+       * <code>optional string pages = 8;</code>
        */
       public Builder setPages(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000080;
         pages_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string pages = 9;</code>
+       * <code>optional string pages = 8;</code>
        */
       public Builder clearPages() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000080);
         pages_ = getDefaultInstance().getPages();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string pages = 9;</code>
+       * <code>optional string pages = 8;</code>
        */
       public Builder setPagesBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000080;
         pages_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string text = 9;
+      private java.lang.Object text_ = "";
+      /**
+       * <code>optional string text = 9;</code>
+       */
+      public boolean hasText() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional string text = 9;</code>
+       */
+      public java.lang.String getText() {
+        java.lang.Object ref = text_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          text_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string text = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTextBytes() {
+        java.lang.Object ref = text_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          text_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string text = 9;</code>
+       */
+      public Builder setText(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        text_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string text = 9;</code>
+       */
+      public Builder clearText() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        text_ = getDefaultInstance().getText();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string text = 9;</code>
+       */
+      public Builder setTextBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        text_ = value;
         onChanged();
         return this;
       }
@@ -19113,31 +18785,30 @@ public final class Toplevel {
       "ence\022)\n\013ref_entries\030\006 \003(\0132\024.boa.types.Re" +
       "ference\"=\n\010Metadata\022\r\n\005title\030\001 \001(\t\022\"\n\007au",
       "thors\030\002 \003(\0132\021.boa.types.Author\"\201\001\n\006Autho" +
-      "r\022\r\n\005first\030\001 \001(\t\022\016\n\006middle\030\002 \001(\t\022\014\n\004last" +
+      "r\022\r\n\005first\030\001 \001(\t\022\016\n\006middle\030\002 \003(\t\022\014\n\004last" +
       "\030\003 \001(\t\022\016\n\006suffix\030\004 \001(\t\022+\n\013affiliation\030\005 " +
-      "\003(\0132\026.boa.types.Affiliation\022\r\n\005email\030\006 \001" +
+      "\001(\0132\026.boa.types.Affiliation\022\r\n\005email\030\006 \001" +
       "(\t\"]\n\013Affiliation\022\022\n\nlaboratory\030\001 \001(\t\022\023\n" +
       "\013institution\030\002 \001(\t\022%\n\010location\030\003 \001(\0132\023.b" +
-      "oa.types.Location\"e\n\007Section\022\r\n\005title\030\001 " +
-      "\001(\t\022\'\n\013subsections\030\002 \003(\0132\022.boa.types.Sec" +
-      "tion\022\"\n\004body\030\003 \003(\0132\024.boa.types.Paragraph" +
-      "\"\367\001\n\tParagraph\022\014\n\004text\030\001 \002(\t\022\'\n\ncite_spa",
-      "ns\030\002 \003(\0132\023.boa.types.Citation\022&\n\tref_spa" +
-      "ns\030\003 \003(\0132\023.boa.types.Citation\0220\n\004kind\030\004 " +
-      "\001(\0162\".boa.types.Paragraph.ParagraphKind\"" +
-      "Y\n\rParagraphKind\022\016\n\nBACKGROUND\020\000\022\013\n\007METH" +
-      "ODS\020\001\022\013\n\007RESULTS\020\002\022\017\n\013CONCLUSIONS\020\003\022\t\n\005O" +
-      "THER\020\004\032\002\020\001\"(\n\010Citation\022\014\n\004text\030\001 \001(\t\022\016\n\006" +
-      "ref_id\030\002 \001(\t\"S\n\010Location\022\020\n\010addrLine\030\001 \001" +
-      "(\t\022\020\n\010postCode\030\002 \001(\t\022\022\n\nsettlement\030\003 \001(\t" +
-      "\022\017\n\007country\030\004 \001(\t\"\215\002\n\tReference\022\016\n\006ref_i" +
-      "d\030\001 \002(\t\022\r\n\005title\030\002 \001(\t\022\014\n\004text\030\003 \001(\t\022\"\n\007",
-      "authors\030\004 \003(\0132\021.boa.types.Author\022\014\n\004year" +
-      "\030\005 \001(\005\022\r\n\005venue\030\006 \001(\t\022\016\n\006volume\030\007 \001(\t\022\014\n" +
-      "\004issn\030\010 \001(\t\022\r\n\005pages\030\t \001(\t\0220\n\004type\030\n \001(\016" +
-      "2\".boa.types.Reference.ReferenceType\"3\n\r" +
-      "ReferenceType\022\n\n\006FIGURE\020\000\022\t\n\005TABLE\020\001\022\007\n\003" +
-      "BIB\020\002\032\002\020\001B\002H\001"
+      "oa.types.Location\"<\n\007Section\022\r\n\005title\030\001 " +
+      "\001(\t\022\"\n\004body\030\002 \003(\0132\024.boa.types.Paragraph\"" +
+      "\367\001\n\tParagraph\022\014\n\004text\030\001 \001(\t\022\'\n\ncite_span" +
+      "s\030\002 \003(\0132\023.boa.types.Citation\022&\n\tref_span",
+      "s\030\003 \003(\0132\023.boa.types.Citation\0220\n\004kind\030\004 \001" +
+      "(\0162\".boa.types.Paragraph.ParagraphKind\"Y" +
+      "\n\rParagraphKind\022\016\n\nBACKGROUND\020\000\022\013\n\007METHO" +
+      "DS\020\001\022\013\n\007RESULTS\020\002\022\017\n\013CONCLUSIONS\020\003\022\t\n\005OT" +
+      "HER\020\004\032\002\020\001\"(\n\010Citation\022\014\n\004text\030\001 \001(\t\022\016\n\006r" +
+      "ef_id\030\002 \001(\t\"c\n\010Location\022\020\n\010addrLine\030\001 \001(" +
+      "\t\022\020\n\010postCode\030\002 \001(\t\022\022\n\nsettlement\030\003 \001(\t\022" +
+      "\017\n\007country\030\004 \001(\t\022\016\n\006region\030\005 \001(\t\"\215\002\n\tRef" +
+      "erence\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title\030\002 \001(\t\022\"\n" +
+      "\007authors\030\003 \003(\0132\021.boa.types.Author\022\014\n\004yea",
+      "r\030\004 \001(\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volume\030\006 \001(\t\022\014" +
+      "\n\004issn\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004text\030\t \001(" +
+      "\t\0220\n\004type\030\n \001(\0162\".boa.types.Reference.Re" +
+      "ferenceType\"3\n\rReferenceType\022\n\n\006FIGURE\020\000" +
+      "\022\t\n\005TABLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -19179,7 +18850,7 @@ public final class Toplevel {
           internal_static_boa_types_Section_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Section_descriptor,
-              new java.lang.String[] { "Title", "Subsections", "Body", });
+              new java.lang.String[] { "Title", "Body", });
           internal_static_boa_types_Paragraph_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_boa_types_Paragraph_fieldAccessorTable = new
@@ -19197,13 +18868,13 @@ public final class Toplevel {
           internal_static_boa_types_Location_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Location_descriptor,
-              new java.lang.String[] { "AddrLine", "PostCode", "Settlement", "Country", });
+              new java.lang.String[] { "AddrLine", "PostCode", "Settlement", "Country", "Region", });
           internal_static_boa_types_Reference_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_boa_types_Reference_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Reference_descriptor,
-              new java.lang.String[] { "RefId", "Title", "Text", "Authors", "Year", "Venue", "Volume", "Issn", "Pages", "Type", });
+              new java.lang.String[] { "RefId", "Title", "Authors", "Year", "Venue", "Volume", "Issn", "Pages", "Text", "Type", });
           return null;
         }
       };
