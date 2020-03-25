@@ -4,6 +4,5 @@ notifications:
   email:
     recipients:
       - hridesh@iastate.edu
-      - rdyer@bgsu.edu
     on_success: change
     on_failure: always
