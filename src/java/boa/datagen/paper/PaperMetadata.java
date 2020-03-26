@@ -26,9 +26,9 @@ public class PaperMetadata {
 		HashMap<String, String> map = new HashMap<>();
 		System.out.println(map.get(null));
 		
-		String input = "2008 Nov 25";
+		String input = "1998 Jan";
 		// Format of the date defined in the input String
-		DateFormat df = new SimpleDateFormat("yyyy MMM dd");
+		DateFormat df = new SimpleDateFormat("yyyy MMM");
 		DateFormat out = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = null;
 		long l = -1;

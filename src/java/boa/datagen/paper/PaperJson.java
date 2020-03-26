@@ -91,13 +91,30 @@ public class PaperJson {
 	
 	private static long getMicroseconds(String input) {
 		long time = -1;
-		DateFormat df = new SimpleDateFormat("yyyy MMM dd");
+		if (input.equals(""))
+			return time;
+		DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat df2 = new SimpleDateFormat("yyyy MMM dd");
+		DateFormat df3 = new SimpleDateFormat("yyyy MMM");
+		DateFormat df4 = new SimpleDateFormat("yyyy");
+		DateFormat df = isValid(df1, input) ? df1 : df2;
+		df = isValid(df3, input) ? df3 : df;
+		df = isValid(df4, input) ? df4 : df;
 		try {
 			time = df.parse(input).getTime() * 1000;
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return time;
+	}
+	
+	private static boolean isValid(DateFormat df, String input) {
+		try {
+			df.parse(input);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
 	}
 
 	private static Author getAuthor(JsonObject jo) {
