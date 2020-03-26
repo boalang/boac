@@ -80,8 +80,8 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 		updateStatus(diag, context.getConfiguration().getInt("boa.hadoop.jobid", 0));
 	}
 
-	private final static String url = "jdbc:mysql://head:3306/drupal";
-	private final static String user = "drupal";
+	private final static String url = "jdbc:mysql://head:3306/boac";
+	private final static String user = "boac";
 	private final static String password = "";
 
 	private void updateStatus(final String error, final int jobId) {
