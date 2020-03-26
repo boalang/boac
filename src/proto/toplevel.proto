@@ -104,7 +104,13 @@ message Paper {
 message Metadata {
 
 	optional string title = 1;
-	repeated Author authors = 2;
+	optional string doi_url = 2;
+	optional string source = 3;
+	optional string pubmed_id = 4;
+	optional uint64 publish_time = 5;
+	optional string journal = 6;
+	repeated Author authors = 7;
+	optional string license_type = 8;
 
 }
 

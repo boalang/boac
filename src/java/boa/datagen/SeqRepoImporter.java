@@ -18,10 +18,15 @@
 package boa.datagen;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -34,7 +39,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import boa.datagen.paper.PaperParser;
+import boa.datagen.paper.PaperJson;
 import boa.datagen.util.FileIO;
 import boa.datagen.util.Properties;
 import boa.types.Toplevel.Paper;
@@ -49,6 +54,7 @@ public class SeqRepoImporter {
 	private static Configuration conf = null;
 	private static FileSystem fileSystem = null;
 	private static boolean done = false;
+	private static HashMap<String, CSVRecord> metaDataMap = null;
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -59,6 +65,9 @@ public class SeqRepoImporter {
 		System.out.println(base);
 		System.out.println(poolSize);
 		System.out.println(debug);
+
+		String metaPath = jsonPath + "/metadata.csv";
+		metaDataMap = getMetadataMap(metaPath);
 
 		// assign each thread with a worker
 		ImportTask[] workers = new ImportTask[poolSize];
@@ -112,6 +121,22 @@ public class SeqRepoImporter {
 		for (Thread thread : threads)
 			while (thread.isAlive())
 				Thread.sleep(1000);
+	}
+
+	synchronized static CSVRecord removeMetadata(String sha) {
+		return metaDataMap.remove(sha);
+	}
+
+	synchronized static HashMap<String, CSVRecord> getMetadataMap(String path) throws IOException {
+		HashMap<String, CSVRecord> map = new HashMap<String, CSVRecord>();
+		Reader in = new FileReader(path);
+		Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
+		for (CSVRecord record : records) {
+			String sha = record.get("sha");
+			if (!map.containsKey(sha))
+				map.put(sha, record);
+		}
+		return map;
 	}
 
 	synchronized static boolean getDone() {
@@ -203,26 +228,35 @@ public class SeqRepoImporter {
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
-						// update protocbuf
-						Paper paper = PaperParser.getPaper(jo);
 
-						if (debug)
-							System.err.println(Thread.currentThread().getName() + " id: "
-									+ Thread.currentThread().getId() + " is putting paper " + id + " in sequence file");
+						// check duplication
+						String id = null;
+						if (jo.has("paper_id"))
+							id = jo.get("paper_id").getAsString();
+						CSVRecord metadataRecord = removeMetadata(id);
+						if (metadataRecord != null) {
+							// update protocbuf
+							Paper paper = PaperJson.getPaper(jo, metadataRecord);
+							
+							if (debug)
+								System.err.println(
+										Thread.currentThread().getName() + " id: " + Thread.currentThread().getId()
+												+ " is putting paper " + id + " in sequence file");
 
-						// write to a sequence file
-						try {
-							paperWriter.append(new Text(paper.getId()), new BytesWritable(paper.toByteArray()));
-							counter++;
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+							// write to a sequence file
+							try {
+								paperWriter.append(new Text(paper.getId()), new BytesWritable(paper.toByteArray()));
+								counter++;
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
 
-						// write to a new sequence file if the previous one has written 1000 items
-						if (counter >= Integer.parseInt(DefaultProperties.MAX_PROJECTS)) {
-							closeWriters();
-							openWriters();
-							counter = 0;
+							// write to a new sequence file if the previous one has written 1000 items
+							if (counter >= Integer.parseInt(DefaultProperties.MAX_PROJECTS)) {
+								closeWriters();
+								openWriters();
+								counter = 0;
+							}
 						}
 					}
 				} catch (Throwable e) {

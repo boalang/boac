@@ -9682,30 +9682,115 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getTitleBytes();
 
-    // repeated .boa.types.Author authors = 2;
+    // optional string doi_url = 2;
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>optional string doi_url = 2;</code>
+     */
+    boolean hasDoiUrl();
+    /**
+     * <code>optional string doi_url = 2;</code>
+     */
+    java.lang.String getDoiUrl();
+    /**
+     * <code>optional string doi_url = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDoiUrlBytes();
+
+    // optional string source = 3;
+    /**
+     * <code>optional string source = 3;</code>
+     */
+    boolean hasSource();
+    /**
+     * <code>optional string source = 3;</code>
+     */
+    java.lang.String getSource();
+    /**
+     * <code>optional string source = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSourceBytes();
+
+    // optional string pubmed_id = 4;
+    /**
+     * <code>optional string pubmed_id = 4;</code>
+     */
+    boolean hasPubmedId();
+    /**
+     * <code>optional string pubmed_id = 4;</code>
+     */
+    java.lang.String getPubmedId();
+    /**
+     * <code>optional string pubmed_id = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getPubmedIdBytes();
+
+    // optional uint64 publish_time = 5;
+    /**
+     * <code>optional uint64 publish_time = 5;</code>
+     */
+    boolean hasPublishTime();
+    /**
+     * <code>optional uint64 publish_time = 5;</code>
+     */
+    long getPublishTime();
+
+    // optional string journal = 6;
+    /**
+     * <code>optional string journal = 6;</code>
+     */
+    boolean hasJournal();
+    /**
+     * <code>optional string journal = 6;</code>
+     */
+    java.lang.String getJournal();
+    /**
+     * <code>optional string journal = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getJournalBytes();
+
+    // repeated .boa.types.Author authors = 7;
+    /**
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     java.util.List<boa.types.Toplevel.Author> 
         getAuthorsList();
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     boa.types.Toplevel.Author getAuthors(int index);
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     int getAuthorsCount();
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList();
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index);
+
+    // optional string license_type = 8;
+    /**
+     * <code>optional string license_type = 8;</code>
+     */
+    boolean hasLicenseType();
+    /**
+     * <code>optional string license_type = 8;</code>
+     */
+    java.lang.String getLicenseType();
+    /**
+     * <code>optional string license_type = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getLicenseTypeBytes();
   }
   /**
    * Protobuf type {@code boa.types.Metadata}
@@ -9764,11 +9849,41 @@ public final class Toplevel {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              bitField0_ |= 0x00000002;
+              doiUrl_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              source_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              pubmedId_ = input.readBytes();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              publishTime_ = input.readUInt64();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000020;
+              journal_ = input.readBytes();
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 authors_ = new java.util.ArrayList<boa.types.Toplevel.Author>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000040;
               }
               authors_.add(input.readMessage(boa.types.Toplevel.Author.PARSER, extensionRegistry));
+              break;
+            }
+            case 66: {
+              bitField0_ |= 0x00000040;
+              licenseType_ = input.readBytes();
               break;
             }
           }
@@ -9779,7 +9894,7 @@ public final class Toplevel {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           authors_ = java.util.Collections.unmodifiableList(authors_);
         }
         this.unknownFields = unknownFields.build();
@@ -9857,45 +9972,282 @@ public final class Toplevel {
       }
     }
 
-    // repeated .boa.types.Author authors = 2;
-    public static final int AUTHORS_FIELD_NUMBER = 2;
+    // optional string doi_url = 2;
+    public static final int DOI_URL_FIELD_NUMBER = 2;
+    private java.lang.Object doiUrl_;
+    /**
+     * <code>optional string doi_url = 2;</code>
+     */
+    public boolean hasDoiUrl() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string doi_url = 2;</code>
+     */
+    public java.lang.String getDoiUrl() {
+      java.lang.Object ref = doiUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          doiUrl_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string doi_url = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDoiUrlBytes() {
+      java.lang.Object ref = doiUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        doiUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string source = 3;
+    public static final int SOURCE_FIELD_NUMBER = 3;
+    private java.lang.Object source_;
+    /**
+     * <code>optional string source = 3;</code>
+     */
+    public boolean hasSource() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string source = 3;</code>
+     */
+    public java.lang.String getSource() {
+      java.lang.Object ref = source_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          source_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string source = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSourceBytes() {
+      java.lang.Object ref = source_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        source_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string pubmed_id = 4;
+    public static final int PUBMED_ID_FIELD_NUMBER = 4;
+    private java.lang.Object pubmedId_;
+    /**
+     * <code>optional string pubmed_id = 4;</code>
+     */
+    public boolean hasPubmedId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string pubmed_id = 4;</code>
+     */
+    public java.lang.String getPubmedId() {
+      java.lang.Object ref = pubmedId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pubmedId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string pubmed_id = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPubmedIdBytes() {
+      java.lang.Object ref = pubmedId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pubmedId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional uint64 publish_time = 5;
+    public static final int PUBLISH_TIME_FIELD_NUMBER = 5;
+    private long publishTime_;
+    /**
+     * <code>optional uint64 publish_time = 5;</code>
+     */
+    public boolean hasPublishTime() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional uint64 publish_time = 5;</code>
+     */
+    public long getPublishTime() {
+      return publishTime_;
+    }
+
+    // optional string journal = 6;
+    public static final int JOURNAL_FIELD_NUMBER = 6;
+    private java.lang.Object journal_;
+    /**
+     * <code>optional string journal = 6;</code>
+     */
+    public boolean hasJournal() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional string journal = 6;</code>
+     */
+    public java.lang.String getJournal() {
+      java.lang.Object ref = journal_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          journal_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string journal = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getJournalBytes() {
+      java.lang.Object ref = journal_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        journal_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // repeated .boa.types.Author authors = 7;
+    public static final int AUTHORS_FIELD_NUMBER = 7;
     private java.util.List<boa.types.Toplevel.Author> authors_;
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
       return authors_;
     }
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList() {
       return authors_;
     }
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     public int getAuthorsCount() {
       return authors_.size();
     }
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     public boa.types.Toplevel.Author getAuthors(int index) {
       return authors_.get(index);
     }
     /**
-     * <code>repeated .boa.types.Author authors = 2;</code>
+     * <code>repeated .boa.types.Author authors = 7;</code>
      */
     public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index) {
       return authors_.get(index);
     }
 
+    // optional string license_type = 8;
+    public static final int LICENSE_TYPE_FIELD_NUMBER = 8;
+    private java.lang.Object licenseType_;
+    /**
+     * <code>optional string license_type = 8;</code>
+     */
+    public boolean hasLicenseType() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string license_type = 8;</code>
+     */
+    public java.lang.String getLicenseType() {
+      java.lang.Object ref = licenseType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          licenseType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string license_type = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLicenseTypeBytes() {
+      java.lang.Object ref = licenseType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        licenseType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       title_ = "";
+      doiUrl_ = "";
+      source_ = "";
+      pubmedId_ = "";
+      publishTime_ = 0L;
+      journal_ = "";
       authors_ = java.util.Collections.emptyList();
+      licenseType_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -9912,8 +10264,26 @@ public final class Toplevel {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getTitleBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getDoiUrlBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getSourceBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getPubmedIdBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeUInt64(5, publishTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getJournalBytes());
+      }
       for (int i = 0; i < authors_.size(); i++) {
-        output.writeMessage(2, authors_.get(i));
+        output.writeMessage(7, authors_.get(i));
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(8, getLicenseTypeBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -9928,9 +10298,33 @@ public final class Toplevel {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getTitleBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getDoiUrlBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getSourceBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getPubmedIdBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, publishTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getJournalBytes());
+      }
       for (int i = 0; i < authors_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, authors_.get(i));
+          .computeMessageSize(7, authors_.get(i));
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(8, getLicenseTypeBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10051,12 +10445,24 @@ public final class Toplevel {
         super.clear();
         title_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        doiUrl_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        source_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        pubmedId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        publishTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        journal_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (authorsBuilder_ == null) {
           authors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           authorsBuilder_.clear();
         }
+        licenseType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -10089,15 +10495,39 @@ public final class Toplevel {
           to_bitField0_ |= 0x00000001;
         }
         result.title_ = title_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.doiUrl_ = doiUrl_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.source_ = source_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.pubmedId_ = pubmedId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.publishTime_ = publishTime_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.journal_ = journal_;
         if (authorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
             authors_ = java.util.Collections.unmodifiableList(authors_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.authors_ = authors_;
         } else {
           result.authors_ = authorsBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.licenseType_ = licenseType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10119,11 +10549,34 @@ public final class Toplevel {
           title_ = other.title_;
           onChanged();
         }
+        if (other.hasDoiUrl()) {
+          bitField0_ |= 0x00000002;
+          doiUrl_ = other.doiUrl_;
+          onChanged();
+        }
+        if (other.hasSource()) {
+          bitField0_ |= 0x00000004;
+          source_ = other.source_;
+          onChanged();
+        }
+        if (other.hasPubmedId()) {
+          bitField0_ |= 0x00000008;
+          pubmedId_ = other.pubmedId_;
+          onChanged();
+        }
+        if (other.hasPublishTime()) {
+          setPublishTime(other.getPublishTime());
+        }
+        if (other.hasJournal()) {
+          bitField0_ |= 0x00000020;
+          journal_ = other.journal_;
+          onChanged();
+        }
         if (authorsBuilder_ == null) {
           if (!other.authors_.isEmpty()) {
             if (authors_.isEmpty()) {
               authors_ = other.authors_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureAuthorsIsMutable();
               authors_.addAll(other.authors_);
@@ -10136,7 +10589,7 @@ public final class Toplevel {
               authorsBuilder_.dispose();
               authorsBuilder_ = null;
               authors_ = other.authors_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000040);
               authorsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getAuthorsFieldBuilder() : null;
@@ -10144,6 +10597,11 @@ public final class Toplevel {
               authorsBuilder_.addAllMessages(other.authors_);
             }
           }
+        }
+        if (other.hasLicenseType()) {
+          bitField0_ |= 0x00000080;
+          licenseType_ = other.licenseType_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -10246,13 +10704,342 @@ public final class Toplevel {
         return this;
       }
 
-      // repeated .boa.types.Author authors = 2;
+      // optional string doi_url = 2;
+      private java.lang.Object doiUrl_ = "";
+      /**
+       * <code>optional string doi_url = 2;</code>
+       */
+      public boolean hasDoiUrl() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string doi_url = 2;</code>
+       */
+      public java.lang.String getDoiUrl() {
+        java.lang.Object ref = doiUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          doiUrl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string doi_url = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDoiUrlBytes() {
+        java.lang.Object ref = doiUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          doiUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string doi_url = 2;</code>
+       */
+      public Builder setDoiUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        doiUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string doi_url = 2;</code>
+       */
+      public Builder clearDoiUrl() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        doiUrl_ = getDefaultInstance().getDoiUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string doi_url = 2;</code>
+       */
+      public Builder setDoiUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        doiUrl_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string source = 3;
+      private java.lang.Object source_ = "";
+      /**
+       * <code>optional string source = 3;</code>
+       */
+      public boolean hasSource() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string source = 3;</code>
+       */
+      public java.lang.String getSource() {
+        java.lang.Object ref = source_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          source_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string source = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSourceBytes() {
+        java.lang.Object ref = source_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          source_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string source = 3;</code>
+       */
+      public Builder setSource(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        source_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string source = 3;</code>
+       */
+      public Builder clearSource() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        source_ = getDefaultInstance().getSource();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string source = 3;</code>
+       */
+      public Builder setSourceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        source_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string pubmed_id = 4;
+      private java.lang.Object pubmedId_ = "";
+      /**
+       * <code>optional string pubmed_id = 4;</code>
+       */
+      public boolean hasPubmedId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string pubmed_id = 4;</code>
+       */
+      public java.lang.String getPubmedId() {
+        java.lang.Object ref = pubmedId_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          pubmedId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string pubmed_id = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPubmedIdBytes() {
+        java.lang.Object ref = pubmedId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pubmedId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string pubmed_id = 4;</code>
+       */
+      public Builder setPubmedId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        pubmedId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string pubmed_id = 4;</code>
+       */
+      public Builder clearPubmedId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        pubmedId_ = getDefaultInstance().getPubmedId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string pubmed_id = 4;</code>
+       */
+      public Builder setPubmedIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        pubmedId_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional uint64 publish_time = 5;
+      private long publishTime_ ;
+      /**
+       * <code>optional uint64 publish_time = 5;</code>
+       */
+      public boolean hasPublishTime() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional uint64 publish_time = 5;</code>
+       */
+      public long getPublishTime() {
+        return publishTime_;
+      }
+      /**
+       * <code>optional uint64 publish_time = 5;</code>
+       */
+      public Builder setPublishTime(long value) {
+        bitField0_ |= 0x00000010;
+        publishTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 publish_time = 5;</code>
+       */
+      public Builder clearPublishTime() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        publishTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional string journal = 6;
+      private java.lang.Object journal_ = "";
+      /**
+       * <code>optional string journal = 6;</code>
+       */
+      public boolean hasJournal() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional string journal = 6;</code>
+       */
+      public java.lang.String getJournal() {
+        java.lang.Object ref = journal_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          journal_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string journal = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getJournalBytes() {
+        java.lang.Object ref = journal_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          journal_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string journal = 6;</code>
+       */
+      public Builder setJournal(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        journal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string journal = 6;</code>
+       */
+      public Builder clearJournal() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        journal_ = getDefaultInstance().getJournal();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string journal = 6;</code>
+       */
+      public Builder setJournalBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        journal_ = value;
+        onChanged();
+        return this;
+      }
+
+      // repeated .boa.types.Author authors = 7;
       private java.util.List<boa.types.Toplevel.Author> authors_ =
         java.util.Collections.emptyList();
       private void ensureAuthorsIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           authors_ = new java.util.ArrayList<boa.types.Toplevel.Author>(authors_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -10260,7 +11047,7 @@ public final class Toplevel {
           boa.types.Toplevel.Author, boa.types.Toplevel.Author.Builder, boa.types.Toplevel.AuthorOrBuilder> authorsBuilder_;
 
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
         if (authorsBuilder_ == null) {
@@ -10270,7 +11057,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public int getAuthorsCount() {
         if (authorsBuilder_ == null) {
@@ -10280,7 +11067,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public boa.types.Toplevel.Author getAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -10290,7 +11077,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -10307,7 +11094,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -10321,7 +11108,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder addAuthors(boa.types.Toplevel.Author value) {
         if (authorsBuilder_ == null) {
@@ -10337,7 +11124,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -10354,7 +11141,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder addAuthors(
           boa.types.Toplevel.Author.Builder builderForValue) {
@@ -10368,7 +11155,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -10382,7 +11169,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder addAllAuthors(
           java.lang.Iterable<? extends boa.types.Toplevel.Author> values) {
@@ -10396,12 +11183,12 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder clearAuthors() {
         if (authorsBuilder_ == null) {
           authors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           authorsBuilder_.clear();
@@ -10409,7 +11196,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public Builder removeAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -10422,14 +11209,14 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public boa.types.Toplevel.Author.Builder getAuthorsBuilder(
           int index) {
         return getAuthorsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
           int index) {
@@ -10439,7 +11226,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
            getAuthorsOrBuilderList() {
@@ -10450,14 +11237,14 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder() {
         return getAuthorsFieldBuilder().addBuilder(
             boa.types.Toplevel.Author.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder(
           int index) {
@@ -10465,7 +11252,7 @@ public final class Toplevel {
             index, boa.types.Toplevel.Author.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Author authors = 2;</code>
+       * <code>repeated .boa.types.Author authors = 7;</code>
        */
       public java.util.List<boa.types.Toplevel.Author.Builder> 
            getAuthorsBuilderList() {
@@ -10478,12 +11265,86 @@ public final class Toplevel {
           authorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               boa.types.Toplevel.Author, boa.types.Toplevel.Author.Builder, boa.types.Toplevel.AuthorOrBuilder>(
                   authors_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
                   isClean());
           authors_ = null;
         }
         return authorsBuilder_;
+      }
+
+      // optional string license_type = 8;
+      private java.lang.Object licenseType_ = "";
+      /**
+       * <code>optional string license_type = 8;</code>
+       */
+      public boolean hasLicenseType() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional string license_type = 8;</code>
+       */
+      public java.lang.String getLicenseType() {
+        java.lang.Object ref = licenseType_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          licenseType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string license_type = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLicenseTypeBytes() {
+        java.lang.Object ref = licenseType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          licenseType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string license_type = 8;</code>
+       */
+      public Builder setLicenseType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        licenseType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string license_type = 8;</code>
+       */
+      public Builder clearLicenseType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        licenseType_ = getDefaultInstance().getLicenseType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string license_type = 8;</code>
+       */
+      public Builder setLicenseTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        licenseType_ = value;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:boa.types.Metadata)
@@ -18783,32 +19644,35 @@ public final class Toplevel {
       "ph\022%\n\tbody_text\030\004 \003(\0132\022.boa.types.Sectio" +
       "n\022)\n\013bib_entries\030\005 \003(\0132\024.boa.types.Refer" +
       "ence\022)\n\013ref_entries\030\006 \003(\0132\024.boa.types.Re" +
-      "ference\"=\n\010Metadata\022\r\n\005title\030\001 \001(\t\022\"\n\007au",
-      "thors\030\002 \003(\0132\021.boa.types.Author\"\201\001\n\006Autho" +
-      "r\022\r\n\005first\030\001 \001(\t\022\016\n\006middle\030\002 \003(\t\022\014\n\004last" +
-      "\030\003 \001(\t\022\016\n\006suffix\030\004 \001(\t\022+\n\013affiliation\030\005 " +
-      "\001(\0132\026.boa.types.Affiliation\022\r\n\005email\030\006 \001" +
-      "(\t\"]\n\013Affiliation\022\022\n\nlaboratory\030\001 \001(\t\022\023\n" +
-      "\013institution\030\002 \001(\t\022%\n\010location\030\003 \001(\0132\023.b" +
-      "oa.types.Location\"<\n\007Section\022\r\n\005title\030\001 " +
-      "\001(\t\022\"\n\004body\030\002 \003(\0132\024.boa.types.Paragraph\"" +
-      "\367\001\n\tParagraph\022\014\n\004text\030\001 \001(\t\022\'\n\ncite_span" +
-      "s\030\002 \003(\0132\023.boa.types.Citation\022&\n\tref_span",
-      "s\030\003 \003(\0132\023.boa.types.Citation\0220\n\004kind\030\004 \001" +
-      "(\0162\".boa.types.Paragraph.ParagraphKind\"Y" +
-      "\n\rParagraphKind\022\016\n\nBACKGROUND\020\000\022\013\n\007METHO" +
-      "DS\020\001\022\013\n\007RESULTS\020\002\022\017\n\013CONCLUSIONS\020\003\022\t\n\005OT" +
-      "HER\020\004\032\002\020\001\"(\n\010Citation\022\014\n\004text\030\001 \001(\t\022\016\n\006r" +
-      "ef_id\030\002 \001(\t\"c\n\010Location\022\020\n\010addrLine\030\001 \001(" +
-      "\t\022\020\n\010postCode\030\002 \001(\t\022\022\n\nsettlement\030\003 \001(\t\022" +
-      "\017\n\007country\030\004 \001(\t\022\016\n\006region\030\005 \001(\t\"\215\002\n\tRef" +
-      "erence\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title\030\002 \001(\t\022\"\n" +
-      "\007authors\030\003 \003(\0132\021.boa.types.Author\022\014\n\004yea",
-      "r\030\004 \001(\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volume\030\006 \001(\t\022\014" +
-      "\n\004issn\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004text\030\t \001(" +
-      "\t\0220\n\004type\030\n \001(\0162\".boa.types.Reference.Re" +
-      "ferenceType\"3\n\rReferenceType\022\n\n\006FIGURE\020\000" +
-      "\022\t\n\005TABLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
+      "ference\"\256\001\n\010Metadata\022\r\n\005title\030\001 \001(\t\022\017\n\007d",
+      "oi_url\030\002 \001(\t\022\016\n\006source\030\003 \001(\t\022\021\n\tpubmed_i" +
+      "d\030\004 \001(\t\022\024\n\014publish_time\030\005 \001(\004\022\017\n\007journal" +
+      "\030\006 \001(\t\022\"\n\007authors\030\007 \003(\0132\021.boa.types.Auth" +
+      "or\022\024\n\014license_type\030\010 \001(\t\"\201\001\n\006Author\022\r\n\005f" +
+      "irst\030\001 \001(\t\022\016\n\006middle\030\002 \003(\t\022\014\n\004last\030\003 \001(\t" +
+      "\022\016\n\006suffix\030\004 \001(\t\022+\n\013affiliation\030\005 \001(\0132\026." +
+      "boa.types.Affiliation\022\r\n\005email\030\006 \001(\t\"]\n\013" +
+      "Affiliation\022\022\n\nlaboratory\030\001 \001(\t\022\023\n\013insti" +
+      "tution\030\002 \001(\t\022%\n\010location\030\003 \001(\0132\023.boa.typ" +
+      "es.Location\"<\n\007Section\022\r\n\005title\030\001 \001(\t\022\"\n",
+      "\004body\030\002 \003(\0132\024.boa.types.Paragraph\"\367\001\n\tPa" +
+      "ragraph\022\014\n\004text\030\001 \001(\t\022\'\n\ncite_spans\030\002 \003(" +
+      "\0132\023.boa.types.Citation\022&\n\tref_spans\030\003 \003(" +
+      "\0132\023.boa.types.Citation\0220\n\004kind\030\004 \001(\0162\".b" +
+      "oa.types.Paragraph.ParagraphKind\"Y\n\rPara" +
+      "graphKind\022\016\n\nBACKGROUND\020\000\022\013\n\007METHODS\020\001\022\013" +
+      "\n\007RESULTS\020\002\022\017\n\013CONCLUSIONS\020\003\022\t\n\005OTHER\020\004\032" +
+      "\002\020\001\"(\n\010Citation\022\014\n\004text\030\001 \001(\t\022\016\n\006ref_id\030" +
+      "\002 \001(\t\"c\n\010Location\022\020\n\010addrLine\030\001 \001(\t\022\020\n\010p" +
+      "ostCode\030\002 \001(\t\022\022\n\nsettlement\030\003 \001(\t\022\017\n\007cou",
+      "ntry\030\004 \001(\t\022\016\n\006region\030\005 \001(\t\"\215\002\n\tReference" +
+      "\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title\030\002 \001(\t\022\"\n\007autho" +
+      "rs\030\003 \003(\0132\021.boa.types.Author\022\014\n\004year\030\004 \001(" +
+      "\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volume\030\006 \001(\t\022\014\n\004issn" +
+      "\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004text\030\t \001(\t\0220\n\004t" +
+      "ype\030\n \001(\0162\".boa.types.Reference.Referenc" +
+      "eType\"3\n\rReferenceType\022\n\n\006FIGURE\020\000\022\t\n\005TA" +
+      "BLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -18832,7 +19696,7 @@ public final class Toplevel {
           internal_static_boa_types_Metadata_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Metadata_descriptor,
-              new java.lang.String[] { "Title", "Authors", });
+              new java.lang.String[] { "Title", "DoiUrl", "Source", "PubmedId", "PublishTime", "Journal", "Authors", "LicenseType", });
           internal_static_boa_types_Author_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_boa_types_Author_fieldAccessorTable = new

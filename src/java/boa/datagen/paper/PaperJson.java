@@ -1,9 +1,15 @@
 package boa.datagen.paper;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
+
+import org.apache.commons.csv.CSVRecord;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -24,7 +30,7 @@ import boa.types.Toplevel.Section;
 import boa.types.Toplevel.Paragraph.ParagraphKind;
 import boa.types.Toplevel.Reference.ReferenceType;
 
-public class PaperParser {
+public class PaperJson {
 
 	public static void main(String[] args) {
 //		String base = "/Users/yijiahuang/git/BoaData/PaperInputJson/covid-19/dataset/biorxiv_medrxiv/biorxiv_medrxiv/";
@@ -43,12 +49,12 @@ public class PaperParser {
 //		System.out.println(paper);
 	}
 
-	public static Paper getPaper(JsonObject jo) {
+	public static Paper getPaper(JsonObject jo, CSVRecord metadataRecord) {
 		Paper.Builder pb = Paper.newBuilder();
 		if (jo.has("paper_id"))
 			pb.setId(getString(jo, "paper_id"));
 		if (jo.has("metadata"))
-			pb.setMetadata(getMetadata(jo.get("metadata").getAsJsonObject()));
+			pb.setMetadata(getMetadata(jo.get("metadata").getAsJsonObject(), metadataRecord));
 		if (jo.has("abstract"))
 			for (JsonElement je : jo.get("abstract").getAsJsonArray())
 				pb.addAbstract(getParagraph(je.getAsJsonObject()));
@@ -64,14 +70,34 @@ public class PaperParser {
 		return pb.build();
 	}
 
-	private static Metadata getMetadata(JsonObject jo) {
+	private static Metadata getMetadata(JsonObject jo, CSVRecord metadataRecord) {
 		Metadata.Builder mb = Metadata.newBuilder();
 		if (jo.has("title"))
 			mb.setTitle(getString(jo, "title"));
+		String metaTitle = metadataRecord.get("title");
+		if (mb.getTitle().equals("") || !mb.getTitle().equals(metaTitle))
+			mb.setTitle(metaTitle);
+		mb.setDoiUrl("https://doi.org/" + metadataRecord.get("doi"));
+		mb.setSource(metadataRecord.get("source_x"));
+		mb.setPubmedId(metadataRecord.get("pubmed_id"));
+		mb.setPublishTime(getMicroseconds(metadataRecord.get("publish_time")));
+		mb.setJournal(metadataRecord.get("journal"));
+		mb.setLicenseType(metadataRecord.get("full_text_file"));
 		if (jo.has("authors"))
 			for (JsonElement je : jo.get("authors").getAsJsonArray())
 				mb.addAuthors(getAuthor(je.getAsJsonObject()));
 		return mb.build();
+	}
+	
+	private static long getMicroseconds(String input) {
+		long time = -1;
+		DateFormat df = new SimpleDateFormat("yyyy MMM dd");
+		try {
+			time = df.parse(input).getTime() * 1000;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return time;
 	}
 
 	private static Author getAuthor(JsonObject jo) {
