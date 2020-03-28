@@ -96,18 +96,18 @@ message Paper {
 	required string id = 1;
 	/** The metatdata of the paper */
 	optional Metadata metadata = 2;
-	/** A list of paragraphs in the abstract of the paper */
+	/** A list of paragraphs in the abstract */
 	repeated Paragraph abstract = 3;
-	/** A list of body sections of the paper */
+	/** A list of sections in the body text */
 	repeated Section body_text = 4;
-	/** A list of paper refereneces of the paper */
+	/** A list of paper refereneces in the paper */
 	repeated Reference bib_entries = 5;
-	/** A list of figure/table references of the paper */
+	/** A list of figure/table references in the paper */
 	repeated Reference ref_entries = 6;
 
 }
 
-
+/** A metadata of a research paper */
 message Metadata {
 	/** The title of the paper */
 	optional string title = 1;
@@ -117,7 +117,7 @@ message Metadata {
 	optional string source = 3;
 	/** The PubMed identifier of the paper  */
 	optional string pubmed_id = 4;
-	/** The time the paper was published */
+	/** The time when the paper was published */
 	optional uint64 publish_time = 5;
 	/** The journal where the paper was published */
 	optional string journal = 6;
@@ -128,6 +128,7 @@ message Metadata {
 
 }
 
+/** An author of a research paper */
 message Author {
 	
 	/** The first name of the author */
@@ -145,6 +146,7 @@ message Author {
 
 }
 
+/** A Affiliation of an author */
 message Affiliation {
 	
 	/** Laboratory name */
@@ -156,6 +158,7 @@ message Affiliation {
 
 }
 
+/** A section inside a body text */
 message Section {
 
 	/** The title of the section */
@@ -165,6 +168,7 @@ message Section {
 
 }
 
+/** A paragraph inside a research paper */
 message Paragraph {
 
 	/** @exclude Describes the kind of paragraphs */
@@ -172,11 +176,11 @@ message Paragraph {
 		option allow_alias = true;
 		/** @exclude For background paragraphs */
 		BACKGROUND = 0;
-		/** @exclude For methods paragraphs */
+		/** @exclude For method paragraphs */
 		METHODS = 1;
-		/** @exclude For results paragraphs */
+		/** @exclude For result paragraphs */
 		RESULTS = 2;
-		/** @exclude For conclusions paragraphs */
+		/** @exclude For conclusion paragraphs */
 		CONCLUSIONS = 3;
 		/** @exclude Any other paragraphs */
 		OTHER = 4;
@@ -193,15 +197,17 @@ message Paragraph {
 
 }
 
+/** A citation inside a paragraph */
 message Citation {
 
-	/** The characters repesentation of the citation, e.g. citation "[7]" */
+	/** The character repesentation of the citation, e.g. citation "[7]" */
 	optional string text = 1;
 	/** The id of the reference the citation, e.g. linked to Reference BIBREF0 */
 	optional string ref_id = 2;
 
 }
 
+/** A location of an affiliation */
 message Location {
 	
 	/** The address of the location */
@@ -217,6 +223,7 @@ message Location {
 
 }
 
+/** A referece of a reaserch paper */
 message Reference {
 
 	/** Describes the kind of Reference */
