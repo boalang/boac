@@ -89,110 +89,166 @@ message Project {
 	
 }
 
+/** A research paper */
 message Paper {
 
+	/** The 40-character sha1 of the paper */
 	required string id = 1;
+	/** The metatdata of the paper */
 	optional Metadata metadata = 2;
+	/** A list of paragraphs in the abstract of the paper */
 	repeated Paragraph abstract = 3;
+	/** A list of body sections of the paper */
 	repeated Section body_text = 4;
+	/** A list of paper refereneces of the paper */
 	repeated Reference bib_entries = 5;
+	/** A list of figure/table references of the paper */
 	repeated Reference ref_entries = 6;
 
 }
 
 
 message Metadata {
-
+	/** The title of the paper */
 	optional string title = 1;
+	/** The DOI (Digital Object Identifier) URL of the paper */
 	optional string doi_url = 2;
+	/** The source of the paper */
 	optional string source = 3;
+	/** The PubMed identifier of the paper  */
 	optional string pubmed_id = 4;
+	/** The time the paper was published */
 	optional uint64 publish_time = 5;
+	/** The journal where the paper was published */
 	optional string journal = 6;
+	/** A list of authors of the paper */
 	repeated Author authors = 7;
+	/** The license type of the paper */
 	optional string license_type = 8;
 
 }
 
 message Author {
-
+	
+	/** The first name of the author */
 	optional string first = 1;
+	/** The middle name of the author */
 	repeated string middle = 2;
+	/** The last name of the author */
 	optional string last = 3;
+	/** The suffix of the author */
 	optional string suffix = 4;
+	/** The affiliation of the author */
 	optional Affiliation affiliation = 5;
+	/** The email of the author */
 	optional string email = 6;
 
 }
 
 message Affiliation {
-
+	
+	/** Laboratory name */
 	optional string laboratory = 1;
+	/** Institution name */
 	optional string institution = 2;
+	/** Location information */
 	optional Location location = 3;
 
 }
 
 message Section {
 
+	/** The title of the section */
 	optional string title = 1;
+	/** A list of paragraphs in the section */
 	repeated Paragraph body = 2;
 
 }
 
 message Paragraph {
 
+	/** @exclude Describes the kind of paragraphs */
 	enum ParagraphKind {
 		option allow_alias = true;
+		/** @exclude For background paragraphs */
 		BACKGROUND = 0;
+		/** @exclude For methods paragraphs */
 		METHODS = 1;
+		/** @exclude For results paragraphs */
 		RESULTS = 2;
+		/** @exclude For conclusions paragraphs */
 		CONCLUSIONS = 3;
+		/** @exclude Any other paragraphs */
 		OTHER = 4;
 	}
 
+	/** The text of the paragraph */
 	optional string text = 1;
+	/** A list of paper citations in the paragraph */
 	repeated Citation cite_spans = 2;
+	/** A list of figure/table citations in the paragraph */
 	repeated Citation ref_spans = 3;
+	/** @exclude The kind of the paragraph */
 	optional ParagraphKind kind = 4;
 
 }
 
 message Citation {
 
+	/** The characters repesentation of the citation, e.g. citation "[7]" */
 	optional string text = 1;
+	/** The id of the reference the citation, e.g. linked to Reference BIBREF0 */
 	optional string ref_id = 2;
 
 }
 
 message Location {
-
+	
+	/** The address of the location */
 	optional string addrLine = 1;
+	/** The postcode of the location */
 	optional string postCode = 2;
+	/** The settlement of the location */
 	optional string settlement = 3;
+	/** The country of the location */
 	optional string country = 4;
+	/** The region of the location */
 	optional string region = 5;
 
 }
 
 message Reference {
 
+	/** Describes the kind of Reference */
 	enum ReferenceType {
 		option allow_alias = true;
+		/** For figure reference */
 		FIGURE = 0;
+		/** For table reference */
 		TABLE = 1;
+		/** For paper reference */
 		BIB = 2;
 	}
 
+	/** The id of the reference for all types */
 	required string ref_id = 1;
+	/** The title of the refered paper */
 	optional string title = 2;
+	/** A list of authors of the refered paper  */
 	repeated Author authors = 3;
+	/** The publish year of the referd paper */
 	optional string year = 4;
+	/** The venue of the refered paper */
 	optional string venue = 5;
+	/** The volume of the refered paper */
 	optional string volume = 6;
+	/** The ISSN (International Standard Serial Number) of the refered paper */
 	optional string issn = 7;
+	/** The pages of the refered paper */
 	optional string pages = 8;
+	/** The caption text of the figure/table */
 	optional string text = 9;
+	/** The type of the reference */
 	optional ReferenceType type = 10;
 
 }
