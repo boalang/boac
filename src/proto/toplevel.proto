@@ -7,7 +7,7 @@ import "issues.proto";
 
 option optimize_for = SPEED;
 
-/** Top-level type, represents a single project on the forge */
+/** @exclude Top-level type, represents a single project on the forge */
 message Project {
 	/** Unique identifier for the project */
 	optional string id = 1;
@@ -49,7 +49,7 @@ message Project {
 	repeated CodeRepository code_repositories = 19;
 	/** @exclude A list of all issue repositories associated with this project */
 	repeated IssueRepository issue_repositories = 20;
-	/** Describes the kind of forge */
+	/** @exclude Describes the kind of forge */
 	enum ForgeKind {
 		option allow_alias = true;
 		/** Any other kind of forge */
