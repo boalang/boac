@@ -160,9 +160,10 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 					if (webLength < webSize) {
 						try {
 							ps = con.prepareStatement("UPDATE boa_output SET web_result=CONCAT(web_result, ?) WHERE id=" + jobId);
-							ps.setString(1, new String(b, 0, webLength + numBytes < webSize ? numBytes : webSize - webLength));
+							final String webStr = new String(b, 0, webLength + numBytes < webSize ? numBytes : webSize - webLength);
+							ps.setString(1, webStr != null && webStr.length() > 0 ? webStr : "");
 							ps.executeUpdate();
-                            webLength += numBytes;
+							webLength += numBytes;
 						} finally {
 							try { if (ps != null) ps.close(); } catch (final Exception e) { e.printStackTrace(); }
 						}
