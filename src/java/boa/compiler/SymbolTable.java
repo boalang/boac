@@ -569,7 +569,8 @@ public class SymbolTable {
 			boa.functions.BoaStringIntrinsics.class,
 			boa.functions.BoaTimeIntrinsics.class,
 			// paper
-			boa.functions.paper.BoaPaperIntrinsics.class
+			boa.functions.paper.BoaPaperIntrinsics.class,
+			boa.functions.paper.BoaStopWords.class
 		};
 		for (final Class<?> c : builtinFuncs)
 			importFunctions(c);
