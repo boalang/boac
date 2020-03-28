@@ -135,8 +135,8 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 				try { if (ps != null) ps.close(); } catch (final Exception e) { e.printStackTrace(); }
 			}
 
-			fileSystem.mkdirs(new Path("/boa", new Path("" + jobId)));
-			out = fileSystem.create(new Path("/boa", new Path("" + jobId, new Path("output.txt"))));
+			fileSystem.mkdirs(new Path("/boac", new Path("" + jobId)));
+			out = fileSystem.create(new Path("/boac", new Path("" + jobId, new Path("output.txt"))));
 
 			int partNum = 0;
 
