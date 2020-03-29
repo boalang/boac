@@ -11,6 +11,8 @@ import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Section;
 
+import static boa.functions.BoaTimeIntrinsics.*;
+
 /**
  * @author yijiahuang
  *
@@ -56,9 +58,9 @@ public class BoaPaperIntrinsics {
 	}
 
 	/**
-	 * @param from    A time range start with MM/dd/yyyy inclusive
-	 * @param to      A time range end with MM/dd/yyyy inclusive
-	 * @param p       A Paper instance
+	 * @param from A time range start with MM/dd/yyyy inclusive
+	 * @param to   A time range end with MM/dd/yyyy inclusive
+	 * @param p    A Paper instance
 	 * @return boolean
 	 */
 	@FunctionSpec(name = "search_paper", returnType = "bool", formalParameters = { "string", "string", "Paper" })
@@ -76,7 +78,7 @@ public class BoaPaperIntrinsics {
 			return true;
 		return false;
 	}
-	
+
 	@FunctionSpec(name = "search_citation", returnType = "bool", formalParameters = { "string", "Paper" })
 	public static boolean searchCitation(final String title, final Paper p) {
 		for (Reference ref : p.getBibEntriesList())
@@ -84,32 +86,33 @@ public class BoaPaperIntrinsics {
 				return true;
 		return false;
 	}
-	
+
 	@FunctionSpec(name = "search_keyword", returnType = "bool", formalParameters = { "string", "string" })
 	public static boolean searchKeyword(String src, String what) {
-	    final int length = what.length();
-	    if (length == 0)
-	        return true; // Empty string is contained
+		final int length = what.length();
+		if (length == 0)
+			return true; // Empty string is contained
 
-	    final char firstLo = Character.toLowerCase(what.charAt(0));
-	    final char firstUp = Character.toUpperCase(what.charAt(0));
+		final char firstLo = Character.toLowerCase(what.charAt(0));
+		final char firstUp = Character.toUpperCase(what.charAt(0));
 
-	    for (int i = src.length() - length; i >= 0; i--) {
-	        // Quick check before calling the more expensive regionMatches() method:
-	        final char ch = src.charAt(i);
-	        if (ch != firstLo && ch != firstUp)
-	            continue;
+		for (int i = src.length() - length; i >= 0; i--) {
+			// Quick check before calling the more expensive regionMatches() method:
+			final char ch = src.charAt(i);
+			if (ch != firstLo && ch != firstUp)
+				continue;
 
-	        if (src.regionMatches(true, i, what, 0, length))
-	            return true;
-	    }
+			if (src.regionMatches(true, i, what, 0, length))
+				return true;
+		}
 
-	    return false;
+		return false;
 	}
-	
+
 	@FunctionSpec(name = "pretty_print", returnType = "string", formalParameters = { "Paper" })
 	public static String prettyPrint(Paper p) {
 		String s = "";
+		// authors
 		int lastIdx = p.getMetadata().getAuthorsCount() - 1;
 		for (int i = 0; i < p.getMetadata().getAuthorsCount(); i++) {
 			if (i == 0) {
@@ -122,20 +125,41 @@ public class BoaPaperIntrinsics {
 				s += ", " + getAuthor(p.getMetadata().getAuthors(i));
 			}
 		}
-		s += ".";
+		s += ". ";
+		
+		// year
+		s += yearOf(p.getMetadata().getPublishTime()) + ". ";
+		
+		// paper title
+		s += p.getMetadata().getTitle() + ". ";
+		
+		// journal
+		s += p.getMetadata().getJournal() + ". ";
+		
+		// doi
+		s += p.getMetadata().getDoiUrl();
 		return s;
 	}
-	
+
 	private static String getAuthor(Author author) {
 		String s = "";
-		s += author.getFirst() + " ";
+		// first name
+		String first = author.getFirst();
+		s += first;
+		if (first.length() == 1)
+			s += ".";
+		s += " ";
+
+		// middle name
 		String mid = "";
 		for (String middle : author.getMiddleList())
 			for (String comp : middle.split(" "))
 				mid += comp + ".";
 		if (!mid.equals(""))
 			s += mid + " ";
-		 s += author.getLast();
+
+		// last name
+		s += author.getLast();
 		return s;
 	}
 
