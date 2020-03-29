@@ -875,7 +875,7 @@ public final class Toplevel {
    * Protobuf type {@code boa.types.Project}
    *
    * <pre>
-   ** Top-level type, represents a single project on the forge 
+   ** @exclude Top-level type, represents a single project on the forge 
    * </pre>
    */
   public static final class Project extends
@@ -1235,7 +1235,7 @@ public final class Toplevel {
      * Protobuf enum {@code boa.types.Project.ForgeKind}
      *
      * <pre>
-     ** Describes the kind of forge 
+     ** @exclude Describes the kind of forge 
      * </pre>
      */
     public enum ForgeKind
@@ -3135,7 +3135,7 @@ public final class Toplevel {
      * Protobuf type {@code boa.types.Project}
      *
      * <pre>
-     ** Top-level type, represents a single project on the forge 
+     ** @exclude Top-level type, represents a single project on the forge 
      * </pre>
      */
     public static final class Builder extends
