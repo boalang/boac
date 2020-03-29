@@ -60,12 +60,17 @@ public class PaperJson {
 			String metaTitle = metadataRecord.get("title");
 			if (mb.getTitle().equals(""))
 				mb.setTitle(metaTitle);
-			mb.setDoiUrl("https://doi.org/" + metadataRecord.get("doi"));
-			mb.setSource(metadataRecord.get("source_x"));
-			mb.setPubmedId(metadataRecord.get("pubmed_id"));
+			if (!metadataRecord.get("doi").equals(""))
+				mb.setDoiUrl("https://doi.org/" + metadataRecord.get("doi"));
+			if (!metadataRecord.get("source_x").equals(""))
+				mb.setSource(metadataRecord.get("source_x"));
+			if (!metadataRecord.get("pubmed_id").equals(""))
+				mb.setPubmedId(metadataRecord.get("pubmed_id"));
 			mb.setPublishTime(getMicroseconds(metadataRecord.get("publish_time")));
-			mb.setJournal(metadataRecord.get("journal"));
-			mb.setLicenseType(metadataRecord.get("full_text_file"));
+			if (!metadataRecord.get("journal").equals(""))
+				mb.setJournal(metadataRecord.get("journal"));
+			if (!metadataRecord.get("full_text_file").equals(""))
+				mb.setLicenseType(metadataRecord.get("full_text_file"));
 		}
 		return mb.build();
 	}
