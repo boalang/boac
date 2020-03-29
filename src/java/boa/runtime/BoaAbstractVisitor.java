@@ -25,16 +25,27 @@ import boa.types.Code.CodeRepository;
 import boa.types.Code.Revision;
 import boa.types.Diff.ChangedFile;
 import boa.types.Shared.Person;
+import boa.types.Toplevel.Affiliation;
+import boa.types.Toplevel.Author;
+import boa.types.Toplevel.Citation;
+import boa.types.Toplevel.Location;
+import boa.types.Toplevel.Metadata;
+import boa.types.Toplevel.Paper;
+import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Project;
+import boa.types.Toplevel.Reference;
+import boa.types.Toplevel.Section;
 
 /**
  * Boa abstract AST visitor.
  * 
- * The <code>visit()</code> methods first call <code>preVisit()</code> for the node.
- * If <code>preVisit()</code> returns <code>true</code>, then each of that node's children are visited and then <code>postVisit()</code> is called.
+ * The <code>visit()</code> methods first call <code>preVisit()</code> for the
+ * node. If <code>preVisit()</code> returns <code>true</code>, then each of that
+ * node's children are visited and then <code>postVisit()</code> is called.
  * 
- * By default, all <code>preVisit()</code> methods call {@link #defaultPreVisit()} and return <code>true</code>.
- * By default, all <code>postVisit()</code> methods call {@link #defaultPostVisit()}.
+ * By default, all <code>preVisit()</code> methods call
+ * {@link #defaultPreVisit()} and return <code>true</code>. By default, all
+ * <code>postVisit()</code> methods call {@link #defaultPostVisit()}.
  * 
  * @author rdyer
  */
@@ -48,9 +59,11 @@ public abstract class BoaAbstractVisitor {
 		return this;
 	}
 
+	/* ----------------------------- pre-visit ----------------------------- */
+	
 	/**
-	 * Provides a default action for pre-visiting nodes.
-	 * Any <code>preVisit()</code> method that is not overridden calls this method.
+	 * Provides a default action for pre-visiting nodes. Any <code>preVisit()</code>
+	 * method that is not overridden calls this method.
 	 * 
 	 * @return always returns true
 	 */
@@ -58,352 +71,162 @@ public abstract class BoaAbstractVisitor {
 		return true;
 	}
 
-	protected boolean preVisit(final Project node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final CodeRepository node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Revision node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final ChangedFile node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final ASTRoot node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Namespace node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Declaration node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Type node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Method node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Variable node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Statement node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Expression node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Modifier node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Comment node) throws Exception {
-		return defaultPreVisit();
-	}
-	protected boolean preVisit(final Person node) throws Exception {
+	protected boolean preVisit(final Paper node) throws Exception {
 		return defaultPreVisit();
 	}
 
+	protected boolean preVisit(final Metadata node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Author node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Affiliation node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Section node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Paragraph node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Citation node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Location node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	protected boolean preVisit(final Reference node) throws Exception {
+		return defaultPreVisit();
+	}
+
+	/* ----------------------------- post-visit ----------------------------- */
+	
 	/**
-	 * Provides a default action for post-visiting nodes.
-	 * Any <code>postVisit()</code> method that is not overridden calls this method.
+	 * Provides a default action for post-visiting nodes. Any
+	 * <code>postVisit()</code> method that is not overridden calls this method.
 	 */
-	protected void defaultPostVisit() throws Exception { }
+	protected void defaultPostVisit() throws Exception {
+	}
 
-	protected void postVisit(final Project node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final CodeRepository node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Revision node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final ChangedFile node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final ASTRoot node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Namespace node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Declaration node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Type node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Method node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Variable node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Statement node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Expression node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Modifier node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Comment node) throws Exception {
-		defaultPostVisit();
-	}
-	protected void postVisit(final Person node) throws Exception {
+	protected void postVisit(final Paper node) throws Exception {
 		defaultPostVisit();
 	}
 
-	public final void visit(final Project node) throws Exception {
+	protected void postVisit(final Metadata node) throws Exception {
+		defaultPostVisit();
+	}
+
+	protected void postVisit(final Author node) throws Exception {
+		defaultPostVisit();
+	}
+
+	protected void postVisit(final Affiliation node) throws Exception {
+		defaultPostVisit();
+	}
+
+	protected void postVisit(final Section node) throws Exception {
+		defaultPreVisit();
+	}
+
+	protected void postVisit(final Paragraph node) throws Exception {
+		defaultPreVisit();
+	}
+
+	protected void postVisit(final Citation node) throws Exception {
+		defaultPreVisit();
+	}
+
+	protected void postVisit(final Location node) throws Exception {
+		defaultPreVisit();
+	}
+
+	protected void postVisit(final Reference node) throws Exception {
+		defaultPreVisit();
+	}
+
+	/* ----------------------------- visit ----------------------------- */
+	
+	public final void visit(final Paper node) throws Exception {
 		if (preVisit(node)) {
-			final List<CodeRepository> reposList = node.getCodeRepositoriesList();
-			final int reposSize = reposList.size();
-			for (int i = 0; i < reposSize; i++)
-				visit(reposList.get(i));
+			visit(node.getMetadata());
+			for (Paragraph para : node.getAbstractList())
+				visit(para);
+			for (Section sec : node.getBodyTextList())
+				visit(sec);
+			for (Reference ref : node.getBibEntriesList())
+				visit(ref);
+			for (Reference ref : node.getRefEntriesList())
+				visit(ref);
+			postVisit(node);
+		}
+	}
 
-			final List<Person> devsList = node.getDevelopersList();
-			final int devsSize = devsList.size();
-			for (int i = 0; i < devsSize; i++)
-				visit(devsList.get(i));
+	public final void visit(final Metadata node) throws Exception {
+		if (preVisit(node)) {
+			for (Author author : node.getAuthorsList())
+				visit(author);
+			postVisit(node);
+		}
+	}
 
-			final List<Person> maintsList = node.getMaintainersList();
-			final int maintsSize = maintsList.size();
-			for (int i = 0; i < maintsSize; i++)
-				visit(maintsList.get(i));
+	public final void visit(final Author node) throws Exception {
+		if (preVisit(node)) {
+			visit(node.getAffiliation());
+			postVisit(node);
+		}
+	}
+
+	public final void visit(final Affiliation node) throws Exception {
+		if (preVisit(node)) {
+			visit(node.getLocation());
+			postVisit(node);
+		}
+	}
+
+	public final void visit(final Section node) throws Exception {
+		if (preVisit(node)) {
+			for (Paragraph para : node.getBodyList())
+				visit(para);
+			postVisit(node);
+		}
+	}
+
+	public final void visit(final Paragraph node) throws Exception {
+		if (preVisit(node)) {
+			for (Citation cite : node.getCiteSpansList())
+				visit(cite);
+			for (Citation cite : node.getRefSpansList())
+				visit(cite);
+			postVisit(node);
+		}
+	}
+
+	public final void visit(final Citation node) throws Exception {
+		if (preVisit(node)) {
 
 			postVisit(node);
 		}
 	}
-	public final void visit(final CodeRepository node) throws Exception {
+
+	public final void visit(final Location node) throws Exception {
 		if (preVisit(node)) {
-			final int revisionsSize = BoaIntrinsics.getRevisionsCount(node);
-			for (int i = 0; i < revisionsSize; i++)
-				visit(BoaIntrinsics.getRevision(node, i));
 
 			postVisit(node);
 		}
 	}
-	public final void visit(final Revision node) throws Exception {
+
+	public final void visit(final Reference node) throws Exception {
 		if (preVisit(node)) {
-			final List<ChangedFile> filesList = node.getFilesList();
-			final int filesSize = filesList.size();
-			for (int i = 0; i < filesSize; i++)
-				visit(filesList.get(i));
-
-			if (node.hasAuthor())
-				visit(node.getAuthor());
-
-			if (node.hasCommitter())
-				visit(node.getCommitter());
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final ChangedFile node) throws Exception {
-		if (preVisit(node)) {
-			if (node.hasRoot())
-				visit(node.getRoot());
-			else
-				visit(BoaAstIntrinsics.getast(node));
-			postVisit(node);
-		}
-	}
-	public final void visit(final ASTRoot node) throws Exception {
-		if (preVisit(node)) {
-			final List<Namespace> namespacesList = node.getNamespacesList();
-			final int namespacesSize = namespacesList.size();
-			for (int i = 0; i < namespacesSize; i++)
-				visit(namespacesList.get(i));
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Namespace node) throws Exception {
-		if (preVisit(node)) {
-			final List<Declaration> declarationsList = node.getDeclarationsList();
-			final int declarationsSize = declarationsList.size();
-			for (int i = 0; i < declarationsSize; i++)
-				visit(declarationsList.get(i));
-
-			final List<Modifier> modifiersList = node.getModifiersList();
-			final int modifiersSize = modifiersList.size();
-			for (int i = 0; i < modifiersSize; i++)
-				visit(modifiersList.get(i));
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Declaration node) throws Exception {
-		if (preVisit(node)) {
-			final List<Modifier> modifiersList = node.getModifiersList();
-			final int modifiersSize = modifiersList.size();
-			for (int i = 0; i < modifiersSize; i++)
-				visit(modifiersList.get(i));
-
-			final List<Type> genericParamsList = node.getGenericParametersList();
-			final int genericParamsSize = genericParamsList.size();
-			for (int i = 0; i < genericParamsSize; i++)
-				visit(genericParamsList.get(i));
-
-			final List<Type> parentsList = node.getParentsList();
-			final int parentsSize = parentsList.size();
-			for (int i = 0; i < parentsSize; i++)
-				visit(parentsList.get(i));
-
-			final List<Method> methodsList = node.getMethodsList();
-			final int methodsSize = methodsList.size();
-			for (int i = 0; i < methodsSize; i++)
-				visit(methodsList.get(i));
-
-			final List<Variable> fieldsList = node.getFieldsList();
-			final int fieldsSize = fieldsList.size();
-			for (int i = 0; i < fieldsSize; i++)
-				visit(fieldsList.get(i));
-
-			final List<Declaration> nestedList = node.getNestedDeclarationsList();
-			final int nestedSize = nestedList.size();
-			for (int i = 0; i < nestedSize; i++)
-				visit(nestedList.get(i));
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Type node) throws Exception {
-		if (preVisit(node)) {
-			postVisit(node);
-		}
-	}
-	public final void visit(final Method node) throws Exception {
-		if (preVisit(node)) {
-			visit(node.getReturnType());
-
-			final List<Modifier> modifiersList = node.getModifiersList();
-			final int modifiersSize = modifiersList.size();
-			for (int i = 0; i < modifiersSize; i++)
-				visit(modifiersList.get(i));
-
-			final List<Type> genericParametersList = node.getGenericParametersList();
-			final int genericParametersSize = genericParametersList.size();
-			for (int i = 0; i < genericParametersSize; i++)
-				visit(genericParametersList.get(i));
-
-			final List<Variable> argumentsList = node.getArgumentsList();
-			final int argumentsSize = argumentsList.size();
-			for (int i = 0; i < argumentsSize; i++)
-				visit(argumentsList.get(i));
-
-			final List<Type> exceptionTypesList = node.getExceptionTypesList();
-			final int exceptionTypesSize = exceptionTypesList.size();
-			for (int i = 0; i < exceptionTypesSize; i++)
-				visit(exceptionTypesList.get(i));
-
-			final List<Statement> statementsList = node.getStatementsList();
-			final int statementsSize = statementsList.size();
-			for (int i = 0; i < statementsSize; i++)
-				visit(statementsList.get(i));
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Variable node) throws Exception {
-		if (preVisit(node)) {
-			visit(node.getVariableType());
-
-			final List<Modifier> modifiersList = node.getModifiersList();
-			final int modifiersSize = modifiersList.size();
-			for (int i = 0; i < modifiersSize; i++)
-				visit(modifiersList.get(i));
-
-			if (node.hasInitializer())
-				visit(node.getInitializer());
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Statement node) throws Exception {
-		if (preVisit(node)) {
-			final List<Statement> statementsList = node.getStatementsList();
-			final int statementsSize = statementsList.size();
-			for (int i = 0; i < statementsSize; i++)
-				visit(statementsList.get(i));
-
-			final List<Expression> initsList = node.getInitializationsList();
-			final int initsSize = initsList.size();
-			for (int i = 0; i < initsSize; i++)
-				visit(initsList.get(i));
-
-			final List<Expression> conditionsList = node.getConditionsList();
-			final int conditionsSize = conditionsList.size();
-			for (int i = 0; i < conditionsSize; i++)
-				visit(conditionsList.get(i));
-
-			final List<Expression> updatesList = node.getUpdatesList();
-			final int updatesSize = updatesList.size();
-			for (int i = 0; i < updatesSize; i++)
-				visit(updatesList.get(i));
-
-			if (node.hasVariableDeclaration())
-				visit(node.getVariableDeclaration());
-
-			if (node.hasTypeDeclaration())
-				visit(node.getTypeDeclaration());
-
-			if (node.getExpressionsCount() > 0)
-				visit(node.getExpressions(0));
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Expression node) throws Exception {
-		if (preVisit(node)) {
-			final List<Expression> expressionsList = node.getExpressionsList();
-			final int expressionsSize = expressionsList.size();
-			for (int i = 0; i < expressionsSize; i++)
-				visit(expressionsList.get(i));
-
-			final List<Variable> varDeclsList = node.getVariableDeclsList();
-			final int varDeclsSize = varDeclsList.size();
-			for (int i = 0; i < varDeclsSize; i++)
-				visit(varDeclsList.get(i));
-
-			if (node.hasNewType())
-				visit(node.getNewType());
-
-			final List<Type> genericParametersList = node.getGenericParametersList();
-			final int genericParametersSize = genericParametersList.size();
-			for (int i = 0; i < genericParametersSize; i++)
-				visit(genericParametersList.get(i));
-
-			final List<Expression> methodArgsList = node.getMethodArgsList();
-			final int methodArgsSize = methodArgsList.size();
-			for (int i = 0; i < methodArgsSize; i++)
-				visit(methodArgsList.get(i));
-
-			if (node.hasAnonDeclaration())
-				visit(node.getAnonDeclaration());
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Modifier node) throws Exception {
-		if (preVisit(node)) {
-			final List<Expression> annotationValuesList = node.getAnnotationValuesList();
-			final int annotationValuesSize = annotationValuesList.size();
-			for (int i = 0; i < annotationValuesSize; i++)
-				visit(annotationValuesList.get(i));
-
-			postVisit(node);
-		}
-	}
-	public final void visit(final Comment node) throws Exception {
-		if (preVisit(node)) {
-			postVisit(node);
-		}
-	}
-	public final void visit(final Person node) throws Exception {
-		if (preVisit(node)) {
+			for (Author author : node.getAuthorsList())
+				visit(author);
 			postVisit(node);
 		}
 	}

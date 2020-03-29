@@ -18,7 +18,7 @@ public class BoaPaperIntrinsics {
 
 	@FunctionSpec(name = "search_title", returnType = "bool", formalParameters = { "string", "Paper" })
 	public static boolean searchTitle(final String keyword, final Paper p) {
-		if (p.getMetadata().hasTitle() && containsIgnoreCase(p.getMetadata().getTitle(), keyword))
+		if (p.getMetadata().hasTitle() && searchKeyword(p.getMetadata().getTitle(), keyword))
 			return true;
 		return false;
 	}
@@ -26,7 +26,7 @@ public class BoaPaperIntrinsics {
 	@FunctionSpec(name = "search_abstract", returnType = "bool", formalParameters = { "string", "Paper" })
 	public static boolean searchAbstract(final String keyword, final Paper p) {
 		for (Paragraph para : p.getAbstractList())
-			if (containsIgnoreCase(para.getText(), keyword))
+			if (searchKeyword(para.getText(), keyword))
 				return true;
 		return false;
 	}
@@ -34,10 +34,10 @@ public class BoaPaperIntrinsics {
 	@FunctionSpec(name = "search_body", returnType = "bool", formalParameters = { "string", "Paper" })
 	public static boolean searchBody(final String keyword, final Paper p) {
 		for (Section sec : p.getBodyTextList()) {
-			if (containsIgnoreCase(sec.getTitle(), keyword))
+			if (searchKeyword(sec.getTitle(), keyword))
 				return true;
 			for (Paragraph para : sec.getBodyList())
-				if (containsIgnoreCase(para.getText(), keyword))
+				if (searchKeyword(para.getText(), keyword))
 					return true;
 		}
 		return false;
@@ -84,7 +84,8 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 	
-	public static boolean containsIgnoreCase(String src, String what) {
+	@FunctionSpec(name = "search_keyword", returnType = "bool", formalParameters = { "string", "string" })
+	public static boolean searchKeyword(String src, String what) {
 	    final int length = what.length();
 	    if (length == 0)
 	        return true; // Empty string is contained
