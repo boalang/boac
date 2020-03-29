@@ -7527,14 +7527,26 @@ public final class Toplevel {
     // required string id = 1;
     /**
      * <code>required string id = 1;</code>
+     *
+     * <pre>
+     ** The 40-character sha1 of the paper 
+     * </pre>
      */
     boolean hasId();
     /**
      * <code>required string id = 1;</code>
+     *
+     * <pre>
+     ** The 40-character sha1 of the paper 
+     * </pre>
      */
     java.lang.String getId();
     /**
      * <code>required string id = 1;</code>
+     *
+     * <pre>
+     ** The 40-character sha1 of the paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -7542,38 +7554,70 @@ public final class Toplevel {
     // optional .boa.types.Metadata metadata = 2;
     /**
      * <code>optional .boa.types.Metadata metadata = 2;</code>
+     *
+     * <pre>
+     ** The metatdata of the paper 
+     * </pre>
      */
     boolean hasMetadata();
     /**
      * <code>optional .boa.types.Metadata metadata = 2;</code>
+     *
+     * <pre>
+     ** The metatdata of the paper 
+     * </pre>
      */
     boa.types.Toplevel.Metadata getMetadata();
     /**
      * <code>optional .boa.types.Metadata metadata = 2;</code>
+     *
+     * <pre>
+     ** The metatdata of the paper 
+     * </pre>
      */
     boa.types.Toplevel.MetadataOrBuilder getMetadataOrBuilder();
 
     // repeated .boa.types.Paragraph abstract = 3;
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Paragraph> 
         getAbstractList();
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     boa.types.Toplevel.Paragraph getAbstract(int index);
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     int getAbstractCount();
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
         getAbstractOrBuilderList();
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     boa.types.Toplevel.ParagraphOrBuilder getAbstractOrBuilder(
         int index);
@@ -7581,24 +7625,44 @@ public final class Toplevel {
     // repeated .boa.types.Section body_text = 4;
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Section> 
         getBodyTextList();
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     boa.types.Toplevel.Section getBodyText(int index);
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     int getBodyTextCount();
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.SectionOrBuilder> 
         getBodyTextOrBuilderList();
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     boa.types.Toplevel.SectionOrBuilder getBodyTextOrBuilder(
         int index);
@@ -7606,24 +7670,44 @@ public final class Toplevel {
     // repeated .boa.types.Reference bib_entries = 5;
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Reference> 
         getBibEntriesList();
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     boa.types.Toplevel.Reference getBibEntries(int index);
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     int getBibEntriesCount();
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.ReferenceOrBuilder> 
         getBibEntriesOrBuilderList();
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     boa.types.Toplevel.ReferenceOrBuilder getBibEntriesOrBuilder(
         int index);
@@ -7631,30 +7715,54 @@ public final class Toplevel {
     // repeated .boa.types.Reference ref_entries = 6;
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Reference> 
         getRefEntriesList();
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     boa.types.Toplevel.Reference getRefEntries(int index);
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     int getRefEntriesCount();
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.ReferenceOrBuilder> 
         getRefEntriesOrBuilderList();
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     boa.types.Toplevel.ReferenceOrBuilder getRefEntriesOrBuilder(
         int index);
   }
   /**
    * Protobuf type {@code boa.types.Paper}
+   *
+   * <pre>
+   ** A research paper 
+   * </pre>
    */
   public static final class Paper extends
       com.google.protobuf.GeneratedMessage
@@ -7811,12 +7919,20 @@ public final class Toplevel {
     private java.lang.Object id_;
     /**
      * <code>required string id = 1;</code>
+     *
+     * <pre>
+     ** The 40-character sha1 of the paper 
+     * </pre>
      */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required string id = 1;</code>
+     *
+     * <pre>
+     ** The 40-character sha1 of the paper 
+     * </pre>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -7834,6 +7950,10 @@ public final class Toplevel {
     }
     /**
      * <code>required string id = 1;</code>
+     *
+     * <pre>
+     ** The 40-character sha1 of the paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -7854,18 +7974,30 @@ public final class Toplevel {
     private boa.types.Toplevel.Metadata metadata_;
     /**
      * <code>optional .boa.types.Metadata metadata = 2;</code>
+     *
+     * <pre>
+     ** The metatdata of the paper 
+     * </pre>
      */
     public boolean hasMetadata() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional .boa.types.Metadata metadata = 2;</code>
+     *
+     * <pre>
+     ** The metatdata of the paper 
+     * </pre>
      */
     public boa.types.Toplevel.Metadata getMetadata() {
       return metadata_;
     }
     /**
      * <code>optional .boa.types.Metadata metadata = 2;</code>
+     *
+     * <pre>
+     ** The metatdata of the paper 
+     * </pre>
      */
     public boa.types.Toplevel.MetadataOrBuilder getMetadataOrBuilder() {
       return metadata_;
@@ -7876,12 +8008,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Paragraph> abstract_;
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Paragraph> getAbstractList() {
       return abstract_;
     }
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
         getAbstractOrBuilderList() {
@@ -7889,18 +8029,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     public int getAbstractCount() {
       return abstract_.size();
     }
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     public boa.types.Toplevel.Paragraph getAbstract(int index) {
       return abstract_.get(index);
     }
     /**
      * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the abstract 
+     * </pre>
      */
     public boa.types.Toplevel.ParagraphOrBuilder getAbstractOrBuilder(
         int index) {
@@ -7912,12 +8064,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Section> bodyText_;
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Section> getBodyTextList() {
       return bodyText_;
     }
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.SectionOrBuilder> 
         getBodyTextOrBuilderList() {
@@ -7925,18 +8085,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     public int getBodyTextCount() {
       return bodyText_.size();
     }
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     public boa.types.Toplevel.Section getBodyText(int index) {
       return bodyText_.get(index);
     }
     /**
      * <code>repeated .boa.types.Section body_text = 4;</code>
+     *
+     * <pre>
+     ** A list of sections in the body text 
+     * </pre>
      */
     public boa.types.Toplevel.SectionOrBuilder getBodyTextOrBuilder(
         int index) {
@@ -7948,12 +8120,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Reference> bibEntries_;
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Reference> getBibEntriesList() {
       return bibEntries_;
     }
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.ReferenceOrBuilder> 
         getBibEntriesOrBuilderList() {
@@ -7961,18 +8141,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     public int getBibEntriesCount() {
       return bibEntries_.size();
     }
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     public boa.types.Toplevel.Reference getBibEntries(int index) {
       return bibEntries_.get(index);
     }
     /**
      * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+     *
+     * <pre>
+     ** A list of paper refereneces in the paper 
+     * </pre>
      */
     public boa.types.Toplevel.ReferenceOrBuilder getBibEntriesOrBuilder(
         int index) {
@@ -7984,12 +8176,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Reference> refEntries_;
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Reference> getRefEntriesList() {
       return refEntries_;
     }
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.ReferenceOrBuilder> 
         getRefEntriesOrBuilderList() {
@@ -7997,18 +8197,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     public int getRefEntriesCount() {
       return refEntries_.size();
     }
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     public boa.types.Toplevel.Reference getRefEntries(int index) {
       return refEntries_.get(index);
     }
     /**
      * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+     *
+     * <pre>
+     ** A list of figure/table references in the paper 
+     * </pre>
      */
     public boa.types.Toplevel.ReferenceOrBuilder getRefEntriesOrBuilder(
         int index) {
@@ -8182,6 +8394,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Paper}
+     *
+     * <pre>
+     ** A research paper 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -8506,12 +8722,20 @@ public final class Toplevel {
       private java.lang.Object id_ = "";
       /**
        * <code>required string id = 1;</code>
+       *
+       * <pre>
+       ** The 40-character sha1 of the paper 
+       * </pre>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required string id = 1;</code>
+       *
+       * <pre>
+       ** The 40-character sha1 of the paper 
+       * </pre>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -8526,6 +8750,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string id = 1;</code>
+       *
+       * <pre>
+       ** The 40-character sha1 of the paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -8542,6 +8770,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string id = 1;</code>
+       *
+       * <pre>
+       ** The 40-character sha1 of the paper 
+       * </pre>
        */
       public Builder setId(
           java.lang.String value) {
@@ -8555,6 +8787,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string id = 1;</code>
+       *
+       * <pre>
+       ** The 40-character sha1 of the paper 
+       * </pre>
        */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -8564,6 +8800,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string id = 1;</code>
+       *
+       * <pre>
+       ** The 40-character sha1 of the paper 
+       * </pre>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -8582,12 +8822,20 @@ public final class Toplevel {
           boa.types.Toplevel.Metadata, boa.types.Toplevel.Metadata.Builder, boa.types.Toplevel.MetadataOrBuilder> metadataBuilder_;
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public boolean hasMetadata() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Metadata getMetadata() {
         if (metadataBuilder_ == null) {
@@ -8598,6 +8846,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public Builder setMetadata(boa.types.Toplevel.Metadata value) {
         if (metadataBuilder_ == null) {
@@ -8614,6 +8866,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public Builder setMetadata(
           boa.types.Toplevel.Metadata.Builder builderForValue) {
@@ -8628,6 +8884,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public Builder mergeMetadata(boa.types.Toplevel.Metadata value) {
         if (metadataBuilder_ == null) {
@@ -8647,6 +8907,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public Builder clearMetadata() {
         if (metadataBuilder_ == null) {
@@ -8660,6 +8924,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Metadata.Builder getMetadataBuilder() {
         bitField0_ |= 0x00000002;
@@ -8668,6 +8936,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.MetadataOrBuilder getMetadataOrBuilder() {
         if (metadataBuilder_ != null) {
@@ -8678,6 +8950,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Metadata metadata = 2;</code>
+       *
+       * <pre>
+       ** The metatdata of the paper 
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Toplevel.Metadata, boa.types.Toplevel.Metadata.Builder, boa.types.Toplevel.MetadataOrBuilder> 
@@ -8708,6 +8984,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Paragraph> getAbstractList() {
         if (abstractBuilder_ == null) {
@@ -8718,6 +8998,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public int getAbstractCount() {
         if (abstractBuilder_ == null) {
@@ -8728,6 +9012,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph getAbstract(int index) {
         if (abstractBuilder_ == null) {
@@ -8738,6 +9026,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder setAbstract(
           int index, boa.types.Toplevel.Paragraph value) {
@@ -8755,6 +9047,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder setAbstract(
           int index, boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -8769,6 +9065,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder addAbstract(boa.types.Toplevel.Paragraph value) {
         if (abstractBuilder_ == null) {
@@ -8785,6 +9085,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder addAbstract(
           int index, boa.types.Toplevel.Paragraph value) {
@@ -8802,6 +9106,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder addAbstract(
           boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -8816,6 +9124,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder addAbstract(
           int index, boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -8830,6 +9142,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder addAllAbstract(
           java.lang.Iterable<? extends boa.types.Toplevel.Paragraph> values) {
@@ -8844,6 +9160,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder clearAbstract() {
         if (abstractBuilder_ == null) {
@@ -8857,6 +9177,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public Builder removeAbstract(int index) {
         if (abstractBuilder_ == null) {
@@ -8870,6 +9194,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.Builder getAbstractBuilder(
           int index) {
@@ -8877,6 +9205,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public boa.types.Toplevel.ParagraphOrBuilder getAbstractOrBuilder(
           int index) {
@@ -8887,6 +9219,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
            getAbstractOrBuilderList() {
@@ -8898,6 +9234,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.Builder addAbstractBuilder() {
         return getAbstractFieldBuilder().addBuilder(
@@ -8905,6 +9245,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.Builder addAbstractBuilder(
           int index) {
@@ -8913,6 +9257,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph abstract = 3;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the abstract 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Paragraph.Builder> 
            getAbstractBuilderList() {
@@ -8948,6 +9296,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Section> getBodyTextList() {
         if (bodyTextBuilder_ == null) {
@@ -8958,6 +9310,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public int getBodyTextCount() {
         if (bodyTextBuilder_ == null) {
@@ -8968,6 +9324,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public boa.types.Toplevel.Section getBodyText(int index) {
         if (bodyTextBuilder_ == null) {
@@ -8978,6 +9338,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder setBodyText(
           int index, boa.types.Toplevel.Section value) {
@@ -8995,6 +9359,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder setBodyText(
           int index, boa.types.Toplevel.Section.Builder builderForValue) {
@@ -9009,6 +9377,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder addBodyText(boa.types.Toplevel.Section value) {
         if (bodyTextBuilder_ == null) {
@@ -9025,6 +9397,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder addBodyText(
           int index, boa.types.Toplevel.Section value) {
@@ -9042,6 +9418,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder addBodyText(
           boa.types.Toplevel.Section.Builder builderForValue) {
@@ -9056,6 +9436,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder addBodyText(
           int index, boa.types.Toplevel.Section.Builder builderForValue) {
@@ -9070,6 +9454,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder addAllBodyText(
           java.lang.Iterable<? extends boa.types.Toplevel.Section> values) {
@@ -9084,6 +9472,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder clearBodyText() {
         if (bodyTextBuilder_ == null) {
@@ -9097,6 +9489,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public Builder removeBodyText(int index) {
         if (bodyTextBuilder_ == null) {
@@ -9110,6 +9506,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public boa.types.Toplevel.Section.Builder getBodyTextBuilder(
           int index) {
@@ -9117,6 +9517,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public boa.types.Toplevel.SectionOrBuilder getBodyTextOrBuilder(
           int index) {
@@ -9127,6 +9531,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.SectionOrBuilder> 
            getBodyTextOrBuilderList() {
@@ -9138,6 +9546,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public boa.types.Toplevel.Section.Builder addBodyTextBuilder() {
         return getBodyTextFieldBuilder().addBuilder(
@@ -9145,6 +9557,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public boa.types.Toplevel.Section.Builder addBodyTextBuilder(
           int index) {
@@ -9153,6 +9569,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Section body_text = 4;</code>
+       *
+       * <pre>
+       ** A list of sections in the body text 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Section.Builder> 
            getBodyTextBuilderList() {
@@ -9188,6 +9608,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Reference> getBibEntriesList() {
         if (bibEntriesBuilder_ == null) {
@@ -9198,6 +9622,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public int getBibEntriesCount() {
         if (bibEntriesBuilder_ == null) {
@@ -9208,6 +9636,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference getBibEntries(int index) {
         if (bibEntriesBuilder_ == null) {
@@ -9218,6 +9650,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder setBibEntries(
           int index, boa.types.Toplevel.Reference value) {
@@ -9235,6 +9671,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder setBibEntries(
           int index, boa.types.Toplevel.Reference.Builder builderForValue) {
@@ -9249,6 +9689,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder addBibEntries(boa.types.Toplevel.Reference value) {
         if (bibEntriesBuilder_ == null) {
@@ -9265,6 +9709,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder addBibEntries(
           int index, boa.types.Toplevel.Reference value) {
@@ -9282,6 +9730,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder addBibEntries(
           boa.types.Toplevel.Reference.Builder builderForValue) {
@@ -9296,6 +9748,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder addBibEntries(
           int index, boa.types.Toplevel.Reference.Builder builderForValue) {
@@ -9310,6 +9766,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder addAllBibEntries(
           java.lang.Iterable<? extends boa.types.Toplevel.Reference> values) {
@@ -9324,6 +9784,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder clearBibEntries() {
         if (bibEntriesBuilder_ == null) {
@@ -9337,6 +9801,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public Builder removeBibEntries(int index) {
         if (bibEntriesBuilder_ == null) {
@@ -9350,6 +9818,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.Builder getBibEntriesBuilder(
           int index) {
@@ -9357,6 +9829,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.ReferenceOrBuilder getBibEntriesOrBuilder(
           int index) {
@@ -9367,6 +9843,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.ReferenceOrBuilder> 
            getBibEntriesOrBuilderList() {
@@ -9378,6 +9858,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.Builder addBibEntriesBuilder() {
         return getBibEntriesFieldBuilder().addBuilder(
@@ -9385,6 +9869,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.Builder addBibEntriesBuilder(
           int index) {
@@ -9393,6 +9881,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference bib_entries = 5;</code>
+       *
+       * <pre>
+       ** A list of paper refereneces in the paper 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Reference.Builder> 
            getBibEntriesBuilderList() {
@@ -9428,6 +9920,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Reference> getRefEntriesList() {
         if (refEntriesBuilder_ == null) {
@@ -9438,6 +9934,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public int getRefEntriesCount() {
         if (refEntriesBuilder_ == null) {
@@ -9448,6 +9948,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference getRefEntries(int index) {
         if (refEntriesBuilder_ == null) {
@@ -9458,6 +9962,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder setRefEntries(
           int index, boa.types.Toplevel.Reference value) {
@@ -9475,6 +9983,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder setRefEntries(
           int index, boa.types.Toplevel.Reference.Builder builderForValue) {
@@ -9489,6 +10001,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder addRefEntries(boa.types.Toplevel.Reference value) {
         if (refEntriesBuilder_ == null) {
@@ -9505,6 +10021,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder addRefEntries(
           int index, boa.types.Toplevel.Reference value) {
@@ -9522,6 +10042,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder addRefEntries(
           boa.types.Toplevel.Reference.Builder builderForValue) {
@@ -9536,6 +10060,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder addRefEntries(
           int index, boa.types.Toplevel.Reference.Builder builderForValue) {
@@ -9550,6 +10078,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder addAllRefEntries(
           java.lang.Iterable<? extends boa.types.Toplevel.Reference> values) {
@@ -9564,6 +10096,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder clearRefEntries() {
         if (refEntriesBuilder_ == null) {
@@ -9577,6 +10113,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public Builder removeRefEntries(int index) {
         if (refEntriesBuilder_ == null) {
@@ -9590,6 +10130,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.Builder getRefEntriesBuilder(
           int index) {
@@ -9597,6 +10141,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.ReferenceOrBuilder getRefEntriesOrBuilder(
           int index) {
@@ -9607,6 +10155,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.ReferenceOrBuilder> 
            getRefEntriesOrBuilderList() {
@@ -9618,6 +10170,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.Builder addRefEntriesBuilder() {
         return getRefEntriesFieldBuilder().addBuilder(
@@ -9625,6 +10181,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.Builder addRefEntriesBuilder(
           int index) {
@@ -9633,6 +10193,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Reference ref_entries = 6;</code>
+       *
+       * <pre>
+       ** A list of figure/table references in the paper 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Reference.Builder> 
            getRefEntriesBuilderList() {
@@ -9670,14 +10234,26 @@ public final class Toplevel {
     // optional string title = 1;
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the paper 
+     * </pre>
      */
     boolean hasTitle();
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the paper 
+     * </pre>
      */
     java.lang.String getTitle();
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getTitleBytes();
@@ -9685,14 +10261,26 @@ public final class Toplevel {
     // optional string doi_url = 2;
     /**
      * <code>optional string doi_url = 2;</code>
+     *
+     * <pre>
+     ** The DOI (Digital Object Identifier) URL of the paper 
+     * </pre>
      */
     boolean hasDoiUrl();
     /**
      * <code>optional string doi_url = 2;</code>
+     *
+     * <pre>
+     ** The DOI (Digital Object Identifier) URL of the paper 
+     * </pre>
      */
     java.lang.String getDoiUrl();
     /**
      * <code>optional string doi_url = 2;</code>
+     *
+     * <pre>
+     ** The DOI (Digital Object Identifier) URL of the paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getDoiUrlBytes();
@@ -9700,14 +10288,26 @@ public final class Toplevel {
     // optional string source = 3;
     /**
      * <code>optional string source = 3;</code>
+     *
+     * <pre>
+     ** The source of the paper 
+     * </pre>
      */
     boolean hasSource();
     /**
      * <code>optional string source = 3;</code>
+     *
+     * <pre>
+     ** The source of the paper 
+     * </pre>
      */
     java.lang.String getSource();
     /**
      * <code>optional string source = 3;</code>
+     *
+     * <pre>
+     ** The source of the paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getSourceBytes();
@@ -9715,14 +10315,26 @@ public final class Toplevel {
     // optional string pubmed_id = 4;
     /**
      * <code>optional string pubmed_id = 4;</code>
+     *
+     * <pre>
+     ** The PubMed identifier of the paper  
+     * </pre>
      */
     boolean hasPubmedId();
     /**
      * <code>optional string pubmed_id = 4;</code>
+     *
+     * <pre>
+     ** The PubMed identifier of the paper  
+     * </pre>
      */
     java.lang.String getPubmedId();
     /**
      * <code>optional string pubmed_id = 4;</code>
+     *
+     * <pre>
+     ** The PubMed identifier of the paper  
+     * </pre>
      */
     com.google.protobuf.ByteString
         getPubmedIdBytes();
@@ -9730,24 +10342,44 @@ public final class Toplevel {
     // optional uint64 publish_time = 5;
     /**
      * <code>optional uint64 publish_time = 5;</code>
+     *
+     * <pre>
+     ** The time when the paper was published 
+     * </pre>
      */
     boolean hasPublishTime();
     /**
      * <code>optional uint64 publish_time = 5;</code>
+     *
+     * <pre>
+     ** The time when the paper was published 
+     * </pre>
      */
     long getPublishTime();
 
     // optional string journal = 6;
     /**
      * <code>optional string journal = 6;</code>
+     *
+     * <pre>
+     ** The journal where the paper was published 
+     * </pre>
      */
     boolean hasJournal();
     /**
      * <code>optional string journal = 6;</code>
+     *
+     * <pre>
+     ** The journal where the paper was published 
+     * </pre>
      */
     java.lang.String getJournal();
     /**
      * <code>optional string journal = 6;</code>
+     *
+     * <pre>
+     ** The journal where the paper was published 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getJournalBytes();
@@ -9755,24 +10387,44 @@ public final class Toplevel {
     // repeated .boa.types.Author authors = 7;
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Author> 
         getAuthorsList();
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     boa.types.Toplevel.Author getAuthors(int index);
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     int getAuthorsCount();
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList();
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index);
@@ -9780,20 +10432,36 @@ public final class Toplevel {
     // optional string license_type = 8;
     /**
      * <code>optional string license_type = 8;</code>
+     *
+     * <pre>
+     ** The license type of the paper 
+     * </pre>
      */
     boolean hasLicenseType();
     /**
      * <code>optional string license_type = 8;</code>
+     *
+     * <pre>
+     ** The license type of the paper 
+     * </pre>
      */
     java.lang.String getLicenseType();
     /**
      * <code>optional string license_type = 8;</code>
+     *
+     * <pre>
+     ** The license type of the paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getLicenseTypeBytes();
   }
   /**
    * Protobuf type {@code boa.types.Metadata}
+   *
+   * <pre>
+   ** A metadata of a research paper 
+   * </pre>
    */
   public static final class Metadata extends
       com.google.protobuf.GeneratedMessage
@@ -9934,12 +10602,20 @@ public final class Toplevel {
     private java.lang.Object title_;
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the paper 
+     * </pre>
      */
     public boolean hasTitle() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the paper 
+     * </pre>
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -9957,6 +10633,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -9977,12 +10657,20 @@ public final class Toplevel {
     private java.lang.Object doiUrl_;
     /**
      * <code>optional string doi_url = 2;</code>
+     *
+     * <pre>
+     ** The DOI (Digital Object Identifier) URL of the paper 
+     * </pre>
      */
     public boolean hasDoiUrl() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string doi_url = 2;</code>
+     *
+     * <pre>
+     ** The DOI (Digital Object Identifier) URL of the paper 
+     * </pre>
      */
     public java.lang.String getDoiUrl() {
       java.lang.Object ref = doiUrl_;
@@ -10000,6 +10688,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string doi_url = 2;</code>
+     *
+     * <pre>
+     ** The DOI (Digital Object Identifier) URL of the paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getDoiUrlBytes() {
@@ -10020,12 +10712,20 @@ public final class Toplevel {
     private java.lang.Object source_;
     /**
      * <code>optional string source = 3;</code>
+     *
+     * <pre>
+     ** The source of the paper 
+     * </pre>
      */
     public boolean hasSource() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional string source = 3;</code>
+     *
+     * <pre>
+     ** The source of the paper 
+     * </pre>
      */
     public java.lang.String getSource() {
       java.lang.Object ref = source_;
@@ -10043,6 +10743,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string source = 3;</code>
+     *
+     * <pre>
+     ** The source of the paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getSourceBytes() {
@@ -10063,12 +10767,20 @@ public final class Toplevel {
     private java.lang.Object pubmedId_;
     /**
      * <code>optional string pubmed_id = 4;</code>
+     *
+     * <pre>
+     ** The PubMed identifier of the paper  
+     * </pre>
      */
     public boolean hasPubmedId() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional string pubmed_id = 4;</code>
+     *
+     * <pre>
+     ** The PubMed identifier of the paper  
+     * </pre>
      */
     public java.lang.String getPubmedId() {
       java.lang.Object ref = pubmedId_;
@@ -10086,6 +10798,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string pubmed_id = 4;</code>
+     *
+     * <pre>
+     ** The PubMed identifier of the paper  
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getPubmedIdBytes() {
@@ -10106,12 +10822,20 @@ public final class Toplevel {
     private long publishTime_;
     /**
      * <code>optional uint64 publish_time = 5;</code>
+     *
+     * <pre>
+     ** The time when the paper was published 
+     * </pre>
      */
     public boolean hasPublishTime() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional uint64 publish_time = 5;</code>
+     *
+     * <pre>
+     ** The time when the paper was published 
+     * </pre>
      */
     public long getPublishTime() {
       return publishTime_;
@@ -10122,12 +10846,20 @@ public final class Toplevel {
     private java.lang.Object journal_;
     /**
      * <code>optional string journal = 6;</code>
+     *
+     * <pre>
+     ** The journal where the paper was published 
+     * </pre>
      */
     public boolean hasJournal() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional string journal = 6;</code>
+     *
+     * <pre>
+     ** The journal where the paper was published 
+     * </pre>
      */
     public java.lang.String getJournal() {
       java.lang.Object ref = journal_;
@@ -10145,6 +10877,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string journal = 6;</code>
+     *
+     * <pre>
+     ** The journal where the paper was published 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getJournalBytes() {
@@ -10165,12 +10901,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Author> authors_;
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
       return authors_;
     }
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList() {
@@ -10178,18 +10922,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     public int getAuthorsCount() {
       return authors_.size();
     }
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     public boa.types.Toplevel.Author getAuthors(int index) {
       return authors_.get(index);
     }
     /**
      * <code>repeated .boa.types.Author authors = 7;</code>
+     *
+     * <pre>
+     ** A list of authors of the paper 
+     * </pre>
      */
     public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index) {
@@ -10201,12 +10957,20 @@ public final class Toplevel {
     private java.lang.Object licenseType_;
     /**
      * <code>optional string license_type = 8;</code>
+     *
+     * <pre>
+     ** The license type of the paper 
+     * </pre>
      */
     public boolean hasLicenseType() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      * <code>optional string license_type = 8;</code>
+     *
+     * <pre>
+     ** The license type of the paper 
+     * </pre>
      */
     public java.lang.String getLicenseType() {
       java.lang.Object ref = licenseType_;
@@ -10224,6 +10988,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string license_type = 8;</code>
+     *
+     * <pre>
+     ** The license type of the paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getLicenseTypeBytes() {
@@ -10406,6 +11174,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Metadata}
+     *
+     * <pre>
+     ** A metadata of a research paper 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -10634,12 +11406,20 @@ public final class Toplevel {
       private java.lang.Object title_ = "";
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the paper 
+       * </pre>
        */
       public boolean hasTitle() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the paper 
+       * </pre>
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -10654,6 +11434,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -10670,6 +11454,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the paper 
+       * </pre>
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -10683,6 +11471,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the paper 
+       * </pre>
        */
       public Builder clearTitle() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -10692,6 +11484,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the paper 
+       * </pre>
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -10708,12 +11504,20 @@ public final class Toplevel {
       private java.lang.Object doiUrl_ = "";
       /**
        * <code>optional string doi_url = 2;</code>
+       *
+       * <pre>
+       ** The DOI (Digital Object Identifier) URL of the paper 
+       * </pre>
        */
       public boolean hasDoiUrl() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional string doi_url = 2;</code>
+       *
+       * <pre>
+       ** The DOI (Digital Object Identifier) URL of the paper 
+       * </pre>
        */
       public java.lang.String getDoiUrl() {
         java.lang.Object ref = doiUrl_;
@@ -10728,6 +11532,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string doi_url = 2;</code>
+       *
+       * <pre>
+       ** The DOI (Digital Object Identifier) URL of the paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getDoiUrlBytes() {
@@ -10744,6 +11552,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string doi_url = 2;</code>
+       *
+       * <pre>
+       ** The DOI (Digital Object Identifier) URL of the paper 
+       * </pre>
        */
       public Builder setDoiUrl(
           java.lang.String value) {
@@ -10757,6 +11569,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string doi_url = 2;</code>
+       *
+       * <pre>
+       ** The DOI (Digital Object Identifier) URL of the paper 
+       * </pre>
        */
       public Builder clearDoiUrl() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -10766,6 +11582,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string doi_url = 2;</code>
+       *
+       * <pre>
+       ** The DOI (Digital Object Identifier) URL of the paper 
+       * </pre>
        */
       public Builder setDoiUrlBytes(
           com.google.protobuf.ByteString value) {
@@ -10782,12 +11602,20 @@ public final class Toplevel {
       private java.lang.Object source_ = "";
       /**
        * <code>optional string source = 3;</code>
+       *
+       * <pre>
+       ** The source of the paper 
+       * </pre>
        */
       public boolean hasSource() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional string source = 3;</code>
+       *
+       * <pre>
+       ** The source of the paper 
+       * </pre>
        */
       public java.lang.String getSource() {
         java.lang.Object ref = source_;
@@ -10802,6 +11630,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string source = 3;</code>
+       *
+       * <pre>
+       ** The source of the paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getSourceBytes() {
@@ -10818,6 +11650,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string source = 3;</code>
+       *
+       * <pre>
+       ** The source of the paper 
+       * </pre>
        */
       public Builder setSource(
           java.lang.String value) {
@@ -10831,6 +11667,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string source = 3;</code>
+       *
+       * <pre>
+       ** The source of the paper 
+       * </pre>
        */
       public Builder clearSource() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -10840,6 +11680,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string source = 3;</code>
+       *
+       * <pre>
+       ** The source of the paper 
+       * </pre>
        */
       public Builder setSourceBytes(
           com.google.protobuf.ByteString value) {
@@ -10856,12 +11700,20 @@ public final class Toplevel {
       private java.lang.Object pubmedId_ = "";
       /**
        * <code>optional string pubmed_id = 4;</code>
+       *
+       * <pre>
+       ** The PubMed identifier of the paper  
+       * </pre>
        */
       public boolean hasPubmedId() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional string pubmed_id = 4;</code>
+       *
+       * <pre>
+       ** The PubMed identifier of the paper  
+       * </pre>
        */
       public java.lang.String getPubmedId() {
         java.lang.Object ref = pubmedId_;
@@ -10876,6 +11728,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pubmed_id = 4;</code>
+       *
+       * <pre>
+       ** The PubMed identifier of the paper  
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getPubmedIdBytes() {
@@ -10892,6 +11748,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pubmed_id = 4;</code>
+       *
+       * <pre>
+       ** The PubMed identifier of the paper  
+       * </pre>
        */
       public Builder setPubmedId(
           java.lang.String value) {
@@ -10905,6 +11765,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pubmed_id = 4;</code>
+       *
+       * <pre>
+       ** The PubMed identifier of the paper  
+       * </pre>
        */
       public Builder clearPubmedId() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -10914,6 +11778,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pubmed_id = 4;</code>
+       *
+       * <pre>
+       ** The PubMed identifier of the paper  
+       * </pre>
        */
       public Builder setPubmedIdBytes(
           com.google.protobuf.ByteString value) {
@@ -10930,18 +11798,30 @@ public final class Toplevel {
       private long publishTime_ ;
       /**
        * <code>optional uint64 publish_time = 5;</code>
+       *
+       * <pre>
+       ** The time when the paper was published 
+       * </pre>
        */
       public boolean hasPublishTime() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional uint64 publish_time = 5;</code>
+       *
+       * <pre>
+       ** The time when the paper was published 
+       * </pre>
        */
       public long getPublishTime() {
         return publishTime_;
       }
       /**
        * <code>optional uint64 publish_time = 5;</code>
+       *
+       * <pre>
+       ** The time when the paper was published 
+       * </pre>
        */
       public Builder setPublishTime(long value) {
         bitField0_ |= 0x00000010;
@@ -10951,6 +11831,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional uint64 publish_time = 5;</code>
+       *
+       * <pre>
+       ** The time when the paper was published 
+       * </pre>
        */
       public Builder clearPublishTime() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -10963,12 +11847,20 @@ public final class Toplevel {
       private java.lang.Object journal_ = "";
       /**
        * <code>optional string journal = 6;</code>
+       *
+       * <pre>
+       ** The journal where the paper was published 
+       * </pre>
        */
       public boolean hasJournal() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional string journal = 6;</code>
+       *
+       * <pre>
+       ** The journal where the paper was published 
+       * </pre>
        */
       public java.lang.String getJournal() {
         java.lang.Object ref = journal_;
@@ -10983,6 +11875,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string journal = 6;</code>
+       *
+       * <pre>
+       ** The journal where the paper was published 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getJournalBytes() {
@@ -10999,6 +11895,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string journal = 6;</code>
+       *
+       * <pre>
+       ** The journal where the paper was published 
+       * </pre>
        */
       public Builder setJournal(
           java.lang.String value) {
@@ -11012,6 +11912,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string journal = 6;</code>
+       *
+       * <pre>
+       ** The journal where the paper was published 
+       * </pre>
        */
       public Builder clearJournal() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -11021,6 +11925,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string journal = 6;</code>
+       *
+       * <pre>
+       ** The journal where the paper was published 
+       * </pre>
        */
       public Builder setJournalBytes(
           com.google.protobuf.ByteString value) {
@@ -11048,6 +11956,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
         if (authorsBuilder_ == null) {
@@ -11058,6 +11970,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public int getAuthorsCount() {
         if (authorsBuilder_ == null) {
@@ -11068,6 +11984,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Author getAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -11078,6 +11998,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -11095,6 +12019,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -11109,6 +12037,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder addAuthors(boa.types.Toplevel.Author value) {
         if (authorsBuilder_ == null) {
@@ -11125,6 +12057,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -11142,6 +12078,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder addAuthors(
           boa.types.Toplevel.Author.Builder builderForValue) {
@@ -11156,6 +12096,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -11170,6 +12114,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder addAllAuthors(
           java.lang.Iterable<? extends boa.types.Toplevel.Author> values) {
@@ -11184,6 +12132,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder clearAuthors() {
         if (authorsBuilder_ == null) {
@@ -11197,6 +12149,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public Builder removeAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -11210,6 +12166,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Author.Builder getAuthorsBuilder(
           int index) {
@@ -11217,6 +12177,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
           int index) {
@@ -11227,6 +12191,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
            getAuthorsOrBuilderList() {
@@ -11238,6 +12206,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder() {
         return getAuthorsFieldBuilder().addBuilder(
@@ -11245,6 +12217,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder(
           int index) {
@@ -11253,6 +12229,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 7;</code>
+       *
+       * <pre>
+       ** A list of authors of the paper 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Author.Builder> 
            getAuthorsBuilderList() {
@@ -11277,12 +12257,20 @@ public final class Toplevel {
       private java.lang.Object licenseType_ = "";
       /**
        * <code>optional string license_type = 8;</code>
+       *
+       * <pre>
+       ** The license type of the paper 
+       * </pre>
        */
       public boolean hasLicenseType() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional string license_type = 8;</code>
+       *
+       * <pre>
+       ** The license type of the paper 
+       * </pre>
        */
       public java.lang.String getLicenseType() {
         java.lang.Object ref = licenseType_;
@@ -11297,6 +12285,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string license_type = 8;</code>
+       *
+       * <pre>
+       ** The license type of the paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getLicenseTypeBytes() {
@@ -11313,6 +12305,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string license_type = 8;</code>
+       *
+       * <pre>
+       ** The license type of the paper 
+       * </pre>
        */
       public Builder setLicenseType(
           java.lang.String value) {
@@ -11326,6 +12322,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string license_type = 8;</code>
+       *
+       * <pre>
+       ** The license type of the paper 
+       * </pre>
        */
       public Builder clearLicenseType() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -11335,6 +12335,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string license_type = 8;</code>
+       *
+       * <pre>
+       ** The license type of the paper 
+       * </pre>
        */
       public Builder setLicenseTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -11364,14 +12368,26 @@ public final class Toplevel {
     // optional string first = 1;
     /**
      * <code>optional string first = 1;</code>
+     *
+     * <pre>
+     ** The first name of the author 
+     * </pre>
      */
     boolean hasFirst();
     /**
      * <code>optional string first = 1;</code>
+     *
+     * <pre>
+     ** The first name of the author 
+     * </pre>
      */
     java.lang.String getFirst();
     /**
      * <code>optional string first = 1;</code>
+     *
+     * <pre>
+     ** The first name of the author 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getFirstBytes();
@@ -11379,19 +12395,35 @@ public final class Toplevel {
     // repeated string middle = 2;
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     java.util.List<java.lang.String>
     getMiddleList();
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     int getMiddleCount();
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     java.lang.String getMiddle(int index);
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getMiddleBytes(int index);
@@ -11399,14 +12431,26 @@ public final class Toplevel {
     // optional string last = 3;
     /**
      * <code>optional string last = 3;</code>
+     *
+     * <pre>
+     ** The last name of the author 
+     * </pre>
      */
     boolean hasLast();
     /**
      * <code>optional string last = 3;</code>
+     *
+     * <pre>
+     ** The last name of the author 
+     * </pre>
      */
     java.lang.String getLast();
     /**
      * <code>optional string last = 3;</code>
+     *
+     * <pre>
+     ** The last name of the author 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getLastBytes();
@@ -11414,14 +12458,26 @@ public final class Toplevel {
     // optional string suffix = 4;
     /**
      * <code>optional string suffix = 4;</code>
+     *
+     * <pre>
+     ** The suffix of the author 
+     * </pre>
      */
     boolean hasSuffix();
     /**
      * <code>optional string suffix = 4;</code>
+     *
+     * <pre>
+     ** The suffix of the author 
+     * </pre>
      */
     java.lang.String getSuffix();
     /**
      * <code>optional string suffix = 4;</code>
+     *
+     * <pre>
+     ** The suffix of the author 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getSuffixBytes();
@@ -11429,34 +12485,62 @@ public final class Toplevel {
     // optional .boa.types.Affiliation affiliation = 5;
     /**
      * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     *
+     * <pre>
+     ** The affiliation of the author 
+     * </pre>
      */
     boolean hasAffiliation();
     /**
      * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     *
+     * <pre>
+     ** The affiliation of the author 
+     * </pre>
      */
     boa.types.Toplevel.Affiliation getAffiliation();
     /**
      * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     *
+     * <pre>
+     ** The affiliation of the author 
+     * </pre>
      */
     boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder();
 
     // optional string email = 6;
     /**
      * <code>optional string email = 6;</code>
+     *
+     * <pre>
+     ** The email of the author 
+     * </pre>
      */
     boolean hasEmail();
     /**
      * <code>optional string email = 6;</code>
+     *
+     * <pre>
+     ** The email of the author 
+     * </pre>
      */
     java.lang.String getEmail();
     /**
      * <code>optional string email = 6;</code>
+     *
+     * <pre>
+     ** The email of the author 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getEmailBytes();
   }
   /**
    * Protobuf type {@code boa.types.Author}
+   *
+   * <pre>
+   ** An author of a research paper 
+   * </pre>
    */
   public static final class Author extends
       com.google.protobuf.GeneratedMessage
@@ -11595,12 +12679,20 @@ public final class Toplevel {
     private java.lang.Object first_;
     /**
      * <code>optional string first = 1;</code>
+     *
+     * <pre>
+     ** The first name of the author 
+     * </pre>
      */
     public boolean hasFirst() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string first = 1;</code>
+     *
+     * <pre>
+     ** The first name of the author 
+     * </pre>
      */
     public java.lang.String getFirst() {
       java.lang.Object ref = first_;
@@ -11618,6 +12710,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string first = 1;</code>
+     *
+     * <pre>
+     ** The first name of the author 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getFirstBytes() {
@@ -11638,6 +12734,10 @@ public final class Toplevel {
     private com.google.protobuf.LazyStringList middle_;
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     public java.util.List<java.lang.String>
         getMiddleList() {
@@ -11645,18 +12745,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     public int getMiddleCount() {
       return middle_.size();
     }
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     public java.lang.String getMiddle(int index) {
       return middle_.get(index);
     }
     /**
      * <code>repeated string middle = 2;</code>
+     *
+     * <pre>
+     ** The middle name of the author 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getMiddleBytes(int index) {
@@ -11668,12 +12780,20 @@ public final class Toplevel {
     private java.lang.Object last_;
     /**
      * <code>optional string last = 3;</code>
+     *
+     * <pre>
+     ** The last name of the author 
+     * </pre>
      */
     public boolean hasLast() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string last = 3;</code>
+     *
+     * <pre>
+     ** The last name of the author 
+     * </pre>
      */
     public java.lang.String getLast() {
       java.lang.Object ref = last_;
@@ -11691,6 +12811,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string last = 3;</code>
+     *
+     * <pre>
+     ** The last name of the author 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getLastBytes() {
@@ -11711,12 +12835,20 @@ public final class Toplevel {
     private java.lang.Object suffix_;
     /**
      * <code>optional string suffix = 4;</code>
+     *
+     * <pre>
+     ** The suffix of the author 
+     * </pre>
      */
     public boolean hasSuffix() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional string suffix = 4;</code>
+     *
+     * <pre>
+     ** The suffix of the author 
+     * </pre>
      */
     public java.lang.String getSuffix() {
       java.lang.Object ref = suffix_;
@@ -11734,6 +12866,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string suffix = 4;</code>
+     *
+     * <pre>
+     ** The suffix of the author 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getSuffixBytes() {
@@ -11754,18 +12890,30 @@ public final class Toplevel {
     private boa.types.Toplevel.Affiliation affiliation_;
     /**
      * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     *
+     * <pre>
+     ** The affiliation of the author 
+     * </pre>
      */
     public boolean hasAffiliation() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     *
+     * <pre>
+     ** The affiliation of the author 
+     * </pre>
      */
     public boa.types.Toplevel.Affiliation getAffiliation() {
       return affiliation_;
     }
     /**
      * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+     *
+     * <pre>
+     ** The affiliation of the author 
+     * </pre>
      */
     public boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder() {
       return affiliation_;
@@ -11776,12 +12924,20 @@ public final class Toplevel {
     private java.lang.Object email_;
     /**
      * <code>optional string email = 6;</code>
+     *
+     * <pre>
+     ** The email of the author 
+     * </pre>
      */
     public boolean hasEmail() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional string email = 6;</code>
+     *
+     * <pre>
+     ** The email of the author 
+     * </pre>
      */
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
@@ -11799,6 +12955,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string email = 6;</code>
+     *
+     * <pre>
+     ** The email of the author 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
@@ -11970,6 +13130,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Author}
+     *
+     * <pre>
+     ** An author of a research paper 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -12161,12 +13325,20 @@ public final class Toplevel {
       private java.lang.Object first_ = "";
       /**
        * <code>optional string first = 1;</code>
+       *
+       * <pre>
+       ** The first name of the author 
+       * </pre>
        */
       public boolean hasFirst() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string first = 1;</code>
+       *
+       * <pre>
+       ** The first name of the author 
+       * </pre>
        */
       public java.lang.String getFirst() {
         java.lang.Object ref = first_;
@@ -12181,6 +13353,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string first = 1;</code>
+       *
+       * <pre>
+       ** The first name of the author 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getFirstBytes() {
@@ -12197,6 +13373,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string first = 1;</code>
+       *
+       * <pre>
+       ** The first name of the author 
+       * </pre>
        */
       public Builder setFirst(
           java.lang.String value) {
@@ -12210,6 +13390,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string first = 1;</code>
+       *
+       * <pre>
+       ** The first name of the author 
+       * </pre>
        */
       public Builder clearFirst() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -12219,6 +13403,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string first = 1;</code>
+       *
+       * <pre>
+       ** The first name of the author 
+       * </pre>
        */
       public Builder setFirstBytes(
           com.google.protobuf.ByteString value) {
@@ -12241,6 +13429,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public java.util.List<java.lang.String>
           getMiddleList() {
@@ -12248,18 +13440,30 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public int getMiddleCount() {
         return middle_.size();
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public java.lang.String getMiddle(int index) {
         return middle_.get(index);
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getMiddleBytes(int index) {
@@ -12267,6 +13471,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public Builder setMiddle(
           int index, java.lang.String value) {
@@ -12280,6 +13488,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public Builder addMiddle(
           java.lang.String value) {
@@ -12293,6 +13505,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public Builder addAllMiddle(
           java.lang.Iterable<java.lang.String> values) {
@@ -12303,6 +13519,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public Builder clearMiddle() {
         middle_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -12312,6 +13532,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated string middle = 2;</code>
+       *
+       * <pre>
+       ** The middle name of the author 
+       * </pre>
        */
       public Builder addMiddleBytes(
           com.google.protobuf.ByteString value) {
@@ -12328,12 +13552,20 @@ public final class Toplevel {
       private java.lang.Object last_ = "";
       /**
        * <code>optional string last = 3;</code>
+       *
+       * <pre>
+       ** The last name of the author 
+       * </pre>
        */
       public boolean hasLast() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional string last = 3;</code>
+       *
+       * <pre>
+       ** The last name of the author 
+       * </pre>
        */
       public java.lang.String getLast() {
         java.lang.Object ref = last_;
@@ -12348,6 +13580,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string last = 3;</code>
+       *
+       * <pre>
+       ** The last name of the author 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getLastBytes() {
@@ -12364,6 +13600,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string last = 3;</code>
+       *
+       * <pre>
+       ** The last name of the author 
+       * </pre>
        */
       public Builder setLast(
           java.lang.String value) {
@@ -12377,6 +13617,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string last = 3;</code>
+       *
+       * <pre>
+       ** The last name of the author 
+       * </pre>
        */
       public Builder clearLast() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -12386,6 +13630,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string last = 3;</code>
+       *
+       * <pre>
+       ** The last name of the author 
+       * </pre>
        */
       public Builder setLastBytes(
           com.google.protobuf.ByteString value) {
@@ -12402,12 +13650,20 @@ public final class Toplevel {
       private java.lang.Object suffix_ = "";
       /**
        * <code>optional string suffix = 4;</code>
+       *
+       * <pre>
+       ** The suffix of the author 
+       * </pre>
        */
       public boolean hasSuffix() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional string suffix = 4;</code>
+       *
+       * <pre>
+       ** The suffix of the author 
+       * </pre>
        */
       public java.lang.String getSuffix() {
         java.lang.Object ref = suffix_;
@@ -12422,6 +13678,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string suffix = 4;</code>
+       *
+       * <pre>
+       ** The suffix of the author 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getSuffixBytes() {
@@ -12438,6 +13698,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string suffix = 4;</code>
+       *
+       * <pre>
+       ** The suffix of the author 
+       * </pre>
        */
       public Builder setSuffix(
           java.lang.String value) {
@@ -12451,6 +13715,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string suffix = 4;</code>
+       *
+       * <pre>
+       ** The suffix of the author 
+       * </pre>
        */
       public Builder clearSuffix() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -12460,6 +13728,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string suffix = 4;</code>
+       *
+       * <pre>
+       ** The suffix of the author 
+       * </pre>
        */
       public Builder setSuffixBytes(
           com.google.protobuf.ByteString value) {
@@ -12478,12 +13750,20 @@ public final class Toplevel {
           boa.types.Toplevel.Affiliation, boa.types.Toplevel.Affiliation.Builder, boa.types.Toplevel.AffiliationOrBuilder> affiliationBuilder_;
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public boolean hasAffiliation() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public boa.types.Toplevel.Affiliation getAffiliation() {
         if (affiliationBuilder_ == null) {
@@ -12494,6 +13774,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public Builder setAffiliation(boa.types.Toplevel.Affiliation value) {
         if (affiliationBuilder_ == null) {
@@ -12510,6 +13794,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public Builder setAffiliation(
           boa.types.Toplevel.Affiliation.Builder builderForValue) {
@@ -12524,6 +13812,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public Builder mergeAffiliation(boa.types.Toplevel.Affiliation value) {
         if (affiliationBuilder_ == null) {
@@ -12543,6 +13835,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public Builder clearAffiliation() {
         if (affiliationBuilder_ == null) {
@@ -12556,6 +13852,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public boa.types.Toplevel.Affiliation.Builder getAffiliationBuilder() {
         bitField0_ |= 0x00000010;
@@ -12564,6 +13864,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       public boa.types.Toplevel.AffiliationOrBuilder getAffiliationOrBuilder() {
         if (affiliationBuilder_ != null) {
@@ -12574,6 +13878,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Affiliation affiliation = 5;</code>
+       *
+       * <pre>
+       ** The affiliation of the author 
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Toplevel.Affiliation, boa.types.Toplevel.Affiliation.Builder, boa.types.Toplevel.AffiliationOrBuilder> 
@@ -12593,12 +13901,20 @@ public final class Toplevel {
       private java.lang.Object email_ = "";
       /**
        * <code>optional string email = 6;</code>
+       *
+       * <pre>
+       ** The email of the author 
+       * </pre>
        */
       public boolean hasEmail() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional string email = 6;</code>
+       *
+       * <pre>
+       ** The email of the author 
+       * </pre>
        */
       public java.lang.String getEmail() {
         java.lang.Object ref = email_;
@@ -12613,6 +13929,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string email = 6;</code>
+       *
+       * <pre>
+       ** The email of the author 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getEmailBytes() {
@@ -12629,6 +13949,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string email = 6;</code>
+       *
+       * <pre>
+       ** The email of the author 
+       * </pre>
        */
       public Builder setEmail(
           java.lang.String value) {
@@ -12642,6 +13966,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string email = 6;</code>
+       *
+       * <pre>
+       ** The email of the author 
+       * </pre>
        */
       public Builder clearEmail() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -12651,6 +13979,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string email = 6;</code>
+       *
+       * <pre>
+       ** The email of the author 
+       * </pre>
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
@@ -12680,14 +14012,26 @@ public final class Toplevel {
     // optional string laboratory = 1;
     /**
      * <code>optional string laboratory = 1;</code>
+     *
+     * <pre>
+     ** Laboratory name 
+     * </pre>
      */
     boolean hasLaboratory();
     /**
      * <code>optional string laboratory = 1;</code>
+     *
+     * <pre>
+     ** Laboratory name 
+     * </pre>
      */
     java.lang.String getLaboratory();
     /**
      * <code>optional string laboratory = 1;</code>
+     *
+     * <pre>
+     ** Laboratory name 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getLaboratoryBytes();
@@ -12695,14 +14039,26 @@ public final class Toplevel {
     // optional string institution = 2;
     /**
      * <code>optional string institution = 2;</code>
+     *
+     * <pre>
+     ** Institution name 
+     * </pre>
      */
     boolean hasInstitution();
     /**
      * <code>optional string institution = 2;</code>
+     *
+     * <pre>
+     ** Institution name 
+     * </pre>
      */
     java.lang.String getInstitution();
     /**
      * <code>optional string institution = 2;</code>
+     *
+     * <pre>
+     ** Institution name 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getInstitutionBytes();
@@ -12710,19 +14066,35 @@ public final class Toplevel {
     // optional .boa.types.Location location = 3;
     /**
      * <code>optional .boa.types.Location location = 3;</code>
+     *
+     * <pre>
+     ** Location information 
+     * </pre>
      */
     boolean hasLocation();
     /**
      * <code>optional .boa.types.Location location = 3;</code>
+     *
+     * <pre>
+     ** Location information 
+     * </pre>
      */
     boa.types.Toplevel.Location getLocation();
     /**
      * <code>optional .boa.types.Location location = 3;</code>
+     *
+     * <pre>
+     ** Location information 
+     * </pre>
      */
     boa.types.Toplevel.LocationOrBuilder getLocationOrBuilder();
   }
   /**
    * Protobuf type {@code boa.types.Affiliation}
+   *
+   * <pre>
+   ** A Affiliation of an author 
+   * </pre>
    */
   public static final class Affiliation extends
       com.google.protobuf.GeneratedMessage
@@ -12840,12 +14212,20 @@ public final class Toplevel {
     private java.lang.Object laboratory_;
     /**
      * <code>optional string laboratory = 1;</code>
+     *
+     * <pre>
+     ** Laboratory name 
+     * </pre>
      */
     public boolean hasLaboratory() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string laboratory = 1;</code>
+     *
+     * <pre>
+     ** Laboratory name 
+     * </pre>
      */
     public java.lang.String getLaboratory() {
       java.lang.Object ref = laboratory_;
@@ -12863,6 +14243,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string laboratory = 1;</code>
+     *
+     * <pre>
+     ** Laboratory name 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getLaboratoryBytes() {
@@ -12883,12 +14267,20 @@ public final class Toplevel {
     private java.lang.Object institution_;
     /**
      * <code>optional string institution = 2;</code>
+     *
+     * <pre>
+     ** Institution name 
+     * </pre>
      */
     public boolean hasInstitution() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string institution = 2;</code>
+     *
+     * <pre>
+     ** Institution name 
+     * </pre>
      */
     public java.lang.String getInstitution() {
       java.lang.Object ref = institution_;
@@ -12906,6 +14298,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string institution = 2;</code>
+     *
+     * <pre>
+     ** Institution name 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getInstitutionBytes() {
@@ -12926,18 +14322,30 @@ public final class Toplevel {
     private boa.types.Toplevel.Location location_;
     /**
      * <code>optional .boa.types.Location location = 3;</code>
+     *
+     * <pre>
+     ** Location information 
+     * </pre>
      */
     public boolean hasLocation() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional .boa.types.Location location = 3;</code>
+     *
+     * <pre>
+     ** Location information 
+     * </pre>
      */
     public boa.types.Toplevel.Location getLocation() {
       return location_;
     }
     /**
      * <code>optional .boa.types.Location location = 3;</code>
+     *
+     * <pre>
+     ** Location information 
+     * </pre>
      */
     public boa.types.Toplevel.LocationOrBuilder getLocationOrBuilder() {
       return location_;
@@ -13070,6 +14478,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Affiliation}
+     *
+     * <pre>
+     ** A Affiliation of an author 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -13221,12 +14633,20 @@ public final class Toplevel {
       private java.lang.Object laboratory_ = "";
       /**
        * <code>optional string laboratory = 1;</code>
+       *
+       * <pre>
+       ** Laboratory name 
+       * </pre>
        */
       public boolean hasLaboratory() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string laboratory = 1;</code>
+       *
+       * <pre>
+       ** Laboratory name 
+       * </pre>
        */
       public java.lang.String getLaboratory() {
         java.lang.Object ref = laboratory_;
@@ -13241,6 +14661,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string laboratory = 1;</code>
+       *
+       * <pre>
+       ** Laboratory name 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getLaboratoryBytes() {
@@ -13257,6 +14681,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string laboratory = 1;</code>
+       *
+       * <pre>
+       ** Laboratory name 
+       * </pre>
        */
       public Builder setLaboratory(
           java.lang.String value) {
@@ -13270,6 +14698,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string laboratory = 1;</code>
+       *
+       * <pre>
+       ** Laboratory name 
+       * </pre>
        */
       public Builder clearLaboratory() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -13279,6 +14711,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string laboratory = 1;</code>
+       *
+       * <pre>
+       ** Laboratory name 
+       * </pre>
        */
       public Builder setLaboratoryBytes(
           com.google.protobuf.ByteString value) {
@@ -13295,12 +14731,20 @@ public final class Toplevel {
       private java.lang.Object institution_ = "";
       /**
        * <code>optional string institution = 2;</code>
+       *
+       * <pre>
+       ** Institution name 
+       * </pre>
        */
       public boolean hasInstitution() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional string institution = 2;</code>
+       *
+       * <pre>
+       ** Institution name 
+       * </pre>
        */
       public java.lang.String getInstitution() {
         java.lang.Object ref = institution_;
@@ -13315,6 +14759,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string institution = 2;</code>
+       *
+       * <pre>
+       ** Institution name 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getInstitutionBytes() {
@@ -13331,6 +14779,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string institution = 2;</code>
+       *
+       * <pre>
+       ** Institution name 
+       * </pre>
        */
       public Builder setInstitution(
           java.lang.String value) {
@@ -13344,6 +14796,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string institution = 2;</code>
+       *
+       * <pre>
+       ** Institution name 
+       * </pre>
        */
       public Builder clearInstitution() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -13353,6 +14809,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string institution = 2;</code>
+       *
+       * <pre>
+       ** Institution name 
+       * </pre>
        */
       public Builder setInstitutionBytes(
           com.google.protobuf.ByteString value) {
@@ -13371,12 +14831,20 @@ public final class Toplevel {
           boa.types.Toplevel.Location, boa.types.Toplevel.Location.Builder, boa.types.Toplevel.LocationOrBuilder> locationBuilder_;
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public boolean hasLocation() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public boa.types.Toplevel.Location getLocation() {
         if (locationBuilder_ == null) {
@@ -13387,6 +14855,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public Builder setLocation(boa.types.Toplevel.Location value) {
         if (locationBuilder_ == null) {
@@ -13403,6 +14875,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public Builder setLocation(
           boa.types.Toplevel.Location.Builder builderForValue) {
@@ -13417,6 +14893,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public Builder mergeLocation(boa.types.Toplevel.Location value) {
         if (locationBuilder_ == null) {
@@ -13436,6 +14916,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public Builder clearLocation() {
         if (locationBuilder_ == null) {
@@ -13449,6 +14933,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public boa.types.Toplevel.Location.Builder getLocationBuilder() {
         bitField0_ |= 0x00000004;
@@ -13457,6 +14945,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       public boa.types.Toplevel.LocationOrBuilder getLocationOrBuilder() {
         if (locationBuilder_ != null) {
@@ -13467,6 +14959,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Location location = 3;</code>
+       *
+       * <pre>
+       ** Location information 
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Toplevel.Location, boa.types.Toplevel.Location.Builder, boa.types.Toplevel.LocationOrBuilder> 
@@ -13499,14 +14995,26 @@ public final class Toplevel {
     // optional string title = 1;
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the section 
+     * </pre>
      */
     boolean hasTitle();
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the section 
+     * </pre>
      */
     java.lang.String getTitle();
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the section 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getTitleBytes();
@@ -13514,30 +15022,54 @@ public final class Toplevel {
     // repeated .boa.types.Paragraph body = 2;
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Paragraph> 
         getBodyList();
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     boa.types.Toplevel.Paragraph getBody(int index);
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     int getBodyCount();
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
         getBodyOrBuilderList();
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     boa.types.Toplevel.ParagraphOrBuilder getBodyOrBuilder(
         int index);
   }
   /**
    * Protobuf type {@code boa.types.Section}
+   *
+   * <pre>
+   ** A section inside a body text 
+   * </pre>
    */
   public static final class Section extends
       com.google.protobuf.GeneratedMessage
@@ -13648,12 +15180,20 @@ public final class Toplevel {
     private java.lang.Object title_;
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the section 
+     * </pre>
      */
     public boolean hasTitle() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the section 
+     * </pre>
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -13671,6 +15211,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string title = 1;</code>
+     *
+     * <pre>
+     ** The title of the section 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -13691,12 +15235,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Paragraph> body_;
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Paragraph> getBodyList() {
       return body_;
     }
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
         getBodyOrBuilderList() {
@@ -13704,18 +15256,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     public int getBodyCount() {
       return body_.size();
     }
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     public boa.types.Toplevel.Paragraph getBody(int index) {
       return body_.get(index);
     }
     /**
      * <code>repeated .boa.types.Paragraph body = 2;</code>
+     *
+     * <pre>
+     ** A list of paragraphs in the section 
+     * </pre>
      */
     public boa.types.Toplevel.ParagraphOrBuilder getBodyOrBuilder(
         int index) {
@@ -13841,6 +15405,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Section}
+     *
+     * <pre>
+     ** A section inside a body text 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -14005,12 +15573,20 @@ public final class Toplevel {
       private java.lang.Object title_ = "";
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the section 
+       * </pre>
        */
       public boolean hasTitle() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the section 
+       * </pre>
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -14025,6 +15601,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the section 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -14041,6 +15621,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the section 
+       * </pre>
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -14054,6 +15638,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the section 
+       * </pre>
        */
       public Builder clearTitle() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -14063,6 +15651,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 1;</code>
+       *
+       * <pre>
+       ** The title of the section 
+       * </pre>
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -14090,6 +15682,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Paragraph> getBodyList() {
         if (bodyBuilder_ == null) {
@@ -14100,6 +15696,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public int getBodyCount() {
         if (bodyBuilder_ == null) {
@@ -14110,6 +15710,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph getBody(int index) {
         if (bodyBuilder_ == null) {
@@ -14120,6 +15724,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder setBody(
           int index, boa.types.Toplevel.Paragraph value) {
@@ -14137,6 +15745,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder setBody(
           int index, boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -14151,6 +15763,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder addBody(boa.types.Toplevel.Paragraph value) {
         if (bodyBuilder_ == null) {
@@ -14167,6 +15783,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder addBody(
           int index, boa.types.Toplevel.Paragraph value) {
@@ -14184,6 +15804,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder addBody(
           boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -14198,6 +15822,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder addBody(
           int index, boa.types.Toplevel.Paragraph.Builder builderForValue) {
@@ -14212,6 +15840,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder addAllBody(
           java.lang.Iterable<? extends boa.types.Toplevel.Paragraph> values) {
@@ -14226,6 +15858,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder clearBody() {
         if (bodyBuilder_ == null) {
@@ -14239,6 +15875,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public Builder removeBody(int index) {
         if (bodyBuilder_ == null) {
@@ -14252,6 +15892,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.Builder getBodyBuilder(
           int index) {
@@ -14259,6 +15903,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public boa.types.Toplevel.ParagraphOrBuilder getBodyOrBuilder(
           int index) {
@@ -14269,6 +15917,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.ParagraphOrBuilder> 
            getBodyOrBuilderList() {
@@ -14280,6 +15932,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.Builder addBodyBuilder() {
         return getBodyFieldBuilder().addBuilder(
@@ -14287,6 +15943,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.Builder addBodyBuilder(
           int index) {
@@ -14295,6 +15955,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Paragraph body = 2;</code>
+       *
+       * <pre>
+       ** A list of paragraphs in the section 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Paragraph.Builder> 
            getBodyBuilderList() {
@@ -14332,14 +15996,26 @@ public final class Toplevel {
     // optional string text = 1;
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The text of the paragraph 
+     * </pre>
      */
     boolean hasText();
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The text of the paragraph 
+     * </pre>
      */
     java.lang.String getText();
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The text of the paragraph 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -14347,24 +16023,44 @@ public final class Toplevel {
     // repeated .boa.types.Citation cite_spans = 2;
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Citation> 
         getCiteSpansList();
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     boa.types.Toplevel.Citation getCiteSpans(int index);
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     int getCiteSpansCount();
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.CitationOrBuilder> 
         getCiteSpansOrBuilderList();
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     boa.types.Toplevel.CitationOrBuilder getCiteSpansOrBuilder(
         int index);
@@ -14372,24 +16068,44 @@ public final class Toplevel {
     // repeated .boa.types.Citation ref_spans = 3;
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Citation> 
         getRefSpansList();
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     boa.types.Toplevel.Citation getRefSpans(int index);
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     int getRefSpansCount();
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.CitationOrBuilder> 
         getRefSpansOrBuilderList();
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     boa.types.Toplevel.CitationOrBuilder getRefSpansOrBuilder(
         int index);
@@ -14397,15 +16113,27 @@ public final class Toplevel {
     // optional .boa.types.Paragraph.ParagraphKind kind = 4;
     /**
      * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+     *
+     * <pre>
+     ** @exclude The kind of the paragraph 
+     * </pre>
      */
     boolean hasKind();
     /**
      * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+     *
+     * <pre>
+     ** @exclude The kind of the paragraph 
+     * </pre>
      */
     boa.types.Toplevel.Paragraph.ParagraphKind getKind();
   }
   /**
    * Protobuf type {@code boa.types.Paragraph}
+   *
+   * <pre>
+   ** A paragraph inside a research paper 
+   * </pre>
    */
   public static final class Paragraph extends
       com.google.protobuf.GeneratedMessage
@@ -14534,49 +16262,93 @@ public final class Toplevel {
 
     /**
      * Protobuf enum {@code boa.types.Paragraph.ParagraphKind}
+     *
+     * <pre>
+     ** @exclude Describes the kind of paragraphs 
+     * </pre>
      */
     public enum ParagraphKind
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>BACKGROUND = 0;</code>
+       *
+       * <pre>
+       ** @exclude For background paragraphs 
+       * </pre>
        */
       BACKGROUND(0, 0),
       /**
        * <code>METHODS = 1;</code>
+       *
+       * <pre>
+       ** @exclude For method paragraphs 
+       * </pre>
        */
       METHODS(1, 1),
       /**
        * <code>RESULTS = 2;</code>
+       *
+       * <pre>
+       ** @exclude For result paragraphs 
+       * </pre>
        */
       RESULTS(2, 2),
       /**
        * <code>CONCLUSIONS = 3;</code>
+       *
+       * <pre>
+       ** @exclude For conclusion paragraphs 
+       * </pre>
        */
       CONCLUSIONS(3, 3),
       /**
        * <code>OTHER = 4;</code>
+       *
+       * <pre>
+       ** @exclude Any other paragraphs 
+       * </pre>
        */
       OTHER(4, 4),
       ;
 
       /**
        * <code>BACKGROUND = 0;</code>
+       *
+       * <pre>
+       ** @exclude For background paragraphs 
+       * </pre>
        */
       public static final int BACKGROUND_VALUE = 0;
       /**
        * <code>METHODS = 1;</code>
+       *
+       * <pre>
+       ** @exclude For method paragraphs 
+       * </pre>
        */
       public static final int METHODS_VALUE = 1;
       /**
        * <code>RESULTS = 2;</code>
+       *
+       * <pre>
+       ** @exclude For result paragraphs 
+       * </pre>
        */
       public static final int RESULTS_VALUE = 2;
       /**
        * <code>CONCLUSIONS = 3;</code>
+       *
+       * <pre>
+       ** @exclude For conclusion paragraphs 
+       * </pre>
        */
       public static final int CONCLUSIONS_VALUE = 3;
       /**
        * <code>OTHER = 4;</code>
+       *
+       * <pre>
+       ** @exclude Any other paragraphs 
+       * </pre>
        */
       public static final int OTHER_VALUE = 4;
 
@@ -14647,12 +16419,20 @@ public final class Toplevel {
     private java.lang.Object text_;
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The text of the paragraph 
+     * </pre>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The text of the paragraph 
+     * </pre>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -14670,6 +16450,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The text of the paragraph 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -14690,12 +16474,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Citation> citeSpans_;
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Citation> getCiteSpansList() {
       return citeSpans_;
     }
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.CitationOrBuilder> 
         getCiteSpansOrBuilderList() {
@@ -14703,18 +16495,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     public int getCiteSpansCount() {
       return citeSpans_.size();
     }
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     public boa.types.Toplevel.Citation getCiteSpans(int index) {
       return citeSpans_.get(index);
     }
     /**
      * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+     *
+     * <pre>
+     ** A list of paper citations in the paragraph 
+     * </pre>
      */
     public boa.types.Toplevel.CitationOrBuilder getCiteSpansOrBuilder(
         int index) {
@@ -14726,12 +16530,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Citation> refSpans_;
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Citation> getRefSpansList() {
       return refSpans_;
     }
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.CitationOrBuilder> 
         getRefSpansOrBuilderList() {
@@ -14739,18 +16551,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     public int getRefSpansCount() {
       return refSpans_.size();
     }
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     public boa.types.Toplevel.Citation getRefSpans(int index) {
       return refSpans_.get(index);
     }
     /**
      * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+     *
+     * <pre>
+     ** A list of figure/table citations in the paragraph 
+     * </pre>
      */
     public boa.types.Toplevel.CitationOrBuilder getRefSpansOrBuilder(
         int index) {
@@ -14762,12 +16586,20 @@ public final class Toplevel {
     private boa.types.Toplevel.Paragraph.ParagraphKind kind_;
     /**
      * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+     *
+     * <pre>
+     ** @exclude The kind of the paragraph 
+     * </pre>
      */
     public boolean hasKind() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+     *
+     * <pre>
+     ** @exclude The kind of the paragraph 
+     * </pre>
      */
     public boa.types.Toplevel.Paragraph.ParagraphKind getKind() {
       return kind_;
@@ -14908,6 +16740,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Paragraph}
+     *
+     * <pre>
+     ** A paragraph inside a research paper 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -15123,12 +16959,20 @@ public final class Toplevel {
       private java.lang.Object text_ = "";
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The text of the paragraph 
+       * </pre>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The text of the paragraph 
+       * </pre>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -15143,6 +16987,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The text of the paragraph 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -15159,6 +17007,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The text of the paragraph 
+       * </pre>
        */
       public Builder setText(
           java.lang.String value) {
@@ -15172,6 +17024,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The text of the paragraph 
+       * </pre>
        */
       public Builder clearText() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -15181,6 +17037,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The text of the paragraph 
+       * </pre>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -15208,6 +17068,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Citation> getCiteSpansList() {
         if (citeSpansBuilder_ == null) {
@@ -15218,6 +17082,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public int getCiteSpansCount() {
         if (citeSpansBuilder_ == null) {
@@ -15228,6 +17096,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation getCiteSpans(int index) {
         if (citeSpansBuilder_ == null) {
@@ -15238,6 +17110,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder setCiteSpans(
           int index, boa.types.Toplevel.Citation value) {
@@ -15255,6 +17131,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder setCiteSpans(
           int index, boa.types.Toplevel.Citation.Builder builderForValue) {
@@ -15269,6 +17149,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder addCiteSpans(boa.types.Toplevel.Citation value) {
         if (citeSpansBuilder_ == null) {
@@ -15285,6 +17169,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder addCiteSpans(
           int index, boa.types.Toplevel.Citation value) {
@@ -15302,6 +17190,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder addCiteSpans(
           boa.types.Toplevel.Citation.Builder builderForValue) {
@@ -15316,6 +17208,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder addCiteSpans(
           int index, boa.types.Toplevel.Citation.Builder builderForValue) {
@@ -15330,6 +17226,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder addAllCiteSpans(
           java.lang.Iterable<? extends boa.types.Toplevel.Citation> values) {
@@ -15344,6 +17244,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder clearCiteSpans() {
         if (citeSpansBuilder_ == null) {
@@ -15357,6 +17261,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public Builder removeCiteSpans(int index) {
         if (citeSpansBuilder_ == null) {
@@ -15370,6 +17278,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation.Builder getCiteSpansBuilder(
           int index) {
@@ -15377,6 +17289,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.CitationOrBuilder getCiteSpansOrBuilder(
           int index) {
@@ -15387,6 +17303,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.CitationOrBuilder> 
            getCiteSpansOrBuilderList() {
@@ -15398,6 +17318,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation.Builder addCiteSpansBuilder() {
         return getCiteSpansFieldBuilder().addBuilder(
@@ -15405,6 +17329,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation.Builder addCiteSpansBuilder(
           int index) {
@@ -15413,6 +17341,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation cite_spans = 2;</code>
+       *
+       * <pre>
+       ** A list of paper citations in the paragraph 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Citation.Builder> 
            getCiteSpansBuilderList() {
@@ -15448,6 +17380,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Citation> getRefSpansList() {
         if (refSpansBuilder_ == null) {
@@ -15458,6 +17394,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public int getRefSpansCount() {
         if (refSpansBuilder_ == null) {
@@ -15468,6 +17408,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation getRefSpans(int index) {
         if (refSpansBuilder_ == null) {
@@ -15478,6 +17422,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder setRefSpans(
           int index, boa.types.Toplevel.Citation value) {
@@ -15495,6 +17443,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder setRefSpans(
           int index, boa.types.Toplevel.Citation.Builder builderForValue) {
@@ -15509,6 +17461,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder addRefSpans(boa.types.Toplevel.Citation value) {
         if (refSpansBuilder_ == null) {
@@ -15525,6 +17481,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder addRefSpans(
           int index, boa.types.Toplevel.Citation value) {
@@ -15542,6 +17502,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder addRefSpans(
           boa.types.Toplevel.Citation.Builder builderForValue) {
@@ -15556,6 +17520,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder addRefSpans(
           int index, boa.types.Toplevel.Citation.Builder builderForValue) {
@@ -15570,6 +17538,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder addAllRefSpans(
           java.lang.Iterable<? extends boa.types.Toplevel.Citation> values) {
@@ -15584,6 +17556,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder clearRefSpans() {
         if (refSpansBuilder_ == null) {
@@ -15597,6 +17573,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public Builder removeRefSpans(int index) {
         if (refSpansBuilder_ == null) {
@@ -15610,6 +17590,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation.Builder getRefSpansBuilder(
           int index) {
@@ -15617,6 +17601,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.CitationOrBuilder getRefSpansOrBuilder(
           int index) {
@@ -15627,6 +17615,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.CitationOrBuilder> 
            getRefSpansOrBuilderList() {
@@ -15638,6 +17630,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation.Builder addRefSpansBuilder() {
         return getRefSpansFieldBuilder().addBuilder(
@@ -15645,6 +17641,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Citation.Builder addRefSpansBuilder(
           int index) {
@@ -15653,6 +17653,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Citation ref_spans = 3;</code>
+       *
+       * <pre>
+       ** A list of figure/table citations in the paragraph 
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Citation.Builder> 
            getRefSpansBuilderList() {
@@ -15677,18 +17681,30 @@ public final class Toplevel {
       private boa.types.Toplevel.Paragraph.ParagraphKind kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.BACKGROUND;
       /**
        * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+       *
+       * <pre>
+       ** @exclude The kind of the paragraph 
+       * </pre>
        */
       public boolean hasKind() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+       *
+       * <pre>
+       ** @exclude The kind of the paragraph 
+       * </pre>
        */
       public boa.types.Toplevel.Paragraph.ParagraphKind getKind() {
         return kind_;
       }
       /**
        * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+       *
+       * <pre>
+       ** @exclude The kind of the paragraph 
+       * </pre>
        */
       public Builder setKind(boa.types.Toplevel.Paragraph.ParagraphKind value) {
         if (value == null) {
@@ -15701,6 +17717,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
+       *
+       * <pre>
+       ** @exclude The kind of the paragraph 
+       * </pre>
        */
       public Builder clearKind() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -15726,14 +17746,26 @@ public final class Toplevel {
     // optional string text = 1;
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The character repesentation of the citation, e.g. citation "[7]" 
+     * </pre>
      */
     boolean hasText();
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The character repesentation of the citation, e.g. citation "[7]" 
+     * </pre>
      */
     java.lang.String getText();
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The character repesentation of the citation, e.g. citation "[7]" 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -15741,20 +17773,36 @@ public final class Toplevel {
     // optional string ref_id = 2;
     /**
      * <code>optional string ref_id = 2;</code>
+     *
+     * <pre>
+     ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+     * </pre>
      */
     boolean hasRefId();
     /**
      * <code>optional string ref_id = 2;</code>
+     *
+     * <pre>
+     ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+     * </pre>
      */
     java.lang.String getRefId();
     /**
      * <code>optional string ref_id = 2;</code>
+     *
+     * <pre>
+     ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getRefIdBytes();
   }
   /**
    * Protobuf type {@code boa.types.Citation}
+   *
+   * <pre>
+   ** A citation inside a paragraph 
+   * </pre>
    */
   public static final class Citation extends
       com.google.protobuf.GeneratedMessage
@@ -15859,12 +17907,20 @@ public final class Toplevel {
     private java.lang.Object text_;
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The character repesentation of the citation, e.g. citation "[7]" 
+     * </pre>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The character repesentation of the citation, e.g. citation "[7]" 
+     * </pre>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -15882,6 +17938,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string text = 1;</code>
+     *
+     * <pre>
+     ** The character repesentation of the citation, e.g. citation "[7]" 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -15902,12 +17962,20 @@ public final class Toplevel {
     private java.lang.Object refId_;
     /**
      * <code>optional string ref_id = 2;</code>
+     *
+     * <pre>
+     ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+     * </pre>
      */
     public boolean hasRefId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string ref_id = 2;</code>
+     *
+     * <pre>
+     ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+     * </pre>
      */
     public java.lang.String getRefId() {
       java.lang.Object ref = refId_;
@@ -15925,6 +17993,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string ref_id = 2;</code>
+     *
+     * <pre>
+     ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getRefIdBytes() {
@@ -16059,6 +18131,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Citation}
+     *
+     * <pre>
+     ** A citation inside a paragraph 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -16192,12 +18268,20 @@ public final class Toplevel {
       private java.lang.Object text_ = "";
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The character repesentation of the citation, e.g. citation "[7]" 
+       * </pre>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The character repesentation of the citation, e.g. citation "[7]" 
+       * </pre>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -16212,6 +18296,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The character repesentation of the citation, e.g. citation "[7]" 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -16228,6 +18316,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The character repesentation of the citation, e.g. citation "[7]" 
+       * </pre>
        */
       public Builder setText(
           java.lang.String value) {
@@ -16241,6 +18333,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The character repesentation of the citation, e.g. citation "[7]" 
+       * </pre>
        */
       public Builder clearText() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -16250,6 +18346,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 1;</code>
+       *
+       * <pre>
+       ** The character repesentation of the citation, e.g. citation "[7]" 
+       * </pre>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -16266,12 +18366,20 @@ public final class Toplevel {
       private java.lang.Object refId_ = "";
       /**
        * <code>optional string ref_id = 2;</code>
+       *
+       * <pre>
+       ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+       * </pre>
        */
       public boolean hasRefId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional string ref_id = 2;</code>
+       *
+       * <pre>
+       ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+       * </pre>
        */
       public java.lang.String getRefId() {
         java.lang.Object ref = refId_;
@@ -16286,6 +18394,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string ref_id = 2;</code>
+       *
+       * <pre>
+       ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getRefIdBytes() {
@@ -16302,6 +18414,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string ref_id = 2;</code>
+       *
+       * <pre>
+       ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+       * </pre>
        */
       public Builder setRefId(
           java.lang.String value) {
@@ -16315,6 +18431,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string ref_id = 2;</code>
+       *
+       * <pre>
+       ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+       * </pre>
        */
       public Builder clearRefId() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -16324,6 +18444,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string ref_id = 2;</code>
+       *
+       * <pre>
+       ** The id of the reference the citation, e.g. linked to Reference BIBREF0 
+       * </pre>
        */
       public Builder setRefIdBytes(
           com.google.protobuf.ByteString value) {
@@ -16353,14 +18477,26 @@ public final class Toplevel {
     // optional string addrLine = 1;
     /**
      * <code>optional string addrLine = 1;</code>
+     *
+     * <pre>
+     ** The address of the location 
+     * </pre>
      */
     boolean hasAddrLine();
     /**
      * <code>optional string addrLine = 1;</code>
+     *
+     * <pre>
+     ** The address of the location 
+     * </pre>
      */
     java.lang.String getAddrLine();
     /**
      * <code>optional string addrLine = 1;</code>
+     *
+     * <pre>
+     ** The address of the location 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getAddrLineBytes();
@@ -16368,14 +18504,26 @@ public final class Toplevel {
     // optional string postCode = 2;
     /**
      * <code>optional string postCode = 2;</code>
+     *
+     * <pre>
+     ** The postcode of the location 
+     * </pre>
      */
     boolean hasPostCode();
     /**
      * <code>optional string postCode = 2;</code>
+     *
+     * <pre>
+     ** The postcode of the location 
+     * </pre>
      */
     java.lang.String getPostCode();
     /**
      * <code>optional string postCode = 2;</code>
+     *
+     * <pre>
+     ** The postcode of the location 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getPostCodeBytes();
@@ -16383,14 +18531,26 @@ public final class Toplevel {
     // optional string settlement = 3;
     /**
      * <code>optional string settlement = 3;</code>
+     *
+     * <pre>
+     ** The settlement of the location 
+     * </pre>
      */
     boolean hasSettlement();
     /**
      * <code>optional string settlement = 3;</code>
+     *
+     * <pre>
+     ** The settlement of the location 
+     * </pre>
      */
     java.lang.String getSettlement();
     /**
      * <code>optional string settlement = 3;</code>
+     *
+     * <pre>
+     ** The settlement of the location 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getSettlementBytes();
@@ -16398,14 +18558,26 @@ public final class Toplevel {
     // optional string country = 4;
     /**
      * <code>optional string country = 4;</code>
+     *
+     * <pre>
+     ** The country of the location 
+     * </pre>
      */
     boolean hasCountry();
     /**
      * <code>optional string country = 4;</code>
+     *
+     * <pre>
+     ** The country of the location 
+     * </pre>
      */
     java.lang.String getCountry();
     /**
      * <code>optional string country = 4;</code>
+     *
+     * <pre>
+     ** The country of the location 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getCountryBytes();
@@ -16413,20 +18585,36 @@ public final class Toplevel {
     // optional string region = 5;
     /**
      * <code>optional string region = 5;</code>
+     *
+     * <pre>
+     ** The region of the location 
+     * </pre>
      */
     boolean hasRegion();
     /**
      * <code>optional string region = 5;</code>
+     *
+     * <pre>
+     ** The region of the location 
+     * </pre>
      */
     java.lang.String getRegion();
     /**
      * <code>optional string region = 5;</code>
+     *
+     * <pre>
+     ** The region of the location 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getRegionBytes();
   }
   /**
    * Protobuf type {@code boa.types.Location}
+   *
+   * <pre>
+   ** A location of an affiliation 
+   * </pre>
    */
   public static final class Location extends
       com.google.protobuf.GeneratedMessage
@@ -16546,12 +18734,20 @@ public final class Toplevel {
     private java.lang.Object addrLine_;
     /**
      * <code>optional string addrLine = 1;</code>
+     *
+     * <pre>
+     ** The address of the location 
+     * </pre>
      */
     public boolean hasAddrLine() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional string addrLine = 1;</code>
+     *
+     * <pre>
+     ** The address of the location 
+     * </pre>
      */
     public java.lang.String getAddrLine() {
       java.lang.Object ref = addrLine_;
@@ -16569,6 +18765,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string addrLine = 1;</code>
+     *
+     * <pre>
+     ** The address of the location 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getAddrLineBytes() {
@@ -16589,12 +18789,20 @@ public final class Toplevel {
     private java.lang.Object postCode_;
     /**
      * <code>optional string postCode = 2;</code>
+     *
+     * <pre>
+     ** The postcode of the location 
+     * </pre>
      */
     public boolean hasPostCode() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string postCode = 2;</code>
+     *
+     * <pre>
+     ** The postcode of the location 
+     * </pre>
      */
     public java.lang.String getPostCode() {
       java.lang.Object ref = postCode_;
@@ -16612,6 +18820,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string postCode = 2;</code>
+     *
+     * <pre>
+     ** The postcode of the location 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getPostCodeBytes() {
@@ -16632,12 +18844,20 @@ public final class Toplevel {
     private java.lang.Object settlement_;
     /**
      * <code>optional string settlement = 3;</code>
+     *
+     * <pre>
+     ** The settlement of the location 
+     * </pre>
      */
     public boolean hasSettlement() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional string settlement = 3;</code>
+     *
+     * <pre>
+     ** The settlement of the location 
+     * </pre>
      */
     public java.lang.String getSettlement() {
       java.lang.Object ref = settlement_;
@@ -16655,6 +18875,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string settlement = 3;</code>
+     *
+     * <pre>
+     ** The settlement of the location 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getSettlementBytes() {
@@ -16675,12 +18899,20 @@ public final class Toplevel {
     private java.lang.Object country_;
     /**
      * <code>optional string country = 4;</code>
+     *
+     * <pre>
+     ** The country of the location 
+     * </pre>
      */
     public boolean hasCountry() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional string country = 4;</code>
+     *
+     * <pre>
+     ** The country of the location 
+     * </pre>
      */
     public java.lang.String getCountry() {
       java.lang.Object ref = country_;
@@ -16698,6 +18930,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string country = 4;</code>
+     *
+     * <pre>
+     ** The country of the location 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getCountryBytes() {
@@ -16718,12 +18954,20 @@ public final class Toplevel {
     private java.lang.Object region_;
     /**
      * <code>optional string region = 5;</code>
+     *
+     * <pre>
+     ** The region of the location 
+     * </pre>
      */
     public boolean hasRegion() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional string region = 5;</code>
+     *
+     * <pre>
+     ** The region of the location 
+     * </pre>
      */
     public java.lang.String getRegion() {
       java.lang.Object ref = region_;
@@ -16741,6 +18985,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string region = 5;</code>
+     *
+     * <pre>
+     ** The region of the location 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getRegionBytes() {
@@ -16899,6 +19147,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Location}
+     *
+     * <pre>
+     ** A location of an affiliation 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -17065,12 +19317,20 @@ public final class Toplevel {
       private java.lang.Object addrLine_ = "";
       /**
        * <code>optional string addrLine = 1;</code>
+       *
+       * <pre>
+       ** The address of the location 
+       * </pre>
        */
       public boolean hasAddrLine() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional string addrLine = 1;</code>
+       *
+       * <pre>
+       ** The address of the location 
+       * </pre>
        */
       public java.lang.String getAddrLine() {
         java.lang.Object ref = addrLine_;
@@ -17085,6 +19345,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string addrLine = 1;</code>
+       *
+       * <pre>
+       ** The address of the location 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getAddrLineBytes() {
@@ -17101,6 +19365,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string addrLine = 1;</code>
+       *
+       * <pre>
+       ** The address of the location 
+       * </pre>
        */
       public Builder setAddrLine(
           java.lang.String value) {
@@ -17114,6 +19382,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string addrLine = 1;</code>
+       *
+       * <pre>
+       ** The address of the location 
+       * </pre>
        */
       public Builder clearAddrLine() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -17123,6 +19395,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string addrLine = 1;</code>
+       *
+       * <pre>
+       ** The address of the location 
+       * </pre>
        */
       public Builder setAddrLineBytes(
           com.google.protobuf.ByteString value) {
@@ -17139,12 +19415,20 @@ public final class Toplevel {
       private java.lang.Object postCode_ = "";
       /**
        * <code>optional string postCode = 2;</code>
+       *
+       * <pre>
+       ** The postcode of the location 
+       * </pre>
        */
       public boolean hasPostCode() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional string postCode = 2;</code>
+       *
+       * <pre>
+       ** The postcode of the location 
+       * </pre>
        */
       public java.lang.String getPostCode() {
         java.lang.Object ref = postCode_;
@@ -17159,6 +19443,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string postCode = 2;</code>
+       *
+       * <pre>
+       ** The postcode of the location 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getPostCodeBytes() {
@@ -17175,6 +19463,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string postCode = 2;</code>
+       *
+       * <pre>
+       ** The postcode of the location 
+       * </pre>
        */
       public Builder setPostCode(
           java.lang.String value) {
@@ -17188,6 +19480,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string postCode = 2;</code>
+       *
+       * <pre>
+       ** The postcode of the location 
+       * </pre>
        */
       public Builder clearPostCode() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -17197,6 +19493,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string postCode = 2;</code>
+       *
+       * <pre>
+       ** The postcode of the location 
+       * </pre>
        */
       public Builder setPostCodeBytes(
           com.google.protobuf.ByteString value) {
@@ -17213,12 +19513,20 @@ public final class Toplevel {
       private java.lang.Object settlement_ = "";
       /**
        * <code>optional string settlement = 3;</code>
+       *
+       * <pre>
+       ** The settlement of the location 
+       * </pre>
        */
       public boolean hasSettlement() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional string settlement = 3;</code>
+       *
+       * <pre>
+       ** The settlement of the location 
+       * </pre>
        */
       public java.lang.String getSettlement() {
         java.lang.Object ref = settlement_;
@@ -17233,6 +19541,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string settlement = 3;</code>
+       *
+       * <pre>
+       ** The settlement of the location 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getSettlementBytes() {
@@ -17249,6 +19561,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string settlement = 3;</code>
+       *
+       * <pre>
+       ** The settlement of the location 
+       * </pre>
        */
       public Builder setSettlement(
           java.lang.String value) {
@@ -17262,6 +19578,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string settlement = 3;</code>
+       *
+       * <pre>
+       ** The settlement of the location 
+       * </pre>
        */
       public Builder clearSettlement() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -17271,6 +19591,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string settlement = 3;</code>
+       *
+       * <pre>
+       ** The settlement of the location 
+       * </pre>
        */
       public Builder setSettlementBytes(
           com.google.protobuf.ByteString value) {
@@ -17287,12 +19611,20 @@ public final class Toplevel {
       private java.lang.Object country_ = "";
       /**
        * <code>optional string country = 4;</code>
+       *
+       * <pre>
+       ** The country of the location 
+       * </pre>
        */
       public boolean hasCountry() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional string country = 4;</code>
+       *
+       * <pre>
+       ** The country of the location 
+       * </pre>
        */
       public java.lang.String getCountry() {
         java.lang.Object ref = country_;
@@ -17307,6 +19639,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string country = 4;</code>
+       *
+       * <pre>
+       ** The country of the location 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getCountryBytes() {
@@ -17323,6 +19659,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string country = 4;</code>
+       *
+       * <pre>
+       ** The country of the location 
+       * </pre>
        */
       public Builder setCountry(
           java.lang.String value) {
@@ -17336,6 +19676,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string country = 4;</code>
+       *
+       * <pre>
+       ** The country of the location 
+       * </pre>
        */
       public Builder clearCountry() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -17345,6 +19689,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string country = 4;</code>
+       *
+       * <pre>
+       ** The country of the location 
+       * </pre>
        */
       public Builder setCountryBytes(
           com.google.protobuf.ByteString value) {
@@ -17361,12 +19709,20 @@ public final class Toplevel {
       private java.lang.Object region_ = "";
       /**
        * <code>optional string region = 5;</code>
+       *
+       * <pre>
+       ** The region of the location 
+       * </pre>
        */
       public boolean hasRegion() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional string region = 5;</code>
+       *
+       * <pre>
+       ** The region of the location 
+       * </pre>
        */
       public java.lang.String getRegion() {
         java.lang.Object ref = region_;
@@ -17381,6 +19737,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string region = 5;</code>
+       *
+       * <pre>
+       ** The region of the location 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getRegionBytes() {
@@ -17397,6 +19757,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string region = 5;</code>
+       *
+       * <pre>
+       ** The region of the location 
+       * </pre>
        */
       public Builder setRegion(
           java.lang.String value) {
@@ -17410,6 +19774,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string region = 5;</code>
+       *
+       * <pre>
+       ** The region of the location 
+       * </pre>
        */
       public Builder clearRegion() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -17419,6 +19787,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string region = 5;</code>
+       *
+       * <pre>
+       ** The region of the location 
+       * </pre>
        */
       public Builder setRegionBytes(
           com.google.protobuf.ByteString value) {
@@ -17448,14 +19820,26 @@ public final class Toplevel {
     // required string ref_id = 1;
     /**
      * <code>required string ref_id = 1;</code>
+     *
+     * <pre>
+     ** The id of the reference for all types 
+     * </pre>
      */
     boolean hasRefId();
     /**
      * <code>required string ref_id = 1;</code>
+     *
+     * <pre>
+     ** The id of the reference for all types 
+     * </pre>
      */
     java.lang.String getRefId();
     /**
      * <code>required string ref_id = 1;</code>
+     *
+     * <pre>
+     ** The id of the reference for all types 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getRefIdBytes();
@@ -17463,14 +19847,26 @@ public final class Toplevel {
     // optional string title = 2;
     /**
      * <code>optional string title = 2;</code>
+     *
+     * <pre>
+     ** The title of the refered paper 
+     * </pre>
      */
     boolean hasTitle();
     /**
      * <code>optional string title = 2;</code>
+     *
+     * <pre>
+     ** The title of the refered paper 
+     * </pre>
      */
     java.lang.String getTitle();
     /**
      * <code>optional string title = 2;</code>
+     *
+     * <pre>
+     ** The title of the refered paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getTitleBytes();
@@ -17478,24 +19874,44 @@ public final class Toplevel {
     // repeated .boa.types.Author authors = 3;
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     java.util.List<boa.types.Toplevel.Author> 
         getAuthorsList();
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     boa.types.Toplevel.Author getAuthors(int index);
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     int getAuthorsCount();
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList();
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index);
@@ -17503,14 +19919,26 @@ public final class Toplevel {
     // optional string year = 4;
     /**
      * <code>optional string year = 4;</code>
+     *
+     * <pre>
+     ** The publish year of the referd paper 
+     * </pre>
      */
     boolean hasYear();
     /**
      * <code>optional string year = 4;</code>
+     *
+     * <pre>
+     ** The publish year of the referd paper 
+     * </pre>
      */
     java.lang.String getYear();
     /**
      * <code>optional string year = 4;</code>
+     *
+     * <pre>
+     ** The publish year of the referd paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getYearBytes();
@@ -17518,14 +19946,26 @@ public final class Toplevel {
     // optional string venue = 5;
     /**
      * <code>optional string venue = 5;</code>
+     *
+     * <pre>
+     ** The venue of the refered paper 
+     * </pre>
      */
     boolean hasVenue();
     /**
      * <code>optional string venue = 5;</code>
+     *
+     * <pre>
+     ** The venue of the refered paper 
+     * </pre>
      */
     java.lang.String getVenue();
     /**
      * <code>optional string venue = 5;</code>
+     *
+     * <pre>
+     ** The venue of the refered paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getVenueBytes();
@@ -17533,14 +19973,26 @@ public final class Toplevel {
     // optional string volume = 6;
     /**
      * <code>optional string volume = 6;</code>
+     *
+     * <pre>
+     ** The volume of the refered paper 
+     * </pre>
      */
     boolean hasVolume();
     /**
      * <code>optional string volume = 6;</code>
+     *
+     * <pre>
+     ** The volume of the refered paper 
+     * </pre>
      */
     java.lang.String getVolume();
     /**
      * <code>optional string volume = 6;</code>
+     *
+     * <pre>
+     ** The volume of the refered paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getVolumeBytes();
@@ -17548,14 +20000,26 @@ public final class Toplevel {
     // optional string issn = 7;
     /**
      * <code>optional string issn = 7;</code>
+     *
+     * <pre>
+     ** The ISSN (International Standard Serial Number) of the refered paper 
+     * </pre>
      */
     boolean hasIssn();
     /**
      * <code>optional string issn = 7;</code>
+     *
+     * <pre>
+     ** The ISSN (International Standard Serial Number) of the refered paper 
+     * </pre>
      */
     java.lang.String getIssn();
     /**
      * <code>optional string issn = 7;</code>
+     *
+     * <pre>
+     ** The ISSN (International Standard Serial Number) of the refered paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getIssnBytes();
@@ -17563,14 +20027,26 @@ public final class Toplevel {
     // optional string pages = 8;
     /**
      * <code>optional string pages = 8;</code>
+     *
+     * <pre>
+     ** The pages of the refered paper 
+     * </pre>
      */
     boolean hasPages();
     /**
      * <code>optional string pages = 8;</code>
+     *
+     * <pre>
+     ** The pages of the refered paper 
+     * </pre>
      */
     java.lang.String getPages();
     /**
      * <code>optional string pages = 8;</code>
+     *
+     * <pre>
+     ** The pages of the refered paper 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getPagesBytes();
@@ -17578,14 +20054,26 @@ public final class Toplevel {
     // optional string text = 9;
     /**
      * <code>optional string text = 9;</code>
+     *
+     * <pre>
+     ** The caption text of the figure/table 
+     * </pre>
      */
     boolean hasText();
     /**
      * <code>optional string text = 9;</code>
+     *
+     * <pre>
+     ** The caption text of the figure/table 
+     * </pre>
      */
     java.lang.String getText();
     /**
      * <code>optional string text = 9;</code>
+     *
+     * <pre>
+     ** The caption text of the figure/table 
+     * </pre>
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -17593,15 +20081,27 @@ public final class Toplevel {
     // optional .boa.types.Reference.ReferenceType type = 10;
     /**
      * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     *
+     * <pre>
+     ** The type of the reference 
+     * </pre>
      */
     boolean hasType();
     /**
      * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     *
+     * <pre>
+     ** The type of the reference 
+     * </pre>
      */
     boa.types.Toplevel.Reference.ReferenceType getType();
   }
   /**
    * Protobuf type {@code boa.types.Reference}
+   *
+   * <pre>
+   ** A referece of a reaserch paper 
+   * </pre>
    */
   public static final class Reference extends
       com.google.protobuf.GeneratedMessage
@@ -17754,33 +20254,61 @@ public final class Toplevel {
 
     /**
      * Protobuf enum {@code boa.types.Reference.ReferenceType}
+     *
+     * <pre>
+     ** Describes the kind of Reference 
+     * </pre>
      */
     public enum ReferenceType
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>FIGURE = 0;</code>
+       *
+       * <pre>
+       ** For figure reference 
+       * </pre>
        */
       FIGURE(0, 0),
       /**
        * <code>TABLE = 1;</code>
+       *
+       * <pre>
+       ** For table reference 
+       * </pre>
        */
       TABLE(1, 1),
       /**
        * <code>BIB = 2;</code>
+       *
+       * <pre>
+       ** For paper reference 
+       * </pre>
        */
       BIB(2, 2),
       ;
 
       /**
        * <code>FIGURE = 0;</code>
+       *
+       * <pre>
+       ** For figure reference 
+       * </pre>
        */
       public static final int FIGURE_VALUE = 0;
       /**
        * <code>TABLE = 1;</code>
+       *
+       * <pre>
+       ** For table reference 
+       * </pre>
        */
       public static final int TABLE_VALUE = 1;
       /**
        * <code>BIB = 2;</code>
+       *
+       * <pre>
+       ** For paper reference 
+       * </pre>
        */
       public static final int BIB_VALUE = 2;
 
@@ -17849,12 +20377,20 @@ public final class Toplevel {
     private java.lang.Object refId_;
     /**
      * <code>required string ref_id = 1;</code>
+     *
+     * <pre>
+     ** The id of the reference for all types 
+     * </pre>
      */
     public boolean hasRefId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required string ref_id = 1;</code>
+     *
+     * <pre>
+     ** The id of the reference for all types 
+     * </pre>
      */
     public java.lang.String getRefId() {
       java.lang.Object ref = refId_;
@@ -17872,6 +20408,10 @@ public final class Toplevel {
     }
     /**
      * <code>required string ref_id = 1;</code>
+     *
+     * <pre>
+     ** The id of the reference for all types 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getRefIdBytes() {
@@ -17892,12 +20432,20 @@ public final class Toplevel {
     private java.lang.Object title_;
     /**
      * <code>optional string title = 2;</code>
+     *
+     * <pre>
+     ** The title of the refered paper 
+     * </pre>
      */
     public boolean hasTitle() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string title = 2;</code>
+     *
+     * <pre>
+     ** The title of the refered paper 
+     * </pre>
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -17915,6 +20463,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string title = 2;</code>
+     *
+     * <pre>
+     ** The title of the refered paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -17935,12 +20487,20 @@ public final class Toplevel {
     private java.util.List<boa.types.Toplevel.Author> authors_;
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
       return authors_;
     }
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList() {
@@ -17948,18 +20508,30 @@ public final class Toplevel {
     }
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     public int getAuthorsCount() {
       return authors_.size();
     }
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     public boa.types.Toplevel.Author getAuthors(int index) {
       return authors_.get(index);
     }
     /**
      * <code>repeated .boa.types.Author authors = 3;</code>
+     *
+     * <pre>
+     ** A list of authors of the refered paper  
+     * </pre>
      */
     public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index) {
@@ -17971,12 +20543,20 @@ public final class Toplevel {
     private java.lang.Object year_;
     /**
      * <code>optional string year = 4;</code>
+     *
+     * <pre>
+     ** The publish year of the referd paper 
+     * </pre>
      */
     public boolean hasYear() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional string year = 4;</code>
+     *
+     * <pre>
+     ** The publish year of the referd paper 
+     * </pre>
      */
     public java.lang.String getYear() {
       java.lang.Object ref = year_;
@@ -17994,6 +20574,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string year = 4;</code>
+     *
+     * <pre>
+     ** The publish year of the referd paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getYearBytes() {
@@ -18014,12 +20598,20 @@ public final class Toplevel {
     private java.lang.Object venue_;
     /**
      * <code>optional string venue = 5;</code>
+     *
+     * <pre>
+     ** The venue of the refered paper 
+     * </pre>
      */
     public boolean hasVenue() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional string venue = 5;</code>
+     *
+     * <pre>
+     ** The venue of the refered paper 
+     * </pre>
      */
     public java.lang.String getVenue() {
       java.lang.Object ref = venue_;
@@ -18037,6 +20629,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string venue = 5;</code>
+     *
+     * <pre>
+     ** The venue of the refered paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getVenueBytes() {
@@ -18057,12 +20653,20 @@ public final class Toplevel {
     private java.lang.Object volume_;
     /**
      * <code>optional string volume = 6;</code>
+     *
+     * <pre>
+     ** The volume of the refered paper 
+     * </pre>
      */
     public boolean hasVolume() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional string volume = 6;</code>
+     *
+     * <pre>
+     ** The volume of the refered paper 
+     * </pre>
      */
     public java.lang.String getVolume() {
       java.lang.Object ref = volume_;
@@ -18080,6 +20684,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string volume = 6;</code>
+     *
+     * <pre>
+     ** The volume of the refered paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getVolumeBytes() {
@@ -18100,12 +20708,20 @@ public final class Toplevel {
     private java.lang.Object issn_;
     /**
      * <code>optional string issn = 7;</code>
+     *
+     * <pre>
+     ** The ISSN (International Standard Serial Number) of the refered paper 
+     * </pre>
      */
     public boolean hasIssn() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional string issn = 7;</code>
+     *
+     * <pre>
+     ** The ISSN (International Standard Serial Number) of the refered paper 
+     * </pre>
      */
     public java.lang.String getIssn() {
       java.lang.Object ref = issn_;
@@ -18123,6 +20739,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string issn = 7;</code>
+     *
+     * <pre>
+     ** The ISSN (International Standard Serial Number) of the refered paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getIssnBytes() {
@@ -18143,12 +20763,20 @@ public final class Toplevel {
     private java.lang.Object pages_;
     /**
      * <code>optional string pages = 8;</code>
+     *
+     * <pre>
+     ** The pages of the refered paper 
+     * </pre>
      */
     public boolean hasPages() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      * <code>optional string pages = 8;</code>
+     *
+     * <pre>
+     ** The pages of the refered paper 
+     * </pre>
      */
     public java.lang.String getPages() {
       java.lang.Object ref = pages_;
@@ -18166,6 +20794,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string pages = 8;</code>
+     *
+     * <pre>
+     ** The pages of the refered paper 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getPagesBytes() {
@@ -18186,12 +20818,20 @@ public final class Toplevel {
     private java.lang.Object text_;
     /**
      * <code>optional string text = 9;</code>
+     *
+     * <pre>
+     ** The caption text of the figure/table 
+     * </pre>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
      * <code>optional string text = 9;</code>
+     *
+     * <pre>
+     ** The caption text of the figure/table 
+     * </pre>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -18209,6 +20849,10 @@ public final class Toplevel {
     }
     /**
      * <code>optional string text = 9;</code>
+     *
+     * <pre>
+     ** The caption text of the figure/table 
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -18229,12 +20873,20 @@ public final class Toplevel {
     private boa.types.Toplevel.Reference.ReferenceType type_;
     /**
      * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     *
+     * <pre>
+     ** The type of the reference 
+     * </pre>
      */
     public boolean hasType() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     *
+     * <pre>
+     ** The type of the reference 
+     * </pre>
      */
     public boa.types.Toplevel.Reference.ReferenceType getType() {
       return type_;
@@ -18427,6 +21079,10 @@ public final class Toplevel {
     }
     /**
      * Protobuf type {@code boa.types.Reference}
+     *
+     * <pre>
+     ** A referece of a reaserch paper 
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -18681,12 +21337,20 @@ public final class Toplevel {
       private java.lang.Object refId_ = "";
       /**
        * <code>required string ref_id = 1;</code>
+       *
+       * <pre>
+       ** The id of the reference for all types 
+       * </pre>
        */
       public boolean hasRefId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required string ref_id = 1;</code>
+       *
+       * <pre>
+       ** The id of the reference for all types 
+       * </pre>
        */
       public java.lang.String getRefId() {
         java.lang.Object ref = refId_;
@@ -18701,6 +21365,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string ref_id = 1;</code>
+       *
+       * <pre>
+       ** The id of the reference for all types 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getRefIdBytes() {
@@ -18717,6 +21385,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string ref_id = 1;</code>
+       *
+       * <pre>
+       ** The id of the reference for all types 
+       * </pre>
        */
       public Builder setRefId(
           java.lang.String value) {
@@ -18730,6 +21402,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string ref_id = 1;</code>
+       *
+       * <pre>
+       ** The id of the reference for all types 
+       * </pre>
        */
       public Builder clearRefId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -18739,6 +21415,10 @@ public final class Toplevel {
       }
       /**
        * <code>required string ref_id = 1;</code>
+       *
+       * <pre>
+       ** The id of the reference for all types 
+       * </pre>
        */
       public Builder setRefIdBytes(
           com.google.protobuf.ByteString value) {
@@ -18755,12 +21435,20 @@ public final class Toplevel {
       private java.lang.Object title_ = "";
       /**
        * <code>optional string title = 2;</code>
+       *
+       * <pre>
+       ** The title of the refered paper 
+       * </pre>
        */
       public boolean hasTitle() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional string title = 2;</code>
+       *
+       * <pre>
+       ** The title of the refered paper 
+       * </pre>
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -18775,6 +21463,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 2;</code>
+       *
+       * <pre>
+       ** The title of the refered paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -18791,6 +21483,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 2;</code>
+       *
+       * <pre>
+       ** The title of the refered paper 
+       * </pre>
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -18804,6 +21500,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 2;</code>
+       *
+       * <pre>
+       ** The title of the refered paper 
+       * </pre>
        */
       public Builder clearTitle() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -18813,6 +21513,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string title = 2;</code>
+       *
+       * <pre>
+       ** The title of the refered paper 
+       * </pre>
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -18840,6 +21544,10 @@ public final class Toplevel {
 
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Author> getAuthorsList() {
         if (authorsBuilder_ == null) {
@@ -18850,6 +21558,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public int getAuthorsCount() {
         if (authorsBuilder_ == null) {
@@ -18860,6 +21572,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public boa.types.Toplevel.Author getAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -18870,6 +21586,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -18887,6 +21607,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder setAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -18901,6 +21625,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder addAuthors(boa.types.Toplevel.Author value) {
         if (authorsBuilder_ == null) {
@@ -18917,6 +21645,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author value) {
@@ -18934,6 +21666,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder addAuthors(
           boa.types.Toplevel.Author.Builder builderForValue) {
@@ -18948,6 +21684,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder addAuthors(
           int index, boa.types.Toplevel.Author.Builder builderForValue) {
@@ -18962,6 +21702,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder addAllAuthors(
           java.lang.Iterable<? extends boa.types.Toplevel.Author> values) {
@@ -18976,6 +21720,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder clearAuthors() {
         if (authorsBuilder_ == null) {
@@ -18989,6 +21737,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public Builder removeAuthors(int index) {
         if (authorsBuilder_ == null) {
@@ -19002,6 +21754,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public boa.types.Toplevel.Author.Builder getAuthorsBuilder(
           int index) {
@@ -19009,6 +21765,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
           int index) {
@@ -19019,6 +21779,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
            getAuthorsOrBuilderList() {
@@ -19030,6 +21794,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder() {
         return getAuthorsFieldBuilder().addBuilder(
@@ -19037,6 +21805,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public boa.types.Toplevel.Author.Builder addAuthorsBuilder(
           int index) {
@@ -19045,6 +21817,10 @@ public final class Toplevel {
       }
       /**
        * <code>repeated .boa.types.Author authors = 3;</code>
+       *
+       * <pre>
+       ** A list of authors of the refered paper  
+       * </pre>
        */
       public java.util.List<boa.types.Toplevel.Author.Builder> 
            getAuthorsBuilderList() {
@@ -19069,12 +21845,20 @@ public final class Toplevel {
       private java.lang.Object year_ = "";
       /**
        * <code>optional string year = 4;</code>
+       *
+       * <pre>
+       ** The publish year of the referd paper 
+       * </pre>
        */
       public boolean hasYear() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional string year = 4;</code>
+       *
+       * <pre>
+       ** The publish year of the referd paper 
+       * </pre>
        */
       public java.lang.String getYear() {
         java.lang.Object ref = year_;
@@ -19089,6 +21873,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string year = 4;</code>
+       *
+       * <pre>
+       ** The publish year of the referd paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getYearBytes() {
@@ -19105,6 +21893,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string year = 4;</code>
+       *
+       * <pre>
+       ** The publish year of the referd paper 
+       * </pre>
        */
       public Builder setYear(
           java.lang.String value) {
@@ -19118,6 +21910,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string year = 4;</code>
+       *
+       * <pre>
+       ** The publish year of the referd paper 
+       * </pre>
        */
       public Builder clearYear() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -19127,6 +21923,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string year = 4;</code>
+       *
+       * <pre>
+       ** The publish year of the referd paper 
+       * </pre>
        */
       public Builder setYearBytes(
           com.google.protobuf.ByteString value) {
@@ -19143,12 +21943,20 @@ public final class Toplevel {
       private java.lang.Object venue_ = "";
       /**
        * <code>optional string venue = 5;</code>
+       *
+       * <pre>
+       ** The venue of the refered paper 
+       * </pre>
        */
       public boolean hasVenue() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional string venue = 5;</code>
+       *
+       * <pre>
+       ** The venue of the refered paper 
+       * </pre>
        */
       public java.lang.String getVenue() {
         java.lang.Object ref = venue_;
@@ -19163,6 +21971,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string venue = 5;</code>
+       *
+       * <pre>
+       ** The venue of the refered paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getVenueBytes() {
@@ -19179,6 +21991,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string venue = 5;</code>
+       *
+       * <pre>
+       ** The venue of the refered paper 
+       * </pre>
        */
       public Builder setVenue(
           java.lang.String value) {
@@ -19192,6 +22008,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string venue = 5;</code>
+       *
+       * <pre>
+       ** The venue of the refered paper 
+       * </pre>
        */
       public Builder clearVenue() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -19201,6 +22021,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string venue = 5;</code>
+       *
+       * <pre>
+       ** The venue of the refered paper 
+       * </pre>
        */
       public Builder setVenueBytes(
           com.google.protobuf.ByteString value) {
@@ -19217,12 +22041,20 @@ public final class Toplevel {
       private java.lang.Object volume_ = "";
       /**
        * <code>optional string volume = 6;</code>
+       *
+       * <pre>
+       ** The volume of the refered paper 
+       * </pre>
        */
       public boolean hasVolume() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional string volume = 6;</code>
+       *
+       * <pre>
+       ** The volume of the refered paper 
+       * </pre>
        */
       public java.lang.String getVolume() {
         java.lang.Object ref = volume_;
@@ -19237,6 +22069,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string volume = 6;</code>
+       *
+       * <pre>
+       ** The volume of the refered paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getVolumeBytes() {
@@ -19253,6 +22089,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string volume = 6;</code>
+       *
+       * <pre>
+       ** The volume of the refered paper 
+       * </pre>
        */
       public Builder setVolume(
           java.lang.String value) {
@@ -19266,6 +22106,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string volume = 6;</code>
+       *
+       * <pre>
+       ** The volume of the refered paper 
+       * </pre>
        */
       public Builder clearVolume() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -19275,6 +22119,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string volume = 6;</code>
+       *
+       * <pre>
+       ** The volume of the refered paper 
+       * </pre>
        */
       public Builder setVolumeBytes(
           com.google.protobuf.ByteString value) {
@@ -19291,12 +22139,20 @@ public final class Toplevel {
       private java.lang.Object issn_ = "";
       /**
        * <code>optional string issn = 7;</code>
+       *
+       * <pre>
+       ** The ISSN (International Standard Serial Number) of the refered paper 
+       * </pre>
        */
       public boolean hasIssn() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
        * <code>optional string issn = 7;</code>
+       *
+       * <pre>
+       ** The ISSN (International Standard Serial Number) of the refered paper 
+       * </pre>
        */
       public java.lang.String getIssn() {
         java.lang.Object ref = issn_;
@@ -19311,6 +22167,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string issn = 7;</code>
+       *
+       * <pre>
+       ** The ISSN (International Standard Serial Number) of the refered paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getIssnBytes() {
@@ -19327,6 +22187,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string issn = 7;</code>
+       *
+       * <pre>
+       ** The ISSN (International Standard Serial Number) of the refered paper 
+       * </pre>
        */
       public Builder setIssn(
           java.lang.String value) {
@@ -19340,6 +22204,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string issn = 7;</code>
+       *
+       * <pre>
+       ** The ISSN (International Standard Serial Number) of the refered paper 
+       * </pre>
        */
       public Builder clearIssn() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -19349,6 +22217,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string issn = 7;</code>
+       *
+       * <pre>
+       ** The ISSN (International Standard Serial Number) of the refered paper 
+       * </pre>
        */
       public Builder setIssnBytes(
           com.google.protobuf.ByteString value) {
@@ -19365,12 +22237,20 @@ public final class Toplevel {
       private java.lang.Object pages_ = "";
       /**
        * <code>optional string pages = 8;</code>
+       *
+       * <pre>
+       ** The pages of the refered paper 
+       * </pre>
        */
       public boolean hasPages() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional string pages = 8;</code>
+       *
+       * <pre>
+       ** The pages of the refered paper 
+       * </pre>
        */
       public java.lang.String getPages() {
         java.lang.Object ref = pages_;
@@ -19385,6 +22265,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pages = 8;</code>
+       *
+       * <pre>
+       ** The pages of the refered paper 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getPagesBytes() {
@@ -19401,6 +22285,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pages = 8;</code>
+       *
+       * <pre>
+       ** The pages of the refered paper 
+       * </pre>
        */
       public Builder setPages(
           java.lang.String value) {
@@ -19414,6 +22302,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pages = 8;</code>
+       *
+       * <pre>
+       ** The pages of the refered paper 
+       * </pre>
        */
       public Builder clearPages() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -19423,6 +22315,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string pages = 8;</code>
+       *
+       * <pre>
+       ** The pages of the refered paper 
+       * </pre>
        */
       public Builder setPagesBytes(
           com.google.protobuf.ByteString value) {
@@ -19439,12 +22335,20 @@ public final class Toplevel {
       private java.lang.Object text_ = "";
       /**
        * <code>optional string text = 9;</code>
+       *
+       * <pre>
+       ** The caption text of the figure/table 
+       * </pre>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <code>optional string text = 9;</code>
+       *
+       * <pre>
+       ** The caption text of the figure/table 
+       * </pre>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -19459,6 +22363,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 9;</code>
+       *
+       * <pre>
+       ** The caption text of the figure/table 
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -19475,6 +22383,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 9;</code>
+       *
+       * <pre>
+       ** The caption text of the figure/table 
+       * </pre>
        */
       public Builder setText(
           java.lang.String value) {
@@ -19488,6 +22400,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 9;</code>
+       *
+       * <pre>
+       ** The caption text of the figure/table 
+       * </pre>
        */
       public Builder clearText() {
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -19497,6 +22413,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional string text = 9;</code>
+       *
+       * <pre>
+       ** The caption text of the figure/table 
+       * </pre>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -19513,18 +22433,30 @@ public final class Toplevel {
       private boa.types.Toplevel.Reference.ReferenceType type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
       /**
        * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       *
+       * <pre>
+       ** The type of the reference 
+       * </pre>
        */
       public boolean hasType() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       *
+       * <pre>
+       ** The type of the reference 
+       * </pre>
        */
       public boa.types.Toplevel.Reference.ReferenceType getType() {
         return type_;
       }
       /**
        * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       *
+       * <pre>
+       ** The type of the reference 
+       * </pre>
        */
       public Builder setType(boa.types.Toplevel.Reference.ReferenceType value) {
         if (value == null) {
@@ -19537,6 +22469,10 @@ public final class Toplevel {
       }
       /**
        * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       *
+       * <pre>
+       ** The type of the reference 
+       * </pre>
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000200);

@@ -1,23 +1,19 @@
 package boa.datagen.paper;
 
-import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.commons.csv.CSVRecord;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 
-import boa.datagen.util.FileIO;
 import boa.types.Toplevel.Affiliation;
 import boa.types.Toplevel.Author;
 import boa.types.Toplevel.Citation;
@@ -25,29 +21,12 @@ import boa.types.Toplevel.Location;
 import boa.types.Toplevel.Metadata;
 import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Paragraph;
-import boa.types.Toplevel.Reference;
-import boa.types.Toplevel.Section;
 import boa.types.Toplevel.Paragraph.ParagraphKind;
+import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Reference.ReferenceType;
+import boa.types.Toplevel.Section;
 
 public class PaperJson {
-
-	public static void main(String[] args) {
-//		String base = "/Users/yijiahuang/git/BoaData/PaperInputJson/covid-19/dataset/biorxiv_medrxiv/biorxiv_medrxiv/";
-//		String path = base + "0b282573f5c63c943021c10ca39a1ed21acfb429.json";
-//		String content = FileIO.readFileContents(new File(path));
-//		Gson parser = new Gson();
-//		// parse json file
-//		JsonObject jo = null;
-//		try {
-//			jo = parser.fromJson(content, JsonElement.class).getAsJsonObject();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		Paper paper = getPaper(jo);
-//		System.out.println(paper);
-	}
 
 	public static Paper getPaper(JsonObject jo, CSVRecord metadataRecord) {
 		Paper.Builder pb = Paper.newBuilder();
@@ -74,21 +53,23 @@ public class PaperJson {
 		Metadata.Builder mb = Metadata.newBuilder();
 		if (jo.has("title"))
 			mb.setTitle(getString(jo, "title"));
-		String metaTitle = metadataRecord.get("title");
-		if (mb.getTitle().equals("") || !mb.getTitle().equals(metaTitle))
-			mb.setTitle(metaTitle);
-		mb.setDoiUrl("https://doi.org/" + metadataRecord.get("doi"));
-		mb.setSource(metadataRecord.get("source_x"));
-		mb.setPubmedId(metadataRecord.get("pubmed_id"));
-		mb.setPublishTime(getMicroseconds(metadataRecord.get("publish_time")));
-		mb.setJournal(metadataRecord.get("journal"));
-		mb.setLicenseType(metadataRecord.get("full_text_file"));
 		if (jo.has("authors"))
 			for (JsonElement je : jo.get("authors").getAsJsonArray())
 				mb.addAuthors(getAuthor(je.getAsJsonObject()));
+		if (metadataRecord != null) {
+			String metaTitle = metadataRecord.get("title");
+			if (mb.getTitle().equals(""))
+				mb.setTitle(metaTitle);
+			mb.setDoiUrl("https://doi.org/" + metadataRecord.get("doi"));
+			mb.setSource(metadataRecord.get("source_x"));
+			mb.setPubmedId(metadataRecord.get("pubmed_id"));
+			mb.setPublishTime(getMicroseconds(metadataRecord.get("publish_time")));
+			mb.setJournal(metadataRecord.get("journal"));
+			mb.setLicenseType(metadataRecord.get("full_text_file"));
+		}
 		return mb.build();
 	}
-	
+
 	private static long getMicroseconds(String input) {
 		long time = -1;
 		if (input.equals(""))
@@ -107,14 +88,14 @@ public class PaperJson {
 		}
 		return time;
 	}
-	
+
 	private static boolean isValid(DateFormat df, String input) {
 		try {
 			df.parse(input);
-        } catch (ParseException e) {
-            return false;
-        }
-        return true;
+		} catch (ParseException e) {
+			return false;
+		}
+		return true;
 	}
 
 	private static Author getAuthor(JsonObject jo) {

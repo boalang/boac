@@ -55,6 +55,9 @@ public class SeqRepoImporter {
 	private static FileSystem fileSystem = null;
 	private static boolean done = false;
 	private static HashMap<String, CSVRecord> metaDataMap = null;
+	
+	
+//	private static int count = 0;
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -104,7 +107,8 @@ public class SeqRepoImporter {
 								}
 							}
 						}
-						System.err.println("Assigned the " + jsonCounter + "th json file");
+						if (debug)
+							System.err.println("Assigned the " + jsonCounter + "th json file");
 					} catch (Exception e) {
 						System.err.println("Error proccessing " + jsonCounter + "th json file");
 						e.printStackTrace();
@@ -112,6 +116,8 @@ public class SeqRepoImporter {
 				}
 			}
 		}
+		
+		
 
 		for (int j = 0; j < poolSize; j++)
 			while (!workers[j].isReady())
@@ -121,7 +127,13 @@ public class SeqRepoImporter {
 		for (Thread thread : threads)
 			while (thread.isAlive())
 				Thread.sleep(1000);
+		
+//		System.out.println(count);
 	}
+	
+//	synchronized static void incrementCount() {
+//		count++;
+//	}
 
 	synchronized static CSVRecord removeMetadata(String sha) {
 		return metaDataMap.remove(sha);
@@ -132,7 +144,9 @@ public class SeqRepoImporter {
 		Reader in = new FileReader(path);
 		Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
 		for (CSVRecord record : records) {
-			String sha = record.get("sha");
+			String sha = record.get("sha");			
+			if (sha.contains("; "))
+				sha = sha.split("; ")[0];
 			if (!map.containsKey(sha))
 				map.put(sha, record);
 		}
@@ -233,6 +247,7 @@ public class SeqRepoImporter {
 						String id = null;
 						if (jo.has("paper_id"))
 							id = jo.get("paper_id").getAsString();
+						
 						CSVRecord metadataRecord = removeMetadata(id);
 						if (metadataRecord != null) {
 							// update protocbuf
