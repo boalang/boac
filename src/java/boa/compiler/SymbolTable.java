@@ -27,6 +27,7 @@ import org.scannotation.AnnotationDB;
 
 import boa.aggregators.AggregatorSpec;
 import boa.functions.FunctionSpec;
+import boa.functions.paper.BoaNLPIntrinsics;
 import boa.types.*;
 import boa.types.proto.*;
 import boa.types.proto.enums.*;
@@ -569,6 +570,7 @@ public class SymbolTable {
 			boa.functions.BoaTimeIntrinsics.class,
 			// paper
 			boa.functions.paper.BoaPaperIntrinsics.class,
+			boa.functions.paper.BoaNLPIntrinsics.class,
 			boa.functions.paper.BoaStopWords.class
 		};
 		for (final Class<?> c : builtinFuncs)

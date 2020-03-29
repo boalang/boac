@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import boa.functions.FunctionSpec;
+import boa.types.Toplevel.Author;
 import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Reference;
@@ -104,6 +105,38 @@ public class BoaPaperIntrinsics {
 	    }
 
 	    return false;
+	}
+	
+	@FunctionSpec(name = "pretty_print", returnType = "string", formalParameters = { "Paper" })
+	public static String prettyPrint(Paper p) {
+		String s = "";
+		int lastIdx = p.getMetadata().getAuthorsCount() - 1;
+		for (int i = 0; i < p.getMetadata().getAuthorsCount(); i++) {
+			if (i == 0) {
+				s += getAuthor(p.getMetadata().getAuthors(i));
+			} else if (i == lastIdx) {
+				if (lastIdx > 1)
+					s += ",";
+				s += " and " + getAuthor(p.getMetadata().getAuthors(i));
+			} else {
+				s += ", " + getAuthor(p.getMetadata().getAuthors(i));
+			}
+		}
+		s += ".";
+		return s;
+	}
+	
+	private static String getAuthor(Author author) {
+		String s = "";
+		s += author.getFirst() + " ";
+		String mid = "";
+		for (String middle : author.getMiddleList())
+			for (String comp : middle.split(" "))
+				mid += comp + ".";
+		if (!mid.equals(""))
+			s += mid + " ";
+		 s += author.getLast();
+		return s;
 	}
 
 }
