@@ -113,31 +113,38 @@ public class BoaPaperIntrinsics {
 	public static String prettyPrint(Paper p) {
 		String s = "";
 		// authors
-		int lastIdx = p.getMetadata().getAuthorsCount() - 1;
-		for (int i = 0; i < p.getMetadata().getAuthorsCount(); i++) {
-			if (i == 0) {
-				s += getAuthor(p.getMetadata().getAuthors(i));
-			} else if (i == lastIdx) {
-				if (lastIdx > 1)
-					s += ",";
-				s += " and " + getAuthor(p.getMetadata().getAuthors(i));
-			} else {
-				s += ", " + getAuthor(p.getMetadata().getAuthors(i));
+		if (p.getMetadata().getAuthorsCount() > 0) {
+			int lastIdx = p.getMetadata().getAuthorsCount() - 1;
+			for (int i = 0; i < p.getMetadata().getAuthorsCount(); i++) {
+				if (i == 0) {
+					s += getAuthor(p.getMetadata().getAuthors(i));
+				} else if (i == lastIdx) {
+					if (lastIdx > 1)
+						s += ",";
+					s += " and " + getAuthor(p.getMetadata().getAuthors(i));
+				} else {
+					s += ", " + getAuthor(p.getMetadata().getAuthors(i));
+				}
 			}
+			s += ". ";
 		}
-		s += ". ";
-		
+
 		// year
-		s += yearOf(p.getMetadata().getPublishTime()) + ". ";
-		
+		if (p.getMetadata().hasPublishTime())
+			s += yearOf(p.getMetadata().getPublishTime()) + ". ";
+
 		// paper title
-		s += p.getMetadata().getTitle() + ". ";
-		
+		if (p.getMetadata().hasTitle() && !p.getMetadata().getTitle().equals(""))
+			s += p.getMetadata().getTitle() + ". ";
+
 		// journal
-		s += p.getMetadata().getJournal() + ". ";
-		
+		if (p.getMetadata().hasJournal() && !p.getMetadata().getJournal().equals(""))
+			s += p.getMetadata().getJournal() + ". ";
+
 		// doi
-		s += p.getMetadata().getDoiUrl();
+		if (p.getMetadata().hasDoiUrl() && !p.getMetadata().getDoiUrl().equals(""))
+			s += p.getMetadata().getDoiUrl();
+
 		return s;
 	}
 
