@@ -1,5 +1,7 @@
 package boa.functions.paper;
 
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -134,18 +136,24 @@ public class BoaPaperIntrinsics {
 			s += yearOf(p.getMetadata().getPublishTime()) + ". ";
 
 		// paper title
-		if (p.getMetadata().hasTitle() && !p.getMetadata().getTitle().equals(""))
+		if (p.getMetadata().hasTitle() && isValid(p.getMetadata().getTitle()))
 			s += p.getMetadata().getTitle() + ". ";
 
 		// journal
-		if (p.getMetadata().hasJournal() && !p.getMetadata().getJournal().equals(""))
+		if (p.getMetadata().hasJournal() && isValid(p.getMetadata().getJournal()))
 			s += p.getMetadata().getJournal() + ". ";
 
 		// doi
-		if (p.getMetadata().hasDoiUrl() && !p.getMetadata().getDoiUrl().equals(""))
+		if (p.getMetadata().hasDoiUrl() && isValid(p.getMetadata().getDoiUrl()))
 			s += p.getMetadata().getDoiUrl();
 
 		return s;
+	}
+
+	private static boolean isValid(String input) {
+		if (input.equals(""))
+			return false;
+	    return Charset.forName("US-ASCII").newEncoder().canEncode(input);
 	}
 
 	private static String getAuthor(Author author) {
