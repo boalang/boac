@@ -37,9 +37,6 @@ public class PaperJson {
 		if (jo.has("abstract"))
 			for (JsonElement je : jo.get("abstract").getAsJsonArray())
 				pb.addAbstract(getParagraph(je.getAsJsonObject()));
-		if (jo.has("abstract"))
-			for (JsonElement je : jo.get("abstract").getAsJsonArray())
-				pb.addAbstract(getParagraph(je.getAsJsonObject()));
 		if (jo.has("body_text"))
 			pb.addAllBodyText(getSections(jo.get("body_text").getAsJsonArray()));
 		if (jo.has("bib_entries"))

@@ -36,7 +36,7 @@ import org.apache.hadoop.io.compress.SnappyCodec;
 import com.google.protobuf.CodedInputStream;
 
 import boa.datagen.util.Properties;
-import boa.types.Toplevel.Project;
+import boa.types.Toplevel.Paper;
 
 /**
  * @author hoan
@@ -88,8 +88,8 @@ public class SeqCombiner {
 			BytesWritable value = new BytesWritable();
 			try {
 				while (r.next(textKey, value)) {
-					Project p = Project.parseFrom(CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
-					Project.Builder pb = Project.newBuilder(p);
+					Paper p = Paper.parseFrom(CodedInputStream.newInstance(value.getBytes(), 0, value.getLength()));
+					Paper.Builder pb = Paper.newBuilder(p);
 					paperWriter.append(textKey, new BytesWritable(pb.build().toByteArray()));
 				}
 			} catch (Exception e) {
