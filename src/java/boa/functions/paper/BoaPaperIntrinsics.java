@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 
 import boa.functions.FunctionSpec;
 import boa.types.Toplevel.Author;
+import boa.types.Toplevel.Metadata;
 import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Reference;
@@ -111,49 +112,73 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 
-	@FunctionSpec(name = "pretty_print", returnType = "string", formalParameters = { "Paper" })
-	public static String prettyPrint(Paper p) {
+	@FunctionSpec(name = "pretty_print", returnType = "string", formalParameters = { "Metadata" })
+	public static String prettyPrint(final Metadata m) {
 		String s = "";
-		// authors
-		if (p.getMetadata().getAuthorsCount() > 0) {
-			int lastIdx = p.getMetadata().getAuthorsCount() - 1;
-			for (int i = 0; i < p.getMetadata().getAuthorsCount(); i++) {
+
+        // authors
+        if (m.getAuthorsCount() > 0)
+            s += authors(m) + ". ";
+
+        // year
+        if (m.hasPublishTime())
+            s += yearOf(m.getPublishTime()) + ". ";
+
+        // paper title
+        if (m.hasTitle() && isValid(m.getTitle()))
+            s += m.getTitle() + ". ";
+
+        // journal
+        if (m.hasJournal() && isValid(m.getJournal()))
+            s += m.getJournal() + ". ";
+
+        // doi
+        if (m.hasDoiUrl() && isValid(m.getDoiUrl()))
+            s += m.getDoiUrl();
+
+		return s;
+    }
+
+	@FunctionSpec(name = "pretty_print", returnType = "string", formalParameters = { "Paper" })
+	public static String prettyPrint(final Paper p) {
+		if (p.hasMetadata())
+			return prettyPrint(p.getMetadata());
+		return "";
+	}
+
+	@FunctionSpec(name = "authors", returnType = "string", formalParameters = { "Metadata" })
+	public static String authors(final Metadata m) {
+		String s = "";
+
+		if (m.getAuthorsCount() > 0) {
+			int lastIdx = m.getAuthorsCount() - 1;
+			for (int i = 0; i < m.getAuthorsCount(); i++) {
 				if (i == 0) {
-					s += getAuthor(p.getMetadata().getAuthors(i));
+					s += getAuthor(m.getAuthors(i));
 				} else if (i == lastIdx) {
 					if (lastIdx > 1)
 						s += ",";
-					s += " and " + getAuthor(p.getMetadata().getAuthors(i));
+					s += " and " + getAuthor(m.getAuthors(i));
 				} else {
-					s += ", " + getAuthor(p.getMetadata().getAuthors(i));
+					s += ", " + getAuthor(m.getAuthors(i));
 				}
 			}
-			s += ". ";
 		}
 
-		// year
-		if (p.getMetadata().hasPublishTime())
-			s += yearOf(p.getMetadata().getPublishTime()) + ". ";
-
-		// paper title
-		if (p.getMetadata().hasTitle() && isValid(p.getMetadata().getTitle()))
-			s += p.getMetadata().getTitle() + ". ";
-
-		// journal
-		if (p.getMetadata().hasJournal() && isValid(p.getMetadata().getJournal()))
-			s += p.getMetadata().getJournal() + ". ";
-
-		// doi
-		if (p.getMetadata().hasDoiUrl() && isValid(p.getMetadata().getDoiUrl()))
-			s += p.getMetadata().getDoiUrl();
-
 		return s;
+	}
+
+	@FunctionSpec(name = "authors", returnType = "string", formalParameters = { "Paper" })
+	public static String authors(final Paper p) {
+		if (p.hasMetadata())
+			return authors(p.getMetadata());
+		return "";
 	}
 
 	private static boolean isValid(String input) {
 		if (input.equals(""))
 			return false;
-	    return Charset.forName("US-ASCII").newEncoder().canEncode(input);
+		return Charset.forName("US-ASCII").newEncoder().canEncode(input);
 	}
 
 	private static String getAuthor(Author author) {
@@ -177,5 +202,5 @@ public class BoaPaperIntrinsics {
 		s += author.getLast();
 		return s;
 	}
-
 }
+
