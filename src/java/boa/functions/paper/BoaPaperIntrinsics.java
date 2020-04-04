@@ -1,7 +1,5 @@
 package boa.functions.paper;
 
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,6 +13,7 @@ import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Section;
 
 import static boa.functions.BoaTimeIntrinsics.*;
+import static boa.functions.paper.BoaNLPIntrinsics.*;
 
 /**
  * @author yijiahuang
@@ -125,15 +124,15 @@ public class BoaPaperIntrinsics {
             s += yearOf(m.getPublishTime()) + ". ";
 
         // paper title
-        if (m.hasTitle() && isValid(m.getTitle()))
+        if (m.hasTitle() && isASCII(m.getTitle()))
             s += m.getTitle() + ". ";
 
         // journal
-        if (m.hasJournal() && isValid(m.getJournal()))
+        if (m.hasJournal() && isASCII(m.getJournal()))
             s += m.getJournal() + ". ";
 
         // doi
-        if (m.hasDoiUrl() && isValid(m.getDoiUrl()))
+        if (m.hasDoiUrl() && isASCII(m.getDoiUrl()))
             s += m.getDoiUrl();
 
 		return s;
@@ -173,12 +172,6 @@ public class BoaPaperIntrinsics {
 		if (p.hasMetadata())
 			return authors(p.getMetadata());
 		return "";
-	}
-
-	private static boolean isValid(String input) {
-		if (input.equals(""))
-			return false;
-		return Charset.forName("US-ASCII").newEncoder().canEncode(input);
 	}
 
 	private static String getAuthor(Author author) {
