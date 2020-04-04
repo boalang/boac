@@ -8,11 +8,15 @@ import boa.functions.FunctionSpec;
 
 public class BoaNLPIntrinsics {
 	
+	// TODO find all papers contain keywords
+	
+	// TODO find all paragraphs contain keywords
+	
+	// TODO find all sentences contain keywords
+	
 	public static void main(String[] args) throws IOException {
-
+		
 	}
-
-
 
 
 	public static String text = "Why painful the sixteen how minuter looking nor. "
