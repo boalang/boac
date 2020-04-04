@@ -1,4 +1,4 @@
-package boa.functions.paper;
+package boa.functions.nlp;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;

@@ -13,7 +13,7 @@ import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Section;
 
 import static boa.functions.BoaTimeIntrinsics.*;
-import static boa.functions.paper.BoaNLPNoiseRemoval.*;
+import static boa.functions.nlp.BoaNLPNoiseRemoval.*;
 
 /**
  * @author yijiahuang

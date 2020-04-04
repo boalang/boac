@@ -1,4 +1,4 @@
-package boa.functions.paper;
+package boa.functions.nlp;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import boa.functions.FunctionSpec;
 
 public class BoaNLPStopWords {
 
-	private static HashSet<String> stopWordsSet = new HashSet<String>(Arrays.asList(new String[] { "i", ".", "#", "|",
+	public static HashSet<String> stopWordsSet = new HashSet<String>(Arrays.asList(new String[] { "i", ".", "#", "|",
 			"me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves",
 			"he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them",
 			"their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am",

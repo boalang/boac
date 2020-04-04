@@ -1,4 +1,4 @@
-package boa.functions.paper;
+package boa.functions.nlp;
 
 import java.util.Arrays;
 import java.util.HashSet;

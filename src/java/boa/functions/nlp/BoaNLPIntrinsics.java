@@ -1,8 +1,14 @@
-package boa.functions.paper;
+package boa.functions.nlp;
+
+import static boa.functions.nlp.BoaNLPNoiseRemoval.*;
+import static boa.functions.nlp.BoaNLPStopWords.*;
+import static boa.functions.nlp.BoaNLPTokenizer.*;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import boa.functions.FunctionSpec;
 
@@ -15,7 +21,22 @@ public class BoaNLPIntrinsics {
 	// TODO find all sentences contain keywords
 	
 	public static void main(String[] args) throws IOException {
-		
+		System.out.println(Arrays.asList(preprocess(text, stopWordsSet)));
+	}
+	
+	@FunctionSpec(name = "preprocess", returnType = "array of string", formalParameters = { "string", "set of string" })
+	public static String[] preprocess(final String text, final HashSet<String> stopwords) {
+		String s = text.trim()
+				.toLowerCase()                                 // lowercasing
+				.replaceAll("\\p{Punct}", " ");                // remove punctuations
+		String[] tokens = tokenize(s);                         // remove whitespace
+		List<String> words = Arrays.asList(tokens).stream()
+				.filter(token -> !stopwords.contains(token))   // remove stopwords
+				.filter(token -> !isNumber(token))             // remove numbers
+				.filter(token -> !isDigits(token))             // remove digits
+				.filter(token -> isASCII(token))               // remove non-ASCII
+				.collect(Collectors.toList());
+		return words.toArray(new String[words.size()]);
 	}
 
 

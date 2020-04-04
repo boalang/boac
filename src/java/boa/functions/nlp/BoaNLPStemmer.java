@@ -1,4 +1,4 @@
-package boa.functions.paper;
+package boa.functions.nlp;
 
 import boa.functions.FunctionSpec;
 import opennlp.tools.stemmer.PorterStemmer;
