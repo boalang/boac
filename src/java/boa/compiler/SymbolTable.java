@@ -571,7 +571,7 @@ public class SymbolTable {
 			// paper
 			boa.functions.paper.BoaPaperIntrinsics.class,
 			boa.functions.paper.BoaNLPIntrinsics.class,
-			boa.functions.paper.BoaStopWords.class
+			boa.functions.paper.BoaNLPStopWords.class
 		};
 		for (final Class<?> c : builtinFuncs)
 			importFunctions(c);
