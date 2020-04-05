@@ -24,11 +24,12 @@ public class BoaNLPSentence {
 		}
 	}
 	
-	@FunctionSpec(name = "sent_detect", returnType = "array of string", formalParameters = { "string" })
-	public static String[] sentDetect(final String text) {
+	@FunctionSpec(name = "sentences", returnType = "array of string", formalParameters = { "string" })
+	public static String[] sentences(final String text) {
 		return detector.sentDetect(text);
 	}
 	
+	@FunctionSpec(name = "sentences", returnType = "array of string", formalParameters = { "Paragraph" })
 	public static String[] sentences(final Paragraph para) {
 		return detector.sentDetect(para.getText());
 	}
