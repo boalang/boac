@@ -39,7 +39,6 @@ public class BoaNLPIntrinsics {
 		return words.toArray(new String[words.size()]);
 	}
 
-
 	public static String text = "Why painful the sixteen how minuter looking nor. "
 			+ "Subject but why ten earnest husband imagine sixteen brandon. "
 			+ "Are unp.leasing. occasional celebrated motionless unaffected conviction out. "
@@ -60,5 +59,10 @@ public class BoaNLPIntrinsics {
 	@FunctionSpec(name = "test_ids", returnType = "set of string")
 	public static HashSet<String> testIds() {
 		return testIds;
+	}
+	
+	@FunctionSpec(name = "text", returnType = "string")
+	public static String text() {
+		return text;
 	}
 }
