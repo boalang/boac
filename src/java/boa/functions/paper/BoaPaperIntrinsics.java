@@ -191,23 +191,27 @@ public class BoaPaperIntrinsics {
 
 		// authors
 		if (m.getAuthorsCount() > 0)
-			s += authors(m) + ". ";
+			s = authors(m) + ".";
 
 		// year
 		if (m.hasPublishTime())
-			s += yearOf(m.getPublishTime()) + ". ";
+			s += " " + yearOf(m.getPublishTime()) + ".";
 
 		// paper title
 		if (m.hasTitle() && isASCII(m.getTitle()))
-			s += m.getTitle() + ". ";
+			s += " " + m.getTitle() + ".";
 
 		// journal
 		if (m.hasJournal() && isASCII(m.getJournal()))
-			s += m.getJournal() + ". ";
+			s += " " + m.getJournal() + ".";
 
 		// doi
 		if (m.hasDoiUrl() && isASCII(m.getDoiUrl()))
-			s += m.getDoiUrl();
+			s += " " + m.getDoiUrl();
+
+		// pubmed ID
+		if (m.hasPubmedId())
+			s += " https://www.ncbi.nlm.nih.gov/pubmed/" + m.getPubmedId();
 
 		return s;
 	}
