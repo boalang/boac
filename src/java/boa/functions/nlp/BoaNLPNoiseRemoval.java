@@ -3,6 +3,7 @@ package boa.functions.nlp;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang.math.NumberUtils;
@@ -15,6 +16,16 @@ public class BoaNLPNoiseRemoval {
 	public static String[] nonASCIIi(String[] words) {
 		List<String> list = Arrays.asList(words).stream().filter(word -> isASCII(word)).collect(Collectors.toList());
 		return list.toArray(new String[list.size()]);
+	}
+
+	@FunctionSpec(name = "no_punct", returnType = "string", formalParameters = { "string" })
+	public static String noPunct(String str) {
+		return str.replaceAll("\\p{Punct}", "");
+	}
+
+	@FunctionSpec(name = "is_punct", returnType = "bool", formalParameters = { "string" })
+	public static boolean isPunct(String str) {
+		return Pattern.matches("\\p{Punct}", str);
 	}
 
 	@FunctionSpec(name = "is_num", returnType = "bool", formalParameters = { "string" })
@@ -32,11 +43,6 @@ public class BoaNLPNoiseRemoval {
 		if (str.equals(""))
 			return false;
 		return Charset.forName("US-ASCII").newEncoder().canEncode(str);
-	}
-
-	@FunctionSpec(name = "no_punct", returnType = "string", formalParameters = { "string" })
-	public static String noPunct(String str) {
-		return str.replaceAll("\\p{Punct}", "");
 	}
 
 }

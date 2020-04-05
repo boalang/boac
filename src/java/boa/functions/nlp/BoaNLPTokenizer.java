@@ -24,7 +24,8 @@ public class BoaNLPTokenizer {
 
 	@FunctionSpec(name = "get_tokens", returnType = "array of string", formalParameters = { "string", "set of string" })
 	public static String[] getTokens(final String text, final HashSet<String> filter) {
-		List<String> list = Arrays.asList(getTokens(text)).stream().filter(line -> !filter.contains(line))
+		List<String> list = Arrays.asList(getTokens(text)).stream()
+				.filter(line -> !filter.contains(line))
 				.collect(Collectors.toList());
 		return list.toArray(new String[list.size()]);
 	}

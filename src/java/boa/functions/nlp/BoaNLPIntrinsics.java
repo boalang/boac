@@ -65,4 +65,5 @@ public class BoaNLPIntrinsics {
 	public static String text() {
 		return text;
 	}
+
 }
