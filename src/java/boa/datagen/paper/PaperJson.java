@@ -21,7 +21,6 @@ import boa.types.Toplevel.Location;
 import boa.types.Toplevel.Metadata;
 import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Paragraph;
-import boa.types.Toplevel.Paragraph.ParagraphKind;
 import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Reference.ReferenceType;
 import boa.types.Toplevel.Section;
@@ -178,7 +177,7 @@ public class PaperJson {
 		if (jo.has("ref_spans"))
 			for (JsonElement je : jo.get("ref_spans").getAsJsonArray())
 				pb.addRefSpans(getCitation(je.getAsJsonObject()));
-		pb.setKind(ParagraphKind.OTHER); // TODO update paragraph kind
+		pb.setKind(ParagraphClassifier.classify(pb.getText())); // TODO update paragraph kind
 		return pb.build();
 	}
 

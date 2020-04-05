@@ -16278,37 +16278,45 @@ public final class Toplevel {
        */
       BACKGROUND(0, 0),
       /**
-       * <code>METHODS = 1;</code>
+       * <code>METHODOLOGY = 1;</code>
        *
        * <pre>
-       ** @exclude For method paragraphs 
+       ** @exclude For methodology paragraphs 
        * </pre>
        */
-      METHODS(1, 1),
+      METHODOLOGY(1, 1),
       /**
-       * <code>RESULTS = 2;</code>
+       * <code>RESULT = 2;</code>
        *
        * <pre>
        ** @exclude For result paragraphs 
        * </pre>
        */
-      RESULTS(2, 2),
+      RESULT(2, 2),
       /**
-       * <code>CONCLUSIONS = 3;</code>
+       * <code>FINDING = 3;</code>
        *
        * <pre>
        ** @exclude For conclusion paragraphs 
        * </pre>
        */
-      CONCLUSIONS(3, 3),
+      FINDING(3, 3),
       /**
-       * <code>OTHER = 4;</code>
+       * <code>CONCLUSION = 4;</code>
+       *
+       * <pre>
+       ** @exclude For finding paragraphs 
+       * </pre>
+       */
+      CONCLUSION(4, 4),
+      /**
+       * <code>OTHER = 5;</code>
        *
        * <pre>
        ** @exclude Any other paragraphs 
        * </pre>
        */
-      OTHER(4, 4),
+      OTHER(5, 5),
       ;
 
       /**
@@ -16320,37 +16328,45 @@ public final class Toplevel {
        */
       public static final int BACKGROUND_VALUE = 0;
       /**
-       * <code>METHODS = 1;</code>
+       * <code>METHODOLOGY = 1;</code>
        *
        * <pre>
-       ** @exclude For method paragraphs 
+       ** @exclude For methodology paragraphs 
        * </pre>
        */
-      public static final int METHODS_VALUE = 1;
+      public static final int METHODOLOGY_VALUE = 1;
       /**
-       * <code>RESULTS = 2;</code>
+       * <code>RESULT = 2;</code>
        *
        * <pre>
        ** @exclude For result paragraphs 
        * </pre>
        */
-      public static final int RESULTS_VALUE = 2;
+      public static final int RESULT_VALUE = 2;
       /**
-       * <code>CONCLUSIONS = 3;</code>
+       * <code>FINDING = 3;</code>
        *
        * <pre>
        ** @exclude For conclusion paragraphs 
        * </pre>
        */
-      public static final int CONCLUSIONS_VALUE = 3;
+      public static final int FINDING_VALUE = 3;
       /**
-       * <code>OTHER = 4;</code>
+       * <code>CONCLUSION = 4;</code>
+       *
+       * <pre>
+       ** @exclude For finding paragraphs 
+       * </pre>
+       */
+      public static final int CONCLUSION_VALUE = 4;
+      /**
+       * <code>OTHER = 5;</code>
        *
        * <pre>
        ** @exclude Any other paragraphs 
        * </pre>
        */
-      public static final int OTHER_VALUE = 4;
+      public static final int OTHER_VALUE = 5;
 
 
       public final int getNumber() { return value; }
@@ -16358,10 +16374,11 @@ public final class Toplevel {
       public static ParagraphKind valueOf(int value) {
         switch (value) {
           case 0: return BACKGROUND;
-          case 1: return METHODS;
-          case 2: return RESULTS;
-          case 3: return CONCLUSIONS;
-          case 4: return OTHER;
+          case 1: return METHODOLOGY;
+          case 2: return RESULT;
+          case 3: return FINDING;
+          case 4: return CONCLUSION;
+          case 5: return OTHER;
           default: return null;
         }
       }
@@ -22591,24 +22608,24 @@ public final class Toplevel {
       "Affiliation\022\022\n\nlaboratory\030\001 \001(\t\022\023\n\013insti" +
       "tution\030\002 \001(\t\022%\n\010location\030\003 \001(\0132\023.boa.typ" +
       "es.Location\"<\n\007Section\022\r\n\005title\030\001 \001(\t\022\"\n",
-      "\004body\030\002 \003(\0132\024.boa.types.Paragraph\"\367\001\n\tPa" +
+      "\004body\030\002 \003(\0132\024.boa.types.Paragraph\"\206\002\n\tPa" +
       "ragraph\022\014\n\004text\030\001 \001(\t\022\'\n\ncite_spans\030\002 \003(" +
       "\0132\023.boa.types.Citation\022&\n\tref_spans\030\003 \003(" +
       "\0132\023.boa.types.Citation\0220\n\004kind\030\004 \001(\0162\".b" +
-      "oa.types.Paragraph.ParagraphKind\"Y\n\rPara" +
-      "graphKind\022\016\n\nBACKGROUND\020\000\022\013\n\007METHODS\020\001\022\013" +
-      "\n\007RESULTS\020\002\022\017\n\013CONCLUSIONS\020\003\022\t\n\005OTHER\020\004\032" +
-      "\002\020\001\"(\n\010Citation\022\014\n\004text\030\001 \001(\t\022\016\n\006ref_id\030" +
-      "\002 \001(\t\"c\n\010Location\022\020\n\010addrLine\030\001 \001(\t\022\020\n\010p" +
-      "ostCode\030\002 \001(\t\022\022\n\nsettlement\030\003 \001(\t\022\017\n\007cou",
-      "ntry\030\004 \001(\t\022\016\n\006region\030\005 \001(\t\"\215\002\n\tReference" +
-      "\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title\030\002 \001(\t\022\"\n\007autho" +
-      "rs\030\003 \003(\0132\021.boa.types.Author\022\014\n\004year\030\004 \001(" +
-      "\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volume\030\006 \001(\t\022\014\n\004issn" +
-      "\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004text\030\t \001(\t\0220\n\004t" +
-      "ype\030\n \001(\0162\".boa.types.Reference.Referenc" +
-      "eType\"3\n\rReferenceType\022\n\n\006FIGURE\020\000\022\t\n\005TA" +
-      "BLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
+      "oa.types.Paragraph.ParagraphKind\"h\n\rPara" +
+      "graphKind\022\016\n\nBACKGROUND\020\000\022\017\n\013METHODOLOGY" +
+      "\020\001\022\n\n\006RESULT\020\002\022\013\n\007FINDING\020\003\022\016\n\nCONCLUSIO" +
+      "N\020\004\022\t\n\005OTHER\020\005\032\002\020\001\"(\n\010Citation\022\014\n\004text\030\001" +
+      " \001(\t\022\016\n\006ref_id\030\002 \001(\t\"c\n\010Location\022\020\n\010addr" +
+      "Line\030\001 \001(\t\022\020\n\010postCode\030\002 \001(\t\022\022\n\nsettleme",
+      "nt\030\003 \001(\t\022\017\n\007country\030\004 \001(\t\022\016\n\006region\030\005 \001(" +
+      "\t\"\215\002\n\tReference\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title" +
+      "\030\002 \001(\t\022\"\n\007authors\030\003 \003(\0132\021.boa.types.Auth" +
+      "or\022\014\n\004year\030\004 \001(\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volum" +
+      "e\030\006 \001(\t\022\014\n\004issn\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004" +
+      "text\030\t \001(\t\0220\n\004type\030\n \001(\0162\".boa.types.Ref" +
+      "erence.ReferenceType\"3\n\rReferenceType\022\n\n" +
+      "\006FIGURE\020\000\022\t\n\005TABLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

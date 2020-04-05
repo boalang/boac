@@ -176,14 +176,16 @@ message Paragraph {
 		option allow_alias = true;
 		/** @exclude For background paragraphs */
 		BACKGROUND = 0;
-		/** @exclude For method paragraphs */
-		METHODS = 1;
+		/** @exclude For methodology paragraphs */
+		METHODOLOGY = 1;
 		/** @exclude For result paragraphs */
-		RESULTS = 2;
+		RESULT = 2;
 		/** @exclude For conclusion paragraphs */
-		CONCLUSIONS = 3;
+		FINDING = 3;
+		/** @exclude For finding paragraphs */
+		CONCLUSION = 4;
 		/** @exclude Any other paragraphs */
-		OTHER = 4;
+		OTHER = 5;
 	}
 
 	/** The text of the paragraph */

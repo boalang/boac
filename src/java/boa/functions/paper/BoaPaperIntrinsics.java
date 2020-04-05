@@ -110,11 +110,13 @@ public class BoaPaperIntrinsics {
 		List<String> results = new ArrayList<String>();
 		for (Paragraph para : p.getAbstractList())
 			for (String sentence : sentences(para))
-				results.add(sentence);
+				if (searchKeywords(sentence, keywords))
+					results.add(sentence);
 		for (Section sec : p.getBodyTextList())
 			for (Paragraph para : sec.getBodyList())
 				for (String sentence : sentences(para))
-					results.add(sentence);
+					if (searchKeywords(sentence, keywords))
+						results.add(sentence);
 		return results.toArray(new String[results.size()]);
 	}
 
@@ -148,21 +150,16 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 
-	// TODO use Aho-Corasick algorithm??
+	// TODO use Aho-Corasick algorithm
 	@FunctionSpec(name = "search_keywords", returnType = "bool", formalParameters = { "string", "string..." })
 	public static boolean searchKeywords(final String src, final String... keywords) {
-//		Trie trie = Trie.builder().onlyWholeWords().addKeywords(keywords).build();
-//		Collection<Emit> emits = trie.parseText(src);
 		for (String keyword : keywords)
 			if (!searchKeyword(src, keyword))
 				return false;
 		return true;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(searchKeywords(text, "ten"));
-	}
-
+	// TODO use Aho-Corasick algorithm
 	@FunctionSpec(name = "search_keyword", returnType = "bool", formalParameters = { "string", "string" })
 	public static boolean searchKeyword(final String src, final String keyword) {
 		final int length = keyword.length();
