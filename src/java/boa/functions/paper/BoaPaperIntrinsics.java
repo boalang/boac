@@ -52,7 +52,7 @@ public class BoaPaperIntrinsics {
 
 	@FunctionSpec(name = "search_abstract", returnType = "bool", formalParameters = { "string", "Paper" })
 	public static boolean searchAbstract(final String keyword, final Paper p) {
-		for (Paragraph para : p.getAbstractList())
+		for (final Paragraph para : p.getAbstractList())
 			if (searchKeyword(para.getText(), keyword))
 				return true;
 		return false;
@@ -60,14 +60,25 @@ public class BoaPaperIntrinsics {
 
 	@FunctionSpec(name = "search_body", returnType = "bool", formalParameters = { "string", "Paper" })
 	public static boolean searchBody(final String keyword, final Paper p) {
-		for (Section sec : p.getBodyTextList()) {
-			if (searchKeyword(sec.getTitle(), keyword))
+		for (final Section sec : p.getBodyTextList())
+			if (searchSection(keyword, sec))
 				return true;
-			for (Paragraph para : sec.getBodyList())
-				if (searchKeyword(para.getText(), keyword))
-					return true;
-		}
 		return false;
+	}
+
+	@FunctionSpec(name = "search_section", returnType = "bool", formalParameters = { "string", "Section" })
+	public static boolean searchSection(final String keyword, final Section sec) {
+		if (searchKeyword(sec.getTitle(), keyword))
+			return true;
+		for (final Paragraph para : sec.getBodyList())
+			if (searchPara(keyword, para))
+				return true;
+		return false;
+	}
+
+	@FunctionSpec(name = "search_para", returnType = "bool", formalParameters = { "string", "Paragraph" })
+	public static boolean searchPara(final String keyword, final Paragraph para) {
+		return searchKeyword(para.getText(), keyword);
 	}
 
 	@FunctionSpec(name = "search_paper", returnType = "bool", formalParameters = { "string", "Paper" })
@@ -259,7 +270,7 @@ public class BoaPaperIntrinsics {
 		return s;
 	}
 
-	@FunctionSpec(name = "isFinding", returnType = "bool", formalParameters = { "Paper" })
+	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "Paper" })
 	public static boolean isFinding(final Paper p) {
 		for (int i = 0; i < p.getAbstractCount(); i++)
 			if (isFinding(p.getAbstract(i)))
@@ -270,7 +281,7 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 
-	@FunctionSpec(name = "isFinding", returnType = "bool", formalParameters = { "Section" })
+	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "Section" })
 	public static boolean isFinding(final Section s) {
 		for (int i = 0; i < s.getBodyCount(); i++)
 			if (isFinding(s.getBody(i)))
@@ -278,7 +289,7 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 
-	@FunctionSpec(name = "isFinding", returnType = "bool", formalParameters = { "Paragraph" })
+	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "Paragraph" })
 	public static boolean isFinding(final Paragraph p) {
 		if (!p.hasText())
 			return false;
@@ -286,7 +297,7 @@ public class BoaPaperIntrinsics {
 		return isFinding(p.getText());
 	}
 
-	@FunctionSpec(name = "isFinding", returnType = "bool", formalParameters = { "string" })
+	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "string" })
 	public static boolean isFinding(final String s) {
 		final String lc = s.toLowerCase();
 
@@ -297,5 +308,33 @@ public class BoaPaperIntrinsics {
 			return true;
 
 		return false;
+	}
+
+	@FunctionSpec(name = "has_finding", returnType = "bool", formalParameters = { "string", "Paper" })
+	public static boolean hasFinding(final String finding, final Paper p) {
+		if (!isFinding(p))
+			return false;
+		return searchPaper(finding, p);
+	}
+
+	@FunctionSpec(name = "has_finding", returnType = "bool", formalParameters = { "string", "Section" })
+	public static boolean hasFinding(final String finding, final Section s) {
+		if (!isFinding(s))
+			return false;
+		return searchSection(finding, s);
+	}
+
+	@FunctionSpec(name = "has_finding", returnType = "bool", formalParameters = { "string", "Paragraph" })
+	public static boolean hasFinding(final String finding, final Paragraph p) {
+		if (!isFinding(p))
+			return false;
+		return searchPara(finding, p);
+	}
+
+	@FunctionSpec(name = "has_finding", returnType = "bool", formalParameters = { "string", "string" })
+	public static boolean hasFinding(final String finding, final String s) {
+		if (!isFinding(s))
+			return false;
+		return searchKeyword(s, finding);
 	}
 }
