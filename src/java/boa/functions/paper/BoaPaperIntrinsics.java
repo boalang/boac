@@ -105,7 +105,7 @@ public class BoaPaperIntrinsics {
 		return results.toArray(new Paragraph[results.size()]);
 	}
 
-	@FunctionSpec(name = "find_stens", returnType = "array of String", formalParameters = { "Paper", "string..." })
+	@FunctionSpec(name = "find_stens", returnType = "array of string", formalParameters = { "Paper", "string..." })
 	public static String[] findStens(final Paper p, final String... keywords) {
 		List<String> results = new ArrayList<String>();
 		for (Paragraph para : p.getAbstractList())

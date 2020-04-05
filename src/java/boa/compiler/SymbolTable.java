@@ -567,7 +567,6 @@ public class SymbolTable {
 			boa.functions.BoaSpecialIntrinsics.class,
 			boa.functions.BoaStringIntrinsics.class,
 			boa.functions.BoaTimeIntrinsics.class,
-			// TODO paper
 			boa.functions.paper.BoaPaperIntrinsics.class,
 			boa.functions.nlp.BoaNLPIntrinsics.class,
 			boa.functions.nlp.BoaNLPStopWords.class,
