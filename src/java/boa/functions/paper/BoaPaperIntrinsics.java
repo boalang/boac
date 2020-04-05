@@ -3,6 +3,8 @@ package boa.functions.paper;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import boa.functions.FunctionSpec;
 import boa.types.Toplevel.Author;
@@ -14,6 +16,8 @@ import boa.types.Toplevel.Section;
 
 import static boa.functions.BoaTimeIntrinsics.*;
 import static boa.functions.nlp.BoaNLPNoiseRemoval.*;
+import static boa.functions.nlp.BoaNLPIntrinsics.*;
+import static boa.functions.nlp.BoaNLPSentence.*;
 
 /**
  * @author yijiahuang
@@ -59,6 +63,32 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 
+	@FunctionSpec(name = "find_paras", returnType = "array of Paragraph", formalParameters = { "Paper", "string..." })
+	public static Paragraph[] findParas(final Paper p, final String... keywords) {
+		List<Paragraph> results = new ArrayList<Paragraph>();
+		for (Paragraph para : p.getAbstractList())
+			if (searchKeywords(para.getText(), keywords))
+				results.add(para);
+		for (Section sec : p.getBodyTextList())
+			for (Paragraph para : sec.getBodyList())
+				if (searchKeywords(para.getText(), keywords))
+					results.add(para);
+		return results.toArray(new Paragraph[results.size()]);
+	}
+
+	@FunctionSpec(name = "find_stens", returnType = "array of String", formalParameters = { "Paper", "string..." })
+	public static String[] findStens(final Paper p, final String... keywords) {
+		List<String> results = new ArrayList<String>();
+		for (Paragraph para : p.getAbstractList())
+			for (String sentence : sentences(para))
+				results.add(sentence);
+		for (Section sec : p.getBodyTextList())
+			for (Paragraph para : sec.getBodyList())
+				for (String sentence : sentences(para))
+					results.add(sentence);
+		return results.toArray(new String[results.size()]);
+	}
+
 	/**
 	 * @param from A time range start with MM/dd/yyyy inclusive
 	 * @param to   A time range end with MM/dd/yyyy inclusive
@@ -89,14 +119,29 @@ public class BoaPaperIntrinsics {
 		return false;
 	}
 
+	// TODO use Aho-Corasick algorithm??
+	@FunctionSpec(name = "search_keywords", returnType = "bool", formalParameters = { "string", "string..." })
+	public static boolean searchKeywords(final String src, final String... keywords) {
+//		Trie trie = Trie.builder().onlyWholeWords().addKeywords(keywords).build();
+//		Collection<Emit> emits = trie.parseText(src);
+		for (String keyword : keywords)
+			if (!searchKeyword(src, keyword))
+				return false;
+		return true;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(searchKeywords(text, "ten"));
+	}
+
 	@FunctionSpec(name = "search_keyword", returnType = "bool", formalParameters = { "string", "string" })
-	public static boolean searchKeyword(String src, String what) {
-		final int length = what.length();
+	public static boolean searchKeyword(final String src, final String keyword) {
+		final int length = keyword.length();
 		if (length == 0)
 			return true; // Empty string is contained
 
-		final char firstLo = Character.toLowerCase(what.charAt(0));
-		final char firstUp = Character.toUpperCase(what.charAt(0));
+		final char firstLo = Character.toLowerCase(keyword.charAt(0));
+		final char firstUp = Character.toUpperCase(keyword.charAt(0));
 
 		for (int i = src.length() - length; i >= 0; i--) {
 			// Quick check before calling the more expensive regionMatches() method:
@@ -104,7 +149,7 @@ public class BoaPaperIntrinsics {
 			if (ch != firstLo && ch != firstUp)
 				continue;
 
-			if (src.regionMatches(true, i, what, 0, length))
+			if (src.regionMatches(true, i, keyword, 0, length))
 				return true;
 		}
 
@@ -115,28 +160,28 @@ public class BoaPaperIntrinsics {
 	public static String prettyPrint(final Metadata m) {
 		String s = "";
 
-        // authors
-        if (m.getAuthorsCount() > 0)
-            s += authors(m) + ". ";
+		// authors
+		if (m.getAuthorsCount() > 0)
+			s += authors(m) + ". ";
 
-        // year
-        if (m.hasPublishTime())
-            s += yearOf(m.getPublishTime()) + ". ";
+		// year
+		if (m.hasPublishTime())
+			s += yearOf(m.getPublishTime()) + ". ";
 
-        // paper title
-        if (m.hasTitle() && isASCII(m.getTitle()))
-            s += m.getTitle() + ". ";
+		// paper title
+		if (m.hasTitle() && isASCII(m.getTitle()))
+			s += m.getTitle() + ". ";
 
-        // journal
-        if (m.hasJournal() && isASCII(m.getJournal()))
-            s += m.getJournal() + ". ";
+		// journal
+		if (m.hasJournal() && isASCII(m.getJournal()))
+			s += m.getJournal() + ". ";
 
-        // doi
-        if (m.hasDoiUrl() && isASCII(m.getDoiUrl()))
-            s += m.getDoiUrl();
+		// doi
+		if (m.hasDoiUrl() && isASCII(m.getDoiUrl()))
+			s += m.getDoiUrl();
 
 		return s;
-    }
+	}
 
 	@FunctionSpec(name = "pretty_print", returnType = "string", formalParameters = { "Paper" })
 	public static String prettyPrint(final Paper p) {
@@ -196,4 +241,3 @@ public class BoaPaperIntrinsics {
 		return s;
 	}
 }
-

@@ -2,7 +2,9 @@ package boa.functions.nlp;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import boa.functions.FunctionSpec;
+import boa.types.Toplevel.Paragraph;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 
@@ -25,6 +27,10 @@ public class BoaNLPSentence {
 	@FunctionSpec(name = "sent_detect", returnType = "array of string", formalParameters = { "string" })
 	public static String[] sentDetect(final String text) {
 		return detector.sentDetect(text);
+	}
+	
+	public static String[] sentences(final Paragraph para) {
+		return detector.sentDetect(para.getText());
 	}
 	
 }
