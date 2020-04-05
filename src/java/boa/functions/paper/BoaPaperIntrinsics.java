@@ -288,6 +288,14 @@ public class BoaPaperIntrinsics {
 
 	@FunctionSpec(name = "isFinding", returnType = "bool", formalParameters = { "string" })
 	public static boolean isFinding(final String s) {
+		final String lc = s.toLowerCase();
+
+		if (lc.indexOf("finding") != -1)
+			return true;
+
+		if (lc.indexOf("we found") != -1)
+			return true;
+
 		return false;
 	}
 }
