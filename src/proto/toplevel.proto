@@ -257,7 +257,7 @@ message Reference {
 	optional string pages = 8;
 	/** The caption text of the figure/table */
 	optional string text = 9;
-	/** The type of the reference */
+	/** The kind of the reference */
 	optional ReferenceKind kind = 10;
 
 }
