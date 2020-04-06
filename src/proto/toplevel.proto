@@ -225,7 +225,7 @@ message Location {
 
 }
 
-/** A referece of a reaserch paper */
+/** A reference of a reaserch paper */
 message Reference {
 
 	/** Describes the kind of Reference */
