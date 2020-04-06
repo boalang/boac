@@ -26,8 +26,11 @@ import static boa.functions.paper.BoaPaperIntrinsics.*;
 
 /**
  * @author rdyer
+ * @author yijiahuang
  */
-public class BoaContentClassifierIntrinsics {
+public class BoaContentPatternIntrinsics {
+
+	/* ------------------------- Finding ------------------------- */
 
 	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "Paper" })
 	public static boolean isFinding(final Paper p) {
@@ -102,4 +105,28 @@ public class BoaContentClassifierIntrinsics {
 		return searchKeyword(s, finding);
 	}
 
+	/* ------------------------- Conclusion ------------------------- */
+	
+	@FunctionSpec(name = "is_conclusion", returnType = "bool", formalParameters = { "string" })
+	public static boolean isConclusion(final String s) {
+		final String lc = s.toLowerCase();
+
+		if (searchKeywords(lc, "in conclusion"))
+			return true;
+
+		if (searchKeywords(lc, "to conclude"))
+			return true;
+		
+		if (searchKeywords(lc, "consequently"))
+			return true;
+		
+		if (searchKeywords(lc, "sum up"))
+			return true;
+		
+		if (searchKeywords(lc, "in summary"))
+			return true;
+
+		return false;
+	}
+	
 }
