@@ -141,7 +141,7 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 			int partNum = 0;
 
 			final byte[] b = new byte[64 * 1024 * 1024];
-			long length = 0;
+			long length = 0, paperCount = 0, webPaperCount = 0;
 			int webLength = 0;
 			final int webSize = 64 * 1024 - 1;
 
@@ -160,24 +160,29 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 					if (webLength < webSize) {
 						try {
 							ps = con.prepareStatement("UPDATE boa_output SET web_result=CONCAT(web_result, ?) WHERE id=" + jobId);
-							final String webStr = new String(b, 0, webLength + numBytes < webSize ? numBytes : webSize - webLength);
+							final int endIndex = webLength + numBytes < webSize ? numBytes : webSize - webLength;
+							final String webStr = new String(b, 0, endIndex);
 							ps.setString(1, webStr != null && webStr.length() > 0 ? webStr : "");
 							ps.executeUpdate();
 							webLength += numBytes;
+							webPaperCount += lineCount(b, 0, endIndex);
 						} finally {
 							try { if (ps != null) ps.close(); } catch (final Exception e) { e.printStackTrace(); }
 						}
 					}
 					out.write(b, 0, numBytes);
 					length += numBytes;
+					paperCount += lineCount(b, 0, numBytes);
 
 					this.context.progress();
 				}
 			}
 
 			try {
-				ps = con.prepareStatement("UPDATE boa_output SET length=?, hash=MD5(web_result) WHERE id=" + jobId);
+				ps = con.prepareStatement("UPDATE boa_output SET length=?, count=?, web_count=?, hash=MD5(web_result) WHERE id=" + jobId);
 				ps.setLong(1, length);
+				ps.setLong(2, paperCount);
+				ps.setLong(3, webPaperCount);
 				ps.executeUpdate();
 			} finally {
 				try { if (ps != null) ps.close(); } catch (final Exception e) { e.printStackTrace(); }
@@ -190,6 +195,14 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 			try { if (out != null) out.close(); } catch (final Exception e) { e.printStackTrace(); }
 			try { if (fileSystem != null) fileSystem.close(); } catch (final Exception e) { e.printStackTrace(); }
 		}
+	}
+
+	private static long lineCount(final byte[] b, final int start, final int end) {
+		long count = 1;
+		for (int i = start; i < end; i++)
+			if (b[i] == 10 || b[i] == 13)
+				count++;
+		return count;
 	}
 
 	public static void setJobID(final String id, final int jobId) {
