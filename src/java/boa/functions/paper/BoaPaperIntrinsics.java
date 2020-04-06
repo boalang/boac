@@ -33,7 +33,6 @@ import boa.types.Toplevel.Section;
 
 import static boa.functions.BoaTimeIntrinsics.*;
 import static boa.functions.nlp.BoaNLPNoiseRemoval.*;
-import static boa.functions.nlp.BoaNLPIntrinsics.*;
 import static boa.functions.nlp.BoaNLPSentence.*;
 
 /**

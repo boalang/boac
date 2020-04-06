@@ -20095,23 +20095,23 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getTextBytes();
 
-    // optional .boa.types.Reference.ReferenceType type = 10;
+    // optional .boa.types.Reference.ReferenceKind kind = 10;
     /**
-     * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
      ** The type of the reference 
      * </pre>
      */
-    boolean hasType();
+    boolean hasKind();
     /**
-     * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
      ** The type of the reference 
      * </pre>
      */
-    boa.types.Toplevel.Reference.ReferenceType getType();
+    boa.types.Toplevel.Reference.ReferenceKind getKind();
   }
   /**
    * Protobuf type {@code boa.types.Reference}
@@ -20218,12 +20218,12 @@ public final class Toplevel {
             }
             case 80: {
               int rawValue = input.readEnum();
-              boa.types.Toplevel.Reference.ReferenceType value = boa.types.Toplevel.Reference.ReferenceType.valueOf(rawValue);
+              boa.types.Toplevel.Reference.ReferenceKind value = boa.types.Toplevel.Reference.ReferenceKind.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(10, rawValue);
               } else {
                 bitField0_ |= 0x00000100;
-                type_ = value;
+                kind_ = value;
               }
               break;
             }
@@ -20270,13 +20270,13 @@ public final class Toplevel {
     }
 
     /**
-     * Protobuf enum {@code boa.types.Reference.ReferenceType}
+     * Protobuf enum {@code boa.types.Reference.ReferenceKind}
      *
      * <pre>
      ** Describes the kind of Reference 
      * </pre>
      */
-    public enum ReferenceType
+    public enum ReferenceKind
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>FIGURE = 0;</code>
@@ -20332,7 +20332,7 @@ public final class Toplevel {
 
       public final int getNumber() { return value; }
 
-      public static ReferenceType valueOf(int value) {
+      public static ReferenceKind valueOf(int value) {
         switch (value) {
           case 0: return FIGURE;
           case 1: return TABLE;
@@ -20341,15 +20341,15 @@ public final class Toplevel {
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<ReferenceType>
+      public static com.google.protobuf.Internal.EnumLiteMap<ReferenceKind>
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<ReferenceType>
+      private static com.google.protobuf.Internal.EnumLiteMap<ReferenceKind>
           internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<ReferenceType>() {
-              public ReferenceType findValueByNumber(int number) {
-                return ReferenceType.valueOf(number);
+            new com.google.protobuf.Internal.EnumLiteMap<ReferenceKind>() {
+              public ReferenceKind findValueByNumber(int number) {
+                return ReferenceKind.valueOf(number);
               }
             };
 
@@ -20366,9 +20366,9 @@ public final class Toplevel {
         return boa.types.Toplevel.Reference.getDescriptor().getEnumTypes().get(0);
       }
 
-      private static final ReferenceType[] VALUES = values();
+      private static final ReferenceKind[] VALUES = values();
 
-      public static ReferenceType valueOf(
+      public static ReferenceKind valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
@@ -20380,12 +20380,12 @@ public final class Toplevel {
       private final int index;
       private final int value;
 
-      private ReferenceType(int index, int value) {
+      private ReferenceKind(int index, int value) {
         this.index = index;
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:boa.types.Reference.ReferenceType)
+      // @@protoc_insertion_point(enum_scope:boa.types.Reference.ReferenceKind)
     }
 
     private int bitField0_;
@@ -20885,28 +20885,28 @@ public final class Toplevel {
       }
     }
 
-    // optional .boa.types.Reference.ReferenceType type = 10;
-    public static final int TYPE_FIELD_NUMBER = 10;
-    private boa.types.Toplevel.Reference.ReferenceType type_;
+    // optional .boa.types.Reference.ReferenceKind kind = 10;
+    public static final int KIND_FIELD_NUMBER = 10;
+    private boa.types.Toplevel.Reference.ReferenceKind kind_;
     /**
-     * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
      ** The type of the reference 
      * </pre>
      */
-    public boolean hasType() {
+    public boolean hasKind() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+     * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
      ** The type of the reference 
      * </pre>
      */
-    public boa.types.Toplevel.Reference.ReferenceType getType() {
-      return type_;
+    public boa.types.Toplevel.Reference.ReferenceKind getKind() {
+      return kind_;
     }
 
     private void initFields() {
@@ -20919,7 +20919,7 @@ public final class Toplevel {
       issn_ = "";
       pages_ = "";
       text_ = "";
-      type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
+      kind_ = boa.types.Toplevel.Reference.ReferenceKind.FIGURE;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -20965,7 +20965,7 @@ public final class Toplevel {
         output.writeBytes(9, getTextBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeEnum(10, type_.getNumber());
+        output.writeEnum(10, kind_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -21014,7 +21014,7 @@ public final class Toplevel {
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(10, type_.getNumber());
+          .computeEnumSize(10, kind_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -21159,7 +21159,7 @@ public final class Toplevel {
         bitField0_ = (bitField0_ & ~0x00000080);
         text_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
+        kind_ = boa.types.Toplevel.Reference.ReferenceKind.FIGURE;
         bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
@@ -21233,7 +21233,7 @@ public final class Toplevel {
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.type_ = type_;
+        result.kind_ = kind_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -21316,8 +21316,8 @@ public final class Toplevel {
           text_ = other.text_;
           onChanged();
         }
-        if (other.hasType()) {
-          setType(other.getType());
+        if (other.hasKind()) {
+          setKind(other.getKind());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -22446,54 +22446,54 @@ public final class Toplevel {
         return this;
       }
 
-      // optional .boa.types.Reference.ReferenceType type = 10;
-      private boa.types.Toplevel.Reference.ReferenceType type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
+      // optional .boa.types.Reference.ReferenceKind kind = 10;
+      private boa.types.Toplevel.Reference.ReferenceKind kind_ = boa.types.Toplevel.Reference.ReferenceKind.FIGURE;
       /**
-       * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
        ** The type of the reference 
        * </pre>
        */
-      public boolean hasType() {
+      public boolean hasKind() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
        ** The type of the reference 
        * </pre>
        */
-      public boa.types.Toplevel.Reference.ReferenceType getType() {
-        return type_;
+      public boa.types.Toplevel.Reference.ReferenceKind getKind() {
+        return kind_;
       }
       /**
-       * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
        ** The type of the reference 
        * </pre>
        */
-      public Builder setType(boa.types.Toplevel.Reference.ReferenceType value) {
+      public Builder setKind(boa.types.Toplevel.Reference.ReferenceKind value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000200;
-        type_ = value;
+        kind_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional .boa.types.Reference.ReferenceType type = 10;</code>
+       * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
        ** The type of the reference 
        * </pre>
        */
-      public Builder clearType() {
+      public Builder clearKind() {
         bitField0_ = (bitField0_ & ~0x00000200);
-        type_ = boa.types.Toplevel.Reference.ReferenceType.FIGURE;
+        kind_ = boa.types.Toplevel.Reference.ReferenceKind.FIGURE;
         onChanged();
         return this;
       }
@@ -22623,8 +22623,8 @@ public final class Toplevel {
       "\030\002 \001(\t\022\"\n\007authors\030\003 \003(\0132\021.boa.types.Auth" +
       "or\022\014\n\004year\030\004 \001(\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volum" +
       "e\030\006 \001(\t\022\014\n\004issn\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004" +
-      "text\030\t \001(\t\0220\n\004type\030\n \001(\0162\".boa.types.Ref" +
-      "erence.ReferenceType\"3\n\rReferenceType\022\n\n" +
+      "text\030\t \001(\t\0220\n\004kind\030\n \001(\0162\".boa.types.Ref" +
+      "erence.ReferenceKind\"3\n\rReferenceKind\022\n\n" +
       "\006FIGURE\020\000\022\t\n\005TABLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -22691,7 +22691,7 @@ public final class Toplevel {
           internal_static_boa_types_Reference_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Reference_descriptor,
-              new java.lang.String[] { "RefId", "Title", "Authors", "Year", "Venue", "Volume", "Issn", "Pages", "Text", "Type", });
+              new java.lang.String[] { "RefId", "Title", "Authors", "Year", "Venue", "Volume", "Issn", "Pages", "Text", "Kind", });
           return null;
         }
       };

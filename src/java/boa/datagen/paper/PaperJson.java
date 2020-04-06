@@ -22,7 +22,7 @@ import boa.types.Toplevel.Metadata;
 import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Reference;
-import boa.types.Toplevel.Reference.ReferenceType;
+import boa.types.Toplevel.Reference.ReferenceKind;
 import boa.types.Toplevel.Section;
 
 public class PaperJson {
@@ -216,11 +216,11 @@ public class PaperJson {
 				rb.setText(getString(jo, "text"));
 			if (jo.has("type"))
 				if (getString(jo, "type").equals("table"))
-					rb.setType(ReferenceType.TABLE);
+					rb.setKind(ReferenceKind.TABLE);
 				else
-					rb.setType(ReferenceType.FIGURE);
+					rb.setKind(ReferenceKind.FIGURE);
 			else
-				rb.setType(ReferenceType.BIB);
+				rb.setKind(ReferenceKind.BIB);
 			refs.add(rb.build());
 		}
 		return refs;

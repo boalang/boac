@@ -5,12 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import boa.types.BoaInt;
 import boa.types.BoaProtoList;
 import boa.types.BoaProtoTuple;
 import boa.types.BoaString;
 import boa.types.BoaType;
-import boa.types.proto.enums.ReferenceTypeProtoMap;
+import boa.types.proto.enums.ReferenceKindProtoMap;
 
 public class ReferenceProtoTuple extends BoaProtoTuple {
 	private final static List<BoaType> members = new ArrayList<BoaType>();
@@ -46,8 +45,8 @@ public class ReferenceProtoTuple extends BoaProtoTuple {
 		names.put("text", counter++);
 		members.add(new BoaString());
 
-		names.put("type", counter++);
-		members.add(new ReferenceTypeProtoMap());
+		names.put("kind", counter++);
+		members.add(new ReferenceKindProtoMap());
 	}
 
 	public ReferenceProtoTuple() {

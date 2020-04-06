@@ -229,7 +229,7 @@ message Location {
 message Reference {
 
 	/** Describes the kind of Reference */
-	enum ReferenceType {
+	enum ReferenceKind {
 		option allow_alias = true;
 		/** For figure reference */
 		FIGURE = 0;
@@ -258,6 +258,6 @@ message Reference {
 	/** The caption text of the figure/table */
 	optional string text = 9;
 	/** The type of the reference */
-	optional ReferenceType type = 10;
+	optional ReferenceKind kind = 10;
 
 }

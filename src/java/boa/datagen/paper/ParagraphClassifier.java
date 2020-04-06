@@ -6,6 +6,8 @@ public class ParagraphClassifier {
 
 	public static ParagraphKind classify(String string) {
 		
+		
+		
 		return ParagraphKind.OTHER;
 	}
 
