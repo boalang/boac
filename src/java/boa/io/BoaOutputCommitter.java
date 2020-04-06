@@ -198,7 +198,7 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 	}
 
 	private static long lineCount(final byte[] b, final int start, final int end) {
-		long count = 1;
+		long count = 0;
 		for (int i = start; i < end; i++)
 			if (b[i] == 10 || b[i] == 13)
 				count++;
