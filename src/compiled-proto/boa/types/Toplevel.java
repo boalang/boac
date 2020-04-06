@@ -20100,7 +20100,7 @@ public final class Toplevel {
      * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
-     ** The type of the reference 
+     ** The kind of the reference 
      * </pre>
      */
     boolean hasKind();
@@ -20108,7 +20108,7 @@ public final class Toplevel {
      * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
-     ** The type of the reference 
+     ** The kind of the reference 
      * </pre>
      */
     boa.types.Toplevel.Reference.ReferenceKind getKind();
@@ -20117,7 +20117,7 @@ public final class Toplevel {
    * Protobuf type {@code boa.types.Reference}
    *
    * <pre>
-   ** A referece of a reaserch paper 
+   ** A reference of a reaserch paper 
    * </pre>
    */
   public static final class Reference extends
@@ -20892,7 +20892,7 @@ public final class Toplevel {
      * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
-     ** The type of the reference 
+     ** The kind of the reference 
      * </pre>
      */
     public boolean hasKind() {
@@ -20902,7 +20902,7 @@ public final class Toplevel {
      * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
      *
      * <pre>
-     ** The type of the reference 
+     ** The kind of the reference 
      * </pre>
      */
     public boa.types.Toplevel.Reference.ReferenceKind getKind() {
@@ -21098,7 +21098,7 @@ public final class Toplevel {
      * Protobuf type {@code boa.types.Reference}
      *
      * <pre>
-     ** A referece of a reaserch paper 
+     ** A reference of a reaserch paper 
      * </pre>
      */
     public static final class Builder extends
@@ -22452,7 +22452,7 @@ public final class Toplevel {
        * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
-       ** The type of the reference 
+       ** The kind of the reference 
        * </pre>
        */
       public boolean hasKind() {
@@ -22462,7 +22462,7 @@ public final class Toplevel {
        * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
-       ** The type of the reference 
+       ** The kind of the reference 
        * </pre>
        */
       public boa.types.Toplevel.Reference.ReferenceKind getKind() {
@@ -22472,7 +22472,7 @@ public final class Toplevel {
        * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
-       ** The type of the reference 
+       ** The kind of the reference 
        * </pre>
        */
       public Builder setKind(boa.types.Toplevel.Reference.ReferenceKind value) {
@@ -22488,7 +22488,7 @@ public final class Toplevel {
        * <code>optional .boa.types.Reference.ReferenceKind kind = 10;</code>
        *
        * <pre>
-       ** The type of the reference 
+       ** The kind of the reference 
        * </pre>
        */
       public Builder clearKind() {
