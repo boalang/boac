@@ -284,6 +284,8 @@ public class BoaPaperIntrinsics {
 
 	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "Section" })
 	public static boolean isFinding(final Section s) {
+		if (isFinding(sec.getTitle()))
+			return true;
 		for (int i = 0; i < s.getBodyCount(); i++)
 			if (isFinding(s.getBody(i)))
 				return true;
