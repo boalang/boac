@@ -24,15 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import boa.functions.FunctionSpec;
-import boa.types.Toplevel.Author;
-import boa.types.Toplevel.Metadata;
 import boa.types.Toplevel.Paper;
 import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Section;
 
-import static boa.functions.BoaTimeIntrinsics.*;
-import static boa.functions.nlp.BoaNLPNoiseRemoval.*;
 import static boa.functions.nlp.BoaNLPSentence.*;
 
 /**
