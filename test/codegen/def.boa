@@ -7,7 +7,7 @@ s: array of Statement;
 foreach (i: int; s[i])
 	o << 1;
 
-foreach (i: int; input.programming_languages[i])
+foreach (i: int; input.abstract[i])
 	o << 1;
 
 foreach (i: int; a[i])

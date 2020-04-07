@@ -2,12 +2,12 @@ o: output sum of int;
 o << 1;
 
 visit(input, visitor {
-    before Statement -> {
+    before Section -> {
         f := function() : bool {
             return true;
         };
     }
-    after Statement -> {
+    after Section -> {
         g := function() : bool {
             return false;
         };

@@ -1,0 +1,36 @@
+## What has been published about medical care?
+p: Paper = input;
+
+nursing:     output set of string;
+ards:        output set of string;
+ecmo:        output set of string;
+ventilation: output set of string;
+n95:         output set of string;
+regulatory:  output set of string;
+medication:  output set of string;
+
+foreach (i: int; def(p.abstract[i])) {
+	absStore: string = lowercase(p.abstract[i].text);
+
+	if (strfind("nursing", absStore) >= 0 || strfind("long term care", absStore) >= 0) {
+		nursing << p.metadata.title;
+	}
+	if (strfind("ards", absStore) >= 0 || strfind("acute respiratory distress syndrome", absStore) >= 0) {
+		ards << p.metadata.title;
+	}
+	if (strfind("ecmo", absStore) >= 0 || strfind("extracorporeal membrane oxygenation", absStore) >= 0) {
+		ecmo << p.metadata.title;
+	}
+	if (strfind("ventilation", absStore) >= 0) {
+		ventilation << p.metadata.title;
+	}
+	if (strfind("n95", absStore) >= 0) {
+		n95 << p.metadata.title;
+	}
+	if (strfind("eua", absStore) >= 0 || strfind("clia", absStore) >= 0) {
+		regulatory << p.metadata.title;
+	}
+	if (strfind("medication", absStore) >= 0 && strfind("oral", absStore) >= 0) {
+		medication << p.metadata.title;
+	}
+}

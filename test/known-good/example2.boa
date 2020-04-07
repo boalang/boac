@@ -1,0 +1,18 @@
+# What 100 words appear in the most paper abstracts?
+p: Paper = input;
+o: output top(100) of string weight int;
+
+stopwords: set of string = stop_words();
+# store all words used in this paper's abstract
+abstractWords: set of string;
+
+foreach (i: int; def(p.abstract[i])) {
+	paragraphWords: array of string = splitall(lowercase(p.abstract[i].text), " ");
+
+	foreach (j: int; !contains(stopwords, paragraphWords[j]))
+		add(abstractWords, paragraphWords[j]);
+}
+
+words := values(abstractWords);
+foreach (k: int; def(words[k]))
+	o << words[k] weight 1;

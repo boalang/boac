@@ -1,27 +1,27 @@
 o: output sum of int;
 
 visit(input, visitor {
-	before Project ->
-		exists (i: int; input.programming_languages[i] == "java") {
+	before Paper ->
+		exists (i: int; input.abstract[i].text == "java") {
 			o << 1;
 			stop;
 		}
-	before n: Method ->
-		if (n.name == "foo")
+	before n: Metadata ->
+		if (n.doi_url == "foo")
 			stop;
-	before n: Modifier ->
-		if (n.other == "foo")
+	before n: Author ->
+		if (n.email == "foo")
 			stop;
 		else
 			stop;
-	before s: Statement -> stop;
-	before n: CodeRepository->
-		if (getrevisionscount(n) == 0)
+	before s: Reference -> stop;
+	before n: Location ->
+		if (len(n.country) == 0)
 			o << 1;
 		else
 			stop;
-	before n: Revision->
-		if (len(n.log) == 0)
+	before n: Paragraph ->
+		if (len(n.text) == 0)
 			stop;
 		else
 			o << 1;

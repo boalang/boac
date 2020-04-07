@@ -1,9 +1,0 @@
-public class C {
-    public void m() {
-        try {
-            // empty
-        } catch (Exception e) {
-            System.err.println("catch");
-        }
-    }
-}

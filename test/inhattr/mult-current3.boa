@@ -1,8 +1,8 @@
 o: output sum of int;
 
 visit(input, visitor {
-	before Method -> if (current(Statement).kind == StatementKind.TYPEDECL) stop;
-	before Declaration ->
-		if (current(Statement).kind == StatementKind.TYPEDECL)
+	before Paragraph -> if (current(Paper).id == "test") stop;
+	before Section ->
+		if (current(Paper).id == "test")
 			o << 1;
 });

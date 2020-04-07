@@ -26,8 +26,8 @@ if (f1() == k2 || k != f1() || f1() == f1())
     o << 1;
 
 # allow comparisons on proto lists
-p := input.audiences;
-p2 := input.databases;
+p := input.abstract;
+p2 := input.abstract;
 #f2 := function() : array of string {
 #    return input.databases;
 #};

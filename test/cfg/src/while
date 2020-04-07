@@ -1,7 +1,0 @@
-public class C {
-    public void m() {
-        while (true) {
-            System.out.println("hi");
-        }
-    }
-}

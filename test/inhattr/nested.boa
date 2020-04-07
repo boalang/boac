@@ -1,11 +1,11 @@
 o: output sum of int;
 
 visit(input, visitor {
-	before s: Statement ->
-		if (current(Method).name != "foo")
+	before s: Paragraph ->
+		if (current(Paper).id != "foo")
 			visit(input, visitor {
-				before Declaration ->
-					if (current(Method).name != "foo")
+				before Section ->
+					if (current(Paper).id != "foo")
 						o << 1;
 			});
 });

@@ -1,0 +1,24 @@
+## What do we know about cornavirus risk factors?
+p: Paper = input;
+
+smoke:     output set of string;
+pregnant:  output set of string;
+neonatal:  output set of string;
+pulmonary: output set of string;
+
+foreach (i: int; def(p.abstract[i])) {
+	absStore: string = lowercase(p.abstract[i].text);
+
+	if ((strfind("smoke", absStore) >= 0 || strfind("smoking", absStore) >= 0) && strfind("risk", absStore) >= 0) {
+		smoke << p.metadata.title;
+	}
+	if ((strfind("pregnant", absStore) >= 0 || strfind("pregnancy", absStore) >= 0) && strfind("risk", absStore) >= 0) {
+		pregnant << p.metadata.title;
+	}
+	if ((strfind("neonatal", absStore) >= 0 || strfind("neo-natal", absStore) >= 0) && strfind("risk", absStore) >= 0) {
+		neonatal << p.metadata.title;
+	}
+	if (strfind("pulmonary", absStore) >= 0 && strfind("risk", absStore) >= 0) {
+		pulmonary << p.metadata.title;
+	}
+}

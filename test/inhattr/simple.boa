@@ -1,7 +1,7 @@
 o: output sum of int;
 
 visit(input, visitor {
-	before s: Statement ->
-		if (current(Method).name == "foo")
+	before s: Section ->
+		if (current(Paper).id == "foo")
 			o << 1;
 });

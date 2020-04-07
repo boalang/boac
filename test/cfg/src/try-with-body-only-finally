@@ -1,9 +1,0 @@
-public class C {
-    public void m() {
-        try {
-            System.err.println("body");
-        } finally {
-            System.err.println("finally");
-        }
-    }
-}

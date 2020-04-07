@@ -1,8 +1,0 @@
-m: output median of int;
-
-q_all := visitor {
-	before method: Method -> {
-			cfg := getcfg(method);
-			m << len(cfg.nodes);
-	}
-};

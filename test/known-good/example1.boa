@@ -1,0 +1,9 @@
+p: Paper = input;
+empty: output sum of int;
+non_empty: output sum of int;
+
+# check if title is empty or not
+if (p.metadata.title == "")
+	empty << 1;
+else
+	non_empty << 1;

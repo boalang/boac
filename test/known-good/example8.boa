@@ -1,0 +1,26 @@
+# What is known about hydroxychloroquine treatment in the literature?
+o: output collection[string] of string;
+
+filtered := !def(input.metadata) || !def(input.metadata.doi_url) || !def(input.metadata.publish_time);
+
+if (!filtered) {
+ 	if (!filtered && !has_finding("hydroxychloroquine", input))
+		filtered = true;
+	if (!filtered && !has_finding("treatment", input))
+		filtered = true;
+};
+
+if (!filtered) {
+    context := "Key findings:";
+
+    visit(input, visitor {
+	    before p: Paragraph -> 
+	        if (has_finding("hydroxychloroquine", p)) { 
+	          context = context + "[hydroxychloroquine]" + p.text;
+	        } else if (has_finding("treatment", p)) {
+	          context = context + "[treatment]" + p.text;
+	        }
+    });
+    
+    o[format("%03d", yearof(now()) - yearof(input.metadata.publish_time))] << pretty_print(input) + context;
+}

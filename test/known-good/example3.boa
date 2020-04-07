@@ -1,0 +1,20 @@
+# What 100 words appear in the most number of paper bodies?
+p: Paper = input;
+o: output top(100) of string weight int;
+
+stopwords: set of string = stop_words();
+# store all words used in this paper's body
+bodyWords: set of string;
+
+foreach (i: int; def(p.body_text[i])) {
+	foreach (m: int; def(p.body_text[i].body[m])) {
+		paragraphWords: array of string = splitall(lowercase(p.body_text[i].body[m].text), " ");
+
+		foreach (j: int; !contains(stopwords, paragraphWords[j]))
+			add(bodyWords, paragraphWords[j]);
+	}
+}
+
+words := values(bodyWords);
+foreach (k: int; def(words[k]))
+	o << words[k] weight 1;

@@ -1,4 +1,4 @@
 o: output collection of string;
-s: stack of Project;
+s: stack of Paper;
 push(s, input);
 o << peek(s).id;

@@ -1,7 +1,7 @@
 o: output sum of int;
 
 visit(input, visitor {
-	before s: Statement ->
-		if (current(Statement).kind != StatementKind.FOR)
+	before s: Section ->
+		if (current(Section).title == "test")
 			o << 1;
 });

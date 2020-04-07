@@ -1,4 +1,4 @@
 o: output sum of int;
 
-if (match(`"foo"`, input.name))
+if (match(`"foo"`, input.id))
     o << 1;
