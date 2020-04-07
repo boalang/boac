@@ -143,7 +143,7 @@ public class BoaOutputCommitter extends FileOutputCommitter {
 			final byte[] b = new byte[64 * 1024 * 1024];
 			long length = 0, paperCount = 0, webPaperCount = 0;
 			int webLength = 0;
-			final int webSize = 64 * 1024 - 1;
+			final int webSize = 256 * 1024 - 1;
 
 			while (true) {
 				final Path path = new Path(outputPath, "part-r-" + String.format("%05d", partNum++));
