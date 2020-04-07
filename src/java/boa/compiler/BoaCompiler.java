@@ -52,7 +52,6 @@ import boa.compiler.ast.Start;
 import boa.compiler.transforms.InheritedAttributeTransformer;
 import boa.compiler.transforms.LocalAggregationTransformer;
 import boa.compiler.transforms.VariableDeclRenameTransformer;
-import boa.compiler.transforms.VisitorOptimizingTransformer;
 import boa.compiler.visitors.AbstractCodeGeneratingVisitor;
 import boa.compiler.visitors.ASTPrintingVisitor;
 import boa.compiler.visitors.CodeGeneratingVisitor;
@@ -153,7 +152,6 @@ public class BoaCompiler extends BoaMain {
 					new VariableDeclRenameTransformer().start(p);
 					new InheritedAttributeTransformer().start(p);
 					new LocalAggregationTransformer().start(p);
-					new VisitorOptimizingTransformer().start(p);
 
 					if (cl.hasOption("pp")) new PrettyPrintVisitor().start(p);
 					if (cl.hasOption("ast2")) new ASTPrintingVisitor().start(p);

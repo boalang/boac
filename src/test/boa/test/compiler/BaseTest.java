@@ -59,7 +59,6 @@ import boa.compiler.ast.Start;
 import boa.compiler.transforms.LocalAggregationTransformer;
 import boa.compiler.transforms.InheritedAttributeTransformer;
 import boa.compiler.transforms.VariableDeclRenameTransformer;
-import boa.compiler.transforms.VisitorOptimizingTransformer;
 import boa.compiler.visitors.AbstractCodeGeneratingVisitor;
 import boa.compiler.visitors.CodeGeneratingVisitor;
 import boa.compiler.visitors.PrettyPrintVisitor;
@@ -263,7 +262,6 @@ public abstract class BaseTest {
 			new VariableDeclRenameTransformer().start(p);
 			new InheritedAttributeTransformer().start(p);
 			new LocalAggregationTransformer().start(p);
-			new VisitorOptimizingTransformer().start(p);
 
 			final CodeGeneratingVisitor cg = new CodeGeneratingVisitor("Test", 64 * 1024 * 1024, seed, false);
 			cg.start(p);
