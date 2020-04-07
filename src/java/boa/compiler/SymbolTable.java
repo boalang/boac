@@ -136,6 +136,9 @@ public class SymbolTable {
 		new TraversalDirectionProtoMap(),
 		new TypeKindProtoMap(),
 		new VisibilityProtoMap(),
+		// papaer
+		new ReferenceKindProtoMap(),
+		new ParagraphKindProtoMap()
 	};
 
 	static {
