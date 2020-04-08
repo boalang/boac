@@ -29,7 +29,6 @@ import static boa.functions.paper.BoaPaperIntrinsics.*;
  * @author yijiahuang
  */
 public class BoaContentPatternIntrinsics {
-
 	/* ------------------------- Finding ------------------------- */
 
 	@FunctionSpec(name = "is_finding", returnType = "bool", formalParameters = { "Paper" })
@@ -105,8 +104,33 @@ public class BoaContentPatternIntrinsics {
 		return searchKeyword(s, finding);
 	}
 
+	@FunctionSpec(name = "hilite_phrases", returnType = "string", formalParameters = { "string", "string..." })
+	public static String hilitePhrases(final String s, final String... phrases) {
+		// initialize builders with enough capacity to handle 5 matches per phrase
+		final StringBuilder src = new StringBuilder(s.length() + 7 * (phrases.length * 5) + 1);
+		src.append(s);
+		final StringBuilder lc = new StringBuilder(s.length() + 7 * (phrases.length * 5) + 1);
+		lc.append(s.toLowerCase());
+
+		for (final String phrase : phrases) {
+			int idx = 0;
+
+			while ((idx = lc.indexOf(phrase, idx)) != -1) {
+				src.insert(idx, "[b]");
+				lc.insert(idx, "[b]");
+				idx += 3 + phrase.length();
+
+				src.insert(idx, "[/b]");
+				lc.insert(idx, "[/b]");
+				idx += 4;
+			}
+		}
+
+		return src.toString();
+	}
+
 	/* ------------------------- Conclusion ------------------------- */
-	
+
 	@FunctionSpec(name = "is_conclusion", returnType = "bool", formalParameters = { "string" })
 	public static boolean isConclusion(final String s) {
 		final String lc = s.toLowerCase();
@@ -116,17 +140,16 @@ public class BoaContentPatternIntrinsics {
 
 		if (searchKeywords(lc, "to conclude"))
 			return true;
-		
+
 		if (searchKeywords(lc, "consequently"))
 			return true;
-		
+
 		if (searchKeywords(lc, "sum up"))
 			return true;
-		
+
 		if (searchKeywords(lc, "in summary"))
 			return true;
 
 		return false;
 	}
-	
 }
