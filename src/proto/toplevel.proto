@@ -109,6 +109,7 @@ message Paper {
 
 /** A metadata of a research paper */
 message Metadata {
+
 	/** The title of the paper */
 	optional string title = 1;
 	/** The DOI (Digital Object Identifier) URL of the paper */
@@ -117,14 +118,16 @@ message Metadata {
 	optional string source = 3;
 	/** The PubMed identifier of the paper  */
 	optional string pubmed_id = 4;
+	/** The PMC identifier of the paper  */
+	optional string pmc_id = 5;
 	/** The time when the paper was published */
-	optional uint64 publish_time = 5;
+	optional uint64 publish_time = 6;
 	/** The journal where the paper was published */
-	optional string journal = 6;
+	optional string journal = 7;
 	/** A list of authors of the paper */
-	repeated Author authors = 7;
+	repeated Author authors = 8;
 	/** The license type of the paper */
-	optional string license_type = 8;
+	optional string license_type = 9;
 
 }
 
@@ -174,18 +177,20 @@ message Paragraph {
 	/** @exclude Describes the kind of paragraphs */
 	enum ParagraphKind {
 		option allow_alias = true;
+		/** @exclude For introduction paragraphs */
+		INTRODUCTION = 0;
 		/** @exclude For background paragraphs */
-		BACKGROUND = 0;
+		BACKGROUND = 1;
 		/** @exclude For methodology paragraphs */
-		METHODOLOGY = 1;
+		METHODOLOGY = 2;
 		/** @exclude For result paragraphs */
-		RESULT = 2;
+		RESULT = 3;
 		/** @exclude For conclusion paragraphs */
-		FINDING = 3;
+		FINDING = 4;
 		/** @exclude For finding paragraphs */
-		CONCLUSION = 4;
+		CONCLUSION = 5;
 		/** @exclude Any other paragraphs */
-		OTHER = 5;
+		OTHER = 6;
 	}
 
 	/** The text of the paragraph */

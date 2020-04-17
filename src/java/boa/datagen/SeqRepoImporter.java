@@ -43,6 +43,7 @@ import boa.datagen.paper.PaperJson;
 import boa.datagen.util.FileIO;
 import boa.datagen.util.Properties;
 import boa.types.Toplevel.Paper;
+import boa.datagen.paper.ParagraphMetadata;
 
 public class SeqRepoImporter {
 	private final static boolean debug = Properties.getBoolean("debug", DefaultProperties.DEBUG);
@@ -55,9 +56,7 @@ public class SeqRepoImporter {
 	private static FileSystem fileSystem = null;
 	private static boolean done = false;
 	private static HashMap<String, CSVRecord> metaDataMap = null;
-	
-	
-//	private static int count = 0;
+	private static ParagraphMetadata sectionMap = null;
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -70,7 +69,9 @@ public class SeqRepoImporter {
 		System.out.println(debug);
 
 		String metaPath = jsonPath + "/metadata.csv";
+		String sectionPath = jsonPath + "/sections.csv";
 		metaDataMap = getMetadataMap(metaPath);
+		sectionMap = new ParagraphMetadata(sectionPath);
 
 		// assign each thread with a worker
 		ImportTask[] workers = new ImportTask[poolSize];
@@ -116,8 +117,6 @@ public class SeqRepoImporter {
 				}
 			}
 		}
-		
-		
 
 		for (int j = 0; j < poolSize; j++)
 			while (!workers[j].isReady())
@@ -127,16 +126,15 @@ public class SeqRepoImporter {
 		for (Thread thread : threads)
 			while (thread.isAlive())
 				Thread.sleep(1000);
-		
-//		System.out.println(count);
+
 	}
-	
-//	synchronized static void incrementCount() {
-//		count++;
-//	}
 
 	synchronized static CSVRecord removeMetadata(String sha) {
 		return metaDataMap.remove(sha);
+	}
+
+	synchronized static ParagraphMetadata getSectionMap() {
+		return sectionMap;
 	}
 
 	synchronized static HashMap<String, CSVRecord> getMetadataMap(String path) throws IOException {
@@ -144,7 +142,7 @@ public class SeqRepoImporter {
 		Reader in = new FileReader(path);
 		Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
 		for (CSVRecord record : records) {
-			String sha = record.get("sha");			
+			String sha = record.get("sha");
 			if (sha.contains("; "))
 				sha = sha.split("; ")[0];
 			if (!map.containsKey(sha))
@@ -247,12 +245,12 @@ public class SeqRepoImporter {
 						String id = null;
 						if (jo.has("paper_id"))
 							id = jo.get("paper_id").getAsString();
-						
+
 						CSVRecord metadataRecord = removeMetadata(id);
 						if (metadataRecord != null) {
 							// update protocbuf
-							Paper paper = PaperJson.getPaper(jo, metadataRecord);
-							
+							Paper paper = PaperJson.getPaper(jo, metadataRecord, sectionMap);
+
 							if (debug)
 								System.err.println(
 										Thread.currentThread().getName() + " id: " + Thread.currentThread().getId()
@@ -315,4 +313,5 @@ public class SeqRepoImporter {
 		} else
 			System.err.println(e.getMessage());
 	}
+
 }

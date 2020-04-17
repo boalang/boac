@@ -30,6 +30,9 @@ public class MetadataProtoTuple extends BoaProtoTuple {
 		names.put("pubmed_id", counter++);
 		members.add(new BoaString());
 
+		names.put("pmc_id", counter++);
+		members.add(new BoaString());
+
 		names.put("publish_time", counter++);
 		members.add(new BoaTime());
 

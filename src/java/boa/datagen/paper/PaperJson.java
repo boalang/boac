@@ -24,10 +24,12 @@ import boa.types.Toplevel.Paragraph;
 import boa.types.Toplevel.Reference;
 import boa.types.Toplevel.Reference.ReferenceKind;
 import boa.types.Toplevel.Section;
+import boa.types.Toplevel.Paragraph.Builder;
+import boa.types.Toplevel.Paragraph.ParagraphKind;
 
 public class PaperJson {
 
-	public static Paper getPaper(JsonObject jo, CSVRecord metadataRecord) {
+	public static Paper getPaper(JsonObject jo, CSVRecord metadataRecord, ParagraphMetadata paragraphMetadata) {
 		Paper.Builder pb = Paper.newBuilder();
 		if (jo.has("paper_id"))
 			pb.setId(getString(jo, "paper_id"));
@@ -36,8 +38,10 @@ public class PaperJson {
 		if (jo.has("abstract"))
 			for (JsonElement je : jo.get("abstract").getAsJsonArray())
 				pb.addAbstract(getParagraph(je.getAsJsonObject()));
-		if (jo.has("body_text"))
-			pb.addAllBodyText(getSections(jo.get("body_text").getAsJsonArray()));
+		if (jo.has("body_text")) {
+			List<CSVRecord> records = paragraphMetadata.getRecords(pb.getMetadata());
+			pb.addAllBodyText(getSections(jo.get("body_text").getAsJsonArray(), records));
+		}
 		if (jo.has("bib_entries"))
 			pb.addAllBibEntries(getReferences(jo.get("bib_entries").getAsJsonObject()));
 		if (jo.has("ref_entries"))
@@ -62,6 +66,8 @@ public class PaperJson {
 				mb.setSource(metadataRecord.get("source_x"));
 			if (!metadataRecord.get("pubmed_id").equals(""))
 				mb.setPubmedId(metadataRecord.get("pubmed_id"));
+			if (!metadataRecord.get("pmcid").equals(""))
+				mb.setPmcId(metadataRecord.get("pmcid"));
 			mb.setPublishTime(getMicroseconds(metadataRecord.get("publish_time")));
 			if (!metadataRecord.get("journal").equals(""))
 				mb.setJournal(metadataRecord.get("journal"));
@@ -143,9 +149,10 @@ public class PaperJson {
 		return lb.build();
 	}
 
-	private static List<Section> getSections(JsonArray ja) {
+	private static List<Section> getSections(JsonArray ja, List<CSVRecord> records) {
 		List<Section> secs = new ArrayList<Section>();
 		Section.Builder sb = Section.newBuilder();
+		int idx = 0;
 		for (JsonElement je : ja) {
 			JsonObject cur = je.getAsJsonObject();
 			if (cur.has("section")) {
@@ -158,7 +165,10 @@ public class PaperJson {
 				} else {
 					sb.setTitle(section);
 				}
-				sb.addBody(getParagraph(cur));
+				Paragraph.Builder pb = getParagraph(cur);
+				if (records != null)
+					updateParagraphKind(pb, records, idx++);
+				sb.addBody(pb);
 			} else {
 				System.err.println("no section");
 			}
@@ -167,7 +177,33 @@ public class PaperJson {
 		return secs;
 	}
 
-	private static Paragraph getParagraph(JsonObject jo) {
+	private static void updateParagraphKind(Builder pb, List<CSVRecord> records, int i) {
+		// size check
+		if (i > records.size() - 1)
+			return;
+		CSVRecord record = records.get(i);
+		switch (record.get("Classification")) {
+		case "introduction":
+			pb.setKind(ParagraphKind.INTRODUCTION);
+			break;
+		case "background":
+			pb.setKind(ParagraphKind.BACKGROUND);
+			break;
+		case "methods":
+			pb.setKind(ParagraphKind.METHODOLOGY);
+			break;
+		case "result":
+			pb.setKind(ParagraphKind.RESULT);
+			break;
+		case "conclusion":
+			pb.setKind(ParagraphKind.CONCLUSION);
+			break;
+		default:
+			break;
+		}
+	}
+
+	private static Paragraph.Builder getParagraph(JsonObject jo) {
 		Paragraph.Builder pb = Paragraph.newBuilder();
 		if (jo.has("text"))
 			pb.setText(getString(jo, "text"));
@@ -177,8 +213,8 @@ public class PaperJson {
 		if (jo.has("ref_spans"))
 			for (JsonElement je : jo.get("ref_spans").getAsJsonArray())
 				pb.addRefSpans(getCitation(je.getAsJsonObject()));
-		pb.setKind(ParagraphClassifier.classify(pb.getText())); // TODO update paragraph kind
-		return pb.build();
+		pb.setKind(ParagraphKind.OTHER);
+		return pb;
 	}
 
 	private static Citation getCitation(JsonObject jo) {

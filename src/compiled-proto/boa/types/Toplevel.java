@@ -10339,9 +10339,36 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getPubmedIdBytes();
 
-    // optional uint64 publish_time = 5;
+    // optional string pmc_id = 5;
     /**
-     * <code>optional uint64 publish_time = 5;</code>
+     * <code>optional string pmc_id = 5;</code>
+     *
+     * <pre>
+     ** The PMC identifier of the paper  
+     * </pre>
+     */
+    boolean hasPmcId();
+    /**
+     * <code>optional string pmc_id = 5;</code>
+     *
+     * <pre>
+     ** The PMC identifier of the paper  
+     * </pre>
+     */
+    java.lang.String getPmcId();
+    /**
+     * <code>optional string pmc_id = 5;</code>
+     *
+     * <pre>
+     ** The PMC identifier of the paper  
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getPmcIdBytes();
+
+    // optional uint64 publish_time = 6;
+    /**
+     * <code>optional uint64 publish_time = 6;</code>
      *
      * <pre>
      ** The time when the paper was published 
@@ -10349,7 +10376,7 @@ public final class Toplevel {
      */
     boolean hasPublishTime();
     /**
-     * <code>optional uint64 publish_time = 5;</code>
+     * <code>optional uint64 publish_time = 6;</code>
      *
      * <pre>
      ** The time when the paper was published 
@@ -10357,9 +10384,9 @@ public final class Toplevel {
      */
     long getPublishTime();
 
-    // optional string journal = 6;
+    // optional string journal = 7;
     /**
-     * <code>optional string journal = 6;</code>
+     * <code>optional string journal = 7;</code>
      *
      * <pre>
      ** The journal where the paper was published 
@@ -10367,7 +10394,7 @@ public final class Toplevel {
      */
     boolean hasJournal();
     /**
-     * <code>optional string journal = 6;</code>
+     * <code>optional string journal = 7;</code>
      *
      * <pre>
      ** The journal where the paper was published 
@@ -10375,7 +10402,7 @@ public final class Toplevel {
      */
     java.lang.String getJournal();
     /**
-     * <code>optional string journal = 6;</code>
+     * <code>optional string journal = 7;</code>
      *
      * <pre>
      ** The journal where the paper was published 
@@ -10384,9 +10411,9 @@ public final class Toplevel {
     com.google.protobuf.ByteString
         getJournalBytes();
 
-    // repeated .boa.types.Author authors = 7;
+    // repeated .boa.types.Author authors = 8;
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10395,7 +10422,7 @@ public final class Toplevel {
     java.util.List<boa.types.Toplevel.Author> 
         getAuthorsList();
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10403,7 +10430,7 @@ public final class Toplevel {
      */
     boa.types.Toplevel.Author getAuthors(int index);
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10411,7 +10438,7 @@ public final class Toplevel {
      */
     int getAuthorsCount();
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10420,7 +10447,7 @@ public final class Toplevel {
     java.util.List<? extends boa.types.Toplevel.AuthorOrBuilder> 
         getAuthorsOrBuilderList();
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10429,9 +10456,9 @@ public final class Toplevel {
     boa.types.Toplevel.AuthorOrBuilder getAuthorsOrBuilder(
         int index);
 
-    // optional string license_type = 8;
+    // optional string license_type = 9;
     /**
-     * <code>optional string license_type = 8;</code>
+     * <code>optional string license_type = 9;</code>
      *
      * <pre>
      ** The license type of the paper 
@@ -10439,7 +10466,7 @@ public final class Toplevel {
      */
     boolean hasLicenseType();
     /**
-     * <code>optional string license_type = 8;</code>
+     * <code>optional string license_type = 9;</code>
      *
      * <pre>
      ** The license type of the paper 
@@ -10447,7 +10474,7 @@ public final class Toplevel {
      */
     java.lang.String getLicenseType();
     /**
-     * <code>optional string license_type = 8;</code>
+     * <code>optional string license_type = 9;</code>
      *
      * <pre>
      ** The license type of the paper 
@@ -10531,26 +10558,31 @@ public final class Toplevel {
               pubmedId_ = input.readBytes();
               break;
             }
-            case 40: {
+            case 42: {
               bitField0_ |= 0x00000010;
+              pmcId_ = input.readBytes();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
               publishTime_ = input.readUInt64();
               break;
             }
-            case 50: {
-              bitField0_ |= 0x00000020;
+            case 58: {
+              bitField0_ |= 0x00000040;
               journal_ = input.readBytes();
               break;
             }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 authors_ = new java.util.ArrayList<boa.types.Toplevel.Author>();
-                mutable_bitField0_ |= 0x00000040;
+                mutable_bitField0_ |= 0x00000080;
               }
               authors_.add(input.readMessage(boa.types.Toplevel.Author.PARSER, extensionRegistry));
               break;
             }
-            case 66: {
-              bitField0_ |= 0x00000040;
+            case 74: {
+              bitField0_ |= 0x00000080;
               licenseType_ = input.readBytes();
               break;
             }
@@ -10562,7 +10594,7 @@ public final class Toplevel {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           authors_ = java.util.Collections.unmodifiableList(authors_);
         }
         this.unknownFields = unknownFields.build();
@@ -10817,21 +10849,76 @@ public final class Toplevel {
       }
     }
 
-    // optional uint64 publish_time = 5;
-    public static final int PUBLISH_TIME_FIELD_NUMBER = 5;
+    // optional string pmc_id = 5;
+    public static final int PMC_ID_FIELD_NUMBER = 5;
+    private java.lang.Object pmcId_;
+    /**
+     * <code>optional string pmc_id = 5;</code>
+     *
+     * <pre>
+     ** The PMC identifier of the paper  
+     * </pre>
+     */
+    public boolean hasPmcId() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional string pmc_id = 5;</code>
+     *
+     * <pre>
+     ** The PMC identifier of the paper  
+     * </pre>
+     */
+    public java.lang.String getPmcId() {
+      java.lang.Object ref = pmcId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pmcId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string pmc_id = 5;</code>
+     *
+     * <pre>
+     ** The PMC identifier of the paper  
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getPmcIdBytes() {
+      java.lang.Object ref = pmcId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pmcId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional uint64 publish_time = 6;
+    public static final int PUBLISH_TIME_FIELD_NUMBER = 6;
     private long publishTime_;
     /**
-     * <code>optional uint64 publish_time = 5;</code>
+     * <code>optional uint64 publish_time = 6;</code>
      *
      * <pre>
      ** The time when the paper was published 
      * </pre>
      */
     public boolean hasPublishTime() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional uint64 publish_time = 5;</code>
+     * <code>optional uint64 publish_time = 6;</code>
      *
      * <pre>
      ** The time when the paper was published 
@@ -10841,21 +10928,21 @@ public final class Toplevel {
       return publishTime_;
     }
 
-    // optional string journal = 6;
-    public static final int JOURNAL_FIELD_NUMBER = 6;
+    // optional string journal = 7;
+    public static final int JOURNAL_FIELD_NUMBER = 7;
     private java.lang.Object journal_;
     /**
-     * <code>optional string journal = 6;</code>
+     * <code>optional string journal = 7;</code>
      *
      * <pre>
      ** The journal where the paper was published 
      * </pre>
      */
     public boolean hasJournal() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional string journal = 6;</code>
+     * <code>optional string journal = 7;</code>
      *
      * <pre>
      ** The journal where the paper was published 
@@ -10876,7 +10963,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>optional string journal = 6;</code>
+     * <code>optional string journal = 7;</code>
      *
      * <pre>
      ** The journal where the paper was published 
@@ -10896,11 +10983,11 @@ public final class Toplevel {
       }
     }
 
-    // repeated .boa.types.Author authors = 7;
-    public static final int AUTHORS_FIELD_NUMBER = 7;
+    // repeated .boa.types.Author authors = 8;
+    public static final int AUTHORS_FIELD_NUMBER = 8;
     private java.util.List<boa.types.Toplevel.Author> authors_;
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10910,7 +10997,7 @@ public final class Toplevel {
       return authors_;
     }
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10921,7 +11008,7 @@ public final class Toplevel {
       return authors_;
     }
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10931,7 +11018,7 @@ public final class Toplevel {
       return authors_.size();
     }
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10941,7 +11028,7 @@ public final class Toplevel {
       return authors_.get(index);
     }
     /**
-     * <code>repeated .boa.types.Author authors = 7;</code>
+     * <code>repeated .boa.types.Author authors = 8;</code>
      *
      * <pre>
      ** A list of authors of the paper 
@@ -10952,21 +11039,21 @@ public final class Toplevel {
       return authors_.get(index);
     }
 
-    // optional string license_type = 8;
-    public static final int LICENSE_TYPE_FIELD_NUMBER = 8;
+    // optional string license_type = 9;
+    public static final int LICENSE_TYPE_FIELD_NUMBER = 9;
     private java.lang.Object licenseType_;
     /**
-     * <code>optional string license_type = 8;</code>
+     * <code>optional string license_type = 9;</code>
      *
      * <pre>
      ** The license type of the paper 
      * </pre>
      */
     public boolean hasLicenseType() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional string license_type = 8;</code>
+     * <code>optional string license_type = 9;</code>
      *
      * <pre>
      ** The license type of the paper 
@@ -10987,7 +11074,7 @@ public final class Toplevel {
       }
     }
     /**
-     * <code>optional string license_type = 8;</code>
+     * <code>optional string license_type = 9;</code>
      *
      * <pre>
      ** The license type of the paper 
@@ -11012,6 +11099,7 @@ public final class Toplevel {
       doiUrl_ = "";
       source_ = "";
       pubmedId_ = "";
+      pmcId_ = "";
       publishTime_ = 0L;
       journal_ = "";
       authors_ = java.util.Collections.emptyList();
@@ -11042,16 +11130,19 @@ public final class Toplevel {
         output.writeBytes(4, getPubmedIdBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt64(5, publishTime_);
+        output.writeBytes(5, getPmcIdBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getJournalBytes());
-      }
-      for (int i = 0; i < authors_.size(); i++) {
-        output.writeMessage(7, authors_.get(i));
+        output.writeUInt64(6, publishTime_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(8, getLicenseTypeBytes());
+        output.writeBytes(7, getJournalBytes());
+      }
+      for (int i = 0; i < authors_.size(); i++) {
+        output.writeMessage(8, authors_.get(i));
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(9, getLicenseTypeBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -11080,19 +11171,23 @@ public final class Toplevel {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, publishTime_);
+          .computeBytesSize(5, getPmcIdBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getJournalBytes());
-      }
-      for (int i = 0; i < authors_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, authors_.get(i));
+          .computeUInt64Size(6, publishTime_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getLicenseTypeBytes());
+          .computeBytesSize(7, getJournalBytes());
+      }
+      for (int i = 0; i < authors_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, authors_.get(i));
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, getLicenseTypeBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11223,18 +11318,20 @@ public final class Toplevel {
         bitField0_ = (bitField0_ & ~0x00000004);
         pubmedId_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        publishTime_ = 0L;
+        pmcId_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        journal_ = "";
+        publishTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000020);
+        journal_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
         if (authorsBuilder_ == null) {
           authors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           authorsBuilder_.clear();
         }
         licenseType_ = "";
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -11282,22 +11379,26 @@ public final class Toplevel {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.publishTime_ = publishTime_;
+        result.pmcId_ = pmcId_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
+        result.publishTime_ = publishTime_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
         result.journal_ = journal_;
         if (authorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
             authors_ = java.util.Collections.unmodifiableList(authors_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
           }
           result.authors_ = authors_;
         } else {
           result.authors_ = authorsBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000040;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000080;
         }
         result.licenseType_ = licenseType_;
         result.bitField0_ = to_bitField0_;
@@ -11336,11 +11437,16 @@ public final class Toplevel {
           pubmedId_ = other.pubmedId_;
           onChanged();
         }
+        if (other.hasPmcId()) {
+          bitField0_ |= 0x00000010;
+          pmcId_ = other.pmcId_;
+          onChanged();
+        }
         if (other.hasPublishTime()) {
           setPublishTime(other.getPublishTime());
         }
         if (other.hasJournal()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
           journal_ = other.journal_;
           onChanged();
         }
@@ -11348,7 +11454,7 @@ public final class Toplevel {
           if (!other.authors_.isEmpty()) {
             if (authors_.isEmpty()) {
               authors_ = other.authors_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000080);
             } else {
               ensureAuthorsIsMutable();
               authors_.addAll(other.authors_);
@@ -11361,7 +11467,7 @@ public final class Toplevel {
               authorsBuilder_.dispose();
               authorsBuilder_ = null;
               authors_ = other.authors_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000080);
               authorsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getAuthorsFieldBuilder() : null;
@@ -11371,7 +11477,7 @@ public final class Toplevel {
           }
         }
         if (other.hasLicenseType()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
           licenseType_ = other.licenseType_;
           onChanged();
         }
@@ -11794,20 +11900,118 @@ public final class Toplevel {
         return this;
       }
 
-      // optional uint64 publish_time = 5;
+      // optional string pmc_id = 5;
+      private java.lang.Object pmcId_ = "";
+      /**
+       * <code>optional string pmc_id = 5;</code>
+       *
+       * <pre>
+       ** The PMC identifier of the paper  
+       * </pre>
+       */
+      public boolean hasPmcId() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional string pmc_id = 5;</code>
+       *
+       * <pre>
+       ** The PMC identifier of the paper  
+       * </pre>
+       */
+      public java.lang.String getPmcId() {
+        java.lang.Object ref = pmcId_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          pmcId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string pmc_id = 5;</code>
+       *
+       * <pre>
+       ** The PMC identifier of the paper  
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getPmcIdBytes() {
+        java.lang.Object ref = pmcId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pmcId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string pmc_id = 5;</code>
+       *
+       * <pre>
+       ** The PMC identifier of the paper  
+       * </pre>
+       */
+      public Builder setPmcId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        pmcId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string pmc_id = 5;</code>
+       *
+       * <pre>
+       ** The PMC identifier of the paper  
+       * </pre>
+       */
+      public Builder clearPmcId() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        pmcId_ = getDefaultInstance().getPmcId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string pmc_id = 5;</code>
+       *
+       * <pre>
+       ** The PMC identifier of the paper  
+       * </pre>
+       */
+      public Builder setPmcIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        pmcId_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional uint64 publish_time = 6;
       private long publishTime_ ;
       /**
-       * <code>optional uint64 publish_time = 5;</code>
+       * <code>optional uint64 publish_time = 6;</code>
        *
        * <pre>
        ** The time when the paper was published 
        * </pre>
        */
       public boolean hasPublishTime() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional uint64 publish_time = 5;</code>
+       * <code>optional uint64 publish_time = 6;</code>
        *
        * <pre>
        ** The time when the paper was published 
@@ -11817,46 +12021,46 @@ public final class Toplevel {
         return publishTime_;
       }
       /**
-       * <code>optional uint64 publish_time = 5;</code>
+       * <code>optional uint64 publish_time = 6;</code>
        *
        * <pre>
        ** The time when the paper was published 
        * </pre>
        */
       public Builder setPublishTime(long value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         publishTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint64 publish_time = 5;</code>
+       * <code>optional uint64 publish_time = 6;</code>
        *
        * <pre>
        ** The time when the paper was published 
        * </pre>
        */
       public Builder clearPublishTime() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         publishTime_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional string journal = 6;
+      // optional string journal = 7;
       private java.lang.Object journal_ = "";
       /**
-       * <code>optional string journal = 6;</code>
+       * <code>optional string journal = 7;</code>
        *
        * <pre>
        ** The journal where the paper was published 
        * </pre>
        */
       public boolean hasJournal() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional string journal = 6;</code>
+       * <code>optional string journal = 7;</code>
        *
        * <pre>
        ** The journal where the paper was published 
@@ -11874,7 +12078,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string journal = 6;</code>
+       * <code>optional string journal = 7;</code>
        *
        * <pre>
        ** The journal where the paper was published 
@@ -11894,7 +12098,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string journal = 6;</code>
+       * <code>optional string journal = 7;</code>
        *
        * <pre>
        ** The journal where the paper was published 
@@ -11905,26 +12109,26 @@ public final class Toplevel {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         journal_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string journal = 6;</code>
+       * <code>optional string journal = 7;</code>
        *
        * <pre>
        ** The journal where the paper was published 
        * </pre>
        */
       public Builder clearJournal() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         journal_ = getDefaultInstance().getJournal();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string journal = 6;</code>
+       * <code>optional string journal = 7;</code>
        *
        * <pre>
        ** The journal where the paper was published 
@@ -11935,19 +12139,19 @@ public final class Toplevel {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         journal_ = value;
         onChanged();
         return this;
       }
 
-      // repeated .boa.types.Author authors = 7;
+      // repeated .boa.types.Author authors = 8;
       private java.util.List<boa.types.Toplevel.Author> authors_ =
         java.util.Collections.emptyList();
       private void ensureAuthorsIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
           authors_ = new java.util.ArrayList<boa.types.Toplevel.Author>(authors_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
          }
       }
 
@@ -11955,7 +12159,7 @@ public final class Toplevel {
           boa.types.Toplevel.Author, boa.types.Toplevel.Author.Builder, boa.types.Toplevel.AuthorOrBuilder> authorsBuilder_;
 
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -11969,7 +12173,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -11983,7 +12187,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -11997,7 +12201,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12018,7 +12222,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12036,7 +12240,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12056,7 +12260,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12077,7 +12281,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12095,7 +12299,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12113,7 +12317,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12131,7 +12335,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12140,7 +12344,7 @@ public final class Toplevel {
       public Builder clearAuthors() {
         if (authorsBuilder_ == null) {
           authors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
           onChanged();
         } else {
           authorsBuilder_.clear();
@@ -12148,7 +12352,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12165,7 +12369,7 @@ public final class Toplevel {
         return this;
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12176,7 +12380,7 @@ public final class Toplevel {
         return getAuthorsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12190,7 +12394,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12205,7 +12409,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12216,7 +12420,7 @@ public final class Toplevel {
             boa.types.Toplevel.Author.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12228,7 +12432,7 @@ public final class Toplevel {
             index, boa.types.Toplevel.Author.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.Author authors = 7;</code>
+       * <code>repeated .boa.types.Author authors = 8;</code>
        *
        * <pre>
        ** A list of authors of the paper 
@@ -12245,7 +12449,7 @@ public final class Toplevel {
           authorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               boa.types.Toplevel.Author, boa.types.Toplevel.Author.Builder, boa.types.Toplevel.AuthorOrBuilder>(
                   authors_,
-                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
                   isClean());
           authors_ = null;
@@ -12253,20 +12457,20 @@ public final class Toplevel {
         return authorsBuilder_;
       }
 
-      // optional string license_type = 8;
+      // optional string license_type = 9;
       private java.lang.Object licenseType_ = "";
       /**
-       * <code>optional string license_type = 8;</code>
+       * <code>optional string license_type = 9;</code>
        *
        * <pre>
        ** The license type of the paper 
        * </pre>
        */
       public boolean hasLicenseType() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional string license_type = 8;</code>
+       * <code>optional string license_type = 9;</code>
        *
        * <pre>
        ** The license type of the paper 
@@ -12284,7 +12488,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string license_type = 8;</code>
+       * <code>optional string license_type = 9;</code>
        *
        * <pre>
        ** The license type of the paper 
@@ -12304,7 +12508,7 @@ public final class Toplevel {
         }
       }
       /**
-       * <code>optional string license_type = 8;</code>
+       * <code>optional string license_type = 9;</code>
        *
        * <pre>
        ** The license type of the paper 
@@ -12315,26 +12519,26 @@ public final class Toplevel {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         licenseType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string license_type = 8;</code>
+       * <code>optional string license_type = 9;</code>
        *
        * <pre>
        ** The license type of the paper 
        * </pre>
        */
       public Builder clearLicenseType() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         licenseType_ = getDefaultInstance().getLicenseType();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string license_type = 8;</code>
+       * <code>optional string license_type = 9;</code>
        *
        * <pre>
        ** The license type of the paper 
@@ -12345,7 +12549,7 @@ public final class Toplevel {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         licenseType_ = value;
         onChanged();
         return this;
@@ -16270,115 +16474,132 @@ public final class Toplevel {
     public enum ParagraphKind
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>BACKGROUND = 0;</code>
+       * <code>INTRODUCTION = 0;</code>
+       *
+       * <pre>
+       ** @exclude For introduction paragraphs 
+       * </pre>
+       */
+      INTRODUCTION(0, 0),
+      /**
+       * <code>BACKGROUND = 1;</code>
        *
        * <pre>
        ** @exclude For background paragraphs 
        * </pre>
        */
-      BACKGROUND(0, 0),
+      BACKGROUND(1, 1),
       /**
-       * <code>METHODOLOGY = 1;</code>
+       * <code>METHODOLOGY = 2;</code>
        *
        * <pre>
        ** @exclude For methodology paragraphs 
        * </pre>
        */
-      METHODOLOGY(1, 1),
+      METHODOLOGY(2, 2),
       /**
-       * <code>RESULT = 2;</code>
+       * <code>RESULT = 3;</code>
        *
        * <pre>
        ** @exclude For result paragraphs 
        * </pre>
        */
-      RESULT(2, 2),
+      RESULT(3, 3),
       /**
-       * <code>FINDING = 3;</code>
+       * <code>FINDING = 4;</code>
        *
        * <pre>
        ** @exclude For conclusion paragraphs 
        * </pre>
        */
-      FINDING(3, 3),
+      FINDING(4, 4),
       /**
-       * <code>CONCLUSION = 4;</code>
+       * <code>CONCLUSION = 5;</code>
        *
        * <pre>
        ** @exclude For finding paragraphs 
        * </pre>
        */
-      CONCLUSION(4, 4),
+      CONCLUSION(5, 5),
       /**
-       * <code>OTHER = 5;</code>
+       * <code>OTHER = 6;</code>
        *
        * <pre>
        ** @exclude Any other paragraphs 
        * </pre>
        */
-      OTHER(5, 5),
+      OTHER(6, 6),
       ;
 
       /**
-       * <code>BACKGROUND = 0;</code>
+       * <code>INTRODUCTION = 0;</code>
+       *
+       * <pre>
+       ** @exclude For introduction paragraphs 
+       * </pre>
+       */
+      public static final int INTRODUCTION_VALUE = 0;
+      /**
+       * <code>BACKGROUND = 1;</code>
        *
        * <pre>
        ** @exclude For background paragraphs 
        * </pre>
        */
-      public static final int BACKGROUND_VALUE = 0;
+      public static final int BACKGROUND_VALUE = 1;
       /**
-       * <code>METHODOLOGY = 1;</code>
+       * <code>METHODOLOGY = 2;</code>
        *
        * <pre>
        ** @exclude For methodology paragraphs 
        * </pre>
        */
-      public static final int METHODOLOGY_VALUE = 1;
+      public static final int METHODOLOGY_VALUE = 2;
       /**
-       * <code>RESULT = 2;</code>
+       * <code>RESULT = 3;</code>
        *
        * <pre>
        ** @exclude For result paragraphs 
        * </pre>
        */
-      public static final int RESULT_VALUE = 2;
+      public static final int RESULT_VALUE = 3;
       /**
-       * <code>FINDING = 3;</code>
+       * <code>FINDING = 4;</code>
        *
        * <pre>
        ** @exclude For conclusion paragraphs 
        * </pre>
        */
-      public static final int FINDING_VALUE = 3;
+      public static final int FINDING_VALUE = 4;
       /**
-       * <code>CONCLUSION = 4;</code>
+       * <code>CONCLUSION = 5;</code>
        *
        * <pre>
        ** @exclude For finding paragraphs 
        * </pre>
        */
-      public static final int CONCLUSION_VALUE = 4;
+      public static final int CONCLUSION_VALUE = 5;
       /**
-       * <code>OTHER = 5;</code>
+       * <code>OTHER = 6;</code>
        *
        * <pre>
        ** @exclude Any other paragraphs 
        * </pre>
        */
-      public static final int OTHER_VALUE = 5;
+      public static final int OTHER_VALUE = 6;
 
 
       public final int getNumber() { return value; }
 
       public static ParagraphKind valueOf(int value) {
         switch (value) {
-          case 0: return BACKGROUND;
-          case 1: return METHODOLOGY;
-          case 2: return RESULT;
-          case 3: return FINDING;
-          case 4: return CONCLUSION;
-          case 5: return OTHER;
+          case 0: return INTRODUCTION;
+          case 1: return BACKGROUND;
+          case 2: return METHODOLOGY;
+          case 3: return RESULT;
+          case 4: return FINDING;
+          case 5: return CONCLUSION;
+          case 6: return OTHER;
           default: return null;
         }
       }
@@ -16626,7 +16847,7 @@ public final class Toplevel {
       text_ = "";
       citeSpans_ = java.util.Collections.emptyList();
       refSpans_ = java.util.Collections.emptyList();
-      kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.BACKGROUND;
+      kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.INTRODUCTION;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16813,7 +17034,7 @@ public final class Toplevel {
         } else {
           refSpansBuilder_.clear();
         }
-        kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.BACKGROUND;
+        kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.INTRODUCTION;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -17695,7 +17916,7 @@ public final class Toplevel {
       }
 
       // optional .boa.types.Paragraph.ParagraphKind kind = 4;
-      private boa.types.Toplevel.Paragraph.ParagraphKind kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.BACKGROUND;
+      private boa.types.Toplevel.Paragraph.ParagraphKind kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.INTRODUCTION;
       /**
        * <code>optional .boa.types.Paragraph.ParagraphKind kind = 4;</code>
        *
@@ -17741,7 +17962,7 @@ public final class Toplevel {
        */
       public Builder clearKind() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.BACKGROUND;
+        kind_ = boa.types.Toplevel.Paragraph.ParagraphKind.INTRODUCTION;
         onChanged();
         return this;
       }
@@ -22597,35 +22818,36 @@ public final class Toplevel {
       "ph\022%\n\tbody_text\030\004 \003(\0132\022.boa.types.Sectio" +
       "n\022)\n\013bib_entries\030\005 \003(\0132\024.boa.types.Refer" +
       "ence\022)\n\013ref_entries\030\006 \003(\0132\024.boa.types.Re" +
-      "ference\"\256\001\n\010Metadata\022\r\n\005title\030\001 \001(\t\022\017\n\007d",
+      "ference\"\276\001\n\010Metadata\022\r\n\005title\030\001 \001(\t\022\017\n\007d",
       "oi_url\030\002 \001(\t\022\016\n\006source\030\003 \001(\t\022\021\n\tpubmed_i" +
-      "d\030\004 \001(\t\022\024\n\014publish_time\030\005 \001(\004\022\017\n\007journal" +
-      "\030\006 \001(\t\022\"\n\007authors\030\007 \003(\0132\021.boa.types.Auth" +
-      "or\022\024\n\014license_type\030\010 \001(\t\"\201\001\n\006Author\022\r\n\005f" +
-      "irst\030\001 \001(\t\022\016\n\006middle\030\002 \003(\t\022\014\n\004last\030\003 \001(\t" +
-      "\022\016\n\006suffix\030\004 \001(\t\022+\n\013affiliation\030\005 \001(\0132\026." +
-      "boa.types.Affiliation\022\r\n\005email\030\006 \001(\t\"]\n\013" +
-      "Affiliation\022\022\n\nlaboratory\030\001 \001(\t\022\023\n\013insti" +
-      "tution\030\002 \001(\t\022%\n\010location\030\003 \001(\0132\023.boa.typ" +
-      "es.Location\"<\n\007Section\022\r\n\005title\030\001 \001(\t\022\"\n",
-      "\004body\030\002 \003(\0132\024.boa.types.Paragraph\"\206\002\n\tPa" +
-      "ragraph\022\014\n\004text\030\001 \001(\t\022\'\n\ncite_spans\030\002 \003(" +
-      "\0132\023.boa.types.Citation\022&\n\tref_spans\030\003 \003(" +
-      "\0132\023.boa.types.Citation\0220\n\004kind\030\004 \001(\0162\".b" +
-      "oa.types.Paragraph.ParagraphKind\"h\n\rPara" +
-      "graphKind\022\016\n\nBACKGROUND\020\000\022\017\n\013METHODOLOGY" +
-      "\020\001\022\n\n\006RESULT\020\002\022\013\n\007FINDING\020\003\022\016\n\nCONCLUSIO" +
-      "N\020\004\022\t\n\005OTHER\020\005\032\002\020\001\"(\n\010Citation\022\014\n\004text\030\001" +
-      " \001(\t\022\016\n\006ref_id\030\002 \001(\t\"c\n\010Location\022\020\n\010addr" +
-      "Line\030\001 \001(\t\022\020\n\010postCode\030\002 \001(\t\022\022\n\nsettleme",
-      "nt\030\003 \001(\t\022\017\n\007country\030\004 \001(\t\022\016\n\006region\030\005 \001(" +
-      "\t\"\215\002\n\tReference\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title" +
-      "\030\002 \001(\t\022\"\n\007authors\030\003 \003(\0132\021.boa.types.Auth" +
-      "or\022\014\n\004year\030\004 \001(\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volum" +
-      "e\030\006 \001(\t\022\014\n\004issn\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004" +
-      "text\030\t \001(\t\0220\n\004kind\030\n \001(\0162\".boa.types.Ref" +
-      "erence.ReferenceKind\"3\n\rReferenceKind\022\n\n" +
-      "\006FIGURE\020\000\022\t\n\005TABLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
+      "d\030\004 \001(\t\022\016\n\006pmc_id\030\005 \001(\t\022\024\n\014publish_time\030" +
+      "\006 \001(\004\022\017\n\007journal\030\007 \001(\t\022\"\n\007authors\030\010 \003(\0132" +
+      "\021.boa.types.Author\022\024\n\014license_type\030\t \001(\t" +
+      "\"\201\001\n\006Author\022\r\n\005first\030\001 \001(\t\022\016\n\006middle\030\002 \003" +
+      "(\t\022\014\n\004last\030\003 \001(\t\022\016\n\006suffix\030\004 \001(\t\022+\n\013affi" +
+      "liation\030\005 \001(\0132\026.boa.types.Affiliation\022\r\n" +
+      "\005email\030\006 \001(\t\"]\n\013Affiliation\022\022\n\nlaborator" +
+      "y\030\001 \001(\t\022\023\n\013institution\030\002 \001(\t\022%\n\010location" +
+      "\030\003 \001(\0132\023.boa.types.Location\"<\n\007Section\022\r",
+      "\n\005title\030\001 \001(\t\022\"\n\004body\030\002 \003(\0132\024.boa.types." +
+      "Paragraph\"\230\002\n\tParagraph\022\014\n\004text\030\001 \001(\t\022\'\n" +
+      "\ncite_spans\030\002 \003(\0132\023.boa.types.Citation\022&" +
+      "\n\tref_spans\030\003 \003(\0132\023.boa.types.Citation\0220" +
+      "\n\004kind\030\004 \001(\0162\".boa.types.Paragraph.Parag" +
+      "raphKind\"z\n\rParagraphKind\022\020\n\014INTRODUCTIO" +
+      "N\020\000\022\016\n\nBACKGROUND\020\001\022\017\n\013METHODOLOGY\020\002\022\n\n\006" +
+      "RESULT\020\003\022\013\n\007FINDING\020\004\022\016\n\nCONCLUSION\020\005\022\t\n" +
+      "\005OTHER\020\006\032\002\020\001\"(\n\010Citation\022\014\n\004text\030\001 \001(\t\022\016" +
+      "\n\006ref_id\030\002 \001(\t\"c\n\010Location\022\020\n\010addrLine\030\001",
+      " \001(\t\022\020\n\010postCode\030\002 \001(\t\022\022\n\nsettlement\030\003 \001" +
+      "(\t\022\017\n\007country\030\004 \001(\t\022\016\n\006region\030\005 \001(\t\"\215\002\n\t" +
+      "Reference\022\016\n\006ref_id\030\001 \002(\t\022\r\n\005title\030\002 \001(\t" +
+      "\022\"\n\007authors\030\003 \003(\0132\021.boa.types.Author\022\014\n\004" +
+      "year\030\004 \001(\t\022\r\n\005venue\030\005 \001(\t\022\016\n\006volume\030\006 \001(" +
+      "\t\022\014\n\004issn\030\007 \001(\t\022\r\n\005pages\030\010 \001(\t\022\014\n\004text\030\t" +
+      " \001(\t\0220\n\004kind\030\n \001(\0162\".boa.types.Reference" +
+      ".ReferenceKind\"3\n\rReferenceKind\022\n\n\006FIGUR" +
+      "E\020\000\022\t\n\005TABLE\020\001\022\007\n\003BIB\020\002\032\002\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -22649,7 +22871,7 @@ public final class Toplevel {
           internal_static_boa_types_Metadata_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Metadata_descriptor,
-              new java.lang.String[] { "Title", "DoiUrl", "Source", "PubmedId", "PublishTime", "Journal", "Authors", "LicenseType", });
+              new java.lang.String[] { "Title", "DoiUrl", "Source", "PubmedId", "PmcId", "PublishTime", "Journal", "Authors", "LicenseType", });
           internal_static_boa_types_Author_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_boa_types_Author_fieldAccessorTable = new

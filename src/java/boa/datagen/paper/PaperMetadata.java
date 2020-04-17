@@ -13,29 +13,28 @@ import org.apache.commons.csv.CSVRecord;
 public class PaperMetadata {
 	
 	public static void main(String[] args) throws IOException, ParseException {
+//		String path = "/Users/hyj/git/BoaData/DataGenPaperJson/covid-19/dataset/sections.csv";
+//		Reader in = new FileReader(path);
+//		Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(in);
+//		
+//		for (CSVRecord record : records)
+//			System.out.println(record.get(1));
+		
+		
+		
 		String path = "/Users/hyj/git/BoaData/DataGenPaperJson/covid-19/dataset/metadata.csv";
 		Reader in = new FileReader(path);
 		Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
 		
 //		String[] targets = new String
 		
-		List<CSVRecord> res = searchAllInCol(records, "doi", "10.1016/S0140-6736(20)30251-8");
+//		List<CSVRecord> res = searchAllInCol(records, "doi", "10.1016/S0140-6736(20)30251-8");
 		
-		for (CSVRecord record : res)
-			System.out.println(record.get("has_full_text") + " " + record.get("sha"));
+		for (CSVRecord record : records)
+			if (!record.get("pubmed_id").equals(""))
+				System.out.println(record.get("pubmed_id"));
 		
-//		HashMap<String, String> map = new HashMap<>();
-//		System.out.println(map.get(null));
-		
-//		String input = "1998 Jan";
-//		// Format of the date defined in the input String
-//		DateFormat df = new SimpleDateFormat("yyyy MMM");
-//		DateFormat out = new SimpleDateFormat("MM/dd/yyyy");
-//		Date date = null;
-//		long l = -1;
-//		date = df.parse(input);
-//		l = date.getTime() * 1000;
-//		System.out.println(out.format(l / 1000));
+
 	}
 	
 	public static List<CSVRecord> searchAllInCol(Iterable<CSVRecord> records, String colName, String target) {
